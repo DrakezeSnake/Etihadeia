@@ -1,545 +1,329 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Etihadeia | Industrial Technology & Infrastructure Solutions</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <header class="hero-bar" id="top-nav">
-    <div class="hero-bar__shell">
-      <a href="#hero" class="hero-bar__logo">
-        <img src="https://etehadia.com/logo.png" alt="Etihadeia" width="180" height="56" decoding="async" />
-      </a>
-      <div class="hero-bar__center">
-        <nav class="hero-bar__nav-panel" id="float-nav-panel" aria-label="Primary">
-          <ul class="float-tabs" id="float-tabs">
-            <li class="float-tabs__cursor" aria-hidden="true"></li>
-            <li class="float-tabs__item"><a href="#hero" class="float-tabs__link">Home</a></li>
-            <li class="float-tabs__item"><a href="#about" class="float-tabs__link">About us</a></li>
-            <li class="float-tabs__item"><a href="#why-us" class="float-tabs__link">Why us</a></li>
-            <li class="float-tabs__item"><a href="#industries" class="float-tabs__link">Services</a></li>
-            <li class="float-tabs__item"><a href="#news" class="float-tabs__link">News</a></li>
-            <li class="float-tabs__item"><a href="#customers" class="float-tabs__link">Customers</a></li>
-          </ul>
-        </nav>
-      </div>
-      <div class="hero-bar__actions">
-        <a href="#contact" class="hero-bar__contact">
-          <span class="hero-bar__contact-dot" aria-hidden="true"></span>
-          Contact us
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Etihadeia | Industrial Technology & Infrastructure Solutions</title>
+    <meta
+      name="description"
+      content="Etihadeia delivers industrial technology, electroplating, automation, aviation, and infrastructure solutions through a cinematic liquid-metal experience."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Syncopate:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/styles.css" />
+    <script type="module" src="/src/main.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <header class="site-header">
+        <a class="brand" href="#top" aria-label="Etihadeia home">
+          <span class="brand__mark" aria-hidden="true">
+            <i class="brand__hex brand__hex--silver"></i>
+            <i class="brand__hex brand__hex--red"></i>
+            <i class="brand__hex brand__hex--graphite"></i>
+          </span>
+          <span class="brand__text">
+            <strong>Etihadeia</strong>
+            <small>Industrial Technology</small>
+          </span>
         </a>
-        <button type="button" class="hero-bar__menu" aria-expanded="false" aria-controls="float-nav-panel" aria-label="Open menu">
-          <span></span>
-          <span></span>
-        </button>
-      </div>
-    </div>
-  </header>
+        <nav class="site-nav" aria-label="Primary">
+          <a href="#story">Story</a>
+          <a href="#industries">Industries</a>
+          <a href="#services">Services</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </header>
 
-  <main>
-    <section class="hero" id="hero" aria-label="Hero">
-      <div class="hero__parallax" data-parallax>
-        <video
-          class="hero__video"
-          autoplay
-          muted
-          loop
-          playsinline
-          aria-hidden="true"
-        >
-          <source src="https://etehadia.com/hero_video.mp4" type="video/mp4" />
-        </video>
-      </div>
-      <div class="hero__overlay"></div>
-      <div class="hero__bottom">
-        <div class="hero__copy">
-          <p class="hero__eyebrow hero-reveal" style="transition-delay: 0.08s">Electroplating &amp; industrial technology</p>
-          <h1 class="hero__title hero-reveal" style="transition-delay: 0.2s">
-            <span class="hero__title-line">Experience</span>
-            <span class="hero__title-line">Delivers Solutions</span>
-          </h1>
-        </div>
-        <div class="hero__stats">
-          <div class="stat hero-reveal" style="transition-delay: 0.32s">
-            <span class="stat__num" data-count="47" data-suffix="+">0</span>
-            <span class="stat__label">Years of experience</span>
-          </div>
-          <div class="stat hero-reveal" style="transition-delay: 0.44s">
-            <span class="stat__num" data-count="120" data-suffix="+">0</span>
-            <span class="stat__label">Experts</span>
-          </div>
-          <div class="stat hero-reveal" style="transition-delay: 0.56s">
-            <span class="stat__num" data-count="138">0</span>
-            <span class="stat__label">Completed projects</span>
-          </div>
-        </div>
-      </div>
-      <a href="#about" class="hero__scroll" aria-label="Scroll to content">
-        <span class="hero__scroll-line"></span>
-      </a>
-    </section>
+      <main id="top">
+        <section class="liquid-story" id="story" aria-label="Etihadeia liquid metal story">
+          <canvas id="webgl" aria-hidden="true"></canvas>
+          <div class="story-veil" aria-hidden="true"></div>
 
-    <section class="section about" id="about">
-      <div class="container about__grid">
-        <div class="about__text reveal reveal--left" data-reveal id="about-text-col">
-          <div class="about__reveal-track" id="about-reveal-track">
-            <div class="about__reveal-sticky">
-              <div class="about__reveal-phase" id="about-reveal-phase">
-                <p class="section__label">About us</p>
-                <h2 class="section__title">About El Etehadia</h2>
-                <div class="about__reveal-copy" id="about-reveal-copy" aria-label="About El Etehadia">
-                  <p class="about__reveal-p about__lead" data-about-line="0"></p>
+          <article class="story-section story-section--origin" data-story-panel="0">
+            <div class="story-section__copy">
+              <p class="story-kicker">00 - Identity</p>
+              <h1 class="story-title">Etihadeia</h1>
+              <p class="story-body">A precise industrial mark separates into motion, turning brand geometry into the material language of the page.</p>
+            </div>
+            <div class="story-section__stage" aria-hidden="true"></div>
+            <div class="story-section__side story-section__side--quiet">
+              <p>Logo vector to metal body</p>
+            </div>
+          </article>
+
+          <div class="liquid-gate" data-liquid-gate="0" aria-hidden="true"><span></span></div>
+
+          <article class="story-section" data-story-panel="1">
+            <div class="story-section__copy">
+              <p class="story-kicker">Electroplating &amp; industrial technology</p>
+              <h2 class="story-title">Experience<br />Delivers Solutions</h2>
+            </div>
+            <div class="story-section__stage" aria-hidden="true"></div>
+            <div class="story-section__side">
+              <div class="stats-grid">
+                <div class="stat">
+                  <span class="stat__num" data-count="47" data-suffix="+">0</span>
+                  <span class="stat__label">Years of experience</span>
                 </div>
-                <a href="#contact" class="link-arrow about__reveal-cta">About us</a>
+                <div class="stat">
+                  <span class="stat__num" data-count="120" data-suffix="+">0</span>
+                  <span class="stat__label">Experts</span>
+                </div>
+                <div class="stat">
+                  <span class="stat__num" data-count="138">0</span>
+                  <span class="stat__label">Completed projects</span>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-        <div class="about__media reveal reveal--right" data-reveal>
-          <div class="media-frame media-frame--elevated">
-            <img
-              src="assets/about-section.jfif"
-              alt="Etihadeia electroplating and industrial technology truck with pyramids at sunset, Egypt"
-              loading="lazy"
-            />
-          </div>
-        </div>
-      </div>
-    </section>
+          </article>
 
-    <section class="section why" id="why-us">
-      <div class="container">
-        <header class="section__header why__header reveal" data-reveal>
-          <p class="section__label why__label">Why Us</p>
-          <h2 class="section__title why__title">Powering Progress Across Industries</h2>
-          <p class="section__intro why__intro">
-            Etihadeia delivers cutting-edge technologies, tailored solutions, and expert services that drive industrial
-            excellence, innovation, and reliability across sectors.
-          </p>
-        </header>
+          <div class="liquid-gate" data-liquid-gate="1" aria-hidden="true"><span></span></div>
 
-        <div class="why-us__grid">
-          <article class="why-us__card" data-reveal style="--delay: 0.06s">
-            <div class="why-us__figure">
-              <img
-                src="assets/why-us-innovation.png"
-                alt="Laboratory analyst performing quality control with chemical analysis equipment"
-                width="1400"
-                height="933"
-                loading="lazy"
-              />
+          <article class="story-section" data-story-panel="2">
+            <div class="story-section__copy">
+              <p class="story-kicker">About us</p>
+              <h2 class="story-title">About Etihadeia</h2>
             </div>
-            <div class="why-us__copy">
-              <h3 class="why-us__title">Where Innovation Ignites Industry</h3>
-              <p class="why-us__body">
-                Welcome to Etihadeia, a leading provider with expertise in electrical, control, automation, aviation, runway
-                lighting systems, airport technologies, digital, and IoT supplies for various industries.
+            <div class="story-section__stage" aria-hidden="true"></div>
+            <div class="story-section__side">
+              <p class="story-body">
+                Etihadeia delivers cutting-edge technologies, tailored solutions, and expert services that drive industrial excellence,
+                innovation, and reliability across sectors.
               </p>
             </div>
           </article>
-          <article class="why-us__card" data-reveal style="--delay: 0.12s">
-            <div class="why-us__figure">
-              <img
-                src="assets/why-us-transformative.png"
-                alt="Technician maintaining infrastructure in a modern data center"
-                width="1400"
-                height="933"
-                loading="lazy"
-              />
+
+          <div class="liquid-gate" data-liquid-gate="2" aria-hidden="true"><span></span></div>
+
+          <article class="story-section" data-story-panel="3">
+            <div class="story-section__copy story-section__copy--media">
+              <p class="story-kicker">Why us</p>
+              <h2 class="story-title">Where Innovation Ignites Industry</h2>
+              <img src="/assets/why-us-innovation.png" alt="Laboratory analyst performing quality control with chemical analysis equipment" />
             </div>
-            <div class="why-us__copy">
-              <h3 class="why-us__title">Transformative Technology for Industry Leaders</h3>
-              <p class="why-us__body">
-                At Etihadeia, we are committed to providing customized supplies that meet the market’s unique needs.
+            <div class="story-section__stage" aria-hidden="true"></div>
+            <div class="story-section__side">
+              <p class="story-body">
+                Welcome to Etihadeia, a leading provider with expertise in electrical, control, automation, aviation, runway lighting
+                systems, airport technologies, digital, and IoT supplies for various industries.
               </p>
             </div>
           </article>
-          <article class="why-us__card" data-reveal style="--delay: 0.18s">
-            <div class="why-us__figure">
-              <img
-                src="assets/why-us-standards.png"
-                alt="Industrial technician monitoring electroplating process tanks and controls"
-                width="1400"
-                height="933"
-                loading="lazy"
-              />
+
+          <div class="liquid-gate" data-liquid-gate="3" aria-hidden="true"><span></span></div>
+
+          <article class="story-section" data-story-panel="4">
+            <div class="story-section__copy story-section__copy--media">
+              <p class="story-kicker">Technology</p>
+              <h2 class="story-title">Transformative Technology for Industry Leaders</h2>
+              <img src="/assets/why-us-transformative.png" alt="Technician maintaining infrastructure in a modern data center" />
             </div>
-            <div class="why-us__copy">
-              <h3 class="why-us__title">Setting New Standards</h3>
-              <p class="why-us__body">
-                Our service teams are expert and equipped with the latest tools and technologies to design, engineer, test,
-                and energize electrical solutions that serve the industries.
+            <div class="story-section__stage" aria-hidden="true"></div>
+            <div class="story-section__side">
+              <p class="story-body">At Etihadeia, we are committed to providing customized supplies that meet the market's unique needs.</p>
+            </div>
+          </article>
+
+          <div class="liquid-gate" data-liquid-gate="4" aria-hidden="true"><span></span></div>
+
+          <article class="story-section" data-story-panel="5">
+            <div class="story-section__copy story-section__copy--media">
+              <p class="story-kicker">Standards</p>
+              <h2 class="story-title">Setting New Standards</h2>
+              <img src="/assets/why-us-standards.png" alt="Industrial technician monitoring electroplating process tanks and controls" />
+            </div>
+            <div class="story-section__stage" aria-hidden="true"></div>
+            <div class="story-section__side">
+              <p class="story-body">
+                Our service teams are expert and equipped with the latest tools and technologies to design, engineer, test, and energize
+                electrical solutions that serve the industries.
               </p>
             </div>
           </article>
-        </div>
-      </div>
-    </section>
 
-    <section class="section industries" id="industries">
-      <div class="container">
-        <header class="section__header reveal" data-reveal>
-          <p class="section__label">Our Industries</p>
-          <h2 class="section__title">Sectors We Serve</h2>
-          <p class="section__intro">
-            Aviation, transportation, manufacturing, and more—tailored solutions that drive efficiency and innovation.
-          </p>
-          <a href="#contact" class="link-arrow">Learn more</a>
-        </header>
-        <div class="industries__grid">
-          <a href="#" class="industry-card reveal" data-reveal style="--delay: 0.05s">
-            <img src="assets/industry-oil-gas.png" alt="Offshore oil and gas platform at dusk" loading="lazy" />
-            <span class="industry-card__overlay"></span>
-            <span class="industry-card__label">Oil &amp; Gas</span>
-          </a>
-          <a href="#" class="industry-card reveal" data-reveal style="--delay: 0.1s">
-            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=900&q=80" alt="Industrial manufacturing and heavy industry" loading="lazy" />
-            <span class="industry-card__overlay"></span>
-            <span class="industry-card__label">Industrial</span>
-          </a>
-          <a href="#" class="industry-card reveal" data-reveal style="--delay: 0.15s">
-            <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=900&q=80" alt="Commercial aviation and airport operations" loading="lazy" />
-            <span class="industry-card__overlay"></span>
-            <span class="industry-card__label">Aviation</span>
-          </a>
-          <a href="#" class="industry-card reveal" data-reveal style="--delay: 0.2s">
-            <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=900&q=80" alt="Power generation and energy infrastructure" loading="lazy" />
-            <span class="industry-card__overlay"></span>
-            <span class="industry-card__label">Power &amp; Water</span>
-          </a>
-          <a href="#" class="industry-card reveal" data-reveal style="--delay: 0.25s">
-            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=80" alt="Commercial real estate and corporate buildings" loading="lazy" />
-            <span class="industry-card__overlay"></span>
-            <span class="industry-card__label">Commercial</span>
-          </a>
-          <a href="#" class="industry-card reveal" data-reveal style="--delay: 0.3s">
-            <img src="assets/industry-infrastructure.png" alt="Modern elevated transit and urban infrastructure" loading="lazy" />
-            <span class="industry-card__overlay"></span>
-            <span class="industry-card__label">Infrastructure</span>
-          </a>
-          <a href="#" class="industry-card reveal" data-reveal style="--delay: 0.35s">
-            <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=900&q=80" alt="Electrical installation and field services" loading="lazy" />
-            <span class="industry-card__overlay"></span>
-            <span class="industry-card__label">Electrical Services</span>
-          </a>
-          <a href="#" class="industry-card reveal" data-reveal style="--delay: 0.4s">
-            <img src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?auto=format&fit=crop&w=900&q=80" alt="Connected urban skyline and smart city technology" loading="lazy" />
-            <span class="industry-card__overlay"></span>
-            <span class="industry-card__label">Smart Cities</span>
-          </a>
-        </div>
-      </div>
-    </section>
+          <div class="liquid-gate liquid-gate--final" data-liquid-gate="5" aria-hidden="true"><span></span></div>
+        </section>
 
-    <section class="section services" id="services">
-      <div class="container">
-        <header class="section__header reveal" data-reveal>
-          <p class="section__label">Our Services</p>
-          <h2 class="section__title">Solutions That Scale</h2>
-          <p class="section__intro">
-            Automation, control, aviation, and IoT—enhancing efficiency and safety across industries.
-          </p>
-        </header>
-        <div class="services__grid">
-          <article class="service-card reveal" data-reveal>
-            <div class="service-card__media">
-              <img src="https://images.unsplash.com/photo-1621905251189-3b9c84bb8f8b?auto=format&fit=crop&w=800&q=80" alt="Electrical supplies, cables, and distribution components" loading="lazy" />
-            </div>
-            <div class="service-card__body">
-              <h3 class="service-card__title">Electric Supplies</h3>
-              <p>High-quality electric supplies for industrial, commercial, and infrastructure projects.</p>
-              <span class="service-card__link">Read more</span>
-            </div>
-          </article>
-          <article class="service-card reveal" data-reveal>
-            <div class="service-card__media">
-              <img src="https://images.unsplash.com/photo-1580894908364-0f4e5a62edb0?auto=format&fit=crop&w=800&q=80" alt="Industrial robotics and automation systems" loading="lazy" />
-            </div>
-            <div class="service-card__body">
-              <h3 class="service-card__title">Control &amp; Automation</h3>
-              <p>Smarter operations through a full suite of control and automation products.</p>
-              <span class="service-card__link">Read more</span>
-            </div>
-          </article>
-          <article class="service-card reveal" data-reveal>
-            <div class="service-card__media">
-              <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=800&q=80" alt="HVAC equipment and building mechanical systems" loading="lazy" />
-            </div>
-            <div class="service-card__body">
-              <h3 class="service-card__title">HVAC &amp; Mechanical</h3>
-              <p>Essential HVAC and mechanical components for efficient building and industrial systems.</p>
-              <span class="service-card__link">Read more</span>
-            </div>
-          </article>
-          <article class="service-card reveal" data-reveal>
-            <div class="service-card__media">
-              <img src="https://images.unsplash.com/photo-1556388158-158e5dd80442?auto=format&fit=crop&w=800&q=80" alt="Airport runway and aviation operations" loading="lazy" />
-            </div>
-            <div class="service-card__body">
-              <h3 class="service-card__title">Airport Lighting &amp; Aviation</h3>
-              <p>Reliable airport lighting systems and advanced aviation technologies.</p>
-              <span class="service-card__link">Read more</span>
-            </div>
-          </article>
-          <article class="service-card reveal" data-reveal>
-            <div class="service-card__media">
-              <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80" alt="Electrical contracting and industrial installation" loading="lazy" />
-            </div>
-            <div class="service-card__body">
-              <h3 class="service-card__title">Electrical Services</h3>
-              <p>End-to-end electrical services for modern infrastructure and hi-tech industrial projects.</p>
-              <span class="service-card__link">Read more</span>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section partners" id="partners">
-      <div class="container">
-        <header class="section__header reveal" data-reveal>
-          <p class="section__label">Our Partners</p>
-          <h2 class="section__title">Trusted by Top Partners &amp; Supporters</h2>
-          <p class="section__intro">Ready to collaborate? Explore partnership opportunities with our team.</p>
-          <a href="#contact" class="link-arrow">Be a partner</a>
-        </header>
-        <div class="partners__marquee" aria-hidden="true">
-          <div class="partners__track">
-            <div class="partners__logos">
-              <span class="partner-logo">Schneider</span>
-              <span class="partner-logo">ABB</span>
-              <span class="partner-logo">Siemens</span>
-              <span class="partner-logo">Rockwell</span>
-              <span class="partner-logo">Eaton</span>
-              <span class="partner-logo">Honeywell</span>
-            </div>
-            <div class="partners__logos" aria-hidden="true">
-              <span class="partner-logo">Schneider</span>
-              <span class="partner-logo">ABB</span>
-              <span class="partner-logo">Siemens</span>
-              <span class="partner-logo">Rockwell</span>
-              <span class="partner-logo">Eaton</span>
-              <span class="partner-logo">Honeywell</span>
+        <section class="section industries" id="industries">
+          <div class="section__inner">
+            <header class="section__header">
+              <p class="section__label">Our Industries</p>
+              <h2>Sectors We Serve</h2>
+              <p>Aviation, transportation, manufacturing, and more - tailored solutions that drive efficiency and innovation.</p>
+            </header>
+            <div class="industry-grid">
+              <article class="image-tile image-tile--wide">
+                <img src="/assets/industry-oil-gas.png" alt="Offshore oil and gas platform at dusk" />
+                <span>Oil &amp; Gas</span>
+              </article>
+              <article class="image-tile">
+                <img src="/assets/industry-infrastructure.png" alt="Modern elevated transit and urban infrastructure" />
+                <span>Infrastructure</span>
+              </article>
+              <article class="text-tile">Industrial</article>
+              <article class="text-tile">Aviation</article>
+              <article class="text-tile">Power &amp; Water</article>
+              <article class="text-tile">Commercial</article>
+              <article class="text-tile">Electrical Services</article>
+              <article class="text-tile">Smart Cities</article>
             </div>
           </div>
-        </div>
-        <div class="partners__grid reveal" data-reveal>
-          <span class="partner-tile">3M</span>
-          <span class="partner-tile">Phoenix Contact</span>
-          <span class="partner-tile">Legrand</span>
-          <span class="partner-tile">Belden</span>
-          <span class="partner-tile">Panduit</span>
-          <span class="partner-tile">nVent</span>
-        </div>
-      </div>
-    </section>
+        </section>
 
-    <section class="section brochure" id="brochure">
-      <div class="container brochure__split reveal" data-reveal>
-        <div class="brochure__content">
-          <p class="section__label">Our Full Brochure</p>
-          <h2 class="brochure__title">Main Brochure</h2>
-          <p class="brochure__text">
-            Electrical, lighting, and automation solutions for infrastructure, energy, manufacturing, aviation, and more.
-          </p>
-          <a href="#" class="btn btn--primary">Download Brochure</a>
-        </div>
-        <div class="brochure__visual">
-          <div class="media-frame">
-            <img
-              src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1200&q=80"
-              alt="Corporate brochure and technical documentation"
-              width="1200"
-              height="800"
-              loading="lazy"
-            />
+        <section class="section services" id="services">
+          <div class="section__inner">
+            <header class="section__header section__header--split">
+              <div>
+                <p class="section__label">Our Services</p>
+                <h2>Solutions That Scale</h2>
+              </div>
+              <p>Automation, control, aviation, and IoT - enhancing efficiency and safety across industries.</p>
+            </header>
+            <div class="service-grid">
+              <article>
+                <h3>Electric Supplies</h3>
+                <p>High-quality electric supplies for industrial, commercial, and infrastructure projects.</p>
+              </article>
+              <article>
+                <h3>Control &amp; Automation</h3>
+                <p>Smarter operations through a full suite of control and automation products.</p>
+              </article>
+              <article>
+                <h3>HVAC &amp; Mechanical</h3>
+                <p>Essential HVAC and mechanical components for efficient building and industrial systems.</p>
+              </article>
+              <article>
+                <h3>Airport Lighting &amp; Aviation</h3>
+                <p>Reliable airport lighting systems and advanced aviation technologies.</p>
+              </article>
+              <article>
+                <h3>Electrical Services</h3>
+                <p>End-to-end electrical services for modern infrastructure and hi-tech industrial projects.</p>
+              </article>
+            </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </section>
 
-    <section class="section news" id="news">
-      <div class="container">
-        <header class="section__header section__header--row reveal" data-reveal>
-          <div>
+        <section class="section partners" id="partners">
+          <div class="section__inner">
+            <header class="section__header">
+              <p class="section__label">Our Partners</p>
+              <h2>Trusted by Top Partners &amp; Supporters</h2>
+              <p>Ready to collaborate? Explore partnership opportunities with our team.</p>
+            </header>
+            <div class="partner-strip" aria-label="Partner names">
+              <span>Schneider</span><span>ABB</span><span>Siemens</span><span>Rockwell</span><span>Eaton</span><span>Honeywell</span>
+              <span>3M</span><span>Phoenix Contact</span><span>Legrand</span><span>Belden</span><span>Panduit</span><span>nVent</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="section brochure" id="brochure">
+          <div class="section__inner brochure__split">
+            <div>
+              <p class="section__label">Our Full Brochure</p>
+              <h2>Main Brochure</h2>
+              <p>Electrical, lighting, and automation solutions for infrastructure, energy, manufacturing, aviation, and more.</p>
+              <a class="industrial-button" href="#contact">Download Brochure</a>
+            </div>
+            <div class="brochure__plate" aria-hidden="true">
+              <span></span>
+            </div>
+          </div>
+        </section>
+
+        <section class="section news" id="news">
+          <div class="section__inner section__inner--compact">
             <p class="section__label">News</p>
-            <h2 class="section__title">Our News</h2>
+            <h2>Our News</h2>
+            <p class="deferred-copy">Latest news items are deferred until verified content is supplied.</p>
           </div>
-          <a href="#" class="link-arrow">Latest news</a>
-        </header>
-        <ul class="news__list">
-          <li class="news-item reveal" data-reveal>
-            <a href="#" class="news-item__link">
-              <span class="news-item__meta"><span class="news-item__cat">Events</span><time datetime="2024-11-14">November 14, 2024</time></span>
-              <span class="news-item__title">Etihadeia Showcases Innovation at the Global Airports Forum 2024</span>
-            </a>
-          </li>
-          <li class="news-item reveal" data-reveal>
-            <a href="#" class="news-item__link">
-              <span class="news-item__meta"><span class="news-item__cat">News</span><time datetime="2025-01-30">January 30, 2025</time></span>
-              <span class="news-item__title">Municipal Collaboration to Plant 1,000 Trees in Support of Net-Zero Goals</span>
-            </a>
-          </li>
-          <li class="news-item reveal" data-reveal>
-            <a href="#" class="news-item__link">
-              <span class="news-item__meta"><span class="news-item__cat">Articles</span><time datetime="2025-01-30">January 30, 2025</time></span>
-              <span class="news-item__title">Success in Automation and Leak Detection — Industry Interview</span>
-            </a>
-          </li>
-          <li class="news-item reveal" data-reveal>
-            <a href="#" class="news-item__link">
-              <span class="news-item__meta"><span class="news-item__cat">News</span><time datetime="2025-02-27">February 27, 2025</time></span>
-              <span class="news-item__title">New Recruitment Platform Connects Engineering Talent with the Future</span>
-            </a>
-          </li>
-          <li class="news-item reveal" data-reveal>
-            <a href="#" class="news-item__link">
-              <span class="news-item__meta"><span class="news-item__cat">Events</span><time datetime="2026-01-20">January 20, 2026</time></span>
-              <span class="news-item__title">Strategic Workshop to Align Goals for 2026</span>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </section>
+        </section>
 
-    <section class="section customers" id="customers">
-      <div class="container">
-        <header class="section__header reveal" data-reveal>
-          <p class="section__label">Our Customers</p>
-          <h2 class="section__title">Trusted Across Energy &amp; Infrastructure</h2>
-          <p class="section__intro">Partners across energy, infrastructure, aviation, and technology—impact at scale.</p>
-          <a href="#" class="link-arrow">Our Customers</a>
-        </header>
-        <div class="customers__grid reveal" data-reveal>
-          <span class="customer-logo">Heavy Industries</span>
-          <span class="customer-logo">Light Industry</span>
-          <span class="customer-logo">Oil &amp; Gas</span>
-          <span class="customer-logo">Water &amp; Power</span>
-          <span class="customer-logo">Aviation</span>
-          <span class="customer-logo">Smart Mobility</span>
-          <span class="customer-logo">Data Centers</span>
-          <span class="customer-logo">Manufacturing</span>
-          <span class="customer-logo">Utilities</span>
-          <span class="customer-logo">EPC</span>
-          <span class="customer-logo">Ports</span>
-          <span class="customer-logo">Rail</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="section contact" id="contact">
-      <div class="container">
-        <header class="section__header reveal" data-reveal>
-          <p class="section__label">Contact us</p>
-          <h2 class="section__title">Do you have any questions?</h2>
-          <p class="section__intro">Fill out the form or reach us using the contact details below.</p>
-        </header>
-        <div class="contact__grid">
-          <div class="contact__info reveal reveal--left" data-reveal>
-            <h3 class="contact__sub">Contact information</h3>
-            <dl class="contact__dl">
-              <dt>Email</dt>
-              <dd><a href="mailto:info@etihadeia.example">info@etihadeia.example</a></dd>
-              <dt>Phone</dt>
-              <dd><a href="tel:+15551234567">+1 (555) 123-4567</a></dd>
-            </dl>
-            <h3 class="contact__sub">Main Office</h3>
-            <dl class="contact__dl">
-              <dt>Location</dt>
-              <dd>Industrial District, Suite 100<br />City, Country</dd>
-              <dt>Office Hours</dt>
-              <dd>Monday – Friday, 8:00 AM – 6:00 PM</dd>
-            </dl>
+        <section class="section customers" id="customers">
+          <div class="section__inner">
+            <header class="section__header">
+              <p class="section__label">Our Customers</p>
+              <h2>Trusted Across Energy &amp; Infrastructure</h2>
+              <p>Partners across energy, infrastructure, aviation, and technology - impact at scale.</p>
+            </header>
+            <div class="customer-grid">
+              <span>Heavy Industries</span><span>Light Industry</span><span>Oil &amp; Gas</span><span>Water &amp; Power</span>
+              <span>Aviation</span><span>Smart Mobility</span><span>Data Centers</span><span>Manufacturing</span>
+              <span>Utilities</span><span>EPC</span><span>Ports</span><span>Rail</span>
+            </div>
           </div>
-          <form class="contact__form reveal reveal--right" data-reveal action="#" method="post">
-            <label class="field">
-              <span class="field__label">Name</span>
-              <input type="text" name="name" autocomplete="name" placeholder="Your name" required />
-            </label>
-            <label class="field">
-              <span class="field__label">Email</span>
-              <input type="email" name="email" autocomplete="email" placeholder="Your email" required />
-            </label>
-            <label class="field">
-              <span class="field__label">Phone</span>
-              <input type="tel" name="phone" autocomplete="tel" placeholder="Your phone" />
-            </label>
-            <label class="field">
-              <span class="field__label">Company</span>
-              <input type="text" name="company" autocomplete="organization" placeholder="Company" />
-            </label>
-            <label class="field">
-              <span class="field__label">Subject</span>
-              <select name="subject" required>
-                <option value="" disabled selected>Select Subject</option>
-                <option>Partnership</option>
-                <option>Services</option>
-                <option>Industries</option>
-                <option>Collaborate</option>
-                <option>Other</option>
-              </select>
-            </label>
-            <label class="field field--full">
-              <span class="field__label">Message</span>
-              <textarea name="message" rows="5" placeholder="Message" required></textarea>
-            </label>
-            <button type="submit" class="btn btn--primary">Submit</button>
-          </form>
+        </section>
+
+        <section class="section contact" id="contact">
+          <div class="section__inner">
+            <header class="section__header">
+              <p class="section__label">Contact us</p>
+              <h2>Do you have any questions?</h2>
+              <p>Fill out the form or reach us using the contact details below.</p>
+            </header>
+            <div class="contact-grid">
+              <div class="contact-card">
+                <h3>Contact information</h3>
+                <dl>
+                  <dt>Email</dt>
+                  <dd><a href="mailto:info@etihadeia.example">info@etihadeia.example</a></dd>
+                  <dt>Phone</dt>
+                  <dd><a href="tel:+15551234567">+1 (555) 123-4567</a></dd>
+                </dl>
+                <h3>Main Office</h3>
+                <dl>
+                  <dt>Location</dt>
+                  <dd>Industrial District, Suite 100<br />City, Country</dd>
+                  <dt>Office Hours</dt>
+                  <dd>Monday - Friday, 8:00 AM - 6:00 PM</dd>
+                </dl>
+              </div>
+              <form class="contact-form" action="#" method="post">
+                <label>Name<input type="text" name="name" autocomplete="name" required /></label>
+                <label>Email<input type="email" name="email" autocomplete="email" required /></label>
+                <label>Phone<input type="tel" name="phone" autocomplete="tel" /></label>
+                <label>Company<input type="text" name="company" autocomplete="organization" /></label>
+                <label>
+                  Subject
+                  <select name="subject" required>
+                    <option value="" disabled selected>Select Subject</option>
+                    <option>Partnership</option>
+                    <option>Services</option>
+                    <option>Industries</option>
+                    <option>Collaborate</option>
+                    <option>Other</option>
+                  </select>
+                </label>
+                <label class="contact-form__full">Message<textarea name="message" rows="5" required></textarea></label>
+                <button class="industrial-button" type="submit">Submit</button>
+              </form>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <div class="footer__inner">
+          <div>
+            <strong>Etihadeia</strong>
+            <p>A subsidiary of Industrial Holdings Group</p>
+          </div>
+          <nav aria-label="Footer">
+            <a href="#story">About</a>
+            <a href="#services">Industries &amp; Services</a>
+            <a href="#partners">Partners</a>
+            <a href="#customers">Customers</a>
+            <a href="#contact">Contact us</a>
+          </nav>
+          <p>© <span id="year"></span> Etihadeia. All rights reserved.</p>
         </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="container footer__grid">
-      <div class="footer__brand">
-        <img class="footer__logo" src="https://etehadia.com/logo.png" alt="Etihadeia" width="160" height="50" loading="lazy" decoding="async" />
-        <p class="footer__tag">A subsidiary of Industrial Holdings Group</p>
-      </div>
-      <div class="footer__col">
-        <h4 class="footer__heading">Company</h4>
-        <nav class="footer__nav">
-          <a href="#about">About</a>
-          <a href="#">Success Stories</a>
-          <a href="#news">News &amp; Events</a>
-          <a href="#">Career</a>
-          <a href="#industries">The Experience</a>
-          <a href="#partners">Partners</a>
-          <a href="#customers">Customers</a>
-        </nav>
-      </div>
-      <div class="footer__col">
-        <h4 class="footer__heading">Industries &amp; Services</h4>
-        <nav class="footer__nav">
-          <a href="#services">Electrical Supplies</a>
-          <a href="#services">Control &amp; Automation</a>
-          <a href="#services">HVAC &amp; Mechanical</a>
-          <a href="#services">Airport &amp; Aviation</a>
-          <a href="#services">Electrical Services</a>
-        </nav>
-      </div>
-      <div class="footer__col">
-        <h4 class="footer__heading">Legal</h4>
-        <nav class="footer__nav">
-          <a href="#">DSR</a>
-          <a href="#">Privacy Policy</a>
-        </nav>
-        <a href="#contact" class="footer__cta">Contact us</a>
-      </div>
+      </footer>
     </div>
-    <div class="footer__bottom">
-      <div class="container footer__bottom-inner">
-        <p>© <span id="year"></span> Etihadeia. All rights reserved.</p>
-        <a href="#hero" class="back-top">Back to top</a>
-      </div>
-    </div>
-  </footer>
-
-  <script src="main.js"></script>
-</body>
+  </body>
 </html>
