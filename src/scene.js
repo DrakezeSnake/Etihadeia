@@ -49,6 +49,9 @@ function addStudioLighting(scene, quality) {
   const coolFill = new THREE.DirectionalLight(0x8da8c1, 0.68 * scale);
   coolFill.position.set(-3.2, 1.15, 2.4);
 
+  const frontFill = new THREE.DirectionalLight(0xdde8f3, 0.54 * scale);
+  frontFill.position.set(0, 0.35, 4.8);
+
   const redEdge = new THREE.PointLight(0xe3352e, 4.5 * scale, 8.5, 2);
   redEdge.position.set(-2.3, 0.2, 1.7);
 
@@ -56,8 +59,8 @@ function addStudioLighting(scene, quality) {
   warmRim.position.set(1.8, -0.32, 2.4);
 
   const ambient = new THREE.AmbientLight(0xffffff, 0.19 * scale);
-  scene.add(key, coolFill, redEdge, warmRim, ambient);
-  return [key, coolFill, redEdge, warmRim, ambient];
+  scene.add(key, coolFill, frontFill, redEdge, warmRim, ambient);
+  return [key, coolFill, frontFill, redEdge, warmRim, ambient];
 }
 
 function createFallbackLogo(hexGeometry) {
@@ -65,8 +68,8 @@ function createFallbackLogo(hexGeometry) {
   group.name = "fallback-logo";
 
   const logoMaterials = [
-    new THREE.MeshBasicMaterial({ color: 0xe2322a, transparent: true, opacity: 0.98 }),
-    new THREE.MeshBasicMaterial({ color: 0x22252a, transparent: true, opacity: 0.92 }),
+    new THREE.MeshBasicMaterial({ color: 0xf0473f, transparent: true, opacity: 1 }),
+    new THREE.MeshBasicMaterial({ color: 0x31404d, transparent: true, opacity: 0.98 }),
   ];
 
   const offsets = [
@@ -226,6 +229,7 @@ export function createIngotScene({ canvas, reducedMotion }) {
   });
 
   const bufferSize = new THREE.Vector2();
+  const liquidWorldYs = Array.from({ length: LIQUID_COUNT }, () => LIQUID_Y);
   const timeOrigin = performance.now();
   let environment = null;
   let disposed = false;
@@ -267,21 +271,30 @@ export function createIngotScene({ canvas, reducedMotion }) {
     requestAnimationFrame(render);
   }
 
+  function screenYToWorldY(screenY, targetZ = 0.03) {
+    const height = canvas.clientHeight || window.innerHeight || 1;
+    const ndcY = 1 - (screenY / height) * 2;
+    const point = new THREE.Vector3(0, ndcY, 0.5).unproject(camera);
+    const direction = point.sub(camera.position).normalize();
+    const distance = (targetZ - camera.position.z) / direction.z;
+    return camera.position.clone().add(direction.multiplyScalar(distance)).y;
+  }
+
   function setLiquidScreenY(index, screenY) {
     const water = waters[index];
     const burst = particles[index];
     if (!water || !burst) return;
 
-    const height = canvas.clientHeight || window.innerHeight || 1;
-    const ndcY = 1 - (screenY / height) * 2;
-    const point = new THREE.Vector3(0, ndcY, 0.5).unproject(camera);
-    const direction = point.sub(camera.position).normalize();
-    const targetZ = 0.03;
-    const distance = (targetZ - camera.position.z) / direction.z;
-    const worldPoint = camera.position.clone().add(direction.multiplyScalar(distance));
+    const worldY = screenYToWorldY(screenY, water.mesh.position.z);
+    liquidWorldYs[index] = worldY;
 
-    water.alignToScreenY(screenY, camera, canvas);
-    burst.position.y = worldPoint.y - LIQUID_Y;
+    water.setWorldY(worldY);
+    burst.position.y = worldY - LIQUID_Y;
+    return worldY;
+  }
+
+  function getLiquidWorldY(index) {
+    return liquidWorldYs[index] ?? LIQUID_Y;
   }
 
   function triggerWaterImpact(index, options = {}) {
@@ -367,6 +380,7 @@ export function createIngotScene({ canvas, reducedMotion }) {
     liquids: waters.map((water) => water.mesh),
     particles,
     setLiquidScreenY,
+    getLiquidWorldY,
     triggerWaterImpact,
     setWaterActive,
     updateWater,

@@ -12,9 +12,11 @@
   --steel: #c9ced3;
   --body: "Manrope", sans-serif;
   --display: "Syncopate", sans-serif;
+  --arabic: "Noto Kufi Arabic", sans-serif;
   --section-pad: clamp(4.5rem, 8vw, 8.5rem);
   --story-band: 100vh;
   --gate-h: clamp(5rem, 13vh, 9rem);
+  --medium-intensity: 0;
 }
 
 *,
@@ -143,6 +145,12 @@ body.is-story-active .brand {
   text-transform: uppercase;
 }
 
+.header-actions {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+}
+
 .site-nav {
   display: inline-flex;
   align-items: center;
@@ -171,9 +179,34 @@ body.is-story-active .brand {
   outline: none;
 }
 
+.language-toggle {
+  min-height: 2.95rem;
+  padding: 0 0.95rem;
+  border: 1px solid rgba(244, 239, 229, 0.1);
+  border-radius: 999px;
+  background: rgba(10, 10, 10, 0.72);
+  color: var(--muted);
+  backdrop-filter: blur(16px);
+  cursor: pointer;
+  font-size: 0.74rem;
+  font-weight: 700;
+  transition:
+    border-color 180ms ease,
+    color 180ms ease,
+    background-color 180ms ease;
+}
+
+.language-toggle:hover,
+.language-toggle:focus-visible {
+  border-color: rgba(242, 196, 94, 0.44);
+  background: rgba(242, 196, 94, 0.1);
+  color: var(--ink);
+  outline: none;
+}
+
 .liquid-story {
   position: relative;
-  min-height: calc(6 * var(--story-band) + 6 * var(--gate-h));
+  min-height: calc(6 * var(--story-band) + 6 * var(--gate-h) + 95vh);
   isolation: isolate;
   background:
     radial-gradient(circle at 50% 14%, rgba(215, 53, 47, 0.1), transparent 26rem),
@@ -189,6 +222,8 @@ body.is-story-active .brand {
   height: 100dvh;
   max-width: none;
   pointer-events: none;
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 .story-veil {
@@ -197,8 +232,14 @@ body.is-story-active .brand {
   z-index: 1;
   pointer-events: none;
   background:
+    radial-gradient(ellipse at 50% calc(50% + 4rem), rgba(226, 241, 242, calc(0.08 * var(--medium-intensity))), transparent 16rem),
+    linear-gradient(180deg, transparent 36%, rgba(220, 238, 238, calc(0.085 * var(--medium-intensity))) 50%, transparent 64%),
     linear-gradient(90deg, rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.14) 24%, rgba(0, 0, 0, 0.08) 50%, rgba(0, 0, 0, 0.14) 76%, rgba(0, 0, 0, 0.72)),
     linear-gradient(180deg, rgba(0, 0, 0, 0.55), transparent 32%, rgba(0, 0, 0, 0.36));
+  transform: translate3d(0, calc(var(--medium-intensity) * -8px), 0);
+  transition:
+    background 180ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 180ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .story-section,
@@ -226,8 +267,9 @@ body.is-story-active .brand {
   opacity: 0.36;
   transform: translateY(16px);
   transition:
-    opacity 260ms ease,
-    transform 260ms ease;
+    opacity 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
 }
 
 .story-section.is-active .story-section__copy,
@@ -346,10 +388,8 @@ body.is-story-active .brand {
   display: block;
   width: 100%;
   height: 1px;
-  background:
-    linear-gradient(90deg, transparent 0%, rgba(233, 225, 207, 0.06) 28%, rgba(255, 255, 255, 0.2) 50%, rgba(233, 225, 207, 0.06) 72%, transparent 100%),
-    linear-gradient(180deg, rgba(213, 233, 236, 0.05), rgba(18, 26, 28, 0.16));
-  opacity: 0.22;
+  background: transparent;
+  opacity: 0;
   box-shadow:
     0 0 14px rgba(207, 230, 232, 0.035),
     0 1px 0 rgba(0, 0, 0, 0.78),
@@ -422,9 +462,7 @@ body.is-story-active .brand {
 }
 
 .liquid-gate--final span {
-  background:
-    linear-gradient(90deg, transparent, rgba(242, 196, 94, 0.32) 48%, rgba(255, 241, 189, 0.58) 50%, rgba(242, 196, 94, 0.32) 52%, transparent),
-    linear-gradient(180deg, rgba(177, 119, 35, 0.18), rgba(18, 15, 10, 0.64));
+  background: transparent;
 }
 
 .section {
@@ -720,6 +758,85 @@ body.is-story-active .brand {
   margin: 0;
 }
 
+html[dir="rtl"] body {
+  font-family: var(--arabic);
+  text-align: right;
+}
+
+html[dir="rtl"] .site-header {
+  direction: rtl;
+}
+
+html[dir="rtl"] .brand,
+html[dir="rtl"] .header-actions,
+html[dir="rtl"] .site-nav {
+  direction: rtl;
+}
+
+html[dir="rtl"] .brand__text strong,
+html[dir="rtl"] .brand__text small,
+html[dir="rtl"] .site-nav a,
+html[dir="rtl"] .story-kicker,
+html[dir="rtl"] .story-section__side--quiet,
+html[dir="rtl"] .section__label,
+html[dir="rtl"] .stat__label,
+html[dir="rtl"] .industrial-button,
+html[dir="rtl"] .story-title,
+html[dir="rtl"] .section h2,
+html[dir="rtl"] .footer strong,
+html[dir="rtl"] .image-tile span,
+html[dir="rtl"] .text-tile,
+html[dir="rtl"] .service-grid h3,
+html[dir="rtl"] .contact-card h3,
+html[dir="rtl"] .partner-strip span,
+html[dir="rtl"] .customer-grid span,
+html[dir="rtl"] .stat__num {
+  font-family: var(--arabic);
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+html[dir="rtl"] .story-title,
+html[dir="rtl"] .section h2 {
+  line-height: 1.18;
+}
+
+html[dir="rtl"] .story-section__copy {
+  justify-self: end;
+}
+
+html[dir="rtl"] .story-section__side {
+  justify-self: start;
+}
+
+html[dir="rtl"] .image-tile span {
+  left: 1.2rem;
+  right: 1.2rem;
+}
+
+html[dir="rtl"] .contact-card dl {
+  grid-template-columns: minmax(0, 1fr) 6rem;
+}
+
+html[dir="rtl"] .contact-card dt {
+  grid-column: 2;
+}
+
+html[dir="rtl"] .contact-card dd {
+  grid-column: 1;
+}
+
+html[dir="rtl"] .contact-form input,
+html[dir="rtl"] .contact-form select,
+html[dir="rtl"] .contact-form textarea {
+  direction: rtl;
+  text-align: right;
+}
+
+html[dir="rtl"] .footer__inner > p {
+  justify-self: start;
+}
+
 @media (max-width: 1060px) {
   .story-section {
     grid-template-columns: minmax(0, 1fr) minmax(16rem, 32vw) minmax(0, 1fr);
@@ -742,6 +859,15 @@ body.is-story-active .brand {
 
   .site-nav {
     display: none;
+  }
+
+  .site-header {
+    align-items: center;
+  }
+
+  .language-toggle {
+    min-height: 2.5rem;
+    padding-inline: 0.8rem;
   }
 
   .brand__text small {
@@ -818,6 +944,15 @@ body.is-story-active .brand {
 
   .contact-card dl {
     grid-template-columns: 1fr;
+  }
+
+  html[dir="rtl"] .contact-card dl {
+    grid-template-columns: 1fr;
+  }
+
+  html[dir="rtl"] .contact-card dt,
+  html[dir="rtl"] .contact-card dd {
+    grid-column: auto;
   }
 }
 
