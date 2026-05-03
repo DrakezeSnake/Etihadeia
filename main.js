@@ -53,8 +53,31 @@ import heroLogoUrl from "./etihadia 3D logo.obj?url";
     });
   }
 
+  function setupPageTransitions() {
+    if (prefersReducedMotion) return;
+
+    var veil = document.createElement("div");
+    veil.className = "page-transition-veil";
+    veil.setAttribute("aria-hidden", "true");
+    veil.innerHTML = '<img class="page-transition-veil__logo" src="/images/transition-logo.png" alt="" decoding="async" />';
+    document.body.appendChild(veil);
+
+    document.querySelectorAll('a[href^="/"]').forEach(function (link) {
+      link.addEventListener("click", function (event) {
+        var url = new URL(link.href, window.location.origin);
+        if (url.origin !== window.location.origin || url.pathname === window.location.pathname) return;
+        event.preventDefault();
+        veil.classList.add("is-leaving");
+        window.setTimeout(function () {
+          window.location.href = url.href;
+        }, 360);
+      });
+    });
+  }
+
   setupScrollProgress();
   setupPressFeedback();
+  setupPageTransitions();
   var pageCopy = {
     en: {
       title: "El Etehadia | Electroplating & Surface Finishing Solutions",
@@ -64,7 +87,10 @@ import heroLogoUrl from "./etihadia 3D logo.obj?url";
       contact: "Contact us",
       heroEyebrow: "Since 1997 · Electroplating & Surface Finishing Solutions",
       heroTitle: ["Trusted Electroplating", "Solutions for Industrial Finishing"],
-      stats: ["Established in Cairo", "Regional Supply", "MacDermid Enthone Quality", "Lab Support"],
+      heroIntro:
+        "El Etehadia supplies electroplating chemicals, machines, accessories, lacquers, laboratory analysis, and technical support for manufacturers across Egypt and the Middle East.",
+      heroCtas: ["Explore Products", "Request Technical Support"],
+      stats: ["Established in Cairo", "Years of support", "Recognized brands", "Support areas"],
       aboutLabel: "About us",
       aboutTitle: "About El Etehadia",
       aboutCta: "About us",
@@ -147,9 +173,12 @@ import heroLogoUrl from "./etihadia 3D logo.obj?url";
       languageAria: "Switch to English",
       nav: ["الرئيسية", "عن الشركة", "الخدمات", "المنتجات", "القطاعات", "التطبيقات", "الشركاء", "الرؤى", "تواصل"],
       contact: "تواصل معنا",
-      heroEyebrow: "منذ 1997 · حلول الطلاء الكهربائي ومعالجة الأسطح",
-      heroTitle: ["حلول طلاء كهربائي موثوقة", "للتشطيب الصناعي"],
-      stats: ["تأسست في القاهرة", "توريد إقليمي", "جودة MacDermid Enthone", "دعم معملي"],
+      heroEyebrow: "منذ 1997 · معالجة الأسطح",
+      heroTitle: ["طلاء كهربائي موثوق", "للتشطيب الصناعي"],
+      heroIntro:
+        "كيماويات وماكينات ولاكيهات للطلاء، مع تحليل معملي ودعم فني.",
+      heroCtas: ["استكشف المنتجات", "اطلب دعماً فنياً"],
+      stats: ["تأسست في القاهرة", "سنوات دعم", "علامات معروفة", "مجالات دعم"],
       aboutLabel: "من نحن",
       aboutTitle: "عن الاتحادية",
       aboutCta: "من نحن",
@@ -274,6 +303,8 @@ import heroLogoUrl from "./etihadia 3D logo.obj?url";
     setText("[data-contact-label]", copy.contact);
     setText(".hero__eyebrow", copy.heroEyebrow);
     setTextList(".hero__title-line", copy.heroTitle);
+    setText(".hero__intro", copy.heroIntro);
+    setTextList(".hero__cta .btn", copy.heroCtas);
     setTextList(".hero .stat__label", copy.stats);
     setText("#about .section__label", copy.aboutLabel);
     setText("#about .section__title", copy.aboutTitle);
@@ -720,7 +751,6 @@ import heroLogoUrl from "./etihadia 3D logo.obj?url";
       ["contact"],
     ];
     var floatSelected = 0;
-    var floatHover = false;
 
     function floatMoveCursorToIndex(idx) {
       if (!floatCursor || !floatItems.length) return;
@@ -780,7 +810,7 @@ import heroLogoUrl from "./etihadia 3D logo.obj?url";
     function floatSetSelected(idx, moveCursor) {
       floatSelected = Math.max(0, Math.min(floatItems.length - 1, idx));
       floatUpdateActiveClasses();
-      if (moveCursor !== false && !floatHover) floatMoveCursorToIndex(floatSelected);
+      if (moveCursor !== false) floatMoveCursorToIndex(floatSelected);
     }
 
     function floatSyncFromScroll() {
@@ -798,7 +828,7 @@ import heroLogoUrl from "./etihadia 3D logo.obj?url";
               if (ti !== floatSelected) {
                 floatSelected = ti;
                 floatUpdateActiveClasses();
-                if (!floatHover) floatMoveCursorToIndex(floatSelected);
+                floatMoveCursorToIndex(floatSelected);
               }
               return;
             }
@@ -830,57 +860,23 @@ import heroLogoUrl from "./etihadia 3D logo.obj?url";
       if (best !== floatSelected) {
         floatSelected = best;
         floatUpdateActiveClasses();
-        if (!floatHover) floatMoveCursorToIndex(floatSelected);
+        floatMoveCursorToIndex(floatSelected);
       }
     }
 
-    floatItems.forEach(function (item, i) {
-      item.addEventListener("mouseenter", function () {
-        floatHover = true;
-        floatMoveCursorToIndex(i);
-      });
-    });
-
-    floatTabsRoot.addEventListener("mouseleave", function () {
-      floatHover = false;
-      floatMoveCursorToIndex(floatSelected);
-    });
-
     floatLinks.forEach(function (link, i) {
       link.addEventListener("click", function () {
-        floatHover = false;
         floatSetSelected(i, true);
       });
     });
 
-    var floatScrollBusy = false;
-    window.addEventListener(
-      "scroll",
-      function () {
-        if (floatScrollBusy) return;
-        floatScrollBusy = true;
-        requestAnimationFrame(function () {
-          floatScrollBusy = false;
-          floatSyncFromScroll();
-        });
-      },
-      { passive: true }
-    );
-
     window.addEventListener("resize", function () {
-      if (floatHover) {
-        var hovered = floatTabsRoot.querySelector(".float-tabs__item:hover");
-        var hi = hovered ? Array.prototype.indexOf.call(floatItems, hovered) : floatSelected;
-        if (hi >= 0) floatMoveCursorToIndex(hi);
-      } else {
-        floatMoveCursorToIndex(floatSelected);
-      }
+      floatMoveCursorToIndex(floatSelected);
     });
 
     function floatInitPosition() {
       floatUpdateActiveClasses();
       floatMoveCursorToIndex(floatSelected);
-      floatSyncFromScroll();
     }
 
     if (document.readyState === "complete") {

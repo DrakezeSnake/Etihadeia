@@ -16,22 +16,20 @@ const navItems = [
   ["Contact", "/contact/"],
 ];
 
-const img = (name) => `/images/${name}`;
-
 const pageImages = {
-  hero: [img("hero-electroplating-line.jpg"), "Modern electroplating production line with clean plating tanks"],
-  about: [img("about-facility.jpg"), "Electroplating facility with technicians reviewing production samples"],
-  lab: [img("lab-analysis.jpg"), "Laboratory technician analyzing electroplating bath solution"],
-  support: [img("technical-support.jpg"), "Technical specialist reviewing electroplating samples"],
-  nickel: [img("nickel-plating.jpg"), "Freshly nickel plated metal components on a rack"],
-  chrome: [img("chrome-plating.jpg"), "Chrome plated industrial parts with reflective finish"],
-  copper: [img("copper-plating.jpg"), "Copper plated components on a production rack"],
-  zinc: [img("zinc-coating.jpg"), "Zinc coated fasteners for corrosion protection"],
-  plastic: [img("plating-on-plastic.jpg"), "Plastic component with metallic plated finish"],
-  prep: [img("surface-preparation.jpg"), "Metal parts being prepared before electroplating"],
-  lacquer: [img("lacquers-protective-finish.jpg"), "Protective lacquer finish on polished metal samples"],
-  partners: [img("partners-metal-samples.jpg"), "Chrome nickel copper and gold metal samples"],
-  contact: [img("contact-technical-support.jpg"), "Technical specialist reviewing electroplating documents and samples"],
+  hero: ["/assets/about-section.jfif", "El Etehadia industrial surface finishing facility visual"],
+  about: ["/assets/about-section.jfif", "El Etehadia industrial surface finishing facility visual"],
+  lab: ["/assets/why-us-innovation.png", "Laboratory technician analyzing electroplating bath solution"],
+  support: ["/assets/why-us-standards.png", "Technical specialist reviewing electroplating samples"],
+  nickel: ["https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1200&q=80", "Industrial metal finishing production area"],
+  chrome: ["https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80", "Engineer inspecting finished industrial components"],
+  copper: ["https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=1200&q=80", "Electrical metal components prepared for finishing"],
+  zinc: ["https://commons.wikimedia.org/wiki/Special:FilePath/ION%20PLATED%20FASTENERS%20-%20NARA%20-%2017470749.jpg", "Industrial plated fasteners for corrosion protection"],
+  plastic: ["https://commons.wikimedia.org/wiki/Special:FilePath/Chrome%20plating%20coating%20on%20the%20plastic%20base%2C%20magnification%20x300.jpg", "Chrome plating coating on a plastic base"],
+  prep: ["/assets/why-us-transformative.png", "Metal parts prepared for surface finishing"],
+  lacquer: ["/assets/why-us-innovation.png", "Protective finishing and laboratory support visual"],
+  partners: ["/assets/industry-infrastructure.png", "Surface finishing samples and industrial supply visual"],
+  contact: ["/assets/why-us-standards.png", "Technical specialist reviewing electroplating documents and samples"],
 };
 
 const productCards = [
@@ -332,7 +330,7 @@ function header(currentPage) {
           <img src="https://etehadia.com/logo.png" alt="El Etehadia" width="180" height="56" decoding="async" />
         </a>
         <div class="hero-bar__center">
-          <nav class="hero-bar__nav-panel" aria-label="Primary">
+          <nav class="hero-bar__nav-panel" id="float-nav-panel" aria-label="Primary">
             <ul class="float-tabs page-tabs">
               <li class="float-tabs__cursor" aria-hidden="true"></li>
               ${links}
@@ -346,6 +344,10 @@ function header(currentPage) {
           </a>
           <button class="language-toggle" type="button" data-language-toggle aria-label="Switch to Arabic">
             <span data-language-label>العربية</span>
+          </button>
+          <button type="button" class="hero-bar__menu" aria-expanded="false" aria-controls="float-nav-panel" aria-label="Open menu">
+            <span></span>
+            <span></span>
           </button>
         </div>
       </div>
@@ -599,11 +601,34 @@ function setupPressFeedback() {
   });
 }
 
+function setupMobileMenu() {
+  const topNav = document.querySelector("#top-nav");
+  const toggle = document.querySelector(".hero-bar__menu");
+  const panel = document.querySelector("#float-nav-panel");
+
+  if (!topNav || !toggle || !panel) return;
+
+  toggle.addEventListener("click", () => {
+    const open = topNav.classList.toggle("is-open");
+    toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+  });
+
+  panel.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      topNav.classList.remove("is-open");
+      toggle.setAttribute("aria-expanded", "false");
+      toggle.setAttribute("aria-label", "Open menu");
+    });
+  });
+}
+
 function setupPageTransitions() {
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
   const veil = document.createElement("div");
   veil.className = "page-transition-veil";
   veil.setAttribute("aria-hidden", "true");
+  veil.innerHTML = '<img class="page-transition-veil__logo" src="/images/transition-logo.png" alt="" decoding="async" />';
   document.body.appendChild(veil);
 
   document.querySelectorAll('a[href^="/"]').forEach((link) => {
@@ -614,7 +639,7 @@ function setupPageTransitions() {
       veil.classList.add("is-leaving");
       window.setTimeout(() => {
         window.location.href = url.href;
-      }, 220);
+      }, 360);
     });
   });
 }
@@ -677,6 +702,7 @@ function render() {
   setupReveals();
   setupScrollProgress();
   setupPressFeedback();
+  setupMobileMenu();
   setupPageTransitions();
   setupContactForm();
 }

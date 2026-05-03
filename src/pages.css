@@ -2,23 +2,6 @@
   background: linear-gradient(180deg, rgba(42, 41, 43, 0.92), rgba(42, 41, 43, 0.58) 72%, transparent);
 }
 
-.page-transition-veil {
-  position: fixed;
-  inset: 0;
-  z-index: 240;
-  pointer-events: none;
-  background: var(--brand-red);
-  opacity: 0;
-  transform: scaleX(0);
-  transform-origin: left center;
-}
-
-.page-transition-veil.is-leaving {
-  opacity: 0.92;
-  transform: scaleX(1);
-  transition: transform 0.32s var(--ease-out), opacity 0.32s var(--ease-out);
-}
-
 .page-tabs .float-tabs__cursor {
   display: none;
 }
@@ -443,7 +426,7 @@ html[dir="rtl"] .process-list article:hover {
   overflow: hidden;
   background:
     linear-gradient(180deg, transparent 20%, rgba(42, 41, 43, 0.88)),
-    url("/images/contact-technical-support.jpg");
+    url("/assets/why-us-standards.png");
   background-size: cover;
   background-position: center;
 }
