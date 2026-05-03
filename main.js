@@ -83,7 +83,7 @@ import heroLogoUrl from "./etihadia 3D logo.obj?url";
       title: "El Etehadia | Electroplating & Surface Finishing Solutions",
       languageLabel: "العربية",
       languageAria: "Switch to Arabic",
-      nav: ["Home", "About", "Services", "Products", "Industries", "Applications", "Partners", "Insights", "Contact"],
+      nav: ["Home", "About", "Services", "Products", "Industries", "Applications", "Partners", "Insights"],
       contact: "Contact us",
       heroEyebrow: "Since 1997 · Electroplating & Surface Finishing Solutions",
       heroTitle: ["Trusted Electroplating", "Solutions for Industrial Finishing"],
@@ -171,7 +171,7 @@ import heroLogoUrl from "./etihadia 3D logo.obj?url";
       title: "الاتحادية | حلول الطلاء الكهربائي ومعالجة الأسطح",
       languageLabel: "English",
       languageAria: "Switch to English",
-      nav: ["الرئيسية", "عن الشركة", "الخدمات", "المنتجات", "القطاعات", "التطبيقات", "الشركاء", "الرؤى", "تواصل"],
+      nav: ["الرئيسية", "عن الشركة", "الخدمات", "المنتجات", "القطاعات", "التطبيقات", "الشركاء", "الرؤى"],
       contact: "تواصل معنا",
       heroEyebrow: "منذ 1997 · معالجة الأسطح",
       heroTitle: ["طلاء كهربائي موثوق", "للتشطيب الصناعي"],
@@ -748,7 +748,6 @@ import heroLogoUrl from "./etihadia 3D logo.obj?url";
       ["products"],
       ["partners"],
       ["news"],
-      ["contact"],
     ];
     var floatSelected = 0;
 

@@ -13,7 +13,6 @@ const navItems = [
   ["Applications", "/projects/"],
   ["Partners", "/partners/"],
   ["Insights", "/news/"],
-  ["Contact", "/contact/"],
 ];
 
 const pageImages = {
@@ -338,9 +337,9 @@ function header(currentPage) {
           </nav>
         </div>
         <div class="hero-bar__actions">
-          <a href="${WHATSAPP_URL}" class="hero-bar__contact">
+          <a href="/contact/" class="hero-bar__contact">
             <span class="hero-bar__contact-dot" aria-hidden="true"></span>
-            <span>WhatsApp</span>
+            <span>Contact us</span>
           </a>
           <button class="language-toggle" type="button" data-language-toggle aria-label="Switch to Arabic">
             <span data-language-label>العربية</span>

@@ -161,8 +161,9 @@
 .project-gallery,
 .article-list,
 .download-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 1.35rem;
 }
 
@@ -171,6 +172,7 @@
 .project-gallery article,
 .article-list article,
 .download-list a {
+  flex: 0 1 min(100%, 22rem);
   overflow: hidden;
   transition: transform 0.35s var(--ease-expo), box-shadow 0.35s var(--ease-expo), background 0.25s;
   will-change: transform;
