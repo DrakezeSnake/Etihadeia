@@ -443,7 +443,7 @@ html[dir="rtl"] .process-list article:hover {
   overflow: hidden;
   background:
     linear-gradient(180deg, transparent 20%, rgba(42, 41, 43, 0.88)),
-    url("https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80");
+    url("/images/contact-technical-support.jpg");
   background-size: cover;
   background-position: center;
 }
@@ -638,10 +638,29 @@ html[dir="rtl"] .contact-form .industrial-button {
   .page-hero {
     min-height: auto;
     padding-inline: 24px;
+    max-width: 100vw;
+    overflow: hidden;
   }
 
   .page-hero h1 {
     max-width: 100%;
+    font-size: clamp(2rem, 11vw, 2.8rem);
+    overflow-wrap: anywhere;
+  }
+
+  .page-hero__copy > p:last-of-type,
+  .section__header--split p {
+    overflow-wrap: anywhere;
+  }
+
+  .page-hero__copy {
+    min-width: 0;
+    max-width: min(100%, 330px);
+  }
+
+  .page-hero__copy > p:last-of-type {
+    max-width: min(100%, 330px);
+    font-size: 0.98rem;
   }
 
   .page-metrics,
