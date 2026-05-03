@@ -421,6 +421,7 @@ p:last-child {
     grid-template-rows: auto auto;
     justify-content: space-between;
     width: 100%;
+    direction: ltr;
   }
 
   .hero-bar__logo {
@@ -437,6 +438,7 @@ p:last-child {
   html[dir="ltr"] .hero-bar__actions {
     justify-self: start;
     grid-column: 1;
+    flex-direction: row-reverse;
   }
 
   html[dir="ltr"] .hero-bar__logo {
@@ -447,6 +449,7 @@ p:last-child {
   html[dir="rtl"] .hero-bar__actions {
     justify-self: end;
     grid-column: 2;
+    flex-direction: row;
   }
 
   html[dir="rtl"] .hero-bar__logo {
@@ -475,6 +478,7 @@ p:last-child {
 
   html[dir="rtl"] .hero-bar__nav-panel {
     justify-self: end;
+    direction: rtl;
   }
 
   .hero-bar.is-open .hero-bar__nav-panel {
