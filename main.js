@@ -13,7 +13,7 @@ import heroLogoUrl from "./etihadia 3D logo.obj?url";
       title: "Etihadeia | Industrial Technology & Infrastructure Solutions",
       languageLabel: "العربية",
       languageAria: "Switch to Arabic",
-      nav: ["Home", "About us", "Why us", "Services", "News", "Customers"],
+      nav: ["About", "Services", "Industries", "Projects", "Partners", "News", "Contact"],
       contact: "Contact us",
       heroEyebrow: "Electroplating & industrial technology",
       heroTitle: ["Experience", "Delivers Solutions"],
@@ -75,7 +75,7 @@ import heroLogoUrl from "./etihadia 3D logo.obj?url";
       customersLabel: "Our Customers",
       customersTitle: "Trusted Across Energy & Infrastructure",
       customersIntro: "Partners across energy, infrastructure, aviation, and technology—impact at scale.",
-      customerCta: "Our Customers",
+      customerCta: "Our Partners",
       customerLogos: ["Heavy Industries", "Light Industry", "Oil & Gas", "Water & Power", "Aviation", "Smart Mobility", "Data Centers", "Manufacturing", "Utilities", "EPC", "Ports", "Rail"],
       contactLabel: "Contact us",
       contactTitle: "Do you have any questions?",
@@ -94,7 +94,7 @@ import heroLogoUrl from "./etihadia 3D logo.obj?url";
       submit: "Submit",
       footerTag: "A subsidiary of Industrial Holdings Group",
       footerHeadings: ["Company", "Industries & Services", "Legal"],
-      footerCompany: ["About", "Success Stories", "News & Events", "Career", "The Experience", "Partners", "Customers"],
+      footerCompany: ["About", "Projects", "News & Insights", "Brochure", "Industries", "Partners", "Contact"],
       footerServices: ["Electrical Supplies", "Control & Automation", "HVAC & Mechanical", "Airport & Aviation", "Electrical Services"],
       footerLegal: ["DSR", "Privacy Policy"],
       footerCta: "Contact us",
@@ -105,7 +105,7 @@ import heroLogoUrl from "./etihadia 3D logo.obj?url";
       title: "الاتحادية | حلول التكنولوجيا الصناعية والبنية التحتية",
       languageLabel: "English",
       languageAria: "Switch to English",
-      nav: ["الرئيسية", "من نحن", "لماذا نحن", "الخدمات", "الأخبار", "العملاء"],
+      nav: ["عن الشركة", "الخدمات", "القطاعات", "المشاريع", "الشركاء", "الأخبار", "تواصل"],
       contact: "تواصل معنا",
       heroEyebrow: "الطلاء الكهربائي والتكنولوجيا الصناعية",
       heroTitle: ["الخبرة", "تصنع الحلول"],
@@ -166,7 +166,7 @@ import heroLogoUrl from "./etihadia 3D logo.obj?url";
       customersLabel: "عملاؤنا",
       customersTitle: "موثوقون في الطاقة والبنية التحتية",
       customersIntro: "شركاء في الطاقة والبنية التحتية والطيران والتكنولوجيا، تأثير واسع النطاق.",
-      customerCta: "عملاؤنا",
+      customerCta: "شركاؤنا",
       customerLogos: ["الصناعات الثقيلة", "الصناعات الخفيفة", "النفط والغاز", "المياه والطاقة", "الطيران", "النقل الذكي", "مراكز البيانات", "التصنيع", "المرافق", "EPC", "الموانئ", "السكك الحديدية"],
       contactLabel: "تواصل معنا",
       contactTitle: "هل لديك أي أسئلة؟",
@@ -185,7 +185,7 @@ import heroLogoUrl from "./etihadia 3D logo.obj?url";
       submit: "إرسال",
       footerTag: "شركة تابعة لمجموعة القابضة الصناعية",
       footerHeadings: ["الشركة", "القطاعات والخدمات", "قانوني"],
-      footerCompany: ["من نحن", "قصص النجاح", "الأخبار والفعاليات", "الوظائف", "الخبرة", "الشركاء", "العملاء"],
+      footerCompany: ["عن الشركة", "المشاريع", "الأخبار والرؤى", "الكتيب", "القطاعات", "الشركاء", "تواصل"],
       footerServices: ["المستلزمات الكهربائية", "التحكم والأتمتة", "التكييف والميكانيكا", "المطارات والطيران", "الخدمات الكهربائية"],
       footerLegal: ["DSR", "سياسة الخصوصية"],
       footerCta: "تواصل معنا",
@@ -679,14 +679,15 @@ import heroLogoUrl from "./etihadia 3D logo.obj?url";
     var floatCursor = floatTabsRoot.querySelector(".float-tabs__cursor");
     var floatItems = floatTabsRoot.querySelectorAll(".float-tabs__item");
     var floatLinks = floatTabsRoot.querySelectorAll(".float-tabs__link");
-    /* One entry per nav tab; merged "Services" tracks industries + services + partners */
+    /* One entry per top-level navigation route for homepage section awareness. */
     var sectionGroups = [
-      ["hero"],
       ["about"],
-      ["why-us"],
-      ["industries", "services", "partners"],
+      ["services"],
+      ["industries"],
+      ["projects"],
+      ["partners"],
       ["news"],
-      ["customers"],
+      ["contact"],
     ];
     var floatSelected = 0;
     var floatHover = false;

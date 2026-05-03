@@ -3,3 +3,5 @@ node_modules
 dist
 vite-dev.log
 vite-dev.err.log
+vite-pages-dev.log
+vite-pages-dev.err.log
