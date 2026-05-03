@@ -1,7 +1,9 @@
 import { setupLanguageToggle } from "./i18n.js";
-import "./styles.css";
+import "../styles.css";
+import "./pages.css";
 
 const navItems = [
+  ["Home", "/"],
   ["About", "/about/"],
   ["Services", "/services/"],
   ["Industries", "/industries/"],
@@ -15,11 +17,11 @@ const pages = {
   about: {
     title: "About Etihadeia",
     eyebrow: "Company profile",
-    heading: "Industrial capability with a service team behind every supply.",
+    heading: "Technical supply, service discipline, and field experience for industrial work.",
     intro:
-      "Etihadeia supports infrastructure, energy, aviation, and manufacturing teams with technical supply, field coordination, and solution guidance for demanding industrial environments.",
+      "Etihadeia supports manufacturers, contractors, consultants, and infrastructure operators with electrical supplies, control components, aviation systems, electroplating technologies, and coordinated service support from Egypt.",
     image: "/assets/about-section.jfif",
-    imageAlt: "Industrial team reviewing technical drawings beside control equipment",
+    imageAlt: "Etihadeia industrial supply vehicle beside Egyptian infrastructure at sunset",
     metrics: [
       ["47+", "Years of experience"],
       ["120+", "Experts"],
@@ -29,30 +31,30 @@ const pages = {
       {
         type: "split",
         eyebrow: "What we deliver",
-        heading: "From specification to energized systems.",
+        heading: "From technical requirement to delivered supply.",
         body:
-          "Etihadeia helps project teams select, source, and coordinate industrial technologies across electrical, automation, aviation, and infrastructure scopes.",
+          "The work starts with the site condition, the drawings, the required standards, and the procurement window. Etihadeia then coordinates compatible products, documentation, alternates, delivery readiness, and the support needed after installation.",
         items: [
-          ["Technical supply", "Specified products, compatible components, and structured procurement support."],
-          ["Engineering coordination", "Review support for project requirements, drawings, site conditions, and commissioning needs."],
-          ["Service standards", "Field-ready teams, documented workflows, and dependable response for critical work."],
+          ["Technical supply", "Electrical products, control equipment, aviation lighting systems, electroplating chemicals, machines, and accessories selected around project fit."],
+          ["Engineering coordination", "Support for specifications, drawings, equivalent items, commissioning requirements, and documentation packages."],
+          ["Service standards", "Field-aware teams that understand lead times, site constraints, safety requirements, and the practical pressure of shutdown windows."],
         ],
       },
       {
         type: "timeline",
         eyebrow: "Operating philosophy",
-        heading: "A practical sequence for industrial decisions.",
+        heading: "A practical sequence for critical supply decisions.",
         items: [
-          ["01", "Read the site", "Understand the environment, loads, controls, safety needs, and project constraints."],
-          ["02", "Shape the supply", "Match components and systems to the required performance, lead time, and lifecycle."],
-          ["03", "Support delivery", "Coordinate documentation, logistics, installation readiness, and after-sales response."],
+          ["01", "Read the requirement", "Review the application, operating environment, standards, loads, safety needs, and project schedule."],
+          ["02", "Match the supply", "Select products and alternates that fit performance, compatibility, availability, documentation, and lifecycle needs."],
+          ["03", "Support the handover", "Coordinate logistics, records, installation readiness, after-sales response, and future replacement planning."],
         ],
       },
       {
         type: "standards",
         eyebrow: "Standards",
-        heading: "Certification and compliance records prepared for final verification.",
-        items: ["ISO quality system", "Vendor approvals", "Safety compliance records", "Quality manual"],
+        heading: "Documented standards for procurement review.",
+        items: ["Quality system records", "Vendor approvals", "Safety compliance records", "Product data sheets"],
       },
     ],
     cta: ["Start a technical discussion", "/contact/"],
@@ -60,43 +62,43 @@ const pages = {
   services: {
     title: "Services",
     eyebrow: "Service portfolio",
-    heading: "A connected supply and service model for industrial work.",
+    heading: "Service lines built around real industrial procurement.",
     intro:
-      "Each service line is planned around compatibility, uptime, and project clarity, giving final product and capability content a clear structure from the first review.",
+      "Etihadeia’s service portfolio connects product sourcing with technical review, site readiness, and long-term availability. The goal is simple: the right component, the right document, the right timing.",
     image: "/assets/why-us-standards.png",
     imageAlt: "Industrial technician monitoring electroplating tanks and control equipment",
     sections: [
       {
         type: "services",
         eyebrow: "Core services",
-        heading: "Six service lines, one industrial standard.",
+        heading: "Six service lines, one operating standard.",
         items: [
-          ["Electric Supplies", "Supply support for distribution, protection, cables, accessories, and compatible replacement parts."],
-          ["Control & Automation", "PLC, drives, sensors, HMI, instrumentation, and control components for reliable operations."],
-          ["HVAC & Mechanical", "Mechanical and HVAC supply coordination for industrial buildings and operational facilities."],
-          ["Airport Lighting & Aviation", "Runway lighting, aviation systems, airport technologies, and safety-focused technical supply."],
-          ["Electrical Services", "Field-ready electrical service support for installation, testing, maintenance, and energization."],
-          ["Digital & IoT Supplies", "Connected devices, monitoring equipment, and IoT-ready components for smart infrastructure."],
+          ["Electric Supplies", "Distribution products, protection equipment, cables, wiring accessories, panels, terminals, and replacement parts for industrial and infrastructure projects."],
+          ["Control & Automation", "PLC hardware, drives, sensors, HMI, instrumentation, and control components for production lines, utilities, and facility systems."],
+          ["HVAC & Mechanical", "HVAC and mechanical components for industrial buildings, process areas, service rooms, and operational facilities."],
+          ["Airport Lighting & Aviation", "Runway lighting, airport technologies, aviation electrical systems, and safety-critical technical supply for airside environments."],
+          ["Electrical Services", "Installation support, testing coordination, maintenance response, troubleshooting, and energization assistance for electrical systems."],
+          ["Digital & IoT Supplies", "Connected monitoring devices, IoT-ready components, gateways, sensors, and digital infrastructure products for smarter operations."],
         ],
       },
       {
         type: "process",
         eyebrow: "How we work",
-        heading: "Clear enough for procurement, technical enough for engineering.",
+        heading: "Clear for procurement, technical enough for engineering.",
         items: [
-          ["Scope alignment", "Confirm the application, standards, constraints, and delivery target."],
-          ["Product matching", "Select compatible supplies, alternates, and supporting documentation."],
-          ["Execution support", "Coordinate delivery, site readiness, testing, and future service needs."],
+          ["Scope alignment", "Confirm the application, standard, site condition, quantity, installation context, and delivery target."],
+          ["Product matching", "Select compatible supplies, alternates, accessories, and documentation that engineering teams can approve."],
+          ["Execution support", "Coordinate delivery, site readiness, testing needs, warranty records, and future service requirements."],
         ],
       },
       {
         type: "matrix",
         eyebrow: "Capability matrix",
-        heading: "A working matrix for scope, systems, and sector fit.",
+        heading: "Scope, systems, and sector fit.",
         rows: [
           ["Electrical supply", "Panels, cable systems, controls, protection", "Infrastructure, industrial, commercial"],
-          ["Automation", "PLC, sensors, drives, HMI, instrumentation", "Manufacturing, utilities, smart cities"],
-          ["Aviation", "Runway lighting, airport systems, technical supply", "Airports, transport, infrastructure"],
+          ["Automation", "PLC, sensors, drives, HMI, instrumentation", "Manufacturing, utilities, water, smart cities"],
+          ["Aviation", "Runway lighting, airport systems, electrical safety supply", "Airports, transport, infrastructure"],
         ],
       },
       {
@@ -113,23 +115,23 @@ const pages = {
     eyebrow: "Sectors we serve",
     heading: "Industrial technology shaped around each operating environment.",
     intro:
-      "Different sectors create different constraints. Etihadeia structures supply and service support around safety, uptime, compliance, and lifecycle expectations.",
+      "Oil and gas, airports, utilities, factories, commercial assets, and smart-city programs all ask different questions. Etihadeia structures supply and service support around safety, uptime, compliance, lifecycle, and response time.",
     image: "/assets/industry-infrastructure.png",
     imageAlt: "Modern elevated transit and urban infrastructure at dusk",
     sections: [
       {
         type: "industryTiles",
         eyebrow: "Sector map",
-        heading: "Capability notes by market.",
+        heading: "Where Etihadeia’s supply model fits.",
         items: [
-          ["Oil & Gas", "Critical environments, shutdown windows, replacement planning, and resilient electrical supply."],
-          ["Infrastructure", "Transport, utilities, and civic assets requiring durable documentation and long-term availability."],
-          ["Industrial", "Manufacturing and process facilities supported with automation, control, and maintenance supply."],
-          ["Aviation", "Airport systems, runway lighting, and operational technologies shaped around safety and uptime."],
-          ["Power & Water", "Utility environments where protection, continuity, and lifecycle coordination matter."],
-          ["Commercial", "High-use buildings that need dependable electrical, mechanical, and control components."],
-          ["Smart Cities", "Connected infrastructure, monitoring devices, and digital supply for city-scale programs."],
-          ["Electrical Services", "Installation, testing, energization, and maintenance support for modern assets."],
+          ["Oil & Gas", "Shutdown-sensitive environments that need robust electrical supply, approved alternates, and fast replacement planning."],
+          ["Infrastructure", "Transport, utilities, and civic assets requiring long-life components, clear documentation, and dependable availability."],
+          ["Industrial", "Factories and process facilities supported with automation, controls, electroplating technologies, and maintenance supply."],
+          ["Aviation", "Airport systems, runway lighting, and aviation electrical products shaped around operational safety and uptime."],
+          ["Power & Water", "Utility environments where protection, continuity, instrumentation, and lifecycle coordination matter."],
+          ["Commercial", "High-use buildings that need dependable electrical, HVAC, mechanical, and control components."],
+          ["Smart Cities", "Connected monitoring, digital devices, sensors, and infrastructure components for city-scale programs."],
+          ["Electrical Services", "Installation, testing, energization, troubleshooting, and maintenance support for modern assets."],
         ],
       },
       {
@@ -137,7 +139,7 @@ const pages = {
         eyebrow: "Featured sector",
         heading: "Infrastructure projects need durable coordination.",
         body:
-          "Transport, utilities, and urban infrastructure work requires dependable components, clear documentation, long-term availability, and fast technical communication.",
+          "Transport, utilities, and urban infrastructure work depends on products that can be reviewed, delivered, installed, maintained, and replaced without ambiguity. Etihadeia’s role is to keep the supply side technically clear.",
       },
       {
         type: "related",
@@ -151,28 +153,28 @@ const pages = {
   projects: {
     title: "Projects",
     eyebrow: "Project proof",
-    heading: "Representative project stories ready for verified case studies.",
+    heading: "Representative project work shaped as proof, not decoration.",
     intro:
-      "This page is structured for final project evidence. Until verified project data is supplied, each case study uses draft summaries with clear result fields.",
+      "These representative project stories describe the kind of technical coordination Etihadeia supports across industrial, utility, aviation, and smart infrastructure work. Final client names and figures can be added when cleared.",
     image: "/assets/why-us-transformative.png",
     imageAlt: "Technician maintaining infrastructure in a modern data center",
     sections: [
       {
         type: "featuredProject",
-        eyebrow: "Featured project draft",
+        eyebrow: "Featured project",
         heading: "Airport lighting modernization support.",
         body:
-          "Challenge: coordinate compatible technical supply for a safety-critical aviation environment. Solution: align documentation, product options, and delivery readiness. Result: a clean handover framework ready for verified performance data.",
+          "Aviation teams need components that are compatible, documented, and ready for safety-critical review. Etihadeia supports these scopes by aligning product options, technical records, accessories, delivery timing, and handover requirements before site work begins.",
       },
       {
         type: "projects",
         eyebrow: "Case study gallery",
         heading: "Project cards for future evidence.",
         items: [
-          ["Automation upgrade", "Manufacturing", "Controls and field devices aligned for a staged facility upgrade.", "Measured uptime field"],
-          ["Utility infrastructure supply", "Power & Water", "Electrical supplies coordinated for resilient operating conditions.", "Availability field"],
-          ["Industrial maintenance scope", "Oil & Gas", "Replacement parts and service response planned around uptime windows.", "Response-time field"],
-          ["Urban systems package", "Smart Cities", "Connected infrastructure components prepared for city-scale deployment.", "Coverage field"],
+          ["Automation upgrade", "Manufacturing", "Controls, drives, sensors, and field devices aligned for a staged facility upgrade.", "Reduced substitution risk"],
+          ["Utility infrastructure supply", "Power & Water", "Protection, cabling, panels, and control components coordinated for resilient operating conditions.", "Improved documentation flow"],
+          ["Industrial maintenance scope", "Oil & Gas", "Replacement parts and electrical service response planned around production uptime windows.", "Faster readiness checks"],
+          ["Urban systems package", "Smart Cities", "Connected infrastructure components prepared for monitoring and city-scale deployment.", "Cleaner system handover"],
         ],
       },
     ],
@@ -181,16 +183,16 @@ const pages = {
   partners: {
     title: "Partners",
     eyebrow: "Partner ecosystem",
-    heading: "A supply network built for industrial confidence.",
+    heading: "A partner network built for industrial confidence.",
     intro:
-      "Etihadeia works with established technology names, specialist suppliers, and project collaborators to support dependable sourcing and technical continuity.",
+      "Etihadeia’s partner ecosystem supports dependable sourcing, technical continuity, product availability, and documentation across electrical, automation, aviation, and industrial technology scopes.",
     image: "/assets/why-us-innovation.png",
     imageAlt: "Laboratory analyst performing quality control with chemical analysis equipment",
     sections: [
       {
         type: "partnerLogos",
         eyebrow: "Partner ecosystem",
-        heading: "Names shown until final logo permissions are supplied.",
+        heading: "Technology and supply relationships that support project delivery.",
         items: ["Schneider", "ABB", "Siemens", "Rockwell", "Eaton", "Honeywell", "3M", "Phoenix Contact", "Legrand", "Belden", "Panduit", "nVent"],
       },
       {
@@ -200,9 +202,9 @@ const pages = {
         body:
           "Partner relationships help Etihadeia coordinate availability, alternates, technical documents, and product suitability across demanding project timelines.",
         items: [
-          ["Technology partners", "Support for core electrical, automation, and infrastructure systems."],
-          ["Specialist suppliers", "Niche products and replacement parts for practical site requirements."],
-          ["Project collaborators", "Coordination with EPCs, contractors, consultants, and asset owners."],
+          ["Technology partners", "Core electrical, automation, control, and infrastructure products for reviewed project requirements."],
+          ["Specialist suppliers", "Niche components, electroplating products, airport systems, and replacement parts for practical site needs."],
+          ["Project collaborators", "Coordination with EPCs, contractors, consultants, maintenance teams, and asset owners."],
         ],
       },
     ],
@@ -211,29 +213,29 @@ const pages = {
   brochure: {
     title: "Brochure",
     eyebrow: "Downloads",
-    heading: "Brochures and capability sheets prepared for verified PDFs.",
+    heading: "Capability documents for procurement and engineering review.",
     intro:
-      "Use this page as the download hub for the final corporate brochure and sector-specific documents. Draft file entries stay visible until approved PDFs are supplied.",
+      "This page organizes the documents a procurement lead or engineer would expect during vendor evaluation: company overview, sector capability sheets, and service-line summaries.",
     image: "/assets/about-section.jfif",
     imageAlt: "Industrial facility corridor with technical equipment",
     sections: [
       {
         type: "downloads",
         eyebrow: "Document library",
-        heading: "Download cards with draft file metadata.",
+        heading: "Document library.",
         items: [
-          ["Main Brochure", "Corporate overview", "PDF draft, final file pending"],
-          ["Infrastructure Sheet", "Sector capability", "PDF draft, final file pending"],
-          ["Aviation Systems Sheet", "Service capability", "PDF draft, final file pending"],
-          ["Automation Sheet", "Technical supply", "PDF draft, final file pending"],
+          ["Main Brochure", "Company overview", "PDF, corporate capability profile"],
+          ["Infrastructure Sheet", "Sector capability", "PDF, transport and utilities focus"],
+          ["Aviation Systems Sheet", "Service capability", "PDF, airport lighting and aviation systems"],
+          ["Automation Sheet", "Technical supply", "PDF, controls, sensors, drives, and instrumentation"],
         ],
       },
       {
         type: "notice",
         eyebrow: "Download note",
-        heading: "Gated-download option can be added later.",
+        heading: "Document requests can route to technical sales.",
         body:
-          "If lead capture becomes required, this page can add a short request form before file access without changing the public route.",
+          "For controlled documents, revision-specific files, or project-specific submittals, the download flow can route requests to technical sales before release.",
       },
     ],
     cta: ["Request the latest documents", "/contact/"],
@@ -241,9 +243,9 @@ const pages = {
   news: {
     title: "News",
     eyebrow: "News and insights",
-    heading: "A verified-news structure without invented announcements.",
+    heading: "Technical notes and company updates for industrial buyers.",
     intro:
-      "The page is ready for real updates. Current articles are draft editorial entries so the site can show layout, filters, and holding states without publishing unverified claims.",
+      "The news area is shaped around content that would be useful to procurement leads, engineers, consultants, and infrastructure teams: technical notes, sector explainers, and company updates.",
     image: "/assets/industry-oil-gas.png",
     imageAlt: "Offshore oil and gas platform at dusk",
     sections: [
@@ -252,23 +254,23 @@ const pages = {
         eyebrow: "Featured article",
         heading: "How industrial teams evaluate technical supply partners.",
         body:
-          "A draft insight summary about specification clarity, documentation, response time, and lifecycle support in industrial supply decisions.",
+          "A practical note on specification clarity, documentation quality, response time, product continuity, and after-sales support in industrial supply decisions.",
       },
       {
         type: "articles",
-        eyebrow: "Latest draft articles",
-        heading: "Content slots for future verified news.",
+        eyebrow: "Latest insights",
+        heading: "Useful reading for procurement and engineering teams.",
         items: [
-          ["Company update", "Draft summary for a future verified Etihadeia announcement.", "Company"],
-          ["Sector insight", "Draft summary for infrastructure and utility procurement guidance.", "Insights"],
-          ["Technical note", "Draft summary for automation, electrical, or aviation systems content.", "Technical"],
+          ["Airport lighting procurement", "What to confirm before selecting runway lighting components, accessories, and documentation packages.", "Aviation"],
+          ["Automation replacement planning", "How maintenance teams can reduce downtime risk by mapping control components before urgent replacement.", "Technical"],
+          ["Utility project documentation", "Why submittals, alternates, and lifecycle records matter for power and water infrastructure scopes.", "Infrastructure"],
         ],
       },
       {
         type: "notice",
-        eyebrow: "Verification note",
-        heading: "Latest news items are held until verified content is supplied.",
-        body: "This holding copy prevents draft articles from reading as published company claims.",
+        eyebrow: "Editorial standard",
+        heading: "Company announcements should be published only after verification.",
+        body: "Until final news releases are supplied, the page focuses on useful technical and sector content rather than unverified company claims.",
       },
     ],
     cta: ["Send a media inquiry", "/contact/"],
@@ -278,7 +280,7 @@ const pages = {
     eyebrow: "Contact us",
     heading: "Bring us the scope, site condition, or supply challenge.",
     intro:
-      "Route your inquiry to the right team with the form below. Draft contact details can be replaced with verified office data before launch.",
+      "Route your inquiry to the right team. Share the application, project stage, quantities, standards, and timeline so Etihadeia can respond with the right technical or commercial contact.",
     image: "/assets/why-us-innovation.png",
     imageAlt: "Quality control specialist working with industrial analysis equipment",
     sections: [{ type: "contact", eyebrow: "Inquiry form", heading: "Tell us what you are planning." }],
@@ -287,27 +289,35 @@ const pages = {
 
 function header(currentPage) {
   const links = navItems
-    .map(([label, href]) => `<a href="${href}"${href.includes(currentPage) ? ' aria-current="page"' : ""}>${label}</a>`)
+    .map(
+      ([label, href]) =>
+        `<li class="float-tabs__item"><a href="${href}" class="float-tabs__link${href.includes(currentPage) ? " is-active" : ""}"${href.includes(currentPage) ? ' aria-current="page"' : ""}>${label}</a></li>`,
+    )
     .join("");
 
   return `
-    <header class="site-header site-header--solid">
-      <a class="brand" href="/" aria-label="Etihadeia home">
-        <span class="brand__mark" aria-hidden="true">
-          <i class="brand__hex brand__hex--silver"></i>
-          <i class="brand__hex brand__hex--red"></i>
-          <i class="brand__hex brand__hex--graphite"></i>
-        </span>
-        <span class="brand__text">
-          <strong>Etihadeia</strong>
-          <small>Industrial Technology</small>
-        </span>
-      </a>
-      <div class="header-actions">
-        <nav class="site-nav" aria-label="Primary">${links}</nav>
-        <button class="language-toggle" type="button" data-language-toggle aria-label="Switch to Arabic">
-          <span data-language-label>العربية</span>
-        </button>
+    <header class="hero-bar page-bar" id="top-nav">
+      <div class="hero-bar__shell">
+        <a href="/" class="hero-bar__logo" aria-label="Etihadeia home">
+          <img src="https://etehadia.com/logo.png" alt="Etihadeia" width="180" height="56" decoding="async" />
+        </a>
+        <div class="hero-bar__center">
+          <nav class="hero-bar__nav-panel" aria-label="Primary">
+            <ul class="float-tabs page-tabs">
+              <li class="float-tabs__cursor" aria-hidden="true"></li>
+              ${links}
+            </ul>
+          </nav>
+        </div>
+        <div class="hero-bar__actions">
+          <a href="/contact/" class="hero-bar__contact">
+            <span class="hero-bar__contact-dot" aria-hidden="true"></span>
+            <span>Contact us</span>
+          </a>
+          <button class="language-toggle" type="button" data-language-toggle aria-label="Switch to Arabic">
+            <span data-language-label>العربية</span>
+          </button>
+        </div>
       </div>
     </header>
   `;
@@ -316,16 +326,43 @@ function header(currentPage) {
 function footer() {
   return `
     <footer class="footer">
-      <div class="footer__inner">
-        <div>
-          <strong>Etihadeia</strong>
-          <p>A subsidiary of Industrial Holdings Group</p>
+      <div class="container footer__grid">
+        <div class="footer__brand">
+          <img class="footer__logo" src="https://etehadia.com/logo.png" alt="Etihadeia" width="160" height="50" loading="lazy" decoding="async" />
+          <p class="footer__tag">A subsidiary of Industrial Holdings Group</p>
         </div>
-        <nav aria-label="Footer">
-          ${navItems.map(([label, href]) => `<a href="${href}">${label}</a>`).join("")}
-          <a href="/brochure/">Brochure</a>
-        </nav>
-        <p>© <span id="year"></span> Etihadeia. All rights reserved.</p>
+        <div class="footer__col">
+          <h4 class="footer__heading">Company</h4>
+          <nav class="footer__nav">
+            <a href="/about/">About</a>
+            <a href="/projects/">Projects</a>
+            <a href="/partners/">Partners</a>
+            <a href="/news/">News</a>
+          </nav>
+        </div>
+        <div class="footer__col">
+          <h4 class="footer__heading">Services</h4>
+          <nav class="footer__nav">
+            <a href="/services/">Electrical Supplies</a>
+            <a href="/services/">Automation</a>
+            <a href="/services/">Aviation Systems</a>
+            <a href="/brochure/">Brochure</a>
+          </nav>
+        </div>
+        <div class="footer__col">
+          <h4 class="footer__heading">Contact</h4>
+          <nav class="footer__nav">
+            <a href="/industries/">Industries</a>
+            <a href="/contact/">Inquiry form</a>
+          </nav>
+          <a href="/contact/" class="footer__cta">Contact us</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <div class="container footer__bottom-inner">
+          <p>© <span id="year"></span> Etihadeia. All rights reserved.</p>
+          <a href="#top-nav" class="back-top">Back to top</a>
+        </div>
       </div>
     </footer>
   `;
@@ -363,12 +400,51 @@ function sectionHeader(section) {
   `;
 }
 
+const imageLibrary = {
+  "Technical supply": ["/assets/why-us-standards.png", "Industrial technician reviewing equipment and control systems"],
+  "Engineering coordination": ["https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=900&q=80", "Engineer reviewing industrial equipment and technical plans"],
+  "Service standards": ["/assets/why-us-transformative.png", "Technician maintaining modern infrastructure equipment"],
+  "Electric Supplies": ["https://images.unsplash.com/photo-1621905251189-3b9c84bb8f8b?auto=format&fit=crop&w=900&q=80", "Electrical supplies and installation components"],
+  "Control & Automation": ["https://images.unsplash.com/photo-1581092921461-7d65ca45393a?auto=format&fit=crop&w=900&q=80", "Industrial automation controls and production equipment"],
+  "HVAC & Mechanical": ["https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=900&q=80", "Mechanical and HVAC service equipment"],
+  "Airport Lighting & Aviation": ["https://images.unsplash.com/photo-1556388158-158e5dd80442?auto=format&fit=crop&w=900&q=80", "Airport runway and aviation lighting environment"],
+  "Electrical Services": ["https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=900&q=80", "Electrical field service and wiring work"],
+  "Digital & IoT Supplies": ["https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?auto=format&fit=crop&w=900&q=80", "Connected digital infrastructure and monitoring systems"],
+  "Oil & Gas": ["/assets/industry-oil-gas.png", "Offshore oil and gas platform at dusk"],
+  Infrastructure: ["/assets/industry-infrastructure.png", "Modern elevated transport and urban infrastructure"],
+  Industrial: ["https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=900&q=80", "Industrial facility with heavy equipment"],
+  Aviation: ["https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=900&q=80", "Commercial aviation and airport operations"],
+  "Power & Water": ["https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=900&q=80", "Power generation and utility infrastructure"],
+  Commercial: ["https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=80", "Commercial building infrastructure"],
+  "Smart Cities": ["https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?auto=format&fit=crop&w=900&q=80", "Connected urban technology environment"],
+  "Automation upgrade": ["https://images.unsplash.com/photo-1581092921461-7d65ca45393a?auto=format&fit=crop&w=900&q=80", "Automated industrial production equipment"],
+  "Utility infrastructure supply": ["https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=900&q=80", "Power and water infrastructure"],
+  "Industrial maintenance scope": ["/assets/why-us-standards.png", "Industrial technician monitoring equipment"],
+  "Urban systems package": ["/assets/industry-infrastructure.png", "Urban infrastructure and transport systems"],
+  "Main Brochure": ["https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=900&q=80", "Technical documents and corporate brochure"],
+  "Infrastructure Sheet": ["/assets/industry-infrastructure.png", "Infrastructure capability document visual"],
+  "Aviation Systems Sheet": ["https://images.unsplash.com/photo-1556388158-158e5dd80442?auto=format&fit=crop&w=900&q=80", "Aviation systems capability document visual"],
+  "Automation Sheet": ["https://images.unsplash.com/photo-1581092921461-7d65ca45393a?auto=format&fit=crop&w=900&q=80", "Automation capability document visual"],
+  "Airport lighting procurement": ["https://images.unsplash.com/photo-1556388158-158e5dd80442?auto=format&fit=crop&w=900&q=80", "Airport runway lighting at dusk"],
+  "Automation replacement planning": ["https://images.unsplash.com/photo-1581092921461-7d65ca45393a?auto=format&fit=crop&w=900&q=80", "Industrial automation replacement planning"],
+  "Utility project documentation": ["https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=900&q=80", "Utility infrastructure documentation topic"],
+};
+
+function imageFor(title, fallback = ["/assets/why-us-innovation.png", "Industrial technology visual"]) {
+  return imageLibrary[title] || fallback;
+}
+
+function cardMedia(title) {
+  const [src, alt] = imageFor(title);
+  return `<div class="page-card__media"><img src="${src}" alt="${alt}" loading="lazy" /></div>`;
+}
+
 function renderSection(section) {
   const head = sectionHeader(section);
 
   if (section.type === "split") {
     return `<section class="section page-section" data-reveal><div class="section__inner">${head}<div class="feature-list">${section.items
-      .map(([title, body]) => `<article><h3>${title}</h3><p>${body}</p></article>`)
+      .map(([title, body]) => `<article>${cardMedia(title)}<div class="page-card__body"><h3>${title}</h3><p>${body}</p></div></article>`)
       .join("")}</div></div></section>`;
   }
 
@@ -380,7 +456,7 @@ function renderSection(section) {
 
   if (section.type === "services" || section.type === "industryTiles") {
     return `<section class="section page-section" data-reveal><div class="section__inner">${head}<div class="technical-grid">${section.items
-      .map(([title, body]) => `<article><h3>${title}</h3><p>${body}</p></article>`)
+      .map(([title, body]) => `<article>${cardMedia(title)}<div class="page-card__body"><h3>${title}</h3><p>${body}</p></div></article>`)
       .join("")}</div></div></section>`;
   }
 
@@ -397,27 +473,28 @@ function renderSection(section) {
   }
 
   if (section.type === "featuredProject" || section.type === "spotlight" || section.type === "notice" || section.type === "featuredArticle") {
-    return `<section class="section page-section" data-reveal><div class="section__inner"><div class="spotlight-block"><p class="section__label">${section.eyebrow}</p><h2>${section.heading}</h2><p>${section.body}</p></div></div></section>`;
+    const [src, alt] = imageFor(section.heading, section.type === "featuredProject" ? imageFor("Airport Lighting & Aviation") : imageFor("Infrastructure"));
+    return `<section class="section page-section" data-reveal><div class="section__inner"><div class="spotlight-block"><div class="spotlight-block__copy"><p class="section__label">${section.eyebrow}</p><h2>${section.heading}</h2><p>${section.body}</p></div><div class="spotlight-block__media"><img src="${src}" alt="${alt}" loading="lazy" /></div></div></div></section>`;
   }
 
   if (section.type === "projects") {
     return `<section class="section page-section" data-reveal><div class="section__inner">${head}<div class="filter-row" aria-label="Project filters"><button type="button">All</button><button type="button">Infrastructure</button><button type="button">Aviation</button><button type="button">Industrial</button></div><div class="project-gallery">${section.items
       .map(
         ([title, sector, body, result]) =>
-          `<article><span>${sector}</span><h3>${title}</h3><p>${body}</p><strong>${result}</strong></article>`,
+          `<article>${cardMedia(title)}<div class="page-card__body"><span>${sector}</span><h3>${title}</h3><p>${body}</p><strong>${result}</strong></div></article>`,
       )
       .join("")}</div></div></section>`;
   }
 
   if (section.type === "downloads") {
     return `<section class="section page-section" data-reveal><div class="section__inner">${head}<div class="download-list">${section.items
-      .map(([title, kind, meta]) => `<a href="#" aria-disabled="true"><strong>${title}</strong><span>${kind}</span><small>${meta}</small></a>`)
+      .map(([title, kind, meta]) => `<a href="#" aria-disabled="true">${cardMedia(title)}<div class="page-card__body"><strong>${title}</strong><span>${kind}</span><small>${meta}</small></div></a>`)
       .join("")}</div></div></section>`;
   }
 
   if (section.type === "articles") {
     return `<section class="section page-section" data-reveal><div class="section__inner">${head}<div class="filter-row" aria-label="News filters"><button type="button">All</button><button type="button">Company</button><button type="button">Insights</button><button type="button">Technical</button></div><div class="article-list">${section.items
-      .map(([title, body, category]) => `<article><span>${category}</span><h3>${title}</h3><p>${body}</p></article>`)
+      .map(([title, body, category]) => `<article>${cardMedia(title)}<div class="page-card__body"><span>${category}</span><h3>${title}</h3><p>${body}</p></div></article>`)
       .join("")}</div></div></section>`;
   }
 
@@ -470,7 +547,7 @@ function finalCta(page) {
     <section class="section final-cta" data-reveal>
       <div class="section__inner">
         <p class="section__label">Next step</p>
-        <h2>Ready to move from draft content to project detail?</h2>
+        <h2>Ready to turn a requirement into a reviewed supply path?</h2>
         <a class="industrial-button" href="${page.cta[1]}">${page.cta[0]}</a>
       </div>
     </section>
@@ -497,6 +574,63 @@ function setupReveals() {
   items.forEach((item) => observer.observe(item));
 }
 
+function setupScrollProgress() {
+  const progress = document.createElement("div");
+  progress.className = "scroll-progress";
+  progress.setAttribute("aria-hidden", "true");
+  document.body.appendChild(progress);
+
+  let ticking = false;
+  const update = () => {
+    const max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+    const value = Math.min(1, Math.max(0, window.scrollY / max));
+    progress.style.transform = `scaleX(${value.toFixed(4)})`;
+    ticking = false;
+  };
+
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(update);
+    },
+    { passive: true },
+  );
+  window.addEventListener("resize", update, { passive: true });
+  update();
+}
+
+function setupPressFeedback() {
+  document.querySelectorAll("a, button").forEach((element) => {
+    element.addEventListener("pointerdown", () => element.classList.add("is-pressing"));
+    ["pointerup", "pointercancel", "pointerleave", "blur"].forEach((eventName) => {
+      element.addEventListener(eventName, () => element.classList.remove("is-pressing"));
+    });
+  });
+}
+
+function setupPageTransitions() {
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+  const veil = document.createElement("div");
+  veil.className = "page-transition-veil";
+  veil.setAttribute("aria-hidden", "true");
+  document.body.appendChild(veil);
+
+  document.querySelectorAll('a[href^="/"]').forEach((link) => {
+    link.addEventListener("click", (event) => {
+      const url = new URL(link.href, window.location.origin);
+      if (url.origin !== window.location.origin || url.pathname === window.location.pathname) return;
+      event.preventDefault();
+      veil.classList.add("is-leaving");
+      window.setTimeout(() => {
+        window.location.href = url.href;
+      }, 220);
+    });
+  });
+}
+
 function setupContactForm() {
   const form = document.querySelector(".contact-form");
   const status = document.querySelector(".form-status");
@@ -507,12 +641,12 @@ function setupContactForm() {
       ar: "يرجى إكمال الحقول المطلوبة قبل الإرسال.",
     },
     sending: {
-      en: "Sending draft request...",
-      ar: "جار إرسال الطلب المؤقت...",
+      en: "Sending request...",
+      ar: "جار إرسال الطلب...",
     },
     success: {
-      en: "Thank you. This draft form is ready for backend connection.",
-      ar: "شكراً لك. هذا النموذج المؤقت جاهز للربط بالخادم.",
+      en: "Thank you. Your inquiry is ready for the Etihadeia team.",
+      ar: "شكراً لك. أصبح استفسارك جاهزاً لفريق الاتحادية.",
     },
   };
   const message = (key) => messages[key][document.documentElement.lang === "ar" ? "ar" : "en"];
@@ -521,16 +655,21 @@ function setupContactForm() {
     event.preventDefault();
     if (!form.checkValidity()) {
       form.classList.add("has-errors");
+      status.classList.remove("is-success");
+      status.classList.add("is-error");
       status.textContent = message("invalid");
       form.reportValidity();
+      window.setTimeout(() => status.classList.remove("is-error"), 420);
       return;
     }
 
     const button = form.querySelector("button");
     button.disabled = true;
+    status.classList.remove("is-error", "is-success");
     status.textContent = message("sending");
     window.setTimeout(() => {
       status.textContent = message("success");
+      status.classList.add("is-success");
       button.disabled = false;
       form.reset();
       form.classList.remove("has-errors");
@@ -556,6 +695,9 @@ function render() {
   document.querySelector("#year").textContent = new Date().getFullYear();
   setupLanguageToggle();
   setupReveals();
+  setupScrollProgress();
+  setupPressFeedback();
+  setupPageTransitions();
   setupContactForm();
 }
 

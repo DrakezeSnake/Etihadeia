@@ -9,10 +9,10 @@ const pageMeta = {
       about: ["Etihadeia | About", "Learn how Etihadeia supports industrial technology, infrastructure, aviation, and electrical service projects."],
       services: ["Etihadeia | Services", "Explore Etihadeia services across electrical supplies, automation, HVAC, aviation lighting, electrical services, and digital IoT supply."],
       industries: ["Etihadeia | Industries", "See the sectors Etihadeia serves, including oil and gas, infrastructure, aviation, power and water, commercial, smart cities, and electrical services."],
-      projects: ["Etihadeia | Projects", "Review Etihadeia project Drafts for industrial supply, infrastructure, aviation, automation, and electrical service scopes."],
-      partners: ["Etihadeia | Partners", "Explore Etihadeia partner ecosystem Drafts for suppliers, technology partners, distributors, and project collaborators."],
-      brochure: ["Etihadeia | Brochure", "Download Etihadeia brochure Drafts, sector sheets, and service capability documents."],
-      news: ["Etihadeia | News", "Read Etihadeia news and insights Drafts for company updates, sector notes, and technical articles."],
+      projects: ["Etihadeia | Projects", "Review Etihadeia representative project work for industrial supply, infrastructure, aviation, automation, and electrical service scopes."],
+      partners: ["Etihadeia | Partners", "Explore Etihadeia partner ecosystem for suppliers, technology partners, distributors, and project collaborators."],
+      brochure: ["Etihadeia | Brochure", "Download Etihadeia brochures, sector sheets, and service capability documents."],
+      news: ["Etihadeia | News", "Read Etihadeia news and insights for company updates, sector notes, and technical articles."],
       contact: ["Etihadeia | Contact", "Contact Etihadeia for industrial technology, infrastructure, aviation, automation, and electrical service inquiries."],
     },
   },
@@ -319,6 +319,64 @@ const arText = {
   "Ready to move from draft content to project detail?": "هل أنت جاهز للانتقال من المحتوى الأولي إلى تفاصيل المشروع؟",
   "Sending draft request...": "جار إرسال الطلب الأولي...",
   "Thank you. This draft form is ready for backend connection.": "شكراً لك. هذا النموذج الأولي جاهز للربط بالخادم.",
+  "Technical supply, service discipline, and field experience for industrial work.": "توريد فني وانضباط خدمي وخبرة ميدانية للأعمال الصناعية.",
+  "Etihadeia supports manufacturers, contractors, consultants, and infrastructure operators with electrical supplies, control components, aviation systems, electroplating technologies, and coordinated service support from Egypt.":
+    "تدعم الاتحادية المصنعين والمقاولين والاستشاريين ومشغلي البنية التحتية بالمستلزمات الكهربائية ومكونات التحكم وأنظمة الطيران وتقنيات الطلاء الكهربائي ودعم الخدمة المنسق من مصر.",
+  "From technical requirement to delivered supply.": "من المتطلب الفني إلى التوريد المنجز.",
+  "The work starts with the site condition, the drawings, the required standards, and the procurement window. Etihadeia then coordinates compatible products, documentation, alternates, delivery readiness, and the support needed after installation.":
+    "يبدأ العمل من حالة الموقع والرسومات والمعايير المطلوبة ونافذة التوريد. ثم تنسق الاتحادية المنتجات المتوافقة والوثائق والبدائل وجاهزية التسليم والدعم المطلوب بعد التركيب.",
+  "Electrical products, control equipment, aviation lighting systems, electroplating chemicals, machines, and accessories selected around project fit.":
+    "منتجات كهربائية ومعدات تحكم وأنظمة إضاءة طيران وكيماويات وماكينات وإكسسوارات طلاء كهربائي يتم اختيارها حسب ملاءمة المشروع.",
+  "Support for specifications, drawings, equivalent items, commissioning requirements, and documentation packages.":
+    "دعم للمواصفات والرسومات والبدائل المكافئة ومتطلبات التشغيل وحزم الوثائق.",
+  "Field-aware teams that understand lead times, site constraints, safety requirements, and the practical pressure of shutdown windows.":
+    "فرق تفهم المدد الزمنية وقيود الموقع ومتطلبات السلامة وضغط نوافذ التوقف التشغيلي.",
+  "A practical sequence for critical supply decisions.": "تسلسل عملي لقرارات التوريد الحرجة.",
+  "Read the requirement": "قراءة المتطلب",
+  "Review the application, operating environment, standards, loads, safety needs, and project schedule.": "مراجعة التطبيق وبيئة التشغيل والمعايير والأحمال واحتياجات السلامة وجدول المشروع.",
+  "Match the supply": "مطابقة التوريد",
+  "Select products and alternates that fit performance, compatibility, availability, documentation, and lifecycle needs.": "اختيار المنتجات والبدائل التي تناسب الأداء والتوافق والتوافر والوثائق واحتياجات دورة الحياة.",
+  "Support the handover": "دعم التسليم",
+  "Coordinate logistics, records, installation readiness, after-sales response, and future replacement planning.": "تنسيق اللوجستيات والسجلات وجاهزية التركيب وخدمة ما بعد البيع وتخطيط الاستبدال المستقبلي.",
+  "Documented standards for procurement review.": "معايير موثقة لمراجعة المشتريات.",
+  "Quality system records": "سجلات نظام الجودة",
+  "Product data sheets": "نشرات بيانات المنتجات",
+  "Service lines built around real industrial procurement.": "خطوط خدمة مبنية حول مشتريات صناعية واقعية.",
+  "Etihadeia’s service portfolio connects product sourcing with technical review, site readiness, and long-term availability. The goal is simple: the right component, the right document, the right timing.":
+    "تربط محفظة خدمات الاتحادية توريد المنتجات بالمراجعة الفنية وجاهزية الموقع والتوافر طويل الأمد. الهدف بسيط: المكون الصحيح، والوثيقة الصحيحة، والتوقيت الصحيح.",
+  "Six service lines, one operating standard.": "ستة خطوط خدمة ومعيار تشغيل واحد.",
+  "Distribution products, protection equipment, cables, wiring accessories, panels, terminals, and replacement parts for industrial and infrastructure projects.":
+    "منتجات توزيع ومعدات حماية وكابلات وإكسسوارات توصيل ولوحات وأطراف وقطع غيار للمشاريع الصناعية ومشاريع البنية التحتية.",
+  "PLC hardware, drives, sensors, HMI, instrumentation, and control components for production lines, utilities, and facility systems.":
+    "معدات PLC ومحركات وحساسات وواجهات تشغيل وأجهزة قياس ومكونات تحكم لخطوط الإنتاج والمرافق وأنظمة المنشآت.",
+  "HVAC and mechanical components for industrial buildings, process areas, service rooms, and operational facilities.":
+    "مكونات تكييف وميكانيكا للمباني الصناعية ومناطق العمليات وغرف الخدمة والمنشآت التشغيلية.",
+  "Runway lighting, airport technologies, aviation electrical systems, and safety-critical technical supply for airside environments.":
+    "إضاءة مدارج وتقنيات مطارات وأنظمة كهربائية للطيران وتوريد فني حساس للسلامة في بيئات المطارات.",
+  "Installation support, testing coordination, maintenance response, troubleshooting, and energization assistance for electrical systems.":
+    "دعم التركيب وتنسيق الاختبارات واستجابة الصيانة واستكشاف الأعطال والمساعدة في تشغيل الأنظمة الكهربائية.",
+  "Connected monitoring devices, IoT-ready components, gateways, sensors, and digital infrastructure products for smarter operations.":
+    "أجهزة مراقبة متصلة ومكونات جاهزة لإنترنت الأشياء وبوابات وحساسات ومنتجات بنية تحتية رقمية لعمليات أكثر ذكاءً.",
+  "Oil and gas, airports, utilities, factories, commercial assets, and smart-city programs all ask different questions. Etihadeia structures supply and service support around safety, uptime, compliance, lifecycle, and response time.":
+    "تطرح قطاعات النفط والغاز والمطارات والمرافق والمصانع والأصول التجارية وبرامج المدن الذكية أسئلة مختلفة. تبني الاتحادية دعم التوريد والخدمة حول السلامة واستمرارية التشغيل والامتثال ودورة الحياة وزمن الاستجابة.",
+  "Representative project work shaped as proof, not decoration.": "أعمال مشاريع تمثيلية تقدم كدليل لا كزخرفة.",
+  "These representative project stories describe the kind of technical coordination Etihadeia supports across industrial, utility, aviation, and smart infrastructure work. Final client names and figures can be added when cleared.":
+    "تصف قصص المشاريع التمثيلية نوع التنسيق الفني الذي تدعمه الاتحادية في الأعمال الصناعية والمرافق والطيران والبنية التحتية الذكية. يمكن إضافة أسماء العملاء والأرقام النهائية عند اعتمادها.",
+  "Aviation teams need components that are compatible, documented, and ready for safety-critical review. Etihadeia supports these scopes by aligning product options, technical records, accessories, delivery timing, and handover requirements before site work begins.":
+    "تحتاج فرق الطيران إلى مكونات متوافقة وموثقة وجاهزة للمراجعة الحساسة للسلامة. تدعم الاتحادية هذه النطاقات بمواءمة خيارات المنتجات والسجلات الفنية والملحقات وتوقيت التسليم ومتطلبات التسليم قبل بدء العمل في الموقع.",
+  "Capability documents for procurement and engineering review.": "وثائق قدرات لمراجعة المشتريات والهندسة.",
+  "This page organizes the documents a procurement lead or engineer would expect during vendor evaluation: company overview, sector capability sheets, and service-line summaries.":
+    "تنظم هذه الصفحة الوثائق التي يتوقعها مسؤول المشتريات أو المهندس أثناء تقييم المورد: نبذة الشركة وملفات قدرات القطاعات وملخصات خطوط الخدمة.",
+  "Document library.": "مكتبة الوثائق.",
+  "Technical notes and company updates for industrial buyers.": "ملاحظات فنية وتحديثات للشركة للمشترين الصناعيين.",
+  "The news area is shaped around content that would be useful to procurement leads, engineers, consultants, and infrastructure teams: technical notes, sector explainers, and company updates.":
+    "تم تشكيل منطقة الأخبار حول محتوى مفيد لمسؤولي المشتريات والمهندسين والاستشاريين وفرق البنية التحتية: ملاحظات فنية وشروحات قطاعية وتحديثات للشركة.",
+  "Bring us the scope, site condition, or supply challenge.": "شاركنا نطاق العمل أو ظروف الموقع أو تحدي التوريد.",
+  "Route your inquiry to the right team. Share the application, project stage, quantities, standards, and timeline so Etihadeia can respond with the right technical or commercial contact.":
+    "وجّه استفسارك إلى الفريق المناسب. شارك التطبيق ومرحلة المشروع والكميات والمعايير والجدول الزمني حتى ترد الاتحادية بجهة التواصل الفنية أو التجارية المناسبة.",
+  "Ready to turn a requirement into a reviewed supply path?": "هل أنت جاهز لتحويل المتطلب إلى مسار توريد مُراجع؟",
+  "Sending request...": "جار إرسال الطلب...",
+  "Thank you. Your inquiry is ready for the Etihadeia team.": "شكراً لك. أصبح استفسارك جاهزاً لفريق الاتحادية.",
 };
 
 const arAttributes = {

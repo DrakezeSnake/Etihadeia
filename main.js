@@ -8,12 +8,59 @@ import heroLogoUrl from "./etihadia 3D logo.obj?url";
   var prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var LANGUAGE_STORAGE_KEY = "etihadeia-language";
   var currentLanguage = localStorage.getItem(LANGUAGE_STORAGE_KEY) === "ar" ? "ar" : "en";
+
+  function setupScrollProgress() {
+    var progress = document.querySelector(".scroll-progress");
+    if (!progress) {
+      progress = document.createElement("div");
+      progress.className = "scroll-progress";
+      progress.setAttribute("aria-hidden", "true");
+      document.body.appendChild(progress);
+    }
+
+    var ticking = false;
+    function update() {
+      var doc = document.documentElement;
+      var max = Math.max(1, doc.scrollHeight - window.innerHeight);
+      var value = Math.min(1, Math.max(0, window.scrollY / max));
+      progress.style.transform = "scaleX(" + value.toFixed(4) + ")";
+      ticking = false;
+    }
+
+    window.addEventListener(
+      "scroll",
+      function () {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(update);
+      },
+      { passive: true }
+    );
+    window.addEventListener("resize", update, { passive: true });
+    update();
+  }
+
+  function setupPressFeedback() {
+    document.querySelectorAll("a, button").forEach(function (el) {
+      el.addEventListener("pointerdown", function () {
+        el.classList.add("is-pressing");
+      });
+      ["pointerup", "pointercancel", "pointerleave", "blur"].forEach(function (eventName) {
+        el.addEventListener(eventName, function () {
+          el.classList.remove("is-pressing");
+        });
+      });
+    });
+  }
+
+  setupScrollProgress();
+  setupPressFeedback();
   var pageCopy = {
     en: {
       title: "Etihadeia | Industrial Technology & Infrastructure Solutions",
       languageLabel: "العربية",
       languageAria: "Switch to Arabic",
-      nav: ["About", "Services", "Industries", "Projects", "Partners", "News", "Contact"],
+      nav: ["Home", "About", "Services", "Industries", "Projects", "Partners", "News", "Contact"],
       contact: "Contact us",
       heroEyebrow: "Electroplating & industrial technology",
       heroTitle: ["Experience", "Delivers Solutions"],
@@ -105,7 +152,7 @@ import heroLogoUrl from "./etihadia 3D logo.obj?url";
       title: "الاتحادية | حلول التكنولوجيا الصناعية والبنية التحتية",
       languageLabel: "English",
       languageAria: "Switch to English",
-      nav: ["عن الشركة", "الخدمات", "القطاعات", "المشاريع", "الشركاء", "الأخبار", "تواصل"],
+      nav: ["الرئيسية", "عن الشركة", "الخدمات", "القطاعات", "المشاريع", "الشركاء", "الأخبار", "تواصل"],
       contact: "تواصل معنا",
       heroEyebrow: "الطلاء الكهربائي والتكنولوجيا الصناعية",
       heroTitle: ["الخبرة", "تصنع الحلول"],
@@ -681,6 +728,7 @@ import heroLogoUrl from "./etihadia 3D logo.obj?url";
     var floatLinks = floatTabsRoot.querySelectorAll(".float-tabs__link");
     /* One entry per top-level navigation route for homepage section awareness. */
     var sectionGroups = [
+      ["hero"],
       ["about"],
       ["services"],
       ["industries"],
