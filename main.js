@@ -1,6 +1,7 @@
 import * as THREE from "three";
 import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader.js";
 import heroLogoUrl from "./etihadia 3D logo.obj?url";
+import { initFooter3dLogo } from "./src/footerLogo3d.js";
 
 (function () {
   "use strict";
@@ -83,10 +84,10 @@ import heroLogoUrl from "./etihadia 3D logo.obj?url";
       title: "El Etehadia | Electroplating & Surface Finishing Solutions",
       languageLabel: "العربية",
       languageAria: "Switch to Arabic",
-      nav: ["Home", "About", "Services", "Products", "Industries", "Applications", "Partners", "Insights"],
+      nav: ["Home", "About", "Services", "Products", "Industries", "Applications", "Partners"],
       contact: "Contact us",
       heroEyebrow: "Since 1997 · Electroplating & Surface Finishing Solutions",
-      heroTitle: ["Trusted Electroplating", "Solutions for Industrial Finishing"],
+      heroTitle: ["Etehadia"],
       heroIntro:
         "El Etehadia supplies electroplating chemicals, machines, accessories, lacquers, laboratory analysis, and technical support for manufacturers across Egypt and the Middle East.",
       heroCtas: ["Explore Products", "Request Technical Support"],
@@ -160,7 +161,7 @@ import heroLogoUrl from "./etihadia 3D logo.obj?url";
       submit: "Send Inquiry",
       footerTag: "Electroplating chemicals, machines, accessories, lacquers, laboratory analysis, and technical support.",
       footerHeadings: ["Company", "Products", "Contact"],
-      footerCompany: ["About", "Products", "Applications", "News & Insights", "Industries", "Partners", "Contact"],
+      footerCompany: ["About", "Products", "Applications", "Industries", "Partners", "Contact"],
       footerServices: ["Nickel plating", "Chrome plating", "Copper plating", "Zinc plating", "Lacquers"],
       footerLegal: ["+20 2 26833830", "+20 10 67358111"],
       footerCta: "Send inquiry",
@@ -171,10 +172,10 @@ import heroLogoUrl from "./etihadia 3D logo.obj?url";
       title: "الاتحادية | حلول الطلاء الكهربائي ومعالجة الأسطح",
       languageLabel: "English",
       languageAria: "Switch to English",
-      nav: ["الرئيسية", "عن الشركة", "الخدمات", "المنتجات", "القطاعات", "التطبيقات", "الشركاء", "الرؤى"],
+      nav: ["الرئيسية", "عن الشركة", "الخدمات", "المنتجات", "القطاعات", "التطبيقات", "الشركاء"],
       contact: "تواصل معنا",
       heroEyebrow: "منذ 1997 · معالجة الأسطح",
-      heroTitle: ["طلاء كهربائي موثوق", "للتشطيب الصناعي"],
+      heroTitle: ["الاتحادية"],
       heroIntro:
         "كيماويات وماكينات ولاكيهات للطلاء، مع تحليل معملي ودعم فني.",
       heroCtas: ["استكشف المنتجات", "اطلب دعماً فنياً"],
@@ -242,7 +243,7 @@ import heroLogoUrl from "./etihadia 3D logo.obj?url";
       submit: "إرسال الاستفسار",
       footerTag: "كيماويات وماكينات وإكسسوارات ولاكيهات الطلاء الكهربائي، مع تحليل معملي ودعم فني.",
       footerHeadings: ["الشركة", "المنتجات", "تواصل"],
-      footerCompany: ["عن الشركة", "المنتجات", "التطبيقات", "الأخبار والرؤى", "القطاعات", "الشركاء", "تواصل"],
+      footerCompany: ["عن الشركة", "المنتجات", "التطبيقات", "القطاعات", "الشركاء", "تواصل"],
       footerServices: ["طلاء نيكل", "طلاء كروم", "طلاء نحاس", "طلاء زنك", "لاكيهات"],
       footerLegal: ["+20 2 26833830", "+20 10 67358111"],
       footerCta: "إرسال استفسار",
@@ -643,6 +644,7 @@ import heroLogoUrl from "./etihadia 3D logo.obj?url";
   }
 
   initHeroHexLogo();
+  initFooter3dLogo();
 
   /* Count-up */
   function animateCount(el, target, suffix, duration) {

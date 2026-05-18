@@ -1823,8 +1823,42 @@ html[dir="rtl"] .contact__form .btn {
 
 /* Footer */
 .footer {
+  position: relative;
+  overflow: visible;
   background: var(--charcoal);
   padding-top: 4rem;
+}
+
+.footer__3d-logo--brand {
+  position: relative;
+  width: 176px;
+  height: 176px;
+  max-width: 100%;
+  margin-bottom: 0.85rem;
+}
+
+.footer__3d-logo--brand canvas {
+  display: block;
+  width: 176px !important;
+  height: 176px !important;
+  border-radius: var(--radius-md);
+  filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.32));
+}
+
+.footer__3d-logo.is-empty {
+  display: none;
+}
+
+@media (max-width: 520px) {
+  .footer__3d-logo--brand {
+    transform: scale(0.88);
+    transform-origin: top left;
+    margin-bottom: 0.65rem;
+  }
+
+  html[dir="rtl"] .footer__3d-logo--brand {
+    transform-origin: top right;
+  }
 }
 
 .footer__grid {
@@ -1849,15 +1883,6 @@ html[dir="rtl"] .contact__form .btn {
 .logo--footer {
   display: inline-block;
   margin-bottom: 0.75rem;
-}
-
-.footer__logo {
-  height: 46px;
-  width: auto;
-  max-width: 200px;
-  object-fit: contain;
-  margin-bottom: 0.85rem;
-  display: block;
 }
 
 .footer__tag {

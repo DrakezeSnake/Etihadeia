@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-hidden="true">
+  <defs>
+    <linearGradient id="nav-red" x1="31" y1="8" x2="58" y2="45" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ff4b3f"/>
+      <stop offset="0.5" stop-color="#b50d10"/>
+      <stop offset="1" stop-color="#5e0608"/>
+    </linearGradient>
+    <linearGradient id="nav-steel" x1="7" y1="18" x2="33" y2="54" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#d6d2c8"/>
+      <stop offset="0.48" stop-color="#76746f"/>
+      <stop offset="1" stop-color="#27292a"/>
+    </linearGradient>
+    <linearGradient id="nav-graphite" x1="26" y1="28" x2="52" y2="61" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2a2c2e"/>
+      <stop offset="1" stop-color="#060708"/>
+    </linearGradient>
+    <filter id="nav-shadow" x="-25%" y="-25%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+  <g filter="url(#nav-shadow)" stroke-linejoin="round">
+    <path d="M19 17h17l8.5 14.7L36 46.4H19L10.5 31.7 19 17Z" fill="url(#nav-steel)" stroke="#ebe7dc" stroke-opacity="0.28" stroke-width="1.4"/>
+    <path d="M35 8h18l9 15.6-9 15.6H35L26 23.6 35 8Z" fill="url(#nav-red)" stroke="#ff6a5d" stroke-opacity="0.45" stroke-width="1.4"/>
+    <path d="M31 29h19l9.5 16.5L50 62H31l-9.5-16.5L31 29Z" fill="url(#nav-graphite)" stroke="#4b4e50" stroke-opacity="0.65" stroke-width="1.4"/>
+  </g>
+  <path d="M17 31.8h21.8M31.5 23.7h23.2M28.2 45.6h25.2" stroke="#fff" stroke-opacity="0.16" stroke-width="2" stroke-linecap="round"/>
+</svg>

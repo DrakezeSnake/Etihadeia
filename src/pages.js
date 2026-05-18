@@ -1,6 +1,7 @@
 import { setupLanguageToggle } from "./i18n.js";
 import "../styles.css";
 import "./pages.css";
+import { initFooter3dLogo } from "./footerLogo3d.js";
 
 const WHATSAPP_URL = "https://wa.me/201067358111";
 
@@ -12,63 +13,102 @@ const navItems = [
   ["Industries", "/industries/"],
   ["Applications", "/projects/"],
   ["Partners", "/partners/"],
-  ["Insights", "/news/"],
+];
+
+/** Shared by page heroes that use the wide logistics / fleet visual (About, Industries, etc.) */
+const pageHeroLogisticsImage = [
+  "/assets/maxresdefault.jpg",
+  "El Etehadia branded logistics and electroplating supply across Egypt",
 ];
 
 const pageImages = {
-  hero: ["/assets/about-section.jfif", "El Etehadia industrial surface finishing facility visual"],
-  about: ["/assets/about-section.jfif", "El Etehadia industrial surface finishing facility visual"],
-  lab: ["/assets/why-us-innovation.png", "Laboratory technician analyzing electroplating bath solution"],
-  support: ["/assets/why-us-standards.png", "Technical specialist reviewing electroplating samples"],
-  nickel: ["https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1200&q=80", "Industrial metal finishing production area"],
+  hero: pageHeroLogisticsImage,
+  about: pageHeroLogisticsImage,
+  machinesProductionGrid: ["/assets/electris-coating-systems-4.jpg", "Electroplating coating systems and production line equipment"],
+  aboutMissionSpotlight: ["/assets/about-spotlight-mission.jpeg", "El Etehadia supply operations and industrial technology"],
+  lab: ["/assets/Speciality-chemical-gallery-3.webp", "Laboratory analysis and specialty chemistry for plating baths"],
+  support: ["/assets/42e1662cffb5.webp", "Technical specialist supporting electroplating operations"],
+  processOptimization: ["/assets/service-process-optimization.jpeg", "Process optimization and plating line improvement support"],
+  machinesService: ["/assets/service-machines-accessories.jpeg", "Electroplating machines, accessories, and industrial supply logistics"],
+  nickelProductCard: ["/assets/73ab59c7-12a9-4440-a085-db03697da9fb.jfif", "Nickel plating production and industrial metal finishing"],
+  electrolessNickelProductCard: ["/assets/dsc04687.jpg", "Electroless nickel plating and uniform metal finishing"],
+  electrolessNickelApplication: ["/assets/silver-electrical-contacts38216278-077f-4e99-978e-d34e24e39b03.webp", "Silver-plated electrical contacts and functional electroless nickel finishes"],
   chrome: ["https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80", "Engineer inspecting finished industrial components"],
-  copper: ["https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=1200&q=80", "Electrical metal components prepared for finishing"],
+  chromeProductCard: ["/assets/046A5728HCspecLc-400x267-c-default.jpg", "Chrome plating systems and decorative finishing production"],
+  trivalentChromeProductCard: ["/assets/trivalent-chrome-plated-component.png", "Trivalent chrome plated components with decorative mirror finish"],
+  hardChromeProductCard: ["/assets/Hard-Chrome-2.jpg", "Hard chrome plating for wear resistance and industrial durability"],
+  decorativeNickelChromeApplication: ["/assets/electris-copper-busbars.jpg", "Copper busbars and decorative plated metal finishing"],
+  platingSystemsRacked: ["/assets/racked parts.jpg", "Racked plated parts and production finishing racks"],
+  automotive: ["/assets/aly73717b77_0.webp", "Automotive and plated industrial components"],
+  sanitary: ["/assets/electroplating-on-bathroom-fittings-service.jpg", "Electroplating on bathroom fittings"],
+  hardwareSector: ["/assets/electroplating-services-500x500.webp", "Hardware and electroplated metal components"],
+  industrialManufacturing: [
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9m-7r1LX-yvte8BJXd764y2cThyPRsjkweA&s",
+    "Industrial manufacturing parts for plated finishing",
+  ],
+  plasticsIndustry: ["/assets/dsc04819.jpg", "Plating on plastic and decorative plastic metallization"],
+  metalFabrication: [
+    "https://www.rapid-protos.com/wp-content/uploads/2025/09/metal-fabrication-800x600-1.jpg",
+    "Metal fabrication work for industrial components",
+  ],
+  decorativeHardware: ["/assets/LHZA11508.BLK.webp", "Decorative hardware and finished plated surfaces"],
+  copperProductCard: ["/assets/electris42.jpg", "Copper plating systems and electroplating production"],
   zinc: ["https://commons.wikimedia.org/wiki/Special:FilePath/ION%20PLATED%20FASTENERS%20-%20NARA%20-%2017470749.jpg", "Industrial plated fasteners for corrosion protection"],
-  plastic: ["https://commons.wikimedia.org/wiki/Special:FilePath/Chrome%20plating%20coating%20on%20the%20plastic%20base%2C%20magnification%20x300.jpg", "Chrome plating coating on a plastic base"],
+  plastic: ["/assets/dsc04819.jpg", "Plating on plastic and decorative plastic metallization"],
   prep: ["/assets/why-us-transformative.png", "Metal parts prepared for surface finishing"],
-  lacquer: ["/assets/why-us-innovation.png", "Protective finishing and laboratory support visual"],
-  partners: ["/assets/industry-infrastructure.png", "Surface finishing samples and industrial supply visual"],
-  contact: ["/assets/why-us-standards.png", "Technical specialist reviewing electroplating documents and samples"],
+  prepProductCard: ["/assets/electris-powder-coating.jpg", "Powder coating and surface preparation for plating and finishing"],
+  aluminumSurfaceProductCard: ["/assets/Stainless-Bracket-BW-02.jpg", "Aluminum and metal parts prepared for surface treatment and finishing"],
+  surfacePrepHardware: ["/assets/Stainless-Steel-Water-Strainer-Filter-Nozzle.png", "Stainless steel water strainer filter nozzle for surface treatment systems"],
+  lacquerProductCard: ["/assets/LHZA11508.BLK.webp", "Lacquers and decorative plated hardware"],
+  lacquersAboutVisual: ["/assets/img-4775-a.jpg", "Lacquers and protective finishing materials"],
+  partners: ["/assets/Hc0322006e18342839b4b4d0cb307081eC.avif", "Product selection for plating chemistry, equipment, and finishes"],
+  macdermidEnthonePartner: ["/assets/macdermid-enthone-industrial-solutions.png", "MacDermid Enthone Industrial Solutions — plating chemistry and surface finishing brand"],
+  hawkingPartner: ["/assets/hawking-brand-wht.svg", "HAWKING England — lacquers and protective finishing brand"],
+  licensedProductionPartner: ["/assets/Pyramids_of_the_Giza_Necropolis.jpg", "Pyramids of Giza — El Etehadia licensed production and supply in Egypt"],
+  saltsColorsProductCard: ["/assets/plating-chemistry-dosing-station.png", "Plating chemistry dosing, equipment, and bath materials"],
+  contact: ["/assets/42e1662cffb5.webp", "Technical specialist reviewing electroplating documents and samples"],
+  protectiveFinishing: ["/assets/Electroplating-Surface-Finish-Supplier-In-China.jpg", "Electroplating and protective surface finishing"],
 };
 
 const productCards = [
-  ["Nickel Plating", "Nickel systems for decorative and functional applications, supporting brightness, leveling, corrosion resistance, and surface performance.", pageImages.nickel],
-  ["Chrome Plating", "Chrome systems for durable decorative finishes, corrosion resistance, cleanability, hardness, and reflective appearance.", pageImages.chrome],
-  ["Copper Plating", "Copper chemistry for undercoats, leveling, conductivity, and decorative finishing sequences.", pageImages.copper],
+  ["Nickel Plating", "Nickel systems for decorative and functional applications, supporting brightness, leveling, corrosion resistance, and surface performance.", pageImages.nickelProductCard],
+  ["Chrome Plating", "Chrome systems for durable decorative finishes, corrosion resistance, cleanability, hardness, and reflective appearance.", pageImages.chromeProductCard],
+  ["Copper Plating", "Copper chemistry for undercoats, leveling, conductivity, and decorative finishing sequences.", pageImages.copperProductCard],
   ["Zinc Plating", "Zinc and zinc-alloy systems for anti-corrosion protection and industrial durability.", pageImages.zinc],
   ["Plating on Plastic", "Process chemistry and support for metallizing plastic components used in decorative and functional applications.", pageImages.plastic],
-  ["Surface Preparation", "Cleaners, activation products, etching solutions, pre-treatment materials, and preparation chemistry for reliable adhesion and finish quality.", pageImages.prep],
-  ["Aluminum Surface Treatment", "Products and support for aluminum preparation, treatment, and finishing workflows.", pageImages.prep],
-  ["Electroless Nickel", "Electroless nickel systems for uniform deposition, complex geometries, corrosion protection, and wear resistance.", pageImages.nickel],
-  ["Hard Chrome", "Functional chrome systems for wear resistance, hardness, and industrial surface performance.", pageImages.chrome],
-  ["Trivalent Chrome", "Modern chrome finishing systems for decorative applications and evolving compliance requirements.", pageImages.chrome],
-  ["Lacquers", "HAWKING lacquers and protective finishing products for enhanced durability, appearance, and post-treatment performance.", pageImages.lacquer],
-  ["Salts, Colors & Additives", "Industrial salts, colors, brighteners, additives, and supporting materials for plating bath performance and finish control.", pageImages.partners],
+  ["Surface Preparation", "Cleaners, activation products, etching solutions, pre-treatment materials, and preparation chemistry for reliable adhesion and finish quality.", pageImages.prepProductCard],
+  ["Aluminum Surface Treatment", "Products and support for aluminum preparation, treatment, and finishing workflows.", pageImages.aluminumSurfaceProductCard],
+  ["Electroless Nickel", "Electroless nickel systems for uniform deposition, complex geometries, corrosion protection, and wear resistance.", pageImages.electrolessNickelProductCard],
+  ["Hard Chrome", "Functional chrome systems for wear resistance, hardness, and industrial surface performance.", pageImages.hardChromeProductCard],
+  ["Trivalent Chrome", "Modern chrome finishing systems for decorative applications and evolving compliance requirements.", pageImages.trivalentChromeProductCard],
+  ["Lacquers", "HAWKING lacquers and protective finishing products for enhanced durability, appearance, and post-treatment performance.", pageImages.lacquerProductCard],
+  ["Salts, Colors & Additives", "Industrial salts, colors, brighteners, additives, and supporting materials for plating bath performance and finish control.", pageImages.saltsColorsProductCard],
 ];
 
 const serviceCards = [
   ["Laboratory Analysis", "We analyze plating baths, samples, and process conditions to help customers evaluate performance, identify imbalances, and take corrective action.", "Use for: Bath control, sample analysis, quality validation, defect investigation, process correction.", pageImages.lab],
   ["Technical Support", "Our team supports manufacturers with practical process guidance across electroplating lines, from preparation to final finish.", "Use for: Additive dosing, bath maintenance, defect troubleshooting, operating condition review, production stability.", pageImages.support],
   ["Product Selection", "We help customers choose the right chemistry, additives, lacquers, machines, and accessories based on their application, substrate, finish requirements, and production conditions.", "Use for: Nickel, chrome, copper, and zinc processes; plating on plastic; surface preparation; protective finishing; decorative finishing.", pageImages.partners],
-  ["Process Optimization", "We help customers improve plating-line performance by reviewing chemical balance, workflow, operating windows, and recurring production issues.", "Use for: Reducing rejection rates, improving finish consistency, stabilizing bath performance, supporting line upgrades, increasing production reliability.", pageImages.hero],
-  ["Machines & Accessories", "El Etehadia supplies electroplating machines, accessories, and related equipment needed for industrial plating operations.", "Use for: New line setup, replacement parts, production accessories, equipment upgrades, ongoing operational needs.", pageImages.about],
+  ["Process Optimization", "We help customers improve plating-line performance by reviewing chemical balance, workflow, operating windows, and recurring production issues.", "Use for: Reducing rejection rates, improving finish consistency, stabilizing bath performance, supporting line upgrades, increasing production reliability.", pageImages.processOptimization],
+  ["Machines & Accessories", "El Etehadia supplies electroplating machines, accessories, and related equipment needed for industrial plating operations.", "Use for: New line setup, replacement parts, production accessories, equipment upgrades, ongoing operational needs.", pageImages.machinesService],
 ];
 
 const industryCards = [
-  ["Automotive & Components", "Decorative and protective finishes for components requiring appearance, corrosion resistance, and production consistency.", pageImages.chrome],
-  ["Sanitary Fittings & Fixtures", "Nickel, chrome, copper, and protective finishing systems for faucets, bathroom fittings, and related products.", pageImages.chrome],
-  ["Home Appliances & Hardware", "Surface finishing for handles, fittings, fasteners, accessories, and visible metal or plastic components.", pageImages.zinc],
-  ["Industrial Manufacturing", "Functional coatings and process support for parts requiring durability, corrosion resistance, or improved surface properties.", pageImages.hero],
-  ["Plastics & Decorative Components", "Plating-on-plastic support for decorative parts that require a metallic appearance with lightweight construction.", pageImages.plastic],
-  ["Metal Fabrication", "Preparation, plating, and finishing support for metal parts across industrial and commercial applications.", pageImages.prep],
-  ["Furniture & Decorative Hardware", "Finishing systems for decorative hardware, accessories, and metal components where appearance and durability matter.", pageImages.copper],
+  ["Automotive & Components", "Decorative and protective finishes for components requiring appearance, corrosion resistance, and production consistency.", pageImages.automotive],
+  ["Sanitary Fittings & Fixtures", "Nickel, chrome, copper, and protective finishing systems for faucets, bathroom fittings, and related products.", pageImages.sanitary],
+  ["Home Appliances & Hardware", "Surface finishing for handles, fittings, fasteners, accessories, and visible metal or plastic components.", pageImages.hardwareSector],
+  ["Industrial Manufacturing", "Functional coatings and process support for parts requiring durability, corrosion resistance, or improved surface properties.", pageImages.industrialManufacturing],
+  ["Plastics & Decorative Components", "Plating-on-plastic support for decorative parts that require a metallic appearance with lightweight construction.", pageImages.plasticsIndustry],
+  ["Metal Fabrication", "Preparation, plating, and finishing support for metal parts across industrial and commercial applications.", pageImages.metalFabrication],
+  ["Furniture & Decorative Hardware", "Finishing systems for decorative hardware, accessories, and metal components where appearance and durability matter.", pageImages.decorativeHardware],
+  ["Protective Finishing", "Systems for durability, corrosion resistance, and consistent appearance under demanding industrial conditions.", pageImages.protectiveFinishing],
 ];
 
 const applicationCards = [
-  ["Decorative Nickel-Chrome Finishing", "Support for bright decorative finishes used across fixtures, accessories, appliances, and visible components.", "Decorative finishing", pageImages.chrome],
+  ["Decorative Nickel-Chrome Finishing", "Support for bright decorative finishes used across fixtures, accessories, appliances, and visible components.", "Decorative finishing", pageImages.decorativeNickelChromeApplication],
   ["Anti-Corrosion Zinc Systems", "Zinc and zinc-alloy processes designed to protect industrial parts from corrosion and environmental exposure.", "Corrosion protection", pageImages.zinc],
   ["Plating on Plastic", "Surface preparation and metallization support for plastic parts requiring a metallic decorative finish.", "Plastic metallization", pageImages.plastic],
-  ["Electroless Nickel Applications", "Uniform nickel deposition for parts with complex shapes or surfaces requiring corrosion and wear resistance.", "Functional coating", pageImages.nickel],
+  ["Electroless Nickel Applications", "Uniform nickel deposition for parts with complex shapes or surfaces requiring corrosion and wear resistance.", "Functional coating", pageImages.electrolessNickelApplication],
   ["Laboratory-Controlled Bath Performance", "Analysis and support for customers who need stable chemistry, fewer defects, and consistent finishing results.", "Bath control", pageImages.lab],
   ["Line Support & Troubleshooting", "Practical support for production issues affecting adhesion, brightness, coverage, color, roughness, or stability.", "Technical support", pageImages.support],
 ];
@@ -101,7 +141,7 @@ const pages = {
         heading: "Helping Manufacturers Achieve Consistent Finishes",
         body:
           "Our mission is to provide reliable electroplating products and practical technical support that help manufacturers improve finish quality, stabilize production, reduce downtime, and maintain efficient plating lines.",
-        image: pageImages.hero,
+        image: pageImages.aboutMissionSpotlight,
       },
       {
         type: "split",
@@ -111,10 +151,10 @@ const pages = {
           "We support manufacturers across the full plating workflow: surface preparation, bath chemistry, plating systems, finishing products, equipment, accessories, analysis, and troubleshooting.",
         items: [
           ["Electroplating chemicals and additives", "Chemistry supply for daily bath control, replenishment, and finish performance.", pageImages.partners],
-          ["Nickel, chrome, copper, zinc, and plating-on-plastic systems", "Core plating systems for decorative, protective, and functional applications.", pageImages.chrome],
-          ["Surface preparation and treatment products", "Cleaners, activation, etching, and pre-treatment products for adhesion and consistent finish quality.", pageImages.prep],
-          ["Lacquers and protective finishing materials", "HAWKING lacquers and related protective finishes for surface appearance and durability.", pageImages.lacquer],
-          ["Machines, accessories, and production support", "Equipment and supporting parts for new lines, upgrades, and ongoing production needs.", pageImages.about],
+          ["Nickel, chrome, copper, zinc, and plating-on-plastic systems", "Core plating systems for decorative, protective, and functional applications.", pageImages.platingSystemsRacked],
+          ["Surface preparation and treatment products", "Cleaners, activation, etching, and pre-treatment products for adhesion and consistent finish quality.", pageImages.surfacePrepHardware],
+          ["Lacquers and protective finishing materials", "HAWKING lacquers and related protective finishes for surface appearance and durability.", pageImages.lacquersAboutVisual],
+          ["Machines, accessories, and production support", "Equipment and supporting parts for new lines, upgrades, and ongoing production needs.", pageImages.machinesProductionGrid],
           ["Laboratory analysis and technical guidance", "Bath analysis, sample review, and process guidance for better production decisions.", pageImages.lab],
         ],
       },
@@ -222,21 +262,13 @@ const pages = {
     heading: "Practical Surface Finishing Applications",
     intro:
       "Explore the types of plating-line challenges, product applications, and technical support areas where El Etehadia helps manufacturers improve performance.",
-    image: pageImages.chrome,
+    image: pageImages.decorativeHardware,
     sections: [
       {
         type: "applications",
         eyebrow: "Application areas",
         heading: "Relevant application support without unsupported case studies.",
         items: applicationCards,
-      },
-      {
-        type: "notice",
-        eyebrow: "Project evidence",
-        heading: "Verified project stories can be added later.",
-        body:
-          "This page intentionally avoids customer names, metrics, or project claims that have not been approved. When verified case studies are available, they can be added as named examples.",
-        image: pageImages.support,
       },
     ],
     cta: ["Send a plating-line issue", "/contact/"],
@@ -247,16 +279,15 @@ const pages = {
     heading: "Trusted Brands for Advanced Surface Finishing",
     intro:
       "El Etehadia connects manufacturers with high-quality surface-finishing products and technical standards from recognized international brands.",
-    image: pageImages.partners,
     sections: [
       {
         type: "partners",
         eyebrow: "Recognized brands",
         heading: "Global standards, local support.",
         items: [
-          ["MacDermid Enthone", "MacDermid Enthone is a global surface-finishing chemistry company serving industrial, decorative, anti-corrosion, engineering, aluminum treatment, electroless nickel, hard chrome, trivalent chrome, and water-treatment applications.", pageImages.partners],
-          ["HAWKING England", "HAWKING lacquers support protective and decorative finishing needs, helping manufacturers improve surface appearance and durability.", pageImages.lacquer],
-          ["Licensed Production", "El Etehadia supports local supply of high-quality salts, colors, and related products under trusted technical standards.", pageImages.copper],
+          ["MacDermid Enthone", "MacDermid Enthone is a global surface-finishing chemistry company serving industrial, decorative, anti-corrosion, engineering, aluminum treatment, electroless nickel, hard chrome, trivalent chrome, and water-treatment applications.", pageImages.macdermidEnthonePartner],
+          ["HAWKING England", "HAWKING lacquers support protective and decorative finishing needs, helping manufacturers improve surface appearance and durability.", pageImages.hawkingPartner],
+          ["Licensed Production", "El Etehadia supports local supply of high-quality salts, colors, and related products under trusted technical standards.", pageImages.licensedProductionPartner],
         ],
       },
     ],
@@ -326,7 +357,7 @@ function header(currentPage) {
     <header class="hero-bar page-bar" id="top-nav">
       <div class="hero-bar__shell">
         <a href="/" class="hero-bar__logo" aria-label="El Etehadia home">
-          <img src="https://etehadia.com/logo.png" alt="El Etehadia" width="180" height="56" decoding="async" />
+          <img src="/images/nav-logo.svg" alt="El Etehadia" width="64" height="64" decoding="async" />
         </a>
         <div class="hero-bar__center">
           <nav class="hero-bar__nav-panel" id="float-nav-panel" aria-label="Primary">
@@ -359,7 +390,7 @@ function footer() {
     <footer class="footer">
       <div class="container footer__grid">
         <div class="footer__brand">
-          <img class="footer__logo" src="https://etehadia.com/logo.png" alt="El Etehadia" width="160" height="50" loading="lazy" decoding="async" />
+          <div class="footer__3d-logo footer__3d-logo--brand" data-footer-3d-logo role="img" aria-label="El Etehadia"></div>
           <p class="footer__tag">Electroplating chemicals, machines, accessories, lacquers, laboratory analysis, and technical support.</p>
         </div>
         <div class="footer__col">
@@ -369,7 +400,6 @@ function footer() {
             <a href="/products/">Products</a>
             <a href="/projects/">Applications</a>
             <a href="/partners/">Partners</a>
-            <a href="/news/">Insights</a>
           </nav>
         </div>
         <div class="footer__col">
@@ -408,17 +438,23 @@ function pageHero(page) {
     ? `<div class="page-metrics">${page.metrics.map(([num, label]) => `<div><strong>${num}</strong><span>${label}</span></div>`).join("")}</div>`
     : "";
 
+  const hasMedia = Array.isArray(page.image);
+  const heroClass = hasMedia ? "page-hero" : "page-hero page-hero--no-media";
+  const media = hasMedia
+    ? `<figure class="page-hero__media">
+        <img src="${page.image[0]}" alt="${page.image[1]}" />
+      </figure>`
+    : "";
+
   return `
-    <section class="page-hero" data-reveal>
+    <section class="${heroClass}" data-reveal>
       <div class="page-hero__copy">
         <p class="section__label">${page.eyebrow}</p>
         <h1>${page.heading}</h1>
         <p>${page.intro}</p>
         ${metrics}
       </div>
-      <figure class="page-hero__media">
-        <img src="${page.image[0]}" alt="${page.image[1]}" />
-      </figure>
+      ${media}
     </section>
   `;
 }
@@ -704,6 +740,7 @@ function render() {
   setupMobileMenu();
   setupPageTransitions();
   setupContactForm();
+  initFooter3dLogo();
 }
 
 render();
