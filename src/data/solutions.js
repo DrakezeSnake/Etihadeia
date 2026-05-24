@@ -248,20 +248,6 @@ export const solutions = [
     ],
   },
   {
-    slug: "wear-resistance",
-    title: "Wear Resistance",
-    sourceUrl: "https://www.macdermidenthone.com/solutions/wear-resistance",
-    description:
-      "When deposit hardness and wear resistance are paramount, wear resistance solutions ensure products perform in challenging environments.",
-    image:
-      "https://www.macdermidenthone.com/sites/default/files/styles/desktop_main_menu/public/2023-11/hard-chrome-by-macdermid-enthone%20%281%29_0.jpg?itok=yTawmL6w",
-    imageAlt: "Hard chrome part",
-    icon: "https://www.macdermidenthone.com/sites/default/files/2023-11/Icon_AS_Gears.svg",
-    iconAlt: "Gears icon",
-    ctaLabel: "See featured products",
-    subcategories: [{ slug: "hard-chrome", title: "Hard Chrome" }],
-  },
-  {
     slug: "precious-metals",
     title: "Precious Metals",
     sourceUrl: "https://www.macdermidenthone.com/solutions/precious-metals",
@@ -320,6 +306,20 @@ export const solutions = [
       { slug: "flocculants", title: "Flocculants" },
       { slug: "coagulants", title: "Coagulants" },
     ],
+  },
+  {
+    slug: "wear-resistance",
+    title: "Wear Resistance",
+    sourceUrl: "https://www.macdermidenthone.com/solutions/wear-resistance",
+    description:
+      "When deposit hardness and wear resistance are paramount, wear resistance solutions ensure products perform in challenging environments.",
+    image:
+      "https://www.macdermidenthone.com/sites/default/files/styles/desktop_main_menu/public/2023-11/hard-chrome-by-macdermid-enthone%20%281%29_0.jpg?itok=yTawmL6w",
+    imageAlt: "Hard chrome part",
+    icon: "https://www.macdermidenthone.com/sites/default/files/2023-11/Icon_AS_Gears.svg",
+    iconAlt: "Gears icon",
+    ctaLabel: "See featured products",
+    subcategories: [{ slug: "hard-chrome", title: "Hard Chrome" }],
   },
   {
     slug: "all-solutions",
