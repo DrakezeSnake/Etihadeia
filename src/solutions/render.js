@@ -26,7 +26,7 @@ export function renderSolutionCard(solution, ctaHref) {
   const subLinks = solution.subcategories
     .map(
       (sub) =>
-        `<li><a class="solution-card__family-link" href="${escapeHtml(ctaHref.href.split("#")[0])}#${escapeHtml(sub.slug)}">${escapeHtml(sub.title)}</a></li>`,
+        `<li><span class="solution-card__family-link">${escapeHtml(sub.title)}</span></li>`,
     )
     .join("");
   return `
@@ -42,9 +42,6 @@ export function renderSolutionCard(solution, ctaHref) {
             ? `<ul class="solution-card__family-list">${subLinks}</ul>`
             : '<p class="solution-card__families-muted">Portfolio overview.</p>'
         }
-        <a class="solution-card__cta" href="${escapeHtml(ctaHref.href)}">${escapeHtml(ctaHref.label)}
-          <span class="solution-card__cta-arrow" aria-hidden="true">&rarr;</span>
-        </a>
       </div>
     </article>
   `;
@@ -252,11 +249,12 @@ export function renderRelatedSolutions(others, currentSlug) {
 
 export function renderContactCta() {
   return `
-    <section class="solution-section solution-contact-cta" data-reveal>
-      <div class="solution-section__inner solution-contact-cta__inner">
-        <h2>Need help selecting the right surface finishing solution?</h2>
-        <p>Connect with our team to identify the right chemistry, process, and finish for your application.</p>
-        <a class="solution-contact-cta__btn" href="/contact/">Contact Us</a>
+    <section class="section final-cta" data-reveal>
+      <div class="section__inner">
+        <p class="section__label">Next step</p>
+        <h2>Need support for your plating line?</h2>
+        <p>Send us your inquiry, product requirement, or technical issue. Our team can help with product selection, lab analysis, and process support.</p>
+        <a class="industrial-button" href="/contact/">Ask about product availability</a>
       </div>
     </section>
   `;

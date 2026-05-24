@@ -1187,7 +1187,7 @@ html[dir="rtl"] .solution-card__cta-arrow {
 .solution-grid {
   padding-bottom: 0;
   border: 1px solid var(--sol-line);
-  background: rgba(244, 239, 229, 0.16);
+  background: transparent;
   gap: 1px;
 }
 
@@ -1200,6 +1200,10 @@ html[dir="rtl"] .solution-card__cta-arrow {
 .solution-card:hover {
   background: var(--surface-container-low, #1c1b1d);
   box-shadow: 0 0 30px rgba(227, 34, 25, 0.28);
+}
+
+.solution-card:last-child {
+  grid-column: span 2;
 }
 
 .solution-card__body {
@@ -1354,5 +1358,9 @@ html[dir="rtl"] .solution-card__cta-arrow {
 
   .solution-card {
     min-height: auto;
+  }
+
+  .solution-card:last-child {
+    grid-column: auto;
   }
 }

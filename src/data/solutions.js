@@ -27,10 +27,9 @@ export const solutions = [
       "To deliver best-in-class adhesion, the surface must be cleaned and free of dirt and oxides. The surface conditioning portfolio delivers a perfectly pure substrate to receive a metallic finish.",
     expandedIntro:
       "Prior to the plating process, a surface must be cleaned to offer a perfectly pure substrate to receive a metallic finish with good adhesion. Extensive surface preparation experience enables customers across a range of industries and applications to use a complete line of cleaners.",
-    image:
-      "https://www.macdermidenthone.com/sites/default/files/styles/desktop_main_menu/public/2023-02/MacDermid_1583x717_Offering_Surface_conditioning_0.jpg?itok=kwWpyATb",
+    image: "/assets/electris-powder-coating.jpg",
     imageAlt: "Industrial scale plating bath from above",
-    icon: "https://www.macdermidenthone.com/sites/default/files/2023-12/Icon_AS_droplets.svg",
+    icon: "/assets/solutions/remote/surface-conditioning-icon-Icon_AS_droplets.svg",
     iconAlt: "Water droplet icon",
     ctaLabel: "See featured products",
     subcategories: [
@@ -75,10 +74,9 @@ export const solutions = [
       "When durability is the highest priority, anti-corrosion finishing solutions deliver best-in-class results, ensuring products perform in the most challenging environments.",
     expandedIntro:
       "Durable solutions provide corrosion protection while also supporting functional attributes and decorative properties for ferrous construction elements. These surface finishing solutions help components reach and sustain peak performance even when exposed to challenging environmental conditions.",
-    image:
-      "https://www.macdermidenthone.com/sites/default/files/styles/desktop_main_menu/public/2023-02/_MacDermid_1583x717_Offering_Anti_Corrosion_0.jpg?itok=NCBZn2Am",
+    image: "/assets/ion-plated-fasteners-nara.jpg",
     imageAlt: "Close-up of threaded fasteners",
-    icon: "https://www.macdermidenthone.com/sites/default/files/2023-11/Icon_AS_Bolt%20and%20Nut.svg",
+    icon: "/assets/solutions/remote/anti-corrosion-icon-Icon_AS_Bolt_20and_20Nut.svg",
     iconAlt: "Nut and bolt icon",
     ctaLabel: "See featured products",
     subcategories: [
@@ -116,10 +114,9 @@ export const solutions = [
     sourceUrl: "https://www.macdermidenthone.com/solutions/light-metal-finishes",
     description:
       "With a comprehensive light metal solution portfolio, MacDermid Enthone provides proven expertise and performance designed to exceed expectations and requirements.",
-    image:
-      "https://www.macdermidenthone.com/sites/default/files/styles/desktop_main_menu/public/2023-10/Light%20Metals%20Soulutons%20by%20Macdermid%20enthone.png?itok=wKpSLjGI",
+    image: "/assets/Stainless-Bracket-BW-02.jpg",
     imageAlt: "Stacked aluminum profiles",
-    icon: "https://www.macdermidenthone.com/sites/default/files/2023-12/Icon_AS_profile.svg",
+    icon: "/assets/solutions/remote/light-metal-finishes-icon-Icon_AS_profile.svg",
     iconAlt: "Building aluminum profile icon",
     ctaLabel: "See featured products",
     subcategories: [
@@ -138,10 +135,9 @@ export const solutions = [
       "Decorative coating solutions deliver cost-effective and environmentally compliant processes in a range of bright, satin, white, and dark finishes.",
     expandedIntro:
       "Distinctive finishes and colors provide dynamic styling to meet demanding production and detailing requirements. These processes support world-class manufacturers and applicators with cost-effective and environmentally compliant solutions.",
-    image:
-      "https://www.macdermidenthone.com/sites/default/files/styles/desktop_main_menu/public/2023-02/MacDermid_1583x717_Offering_Decorative_0.jpg?itok=uw1AUBZW",
+    image: "/assets/LHZA11508.BLK.webp",
     imageAlt: "Close-up of a part treated with decorative nickel coating",
-    icon: "https://www.macdermidenthone.com/sites/default/files/2023-11/Icon_AS_Shiny%20Surface.svg",
+    icon: "/assets/solutions/remote/decorative-coatings-icon-Icon_AS_Shiny_20Surface.svg",
     iconAlt: "Shiny surface icon",
     ctaLabel: "See featured products",
     subcategories: [
@@ -187,10 +183,9 @@ export const solutions = [
     sourceUrl: "https://www.macdermidenthone.com/solutions/plating-on-plastics",
     description:
       "A full range of Plating on Plastic technologies for decorative applications, designed with environmental compliance and sustainability in mind.",
-    image:
-      "https://www.macdermidenthone.com/sites/default/files/styles/desktop_main_menu/public/2023-02/_MacDermid_1583x717_Offering_Plating.jpg?itok=0-XIzuhm",
+    image: "/assets/dsc04819.jpg",
     imageAlt: "Plastic parts on rack in a plating facility",
-    icon: "https://www.macdermidenthone.com/sites/default/files/2023-11/Icon_AS_Shiny%20Surface.svg",
+    icon: "/assets/solutions/remote/plating-on-plastics-icon-Icon_AS_Shiny_20Surface.svg",
     iconAlt: "Shiny surface icon",
     ctaLabel: "See featured products",
     subcategories: [
@@ -207,10 +202,9 @@ export const solutions = [
       "When wear resistance is the top priority, electroless nickel solutions deliver trusted performance.",
     expandedIntro:
       "Known for superior wear and corrosion resistance and the ability to uniformly coat intricate shapes, electroless nickel is a go-to coating for engineers tackling demanding applications.",
-    image:
-      "https://www.macdermidenthone.com/sites/default/files/styles/desktop_main_menu/public/2023-02/_MacDermid_1583x717_Offering_Wear_Resistance_coatings.jpg?itok=iL5pU6s5",
+    image: "/assets/dsc04687.jpg",
     imageAlt: "Parts treated with wear-resistance-enhancing electroless nickel",
-    icon: "https://www.macdermidenthone.com/sites/default/files/2023-11/Icon_AS_Pipe%20Joints.svg",
+    icon: "/assets/solutions/remote/electroless-nickel-icon-Icon_AS_Pipe_20Joints.svg",
     iconAlt: "Oil pipe with valve icon",
     ctaLabel: "See featured products",
     subcategories: [
@@ -253,10 +247,9 @@ export const solutions = [
     sourceUrl: "https://www.macdermidenthone.com/solutions/precious-metals",
     description:
       "Luxury surface finishing solutions that do not just finish luxury products — they complete them.",
-    image:
-      "https://www.macdermidenthone.com/sites/default/files/styles/desktop_main_menu/public/2023-01/MacDermid_1583x717_Offering_Precious_metals_0.jpg?itok=_SwztsaF",
+    image: "/assets/LHZA11508.BLK.webp",
     imageAlt: "Black necklace",
-    icon: "https://www.macdermidenthone.com/sites/default/files/2023-11/Icon_AS_Fashion.svg",
+    icon: "/assets/solutions/remote/precious-metals-icon-Icon_AS_Fashion.svg",
     iconAlt: "Necklace stand and purse buckle icon",
     ctaLabel: "See featured products",
     subcategories: [
@@ -276,10 +269,9 @@ export const solutions = [
     sourceUrl: "https://www.macdermidenthone.com/solutions/plastic-recycling",
     description:
       "From cleaners and additives to plastic separation enhancing products and defoamers, the plastic recycling portfolio delivers process-enhancing, environmentally friendly solutions.",
-    image:
-      "https://www.macdermidenthone.com/sites/default/files/styles/desktop_main_menu/public/2023-02/_MacDermid_1583x717_Offering_PET_0.jpg?itok=0-AwmE9d",
+    image: "/assets/1643988446_plastic_recycling_412f8499-cc6b-4dfe-888d-248257e5f63b_grande.webp",
     imageAlt: "Recyclable plastic bottles with white caps arranged in rows",
-    icon: "https://www.macdermidenthone.com/sites/default/files/2023-11/Icon_AS_Plastic%20Recycling.svg",
+    icon: "/assets/solutions/remote/plastic-recycling-icon-Icon_AS_Plastic_20Recycling.svg",
     iconAlt: "Bottle ready for recycling icon",
     ctaLabel: "See featured products",
     subcategories: [
@@ -294,10 +286,9 @@ export const solutions = [
     sourceUrl: "https://www.macdermidenthone.com/solutions/watercare",
     description:
       "Effective water resource management is a corporate responsibility. WaterCARE provides wastewater treatment chemistries tailored to solve customers’ unique challenges.",
-    image:
-      "https://www.macdermidenthone.com/sites/default/files/styles/desktop_main_menu/public/2023-11/aluminum-treatment-plant-side.png?itok=qLif8LG5",
+    image: "/assets/electris-coating-systems-4.jpg",
     imageAlt: "Industrial scale aluminum treatment plant",
-    icon: "https://www.macdermidenthone.com/sites/default/files/2024-01/Icon_AS_Earth%20in%20Water%20Drops.svg",
+    icon: "/assets/solutions/remote/watercare-icon-Icon_AS_Earth_20in_20Water_20Drops.svg",
     iconAlt: "Earth in water drop icon",
     ctaLabel: "See featured products",
     subcategories: [
@@ -313,10 +304,9 @@ export const solutions = [
     sourceUrl: "https://www.macdermidenthone.com/solutions/wear-resistance",
     description:
       "When deposit hardness and wear resistance are paramount, wear resistance solutions ensure products perform in challenging environments.",
-    image:
-      "https://www.macdermidenthone.com/sites/default/files/styles/desktop_main_menu/public/2023-11/hard-chrome-by-macdermid-enthone%20%281%29_0.jpg?itok=yTawmL6w",
+    image: "/assets/Hard-Chrome-2.jpg",
     imageAlt: "Hard chrome part",
-    icon: "https://www.macdermidenthone.com/sites/default/files/2023-11/Icon_AS_Gears.svg",
+    icon: "/assets/solutions/remote/wear-resistance-icon-Icon_AS_Gears.svg",
     iconAlt: "Gears icon",
     ctaLabel: "See featured products",
     subcategories: [{ slug: "hard-chrome", title: "Hard Chrome" }],
@@ -327,10 +317,9 @@ export const solutions = [
     sourceUrl: "https://www.macdermidenthone.com/solutions",
     description:
       "Delivering innovative solutions designed to meet the evolving demands of the dynamic surface finishing industry and ever-changing customer requirements.",
-    image:
-      "https://www.macdermidenthone.com/sites/default/files/styles/desktop_main_menu/public/2023-11/macdermid-enthone-rack-strippers%20%282%29.jpg?itok=oTbN5isz",
+    image: "/assets/racked parts.jpg",
     imageAlt: "Empty plating rack",
-    icon: "https://www.macdermidenthone.com/sites/default/files/2023-11/Icon_AS_Shiny%20Surface.svg",
+    icon: "/assets/solutions/remote/all-solutions-icon-Icon_AS_Shiny_20Surface.svg",
     iconAlt: "Shiny surface icon",
     ctaLabel: "All Solutions",
     landingOnly: true,

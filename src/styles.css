@@ -976,7 +976,7 @@ body.is-story-active .brand {
   text-transform: uppercase;
   background:
     linear-gradient(135deg, oklch(0.09 0.008 70 / 0.2), oklch(0.09 0.008 70 / 0.76)),
-    url("https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=80");
+    url("/assets/industrial-building-background.jpg");
   background-size: cover;
   background-position: center;
   overflow: hidden;
