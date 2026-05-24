@@ -1,0 +1,158 @@
+- generic [ref=e2]:
+  - banner:
+    - generic [ref=e3]:
+      - link "El Etehadia home" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - img "El Etehadia" [ref=e5]
+      - navigation "Primary" [ref=e7]:
+        - list [ref=e8]:
+          - listitem [ref=e9]:
+            - link "Home" [ref=e10] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=e11]:
+            - link "About" [ref=e12] [cursor=pointer]:
+              - /url: /about/
+          - listitem [ref=e13]:
+            - link "Services" [ref=e14] [cursor=pointer]:
+              - /url: /services/
+          - listitem [ref=e15]:
+            - link "Products" [ref=e16] [cursor=pointer]:
+              - /url: /products/
+          - listitem [ref=e17]:
+            - link "Industries" [ref=e18] [cursor=pointer]:
+              - /url: /industries/
+          - listitem [ref=e19]:
+            - link "Solutions" [ref=e20] [cursor=pointer]:
+              - /url: /solutions/
+          - listitem [ref=e21]:
+            - link "Partners" [ref=e22] [cursor=pointer]:
+              - /url: /partners/
+      - button "Switch to Arabic" [ref=e24] [cursor=pointer]:
+        - generic [ref=e25]: العربية
+  - main [ref=e26]:
+    - generic [ref=e27]:
+      - generic [ref=e28]:
+        - paragraph [ref=e29]: Industries
+        - heading "Surface Finishing Support for Industrial Manufacturers" [level=1] [ref=e30]
+        - paragraph [ref=e31]: El Etehadia supports manufacturers that depend on consistent, durable, and high-quality plated finishes.
+      - figure [ref=e32]:
+        - img "El Etehadia branded logistics and electroplating supply across Egypt" [ref=e33]
+    - generic [ref=e35]:
+      - generic [ref=e37]:
+        - paragraph [ref=e38]: Industry fit
+        - heading "Manufacturing sectors that rely on dependable finishes." [level=2] [ref=e39]
+      - generic [ref=e40]:
+        - article [ref=e41]:
+          - img [ref=e43]
+          - generic [ref=e46]:
+            - heading "Aerospace and defense" [level=3] [ref=e47]
+            - paragraph [ref=e48]: High-reliability finishing, corrosion control, and process support for aerospace, defense, and critical hardware where conformance matters.
+        - article [ref=e49]:
+          - img [ref=e51]
+          - generic [ref=e54]:
+            - heading "Appliances" [level=3] [ref=e55]
+            - paragraph [ref=e56]: Decorative and protective plating for visible components, trims, handles, and internal parts in household appliances.
+        - article [ref=e57]:
+          - img [ref=e59]
+          - generic [ref=e64]:
+            - heading "Automotive" [level=3] [ref=e65]
+            - paragraph [ref=e66]: Decorative and protective finishes for components that require appearance consistency, corrosion resistance, and stable production quality.
+        - article [ref=e67]:
+          - img [ref=e69]
+          - generic [ref=e73]:
+            - heading "Building and machinery" [level=3] [ref=e74]
+            - paragraph [ref=e75]: Functional and protective finishes for structural metalwork, machinery parts, fittings, and equipment exposed to demanding environments.
+        - article [ref=e76]:
+          - img [ref=e78]
+          - generic [ref=e82]:
+            - heading "Fashion and packaging" [level=3] [ref=e83]
+            - paragraph [ref=e84]: Decorative metallization and finishing for trims, closures, hardware accents, and metallic packaging details.
+        - article [ref=e85]:
+          - img [ref=e87]
+          - generic [ref=e90]:
+            - heading "Oil and gas" [level=3] [ref=e91]
+            - paragraph [ref=e92]: Corrosion-resistant plating for valves, fasteners, connectors, and hardware used in harsh chemical exposure and demanding field service.
+        - article [ref=e93]:
+          - img [ref=e95]
+          - generic [ref=e99]:
+            - heading "Plastic recycling" [level=3] [ref=e100]
+            - paragraph [ref=e101]: Metallization and plating support for engineered plastic components, including applications that use recycled or reprocessed molding feedstock.
+        - article [ref=e102]:
+          - img [ref=e104]
+          - generic [ref=e108]:
+            - heading "Plumbing and sanitary fittings" [level=3] [ref=e109]
+            - paragraph [ref=e110]: Nickel, chrome, copper, and protective finishing systems for faucets, mixers, fittings, and sanitary hardware.
+        - article [ref=e111]:
+          - img [ref=e113]
+          - generic [ref=e116]:
+            - heading "Renewable energy" [level=3] [ref=e117]
+            - paragraph [ref=e118]: Protective finishes and corrosion control for fasteners, busbars, enclosures, and hardware used across solar, wind, and broader energy infrastructure.
+    - generic [ref=e120]:
+      - generic [ref=e122]:
+        - paragraph [ref=e123]: Related products
+        - heading "Commonly requested product families." [level=2] [ref=e124]
+      - generic [ref=e125]:
+        - generic [ref=e126]: Nickel plating
+        - generic [ref=e127]: Chrome plating
+        - generic [ref=e128]: Copper plating
+        - generic [ref=e129]: Zinc plating
+        - generic [ref=e130]: Plating on plastic
+        - generic [ref=e131]: Surface preparation
+        - generic [ref=e132]: Lacquers
+    - generic [ref=e134]:
+      - paragraph [ref=e135]: Next step
+      - heading "Need support for your plating line?" [level=2] [ref=e136]
+      - paragraph [ref=e137]: Send us your inquiry, product requirement, or technical issue. Our team can help with product selection, lab analysis, and process support.
+      - link "Discuss your finishing requirement" [ref=e138] [cursor=pointer]:
+        - /url: /contact/
+  - contentinfo [ref=e139]:
+    - generic [ref=e140]:
+      - generic [ref=e141]:
+        - img "El Etehadia" [ref=e142]
+        - paragraph [ref=e143]: Electroplating chemicals, machines, accessories, lacquers, laboratory analysis, and technical support.
+      - generic [ref=e144]:
+        - heading "Company" [level=4] [ref=e145]
+        - navigation [ref=e146]:
+          - link "About" [ref=e147] [cursor=pointer]:
+            - /url: /about/
+          - link "Products" [ref=e148] [cursor=pointer]:
+            - /url: /products/
+          - link "Solutions" [ref=e149] [cursor=pointer]:
+            - /url: /solutions/
+          - link "Applications" [ref=e150] [cursor=pointer]:
+            - /url: /projects/
+          - link "Industries" [ref=e151] [cursor=pointer]:
+            - /url: /industries/
+          - link "Partners" [ref=e152] [cursor=pointer]:
+            - /url: /partners/
+          - link "Contact" [ref=e153] [cursor=pointer]:
+            - /url: /contact/
+      - generic [ref=e154]:
+        - heading "Products" [level=4] [ref=e155]
+        - navigation [ref=e156]:
+          - link "Nickel plating" [ref=e157] [cursor=pointer]:
+            - /url: /products/
+          - link "Chrome plating" [ref=e158] [cursor=pointer]:
+            - /url: /products/
+          - link "Copper plating" [ref=e159] [cursor=pointer]:
+            - /url: /products/
+          - link "Zinc plating" [ref=e160] [cursor=pointer]:
+            - /url: /products/
+          - link "Lacquers" [ref=e161] [cursor=pointer]:
+            - /url: /products/
+      - generic [ref=e162]:
+        - heading "Contact" [level=4] [ref=e163]
+        - navigation [ref=e164]:
+          - link "+20 2 26833830" [ref=e165] [cursor=pointer]:
+            - /url: tel:+20226833830
+          - link "+20 10 67358111" [ref=e166] [cursor=pointer]:
+            - /url: tel:+201067358111
+          - link "info@etehadia.com" [ref=e167] [cursor=pointer]:
+            - /url: mailto:info@etehadia.com
+          - generic [ref=e168]: Cairo, Egypt
+        - link "Send inquiry" [ref=e169] [cursor=pointer]:
+          - /url: /contact/
+    - generic [ref=e171]:
+      - paragraph [ref=e172]: ©2026El Etehadia Company. All rights reserved.
+      - link "Back to top" [ref=e173] [cursor=pointer]:
+        - /url: "#top-nav"

@@ -5,15 +5,9 @@ import { initFooter3dLogo } from "./footerLogo3d.js";
 
 const WHATSAPP_URL = "https://wa.me/201067358111";
 
-const navItems = [
-  ["Home", "/"],
-  ["About", "/about/"],
-  ["Services", "/services/"],
-  ["Products", "/products/"],
-  ["Industries", "/industries/"],
-  ["Applications", "/projects/"],
-  ["Partners", "/partners/"],
-];
+import { siteNavItems } from "./siteNav.js";
+
+const navItems = siteNavItems;
 
 /** Shared by page heroes that use the wide logistics / fleet visual (About, Industries, etc.) */
 const pageHeroLogisticsImage = [
@@ -94,14 +88,39 @@ const serviceCards = [
 ];
 
 const industryCards = [
-  ["Automotive & Components", "Decorative and protective finishes for components requiring appearance, corrosion resistance, and production consistency.", pageImages.automotive],
-  ["Sanitary Fittings & Fixtures", "Nickel, chrome, copper, and protective finishing systems for faucets, bathroom fittings, and related products.", pageImages.sanitary],
-  ["Home Appliances & Hardware", "Surface finishing for handles, fittings, fasteners, accessories, and visible metal or plastic components.", pageImages.hardwareSector],
-  ["Industrial Manufacturing", "Functional coatings and process support for parts requiring durability, corrosion resistance, or improved surface properties.", pageImages.industrialManufacturing],
-  ["Plastics & Decorative Components", "Plating-on-plastic support for decorative parts that require a metallic appearance with lightweight construction.", pageImages.plasticsIndustry],
-  ["Metal Fabrication", "Preparation, plating, and finishing support for metal parts across industrial and commercial applications.", pageImages.metalFabrication],
-  ["Furniture & Decorative Hardware", "Finishing systems for decorative hardware, accessories, and metal components where appearance and durability matter.", pageImages.decorativeHardware],
-  ["Protective Finishing", "Systems for durability, corrosion resistance, and consistent appearance under demanding industrial conditions.", pageImages.protectiveFinishing],
+  [
+    "Aerospace and defense",
+    "High-reliability finishing, corrosion control, and process support for aerospace, defense, and critical hardware where conformance matters.",
+    pageImages.chrome,
+  ],
+  ["Appliances", "Decorative and protective plating for visible components, trims, handles, and internal parts in household appliances.", pageImages.hardwareSector],
+  [
+    "Automotive",
+    "Decorative and protective finishes for components that require appearance consistency, corrosion resistance, and stable production quality.",
+    pageImages.automotive,
+  ],
+  ["Building and machinery", "Functional and protective finishes for structural metalwork, machinery parts, fittings, and equipment exposed to demanding environments.", pageImages.metalFabrication],
+  [
+    "Fashion and packaging",
+    "Decorative metallization and finishing for trims, closures, hardware accents, and metallic packaging details.",
+    pageImages.decorativeHardware,
+  ],
+  [
+    "Oil and gas",
+    "Corrosion-resistant plating for valves, fasteners, connectors, and hardware used in harsh chemical exposure and demanding field service.",
+    pageImages.protectiveFinishing,
+  ],
+  [
+    "Plastic recycling",
+    "Metallization and plating support for engineered plastic components, including applications that use recycled or reprocessed molding feedstock.",
+    pageImages.plasticsIndustry,
+  ],
+  ["Plumbing and sanitary fittings", "Nickel, chrome, copper, and protective finishing systems for faucets, mixers, fittings, and sanitary hardware.", pageImages.sanitary],
+  [
+    "Renewable energy",
+    "Protective finishes and corrosion control for fasteners, busbars, enclosures, and hardware used across solar, wind, and broader energy infrastructure.",
+    pageImages.electrolessNickelApplication,
+  ],
 ];
 
 const applicationCards = [
@@ -342,6 +361,7 @@ function isActive(href, currentPage) {
   if (currentPage === "products" && href === "/products/") return true;
   if (currentPage === "projects" && href === "/projects/") return true;
   if (currentPage === "news" && href === "/news/") return true;
+  if (currentPage === "solutions" && href === "/solutions/") return true;
   return href.includes(`/${currentPage}/`);
 }
 
@@ -398,8 +418,11 @@ function footer() {
           <nav class="footer__nav">
             <a href="/about/">About</a>
             <a href="/products/">Products</a>
+            <a href="/solutions/">Solutions</a>
             <a href="/projects/">Applications</a>
+            <a href="/industries/">Industries</a>
             <a href="/partners/">Partners</a>
+            <a href="/contact/">Contact</a>
           </nav>
         </div>
         <div class="footer__col">
@@ -475,6 +498,29 @@ function cardMedia(media) {
   return `<div class="page-card__media"><img src="${media[0]}" alt="${media[1]}" loading="lazy" /></div>`;
 }
 
+function industryIcon(title) {
+  const key = title.toLowerCase();
+  const iconPath = (() => {
+    if (key.includes("aerospace")) return '<path d="M18 7l12 10-12 4-4 9-4-7-8-2 8-4 4-9 4 7z" /><path d="M18 21l5 6" />';
+    if (key.includes("appliances")) return '<rect x="8" y="5" width="18" height="26" rx="2" /><path d="M8 13h18M13 9h8M13 26h8" />';
+    if (key.includes("automotive")) return '<path d="M7 23h22l-3-8H10l-3 8z" /><circle cx="12" cy="25" r="3" /><circle cx="24" cy="25" r="3" /><path d="M12 15l2-5h8l2 5" />';
+    if (key.includes("building")) return '<path d="M6 30h24" /><path d="M9 30V8h14v22" /><path d="M23 16h6v14" /><path d="M13 13h2M18 13h2M13 18h2M18 18h2M13 23h2M18 23h2" />';
+    if (key.includes("fashion")) return '<path d="M18 8c4 0 7 3 7 7v13H11V15c0-4 3-7 7-7z" /><path d="M14 15c0-2 2-4 4-4s4 2 4 4" /><path d="M9 20l-4 8h6" />';
+    if (key.includes("oil")) return '<path d="M18 5c5 7 8 11 8 16a8 8 0 0 1-16 0c0-5 3-9 8-16z" /><path d="M14 22c1 3 5 4 8 1" />';
+    if (key.includes("plastic")) return '<path d="M12 7h9l3 5v19H12V7z" /><path d="M21 7v6h6" /><path d="M9 15l-4 4 4 4M27 18l4 4-4 4" />';
+    if (key.includes("plumbing")) return '<path d="M7 15h14a5 5 0 0 1 0 10h-4" /><path d="M7 10h8v10H7z" /><path d="M22 25v5M18 30h8" />';
+    return '<path d="M18 5v26" /><path d="M8 24c5 0 10-4 10-10C13 14 8 18 8 24z" /><path d="M28 14c-5 0-10 4-10 10 5 0 10-4 10-10z" />';
+  })();
+
+  return `
+    <div class="page-card__icon" aria-hidden="true">
+      <svg viewBox="0 0 36 36" focusable="false">
+        ${iconPath}
+      </svg>
+    </div>
+  `;
+}
+
 function renderSection(section) {
   const head = sectionHeader(section);
 
@@ -490,7 +536,13 @@ function renderSection(section) {
       .join("")}</div></div></section>`;
   }
 
-  if (section.type === "products" || section.type === "industryTiles" || section.type === "applications" || section.type === "partners") {
+  if (section.type === "industryTiles") {
+    return `<section class="section page-section" data-reveal><div class="section__inner">${head}<div class="technical-grid technical-grid--icons">${section.items
+      .map(([title, body]) => `<article>${industryIcon(title)}<div class="page-card__body"><h3>${title}</h3><p>${body}</p></div></article>`)
+      .join("")}</div></div></section>`;
+  }
+
+  if (section.type === "products" || section.type === "applications" || section.type === "partners") {
     return `<section class="section page-section" data-reveal><div class="section__inner">${head}<div class="technical-grid">${section.items
       .map(([title, body, third, fourth]) => {
         const media = Array.isArray(third) ? third : fourth;

@@ -1,0 +1,587 @@
+- generic [ref=e2]:
+  - banner:
+    - generic [ref=e3]:
+      - link "El Etehadia home" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - img "El Etehadia" [ref=e5]
+      - navigation "Primary" [ref=e7]:
+        - list [ref=e8]:
+          - listitem [ref=e9]:
+            - link "Home" [ref=e10] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=e11]:
+            - link "About" [ref=e12] [cursor=pointer]:
+              - /url: /about/
+          - listitem [ref=e13]:
+            - link "Services" [ref=e14] [cursor=pointer]:
+              - /url: /services/
+          - listitem [ref=e15]:
+            - link "Products" [ref=e16] [cursor=pointer]:
+              - /url: /products/
+          - listitem [ref=e17]:
+            - link "Industries" [ref=e18] [cursor=pointer]:
+              - /url: /industries/
+          - listitem [ref=e19]:
+            - link "Solutions" [ref=e20] [cursor=pointer]:
+              - /url: /solutions/
+          - listitem [ref=e21]:
+            - link "Partners" [ref=e22] [cursor=pointer]:
+              - /url: /partners/
+      - button "Switch to Arabic" [ref=e24] [cursor=pointer]:
+        - generic [ref=e25]: العربية
+  - main [ref=e26]:
+    - generic [ref=e27]:
+      - generic [ref=e29]:
+        - generic [ref=e30]:
+          - paragraph [ref=e31]: Solutions
+          - heading "Surface finishing solutions for demanding industries" [level=1] [ref=e32]
+          - paragraph [ref=e33]: Delivering innovative solutions designed to meet the evolving demands of the dynamic surface finishing industry and ever-changing customer requirements.
+          - link "Explore Solutions" [ref=e34] [cursor=pointer]:
+            - /url: "#solution-catalog"
+        - figure [ref=e35]:
+          - img "Surface finishing solutions" [ref=e36]
+      - region "Surface finishing portfolio" [ref=e37]:
+        - generic [ref=e38]:
+          - paragraph [ref=e39]: All Solutions
+          - heading "Surface finishing portfolio" [level=2] [ref=e40]
+          - paragraph [ref=e41]: Delivering innovative solutions designed to meet the evolving demands of the dynamic surface finishing industry and ever-changing customer requirements.
+      - list [ref=e42]:
+        - listitem [ref=e43]:
+          - generic [ref=e44]:
+            - link "Surface Conditioning" [ref=e45] [cursor=pointer]:
+              - /url: /solutions/surface-conditioning/
+              - generic "Water droplet icon" [ref=e46]:
+                - img [ref=e47]
+            - heading "Surface Conditioning" [level=3] [ref=e48]:
+              - link "Surface Conditioning" [ref=e49] [cursor=pointer]:
+                - /url: /solutions/surface-conditioning/
+            - paragraph [ref=e50]: To deliver best-in-class adhesion, the surface must be cleaned and free of dirt and oxides. The surface conditioning portfolio delivers a perfectly pure substrate to receive a metallic finish.
+            - list [ref=e51]:
+              - listitem [ref=e52]:
+                - link "Strippers" [ref=e53] [cursor=pointer]:
+                  - /url: /solutions/surface-conditioning/#strippers
+              - listitem [ref=e54]:
+                - link "Multimetal Cleaners" [ref=e55] [cursor=pointer]:
+                  - /url: /solutions/surface-conditioning/#multimetal-cleaners
+              - listitem [ref=e56]:
+                - link "Activators" [ref=e57] [cursor=pointer]:
+                  - /url: /solutions/surface-conditioning/#activators
+              - listitem [ref=e58]:
+                - link "Buffing Compound Removers" [ref=e59] [cursor=pointer]:
+                  - /url: /solutions/surface-conditioning/#buffing-compound-removers
+              - listitem [ref=e60]:
+                - link "Cleaning Systems" [ref=e61] [cursor=pointer]:
+                  - /url: /solutions/surface-conditioning/#cleaning-systems
+              - listitem [ref=e62]:
+                - link "High Alkaline Cleaners" [ref=e63] [cursor=pointer]:
+                  - /url: /solutions/surface-conditioning/#high-alkaline-cleaners
+              - listitem [ref=e64]:
+                - link "Descalers" [ref=e65] [cursor=pointer]:
+                  - /url: /solutions/surface-conditioning/#descalers
+            - link "See featured products" [ref=e66] [cursor=pointer]:
+              - /url: /solutions/surface-conditioning/
+              - text: See featured products
+              - generic [ref=e67]: →
+        - listitem [ref=e68]:
+          - generic [ref=e69]:
+            - link "Anti-Corrosion" [ref=e70] [cursor=pointer]:
+              - /url: /solutions/anti-corrosion/
+              - generic "Nut and bolt icon" [ref=e71]:
+                - img [ref=e72]
+            - heading "Anti-Corrosion" [level=3] [ref=e73]:
+              - link "Anti-Corrosion" [ref=e74] [cursor=pointer]:
+                - /url: /solutions/anti-corrosion/
+            - paragraph [ref=e75]: When durability is the highest priority, anti-corrosion finishing solutions deliver best-in-class results, ensuring products perform in the most challenging environments.
+            - list [ref=e76]:
+              - listitem [ref=e77]:
+                - link "Zinc" [ref=e78] [cursor=pointer]:
+                  - /url: /solutions/anti-corrosion/#zinc
+              - listitem [ref=e79]:
+                - link "Zinc Alloys" [ref=e80] [cursor=pointer]:
+                  - /url: /solutions/anti-corrosion/#zinc-alloys
+              - listitem [ref=e81]:
+                - link "Passivates" [ref=e82] [cursor=pointer]:
+                  - /url: /solutions/anti-corrosion/#passivates
+              - listitem [ref=e83]:
+                - link "Sealers" [ref=e84] [cursor=pointer]:
+                  - /url: /solutions/anti-corrosion/#sealers
+              - listitem [ref=e85]:
+                - link "Phosphating" [ref=e86] [cursor=pointer]:
+                  - /url: /solutions/anti-corrosion/#phosphating
+            - link "See featured products" [ref=e87] [cursor=pointer]:
+              - /url: /solutions/anti-corrosion/
+              - text: See featured products
+              - generic [ref=e88]: →
+        - listitem [ref=e89]:
+          - generic [ref=e90]:
+            - link "Light Metal Finishes" [ref=e91] [cursor=pointer]:
+              - /url: /solutions/light-metal-finishes/
+              - generic "Building aluminum profile icon" [ref=e92]:
+                - img [ref=e93]
+            - heading "Light Metal Finishes" [level=3] [ref=e94]:
+              - link "Light Metal Finishes" [ref=e95] [cursor=pointer]:
+                - /url: /solutions/light-metal-finishes/
+            - paragraph [ref=e96]: With a comprehensive light metal solution portfolio, MacDermid Enthone provides proven expertise and performance designed to exceed expectations and requirements.
+            - list [ref=e97]:
+              - listitem [ref=e98]:
+                - link "Surface Conditioning" [ref=e99] [cursor=pointer]:
+                  - /url: /solutions/light-metal-finishes/#surface-conditioning-light-metals
+              - listitem [ref=e100]:
+                - link "Anodizing Systems" [ref=e101] [cursor=pointer]:
+                  - /url: /solutions/light-metal-finishes/#anodizing-systems
+              - listitem [ref=e102]:
+                - link "Anodizing Additives" [ref=e103] [cursor=pointer]:
+                  - /url: /solutions/light-metal-finishes/#anodizing-additives
+              - listitem [ref=e104]:
+                - link "Sealers" [ref=e105] [cursor=pointer]:
+                  - /url: /solutions/light-metal-finishes/#sealers-light-metal
+              - listitem [ref=e106]:
+                - link "Conversion Coatings" [ref=e107] [cursor=pointer]:
+                  - /url: /solutions/light-metal-finishes/#conversion-coatings
+            - link "See featured products" [ref=e108] [cursor=pointer]:
+              - /url: /solutions/light-metal-finishes/
+              - text: See featured products
+              - generic [ref=e109]: →
+        - listitem [ref=e110]:
+          - generic [ref=e111]:
+            - link "Decorative Coatings" [ref=e112] [cursor=pointer]:
+              - /url: /solutions/decorative-coatings/
+              - generic "Shiny surface icon" [ref=e113]:
+                - img [ref=e114]
+            - heading "Decorative Coatings" [level=3] [ref=e115]:
+              - link "Decorative Coatings" [ref=e116] [cursor=pointer]:
+                - /url: /solutions/decorative-coatings/
+            - paragraph [ref=e117]: Decorative coating solutions deliver cost-effective and environmentally compliant processes in a range of bright, satin, white, and dark finishes.
+            - list [ref=e118]:
+              - listitem [ref=e119]:
+                - link "Chrome" [ref=e120] [cursor=pointer]:
+                  - /url: /solutions/decorative-coatings/#chrome
+              - listitem [ref=e121]:
+                - link "Nickel" [ref=e122] [cursor=pointer]:
+                  - /url: /solutions/decorative-coatings/#nickel
+              - listitem [ref=e123]:
+                - link "Copper" [ref=e124] [cursor=pointer]:
+                  - /url: /solutions/decorative-coatings/#copper
+              - listitem [ref=e125]:
+                - link "Post-Treatment" [ref=e126] [cursor=pointer]:
+                  - /url: /solutions/decorative-coatings/#post-treatment
+            - link "See featured products" [ref=e127] [cursor=pointer]:
+              - /url: /solutions/decorative-coatings/
+              - text: See featured products
+              - generic [ref=e128]: →
+        - listitem [ref=e129]:
+          - generic [ref=e130]:
+            - link "Plating On Plastics" [ref=e131] [cursor=pointer]:
+              - /url: /solutions/plating-on-plastics/
+              - generic "Shiny surface icon" [ref=e132]:
+                - img [ref=e133]
+            - heading "Plating On Plastics" [level=3] [ref=e134]:
+              - link "Plating On Plastics" [ref=e135] [cursor=pointer]:
+                - /url: /solutions/plating-on-plastics/
+            - paragraph [ref=e136]: A full range of Plating on Plastic technologies for decorative applications, designed with environmental compliance and sustainability in mind.
+            - list [ref=e137]:
+              - listitem [ref=e138]:
+                - link "Conventional Cycle" [ref=e139] [cursor=pointer]:
+                  - /url: /solutions/plating-on-plastics/#conventional-cycle
+              - listitem [ref=e140]:
+                - link "Chrome-Free Etch" [ref=e141] [cursor=pointer]:
+                  - /url: /solutions/plating-on-plastics/#chrome-free-etch
+              - listitem [ref=e142]:
+                - link "Direct Metallization" [ref=e143] [cursor=pointer]:
+                  - /url: /solutions/plating-on-plastics/#direct-metallization
+            - link "See featured products" [ref=e144] [cursor=pointer]:
+              - /url: /solutions/plating-on-plastics/
+              - text: See featured products
+              - generic [ref=e145]: →
+        - listitem [ref=e146]:
+          - generic [ref=e147]:
+            - link "Electroless Nickel" [ref=e148] [cursor=pointer]:
+              - /url: /solutions/electroless-nickel/
+              - generic "Oil pipe with valve icon" [ref=e149]:
+                - img [ref=e150]
+            - heading "Electroless Nickel" [level=3] [ref=e151]:
+              - link "Electroless Nickel" [ref=e152] [cursor=pointer]:
+                - /url: /solutions/electroless-nickel/
+            - paragraph [ref=e153]: When wear resistance is the top priority, electroless nickel solutions deliver trusted performance.
+            - list [ref=e154]:
+              - listitem [ref=e155]:
+                - link "Reduced Ion Electroless Nickel" [ref=e156] [cursor=pointer]:
+                  - /url: /solutions/electroless-nickel/#reduced-ion-electroless-nickel
+              - listitem [ref=e157]:
+                - link "High Phosphorus Electroless Nickel" [ref=e158] [cursor=pointer]:
+                  - /url: /solutions/electroless-nickel/#high-phosphorus-electroless-nickel
+              - listitem [ref=e159]:
+                - link "Medium Phosphorus Electroless Nickel" [ref=e160] [cursor=pointer]:
+                  - /url: /solutions/electroless-nickel/#medium-phosphorus-electroless-nickel
+              - listitem [ref=e161]:
+                - link "Low/Medium Phosphorus Electroless Nickel" [ref=e162] [cursor=pointer]:
+                  - /url: /solutions/electroless-nickel/#low-medium-phosphorus-electroless-nickel
+              - listitem [ref=e163]:
+                - link "Low Phosphorus Electroless Nickel" [ref=e164] [cursor=pointer]:
+                  - /url: /solutions/electroless-nickel/#low-phosphorus-electroless-nickel
+              - listitem [ref=e165]:
+                - link "Specialty Electroless Nickel" [ref=e166] [cursor=pointer]:
+                  - /url: /solutions/electroless-nickel/#specialty-electroless-nickel
+              - listitem [ref=e167]:
+                - link "Composite EN" [ref=e168] [cursor=pointer]:
+                  - /url: /solutions/electroless-nickel/#composite-en
+            - link "See featured products" [ref=e169] [cursor=pointer]:
+              - /url: /solutions/electroless-nickel/
+              - text: See featured products
+              - generic [ref=e170]: →
+        - listitem [ref=e171]:
+          - generic [ref=e172]:
+            - link "Wear Resistance" [ref=e173] [cursor=pointer]:
+              - /url: /solutions/wear-resistance/
+              - generic "Gears icon" [ref=e174]:
+                - img [ref=e175]
+            - heading "Wear Resistance" [level=3] [ref=e176]:
+              - link "Wear Resistance" [ref=e177] [cursor=pointer]:
+                - /url: /solutions/wear-resistance/
+            - paragraph [ref=e178]: When deposit hardness and wear resistance are paramount, wear resistance solutions ensure products perform in challenging environments.
+            - list [ref=e179]:
+              - listitem [ref=e180]:
+                - link "Hard Chrome" [ref=e181] [cursor=pointer]:
+                  - /url: /solutions/wear-resistance/#hard-chrome
+            - link "See featured products" [ref=e182] [cursor=pointer]:
+              - /url: /solutions/wear-resistance/
+              - text: See featured products
+              - generic [ref=e183]: →
+        - listitem [ref=e184]:
+          - generic [ref=e185]:
+            - link "Precious Metals" [ref=e186] [cursor=pointer]:
+              - /url: /solutions/precious-metals/
+              - generic "Necklace stand and purse buckle icon" [ref=e187]:
+                - img [ref=e188]
+            - heading "Precious Metals" [level=3] [ref=e189]:
+              - link "Precious Metals" [ref=e190] [cursor=pointer]:
+                - /url: /solutions/precious-metals/
+            - paragraph [ref=e191]: Luxury surface finishing solutions that do not just finish luxury products — they complete them.
+            - list [ref=e192]:
+              - listitem [ref=e193]:
+                - link "Adhesion Layer" [ref=e194] [cursor=pointer]:
+                  - /url: /solutions/precious-metals/#adhesion-layer
+              - listitem [ref=e195]:
+                - link "Bronze" [ref=e196] [cursor=pointer]:
+                  - /url: /solutions/precious-metals/#bronze
+              - listitem [ref=e197]:
+                - link "Silver" [ref=e198] [cursor=pointer]:
+                  - /url: /solutions/precious-metals/#silver
+              - listitem [ref=e199]:
+                - link "Gold" [ref=e200] [cursor=pointer]:
+                  - /url: /solutions/precious-metals/#gold
+              - listitem [ref=e201]:
+                - link "Palladium" [ref=e202] [cursor=pointer]:
+                  - /url: /solutions/precious-metals/#palladium
+              - listitem [ref=e203]:
+                - link "Platinum" [ref=e204] [cursor=pointer]:
+                  - /url: /solutions/precious-metals/#platinum
+              - listitem [ref=e205]:
+                - link "Rhodium" [ref=e206] [cursor=pointer]:
+                  - /url: /solutions/precious-metals/#rhodium
+              - listitem [ref=e207]:
+                - link "Passivation" [ref=e208] [cursor=pointer]:
+                  - /url: /solutions/precious-metals/#passivation
+            - link "See featured products" [ref=e209] [cursor=pointer]:
+              - /url: /solutions/precious-metals/
+              - text: See featured products
+              - generic [ref=e210]: →
+        - listitem [ref=e211]:
+          - generic [ref=e212]:
+            - link "Plastic Recycling" [ref=e213] [cursor=pointer]:
+              - /url: /solutions/plastic-recycling/
+              - generic "Bottle ready for recycling icon" [ref=e214]:
+                - img [ref=e215]
+            - heading "Plastic Recycling" [level=3] [ref=e216]:
+              - link "Plastic Recycling" [ref=e217] [cursor=pointer]:
+                - /url: /solutions/plastic-recycling/
+            - paragraph [ref=e218]: From cleaners and additives to plastic separation enhancing products and defoamers, the plastic recycling portfolio delivers process-enhancing, environmentally friendly solutions.
+            - list [ref=e219]:
+              - listitem [ref=e220]:
+                - link "Antifoams" [ref=e221] [cursor=pointer]:
+                  - /url: /solutions/plastic-recycling/#antifoams
+              - listitem [ref=e222]:
+                - link "Detergents" [ref=e223] [cursor=pointer]:
+                  - /url: /solutions/plastic-recycling/#detergents
+              - listitem [ref=e224]:
+                - link "Separation Additives" [ref=e225] [cursor=pointer]:
+                  - /url: /solutions/plastic-recycling/#separation-additives
+            - link "See featured products" [ref=e226] [cursor=pointer]:
+              - /url: /solutions/plastic-recycling/
+              - text: See featured products
+              - generic [ref=e227]: →
+        - listitem [ref=e228]:
+          - generic [ref=e229]:
+            - link "WaterCARE" [ref=e230] [cursor=pointer]:
+              - /url: /solutions/watercare/
+              - generic "Earth in water drop icon" [ref=e231]:
+                - img [ref=e232]
+            - heading "WaterCARE" [level=3] [ref=e233]:
+              - link "WaterCARE" [ref=e234] [cursor=pointer]:
+                - /url: /solutions/watercare/
+            - paragraph [ref=e235]: Effective water resource management is a corporate responsibility. WaterCARE provides wastewater treatment chemistries tailored to solve customers’ unique challenges.
+            - list [ref=e236]:
+              - listitem [ref=e237]:
+                - link "Antifoaming Agents" [ref=e238] [cursor=pointer]:
+                  - /url: /solutions/watercare/#antifoaming-agents
+              - listitem [ref=e239]:
+                - link "Metal Precipitants" [ref=e240] [cursor=pointer]:
+                  - /url: /solutions/watercare/#metal-precipitants
+              - listitem [ref=e241]:
+                - link "Flocculants" [ref=e242] [cursor=pointer]:
+                  - /url: /solutions/watercare/#flocculants
+              - listitem [ref=e243]:
+                - link "Coagulants" [ref=e244] [cursor=pointer]:
+                  - /url: /solutions/watercare/#coagulants
+            - link "See featured products" [ref=e245] [cursor=pointer]:
+              - /url: /solutions/watercare/
+              - text: See featured products
+              - generic [ref=e246]: →
+        - listitem [ref=e247]:
+          - generic [ref=e248]:
+            - link "All Solutions" [ref=e249] [cursor=pointer]:
+              - /url: /solutions/
+              - generic "Shiny surface icon" [ref=e250]:
+                - img [ref=e251]
+            - heading "All Solutions" [level=3] [ref=e252]:
+              - link "All Solutions" [ref=e253] [cursor=pointer]:
+                - /url: /solutions/
+            - paragraph [ref=e254]: Delivering innovative solutions designed to meet the evolving demands of the dynamic surface finishing industry and ever-changing customer requirements.
+            - paragraph [ref=e255]: Portfolio overview.
+            - link "All Solutions" [ref=e256] [cursor=pointer]:
+              - /url: /solutions/
+              - text: All Solutions
+              - generic [ref=e257]: →
+      - region "Browse families by solution" [ref=e258]:
+        - generic [ref=e259]:
+          - generic [ref=e260]:
+            - paragraph [ref=e261]: Featured product families
+            - heading "Browse families by solution" [level=2] [ref=e262]
+          - list [ref=e263]:
+            - listitem [ref=e264]:
+              - heading "Surface Conditioning" [level=3] [ref=e265]
+              - list [ref=e266]:
+                - listitem [ref=e267]:
+                  - link "Strippers" [ref=e268] [cursor=pointer]:
+                    - /url: /solutions/surface-conditioning/#strippers
+                - listitem [ref=e269]:
+                  - link "Multimetal Cleaners" [ref=e270] [cursor=pointer]:
+                    - /url: /solutions/surface-conditioning/#multimetal-cleaners
+                - listitem [ref=e271]:
+                  - link "Activators" [ref=e272] [cursor=pointer]:
+                    - /url: /solutions/surface-conditioning/#activators
+                - listitem [ref=e273]:
+                  - link "Buffing Compound Removers" [ref=e274] [cursor=pointer]:
+                    - /url: /solutions/surface-conditioning/#buffing-compound-removers
+                - listitem [ref=e275]:
+                  - link "Cleaning Systems" [ref=e276] [cursor=pointer]:
+                    - /url: /solutions/surface-conditioning/#cleaning-systems
+                - listitem [ref=e277]:
+                  - link "High Alkaline Cleaners" [ref=e278] [cursor=pointer]:
+                    - /url: /solutions/surface-conditioning/#high-alkaline-cleaners
+                - listitem [ref=e279]:
+                  - link "Descalers" [ref=e280] [cursor=pointer]:
+                    - /url: /solutions/surface-conditioning/#descalers
+            - listitem [ref=e281]:
+              - heading "Anti-Corrosion" [level=3] [ref=e282]
+              - list [ref=e283]:
+                - listitem [ref=e284]:
+                  - link "Zinc" [ref=e285] [cursor=pointer]:
+                    - /url: /solutions/anti-corrosion/#zinc
+                - listitem [ref=e286]:
+                  - link "Zinc Alloys" [ref=e287] [cursor=pointer]:
+                    - /url: /solutions/anti-corrosion/#zinc-alloys
+                - listitem [ref=e288]:
+                  - link "Passivates" [ref=e289] [cursor=pointer]:
+                    - /url: /solutions/anti-corrosion/#passivates
+                - listitem [ref=e290]:
+                  - link "Sealers" [ref=e291] [cursor=pointer]:
+                    - /url: /solutions/anti-corrosion/#sealers
+                - listitem [ref=e292]:
+                  - link "Phosphating" [ref=e293] [cursor=pointer]:
+                    - /url: /solutions/anti-corrosion/#phosphating
+            - listitem [ref=e294]:
+              - heading "Light Metal Finishes" [level=3] [ref=e295]
+              - list [ref=e296]:
+                - listitem [ref=e297]:
+                  - link "Surface Conditioning" [ref=e298] [cursor=pointer]:
+                    - /url: /solutions/light-metal-finishes/#surface-conditioning-light-metals
+                - listitem [ref=e299]:
+                  - link "Anodizing Systems" [ref=e300] [cursor=pointer]:
+                    - /url: /solutions/light-metal-finishes/#anodizing-systems
+                - listitem [ref=e301]:
+                  - link "Anodizing Additives" [ref=e302] [cursor=pointer]:
+                    - /url: /solutions/light-metal-finishes/#anodizing-additives
+                - listitem [ref=e303]:
+                  - link "Sealers" [ref=e304] [cursor=pointer]:
+                    - /url: /solutions/light-metal-finishes/#sealers-light-metal
+                - listitem [ref=e305]:
+                  - link "Conversion Coatings" [ref=e306] [cursor=pointer]:
+                    - /url: /solutions/light-metal-finishes/#conversion-coatings
+            - listitem [ref=e307]:
+              - heading "Decorative Coatings" [level=3] [ref=e308]
+              - list [ref=e309]:
+                - listitem [ref=e310]:
+                  - link "Chrome" [ref=e311] [cursor=pointer]:
+                    - /url: /solutions/decorative-coatings/#chrome
+                - listitem [ref=e312]:
+                  - link "Nickel" [ref=e313] [cursor=pointer]:
+                    - /url: /solutions/decorative-coatings/#nickel
+                - listitem [ref=e314]:
+                  - link "Copper" [ref=e315] [cursor=pointer]:
+                    - /url: /solutions/decorative-coatings/#copper
+                - listitem [ref=e316]:
+                  - link "Post-Treatment" [ref=e317] [cursor=pointer]:
+                    - /url: /solutions/decorative-coatings/#post-treatment
+            - listitem [ref=e318]:
+              - heading "Plating On Plastics" [level=3] [ref=e319]
+              - list [ref=e320]:
+                - listitem [ref=e321]:
+                  - link "Conventional Cycle" [ref=e322] [cursor=pointer]:
+                    - /url: /solutions/plating-on-plastics/#conventional-cycle
+                - listitem [ref=e323]:
+                  - link "Chrome-Free Etch" [ref=e324] [cursor=pointer]:
+                    - /url: /solutions/plating-on-plastics/#chrome-free-etch
+                - listitem [ref=e325]:
+                  - link "Direct Metallization" [ref=e326] [cursor=pointer]:
+                    - /url: /solutions/plating-on-plastics/#direct-metallization
+            - listitem [ref=e327]:
+              - heading "Electroless Nickel" [level=3] [ref=e328]
+              - list [ref=e329]:
+                - listitem [ref=e330]:
+                  - link "Reduced Ion Electroless Nickel" [ref=e331] [cursor=pointer]:
+                    - /url: /solutions/electroless-nickel/#reduced-ion-electroless-nickel
+                - listitem [ref=e332]:
+                  - link "High Phosphorus Electroless Nickel" [ref=e333] [cursor=pointer]:
+                    - /url: /solutions/electroless-nickel/#high-phosphorus-electroless-nickel
+                - listitem [ref=e334]:
+                  - link "Medium Phosphorus Electroless Nickel" [ref=e335] [cursor=pointer]:
+                    - /url: /solutions/electroless-nickel/#medium-phosphorus-electroless-nickel
+                - listitem [ref=e336]:
+                  - link "Low/Medium Phosphorus Electroless Nickel" [ref=e337] [cursor=pointer]:
+                    - /url: /solutions/electroless-nickel/#low-medium-phosphorus-electroless-nickel
+                - listitem [ref=e338]:
+                  - link "Low Phosphorus Electroless Nickel" [ref=e339] [cursor=pointer]:
+                    - /url: /solutions/electroless-nickel/#low-phosphorus-electroless-nickel
+                - listitem [ref=e340]:
+                  - link "Specialty Electroless Nickel" [ref=e341] [cursor=pointer]:
+                    - /url: /solutions/electroless-nickel/#specialty-electroless-nickel
+                - listitem [ref=e342]:
+                  - link "Composite EN" [ref=e343] [cursor=pointer]:
+                    - /url: /solutions/electroless-nickel/#composite-en
+            - listitem [ref=e344]:
+              - heading "Wear Resistance" [level=3] [ref=e345]
+              - list [ref=e346]:
+                - listitem [ref=e347]:
+                  - link "Hard Chrome" [ref=e348] [cursor=pointer]:
+                    - /url: /solutions/wear-resistance/#hard-chrome
+            - listitem [ref=e349]:
+              - heading "Precious Metals" [level=3] [ref=e350]
+              - list [ref=e351]:
+                - listitem [ref=e352]:
+                  - link "Adhesion Layer" [ref=e353] [cursor=pointer]:
+                    - /url: /solutions/precious-metals/#adhesion-layer
+                - listitem [ref=e354]:
+                  - link "Bronze" [ref=e355] [cursor=pointer]:
+                    - /url: /solutions/precious-metals/#bronze
+                - listitem [ref=e356]:
+                  - link "Silver" [ref=e357] [cursor=pointer]:
+                    - /url: /solutions/precious-metals/#silver
+                - listitem [ref=e358]:
+                  - link "Gold" [ref=e359] [cursor=pointer]:
+                    - /url: /solutions/precious-metals/#gold
+                - listitem [ref=e360]:
+                  - link "Palladium" [ref=e361] [cursor=pointer]:
+                    - /url: /solutions/precious-metals/#palladium
+                - listitem [ref=e362]:
+                  - link "Platinum" [ref=e363] [cursor=pointer]:
+                    - /url: /solutions/precious-metals/#platinum
+                - listitem [ref=e364]:
+                  - link "Rhodium" [ref=e365] [cursor=pointer]:
+                    - /url: /solutions/precious-metals/#rhodium
+                - listitem [ref=e366]:
+                  - link "Passivation" [ref=e367] [cursor=pointer]:
+                    - /url: /solutions/precious-metals/#passivation
+            - listitem [ref=e368]:
+              - heading "Plastic Recycling" [level=3] [ref=e369]
+              - list [ref=e370]:
+                - listitem [ref=e371]:
+                  - link "Antifoams" [ref=e372] [cursor=pointer]:
+                    - /url: /solutions/plastic-recycling/#antifoams
+                - listitem [ref=e373]:
+                  - link "Detergents" [ref=e374] [cursor=pointer]:
+                    - /url: /solutions/plastic-recycling/#detergents
+                - listitem [ref=e375]:
+                  - link "Separation Additives" [ref=e376] [cursor=pointer]:
+                    - /url: /solutions/plastic-recycling/#separation-additives
+            - listitem [ref=e377]:
+              - heading "WaterCARE" [level=3] [ref=e378]
+              - list [ref=e379]:
+                - listitem [ref=e380]:
+                  - link "Antifoaming Agents" [ref=e381] [cursor=pointer]:
+                    - /url: /solutions/watercare/#antifoaming-agents
+                - listitem [ref=e382]:
+                  - link "Metal Precipitants" [ref=e383] [cursor=pointer]:
+                    - /url: /solutions/watercare/#metal-precipitants
+                - listitem [ref=e384]:
+                  - link "Flocculants" [ref=e385] [cursor=pointer]:
+                    - /url: /solutions/watercare/#flocculants
+                - listitem [ref=e386]:
+                  - link "Coagulants" [ref=e387] [cursor=pointer]:
+                    - /url: /solutions/watercare/#coagulants
+      - generic [ref=e389]:
+        - heading "Need help selecting the right surface finishing solution?" [level=2] [ref=e390]
+        - paragraph [ref=e391]: Connect with our team to identify the right chemistry, process, and finish for your application.
+        - link "Contact Us" [ref=e392] [cursor=pointer]:
+          - /url: /contact/
+  - contentinfo [ref=e393]:
+    - generic [ref=e394]:
+      - generic [ref=e395]:
+        - img "El Etehadia" [ref=e396]
+        - paragraph [ref=e397]: Electroplating chemicals, machines, accessories, lacquers, laboratory analysis, and technical support.
+      - generic [ref=e398]:
+        - heading "Company" [level=4] [ref=e399]
+        - navigation [ref=e400]:
+          - link "About" [ref=e401] [cursor=pointer]:
+            - /url: /about/
+          - link "Products" [ref=e402] [cursor=pointer]:
+            - /url: /products/
+          - link "Solutions" [ref=e403] [cursor=pointer]:
+            - /url: /solutions/
+          - link "Applications" [ref=e404] [cursor=pointer]:
+            - /url: /projects/
+          - link "Industries" [ref=e405] [cursor=pointer]:
+            - /url: /industries/
+          - link "Partners" [ref=e406] [cursor=pointer]:
+            - /url: /partners/
+          - link "Contact" [ref=e407] [cursor=pointer]:
+            - /url: /contact/
+      - generic [ref=e408]:
+        - heading "Products" [level=4] [ref=e409]
+        - navigation [ref=e410]:
+          - link "Nickel plating" [ref=e411] [cursor=pointer]:
+            - /url: /products/
+          - link "Chrome plating" [ref=e412] [cursor=pointer]:
+            - /url: /products/
+          - link "Copper plating" [ref=e413] [cursor=pointer]:
+            - /url: /products/
+          - link "Zinc plating" [ref=e414] [cursor=pointer]:
+            - /url: /products/
+          - link "Lacquers" [ref=e415] [cursor=pointer]:
+            - /url: /products/
+      - generic [ref=e416]:
+        - heading "Contact" [level=4] [ref=e417]
+        - navigation [ref=e418]:
+          - link "+20 2 26833830" [ref=e419] [cursor=pointer]:
+            - /url: tel:+20226833830
+          - link "+20 10 67358111" [ref=e420] [cursor=pointer]:
+            - /url: tel:+201067358111
+          - link "info@etehadia.com" [ref=e421] [cursor=pointer]:
+            - /url: mailto:info@etehadia.com
+          - generic [ref=e422]: Cairo, Egypt
+        - link "Send inquiry" [ref=e423] [cursor=pointer]:
+          - /url: /contact/
+    - generic [ref=e425]:
+      - paragraph [ref=e426]: ©2026El Etehadia Company. All rights reserved.
+      - link "Back to top" [ref=e427] [cursor=pointer]:
+        - /url: "#top-nav"
