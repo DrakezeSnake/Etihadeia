@@ -1,0 +1,200 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - link "El Etehadia home" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img "El Etehadia" [ref=e6]
+      - navigation "Primary" [ref=e8]:
+        - list [ref=e9]:
+          - listitem [ref=e10]:
+            - link "Home" [ref=e11] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=e12]:
+            - link "About" [ref=e13] [cursor=pointer]:
+              - /url: /about/
+          - listitem [ref=e14]:
+            - link "Services" [ref=e15] [cursor=pointer]:
+              - /url: /services/
+          - listitem [ref=e16]:
+            - link "Products" [ref=e17] [cursor=pointer]:
+              - /url: /products/
+          - listitem [ref=e18]:
+            - link "Industries" [ref=e19] [cursor=pointer]:
+              - /url: /industries/
+          - listitem [ref=e20]:
+            - link "Solutions" [ref=e21] [cursor=pointer]:
+              - /url: /solutions/
+          - listitem [ref=e22]:
+            - link "Partners" [ref=e23] [cursor=pointer]:
+              - /url: /partners/
+      - generic [ref=e24]:
+        - button "Switch to Arabic" [ref=e25] [cursor=pointer]: العربية
+        - button "Open menu" [ref=e26]
+  - main [ref=e27]:
+    - generic [ref=e28]:
+      - generic [ref=e30]:
+        - img "Surface finishing" [ref=e32]
+        - generic [ref=e33]:
+          - generic "Water droplet icon" [ref=e34]:
+            - img [ref=e35]
+          - navigation "Breadcrumb" [ref=e36]:
+            - list [ref=e37]:
+              - listitem [ref=e38]:
+                - link "Home" [ref=e39] [cursor=pointer]:
+                  - /url: /
+                - text: /
+              - listitem [ref=e40]:
+                - link "Solutions" [ref=e41] [cursor=pointer]:
+                  - /url: /solutions/
+                - text: /
+              - listitem [ref=e42]: Surface Conditioning
+          - heading "Surface Conditioning" [level=1] [ref=e43]
+          - paragraph [ref=e44]: To deliver best-in-class adhesion, the surface must be cleaned and free of dirt and oxides. The surface conditioning portfolio delivers a perfectly pure substrate to receive a metallic finish.
+      - paragraph [ref=e47]: Prior to the plating process, a surface must be cleaned to offer a perfectly pure substrate to receive a metallic finish with good adhesion. Extensive surface preparation experience enables customers across a range of industries and applications to use a complete line of cleaners.
+      - region "Featured product families" [ref=e48]:
+        - generic [ref=e49]:
+          - heading "Featured product families" [level=2] [ref=e50]
+          - generic [ref=e51]:
+            - article [ref=e52]:
+              - heading "Strippers" [level=3] [ref=e53]:
+                - link "Strippers" [ref=e54] [cursor=pointer]:
+                  - /url: "#strippers"
+              - paragraph [ref=e55]: Strippers remove coatings from components and plating racks to ensure application quality. The portfolio can remove coatings such as copper, zinc, and high-phosphorous electroless nickel from many substrate types.
+              - generic [ref=e56]:
+                - paragraph [ref=e57]: Product examples
+                - list [ref=e58]:
+                  - listitem [ref=e59]:
+                    - strong [ref=e60]: CHROME STRIPPER EL 50
+                    - generic [ref=e61]: Chrome stripper
+                  - listitem [ref=e62]:
+                    - strong [ref=e63]: METEX STRIPPER NC 290
+                    - generic [ref=e64]: Immersion stripper for electroless nickel
+                  - listitem [ref=e65]:
+                    - strong [ref=e66]: METEX COPPER STRIPPER F
+                    - generic [ref=e67]: Immersion copper stripper for steel
+                  - listitem [ref=e68]:
+                    - strong [ref=e69]: ENSTRIP™ S
+                    - generic [ref=e70]: Immersion stripper
+                  - listitem [ref=e71]:
+                    - strong [ref=e72]: ENSTRIP™ NP
+                    - generic [ref=e73]: Chemical stripper for removing nickel from steel and copper
+                  - listitem [ref=e74]:
+                    - strong [ref=e75]: ENSTRIP™ EN 86
+                    - generic [ref=e76]: Non-cyanide immersion stripper for high phosphorous electroless nickel
+                  - listitem [ref=e77]:
+                    - strong [ref=e78]: ENSTRIP™ EN 79
+                    - generic [ref=e79]: Non-cyanide immersion stripper for medium to high phosphorous electroless nickel
+                  - listitem [ref=e80]:
+                    - strong [ref=e81]: RACK STRIPPER SS 10
+                    - generic [ref=e82]: Electrolytic rack stripper
+                  - listitem [ref=e83]:
+                    - strong [ref=e84]: ENSTRIP™ SEALANT REMOVER
+                    - generic [ref=e85]: High alkaline stripper removing sealant residues
+                  - listitem [ref=e86]:
+                    - strong [ref=e87]: ENSTRIP™ 848
+                    - generic [ref=e88]: Electrolytic rack stripper
+            - article [ref=e89]:
+              - heading "Multimetal Cleaners" [level=3] [ref=e90]:
+                - link "Multimetal Cleaners" [ref=e91] [cursor=pointer]:
+                  - /url: "#multimetal-cleaners"
+            - article [ref=e92]:
+              - heading "Activators" [level=3] [ref=e93]:
+                - link "Activators" [ref=e94] [cursor=pointer]:
+                  - /url: "#activators"
+            - article [ref=e95]:
+              - heading "Buffing Compound Removers" [level=3] [ref=e96]:
+                - link "Buffing Compound Removers" [ref=e97] [cursor=pointer]:
+                  - /url: "#buffing-compound-removers"
+            - article [ref=e98]:
+              - heading "Cleaning Systems" [level=3] [ref=e99]:
+                - link "Cleaning Systems" [ref=e100] [cursor=pointer]:
+                  - /url: "#cleaning-systems"
+            - article [ref=e101]:
+              - heading "High Alkaline Cleaners" [level=3] [ref=e102]:
+                - link "High Alkaline Cleaners" [ref=e103] [cursor=pointer]:
+                  - /url: "#high-alkaline-cleaners"
+            - article [ref=e104]:
+              - heading "Descalers" [level=3] [ref=e105]:
+                - link "Descalers" [ref=e106] [cursor=pointer]:
+                  - /url: "#descalers"
+      - region "Related solutions" [ref=e107]:
+        - generic [ref=e108]:
+          - heading "Related solutions" [level=2] [ref=e109]
+          - region "Related solutions carousel" [ref=e110]:
+            - list [ref=e111]:
+              - listitem [ref=e112]:
+                - link "Hard chrome part Wear Resistance" [ref=e113] [cursor=pointer]:
+                  - /url: /solutions/wear-resistance/
+                  - img "Hard chrome part" [ref=e115]
+                  - heading "Wear Resistance" [level=3] [ref=e116]
+              - listitem [ref=e117]:
+                - link "Black necklace Precious Metals" [ref=e118] [cursor=pointer]:
+                  - /url: /solutions/precious-metals/
+                  - img "Black necklace" [ref=e120]
+                  - heading "Precious Metals" [level=3] [ref=e121]
+              - listitem [ref=e122]:
+                - link "Recyclable plastic bottles with white caps arranged in rows Plastic Recycling" [ref=e123] [cursor=pointer]:
+                  - /url: /solutions/plastic-recycling/
+                  - img "Recyclable plastic bottles with white caps arranged in rows" [ref=e125]
+                  - heading "Plastic Recycling" [level=3] [ref=e126]
+              - listitem [ref=e127]:
+                - link "Industrial scale aluminum treatment plant WaterCARE" [ref=e128] [cursor=pointer]:
+                  - /url: /solutions/watercare/
+                  - img "Industrial scale aluminum treatment plant" [ref=e130]
+                  - heading "WaterCARE" [level=3] [ref=e131]
+      - generic [ref=e133]:
+        - heading "Need help selecting the right surface finishing solution?" [level=2] [ref=e134]
+        - paragraph [ref=e135]: Connect with our team to identify the right chemistry, process, and finish for your application.
+        - link "Contact Us" [ref=e136] [cursor=pointer]:
+          - /url: /contact/
+  - contentinfo [ref=e137]:
+    - generic [ref=e138]:
+      - generic [ref=e139]:
+        - img "El Etehadia"
+        - paragraph [ref=e140]: Electroplating chemicals, machines, accessories, lacquers, laboratory analysis, and technical support.
+      - generic [ref=e141]:
+        - heading "Company" [level=4] [ref=e142]
+        - navigation [ref=e143]:
+          - link "About" [ref=e144] [cursor=pointer]:
+            - /url: /about/
+          - link "Products" [ref=e145] [cursor=pointer]:
+            - /url: /products/
+          - link "Solutions" [ref=e146] [cursor=pointer]:
+            - /url: /solutions/
+          - link "Applications" [ref=e147] [cursor=pointer]:
+            - /url: /projects/
+          - link "Industries" [ref=e148] [cursor=pointer]:
+            - /url: /industries/
+          - link "Partners" [ref=e149] [cursor=pointer]:
+            - /url: /partners/
+          - link "Contact" [ref=e150] [cursor=pointer]:
+            - /url: /contact/
+      - generic [ref=e151]:
+        - heading "Products" [level=4] [ref=e152]
+        - navigation [ref=e153]:
+          - link "Nickel plating" [ref=e154] [cursor=pointer]:
+            - /url: /products/
+          - link "Chrome plating" [ref=e155] [cursor=pointer]:
+            - /url: /products/
+          - link "Copper plating" [ref=e156] [cursor=pointer]:
+            - /url: /products/
+          - link "Zinc plating" [ref=e157] [cursor=pointer]:
+            - /url: /products/
+          - link "Lacquers" [ref=e158] [cursor=pointer]:
+            - /url: /products/
+      - generic [ref=e159]:
+        - heading "Contact" [level=4] [ref=e160]
+        - navigation [ref=e161]:
+          - link "+20 2 26833830" [ref=e162] [cursor=pointer]:
+            - /url: tel:+20226833830
+          - link "+20 10 67358111" [ref=e163] [cursor=pointer]:
+            - /url: tel:+201067358111
+          - link "info@etehadia.com" [ref=e164] [cursor=pointer]:
+            - /url: mailto:info@etehadia.com
+          - generic [ref=e165]: Cairo, Egypt
+        - link "Send inquiry" [ref=e166] [cursor=pointer]:
+          - /url: /contact/
+    - generic [ref=e168]:
+      - paragraph [ref=e169]: ©2026El Etehadia Company. All rights reserved.
+      - link "Back to top" [ref=e170] [cursor=pointer]:
+        - /url: "#top-nav"

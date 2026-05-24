@@ -1,0 +1,149 @@
+{
+  "createdAt": "2026-05-23T21:37:52.701Z",
+  "destination": "public/assets/solutions/remote",
+  "assets": [
+    {
+      "slug": "surface-conditioning-hero",
+      "sourceUrl": "https://www.macdermidenthone.com/sites/default/files/styles/desktop_main_menu/public/2023-02/MacDermid_1583x717_Offering_Surface_conditioning_0.jpg?itok=kwWpyATb",
+      "localPath": "public/assets/solutions/remote/surface-conditioning-hero-MacDermid_1583x717_Offering_Surface_conditioning_0.jpg",
+      "status": "failed",
+      "error": "403 https://www.macdermidenthone.com/sites/default/files/styles/desktop_main_menu/public/2023-02/MacDermid_1583x717_Offering_Surface_conditioning_0.jpg?itok=kwWpyATb"
+    },
+    {
+      "slug": "surface-conditioning-icon",
+      "sourceUrl": "https://www.macdermidenthone.com/sites/default/files/2023-12/Icon_AS_droplets.svg",
+      "localPath": "public/assets/solutions/remote/surface-conditioning-icon-Icon_AS_droplets.svg",
+      "status": "downloaded"
+    },
+    {
+      "slug": "anti-corrosion-hero",
+      "sourceUrl": "https://www.macdermidenthone.com/sites/default/files/styles/desktop_main_menu/public/2023-02/_MacDermid_1583x717_Offering_Anti_Corrosion_0.jpg?itok=NCBZn2Am",
+      "localPath": "public/assets/solutions/remote/anti-corrosion-hero-_MacDermid_1583x717_Offering_Anti_Corrosion_0.jpg",
+      "status": "failed",
+      "error": "403 https://www.macdermidenthone.com/sites/default/files/styles/desktop_main_menu/public/2023-02/_MacDermid_1583x717_Offering_Anti_Corrosion_0.jpg?itok=NCBZn2Am"
+    },
+    {
+      "slug": "anti-corrosion-icon",
+      "sourceUrl": "https://www.macdermidenthone.com/sites/default/files/2023-11/Icon_AS_Bolt%20and%20Nut.svg",
+      "localPath": "public/assets/solutions/remote/anti-corrosion-icon-Icon_AS_Bolt_20and_20Nut.svg",
+      "status": "downloaded"
+    },
+    {
+      "slug": "light-metal-finishes-hero",
+      "sourceUrl": "https://www.macdermidenthone.com/sites/default/files/styles/desktop_main_menu/public/2023-10/Light%20Metals%20Soulutons%20by%20Macdermid%20enthone.png?itok=wKpSLjGI",
+      "localPath": "public/assets/solutions/remote/light-metal-finishes-hero-Light_20Metals_20Soulutons_20by_20Macdermid_20enthone.png",
+      "status": "failed",
+      "error": "403 https://www.macdermidenthone.com/sites/default/files/styles/desktop_main_menu/public/2023-10/Light%20Metals%20Soulutons%20by%20Macdermid%20enthone.png?itok=wKpSLjGI"
+    },
+    {
+      "slug": "light-metal-finishes-icon",
+      "sourceUrl": "https://www.macdermidenthone.com/sites/default/files/2023-12/Icon_AS_profile.svg",
+      "localPath": "public/assets/solutions/remote/light-metal-finishes-icon-Icon_AS_profile.svg",
+      "status": "downloaded"
+    },
+    {
+      "slug": "decorative-coatings-hero",
+      "sourceUrl": "https://www.macdermidenthone.com/sites/default/files/styles/desktop_main_menu/public/2023-02/MacDermid_1583x717_Offering_Decorative_0.jpg?itok=uw1AUBZW",
+      "localPath": "public/assets/solutions/remote/decorative-coatings-hero-MacDermid_1583x717_Offering_Decorative_0.jpg",
+      "status": "failed",
+      "error": "403 https://www.macdermidenthone.com/sites/default/files/styles/desktop_main_menu/public/2023-02/MacDermid_1583x717_Offering_Decorative_0.jpg?itok=uw1AUBZW"
+    },
+    {
+      "slug": "decorative-coatings-icon",
+      "sourceUrl": "https://www.macdermidenthone.com/sites/default/files/2023-11/Icon_AS_Shiny%20Surface.svg",
+      "localPath": "public/assets/solutions/remote/decorative-coatings-icon-Icon_AS_Shiny_20Surface.svg",
+      "status": "downloaded"
+    },
+    {
+      "slug": "plating-on-plastics-hero",
+      "sourceUrl": "https://www.macdermidenthone.com/sites/default/files/styles/desktop_main_menu/public/2023-02/_MacDermid_1583x717_Offering_Plating.jpg?itok=0-XIzuhm",
+      "localPath": "public/assets/solutions/remote/plating-on-plastics-hero-_MacDermid_1583x717_Offering_Plating.jpg",
+      "status": "failed",
+      "error": "403 https://www.macdermidenthone.com/sites/default/files/styles/desktop_main_menu/public/2023-02/_MacDermid_1583x717_Offering_Plating.jpg?itok=0-XIzuhm"
+    },
+    {
+      "slug": "plating-on-plastics-icon",
+      "sourceUrl": "https://www.macdermidenthone.com/sites/default/files/2023-11/Icon_AS_Shiny%20Surface.svg",
+      "localPath": "public/assets/solutions/remote/plating-on-plastics-icon-Icon_AS_Shiny_20Surface.svg",
+      "status": "downloaded"
+    },
+    {
+      "slug": "electroless-nickel-hero",
+      "sourceUrl": "https://www.macdermidenthone.com/sites/default/files/styles/desktop_main_menu/public/2023-02/_MacDermid_1583x717_Offering_Wear_Resistance_coatings.jpg?itok=iL5pU6s5",
+      "localPath": "public/assets/solutions/remote/electroless-nickel-hero-_MacDermid_1583x717_Offering_Wear_Resistance_coatings.jpg",
+      "status": "failed",
+      "error": "403 https://www.macdermidenthone.com/sites/default/files/styles/desktop_main_menu/public/2023-02/_MacDermid_1583x717_Offering_Wear_Resistance_coatings.jpg?itok=iL5pU6s5"
+    },
+    {
+      "slug": "electroless-nickel-icon",
+      "sourceUrl": "https://www.macdermidenthone.com/sites/default/files/2023-11/Icon_AS_Pipe%20Joints.svg",
+      "localPath": "public/assets/solutions/remote/electroless-nickel-icon-Icon_AS_Pipe_20Joints.svg",
+      "status": "downloaded"
+    },
+    {
+      "slug": "wear-resistance-hero",
+      "sourceUrl": "https://www.macdermidenthone.com/sites/default/files/styles/desktop_main_menu/public/2023-11/hard-chrome-by-macdermid-enthone%20%281%29_0.jpg?itok=yTawmL6w",
+      "localPath": "public/assets/solutions/remote/wear-resistance-hero-hard-chrome-by-macdermid-enthone_20_281_29_0.jpg",
+      "status": "failed",
+      "error": "403 https://www.macdermidenthone.com/sites/default/files/styles/desktop_main_menu/public/2023-11/hard-chrome-by-macdermid-enthone%20%281%29_0.jpg?itok=yTawmL6w"
+    },
+    {
+      "slug": "wear-resistance-icon",
+      "sourceUrl": "https://www.macdermidenthone.com/sites/default/files/2023-11/Icon_AS_Gears.svg",
+      "localPath": "public/assets/solutions/remote/wear-resistance-icon-Icon_AS_Gears.svg",
+      "status": "downloaded"
+    },
+    {
+      "slug": "precious-metals-hero",
+      "sourceUrl": "https://www.macdermidenthone.com/sites/default/files/styles/desktop_main_menu/public/2023-01/MacDermid_1583x717_Offering_Precious_metals_0.jpg?itok=_SwztsaF",
+      "localPath": "public/assets/solutions/remote/precious-metals-hero-MacDermid_1583x717_Offering_Precious_metals_0.jpg",
+      "status": "failed",
+      "error": "403 https://www.macdermidenthone.com/sites/default/files/styles/desktop_main_menu/public/2023-01/MacDermid_1583x717_Offering_Precious_metals_0.jpg?itok=_SwztsaF"
+    },
+    {
+      "slug": "precious-metals-icon",
+      "sourceUrl": "https://www.macdermidenthone.com/sites/default/files/2023-11/Icon_AS_Fashion.svg",
+      "localPath": "public/assets/solutions/remote/precious-metals-icon-Icon_AS_Fashion.svg",
+      "status": "downloaded"
+    },
+    {
+      "slug": "plastic-recycling-hero",
+      "sourceUrl": "https://www.macdermidenthone.com/sites/default/files/styles/desktop_main_menu/public/2023-02/_MacDermid_1583x717_Offering_PET_0.jpg?itok=0-AwmE9d",
+      "localPath": "public/assets/solutions/remote/plastic-recycling-hero-_MacDermid_1583x717_Offering_PET_0.jpg",
+      "status": "failed",
+      "error": "403 https://www.macdermidenthone.com/sites/default/files/styles/desktop_main_menu/public/2023-02/_MacDermid_1583x717_Offering_PET_0.jpg?itok=0-AwmE9d"
+    },
+    {
+      "slug": "plastic-recycling-icon",
+      "sourceUrl": "https://www.macdermidenthone.com/sites/default/files/2023-11/Icon_AS_Plastic%20Recycling.svg",
+      "localPath": "public/assets/solutions/remote/plastic-recycling-icon-Icon_AS_Plastic_20Recycling.svg",
+      "status": "downloaded"
+    },
+    {
+      "slug": "watercare-hero",
+      "sourceUrl": "https://www.macdermidenthone.com/sites/default/files/styles/desktop_main_menu/public/2023-11/aluminum-treatment-plant-side.png?itok=qLif8LG5",
+      "localPath": "public/assets/solutions/remote/watercare-hero-aluminum-treatment-plant-side.png",
+      "status": "failed",
+      "error": "403 https://www.macdermidenthone.com/sites/default/files/styles/desktop_main_menu/public/2023-11/aluminum-treatment-plant-side.png?itok=qLif8LG5"
+    },
+    {
+      "slug": "watercare-icon",
+      "sourceUrl": "https://www.macdermidenthone.com/sites/default/files/2024-01/Icon_AS_Earth%20in%20Water%20Drops.svg",
+      "localPath": "public/assets/solutions/remote/watercare-icon-Icon_AS_Earth_20in_20Water_20Drops.svg",
+      "status": "downloaded"
+    },
+    {
+      "slug": "all-solutions-hero",
+      "sourceUrl": "https://www.macdermidenthone.com/sites/default/files/styles/desktop_main_menu/public/2023-11/macdermid-enthone-rack-strippers%20%282%29.jpg?itok=oTbN5isz",
+      "localPath": "public/assets/solutions/remote/all-solutions-hero-macdermid-enthone-rack-strippers_20_282_29.jpg",
+      "status": "failed",
+      "error": "403 https://www.macdermidenthone.com/sites/default/files/styles/desktop_main_menu/public/2023-11/macdermid-enthone-rack-strippers%20%282%29.jpg?itok=oTbN5isz"
+    },
+    {
+      "slug": "all-solutions-icon",
+      "sourceUrl": "https://www.macdermidenthone.com/sites/default/files/2023-11/Icon_AS_Shiny%20Surface.svg",
+      "localPath": "public/assets/solutions/remote/all-solutions-icon-Icon_AS_Shiny_20Surface.svg",
+      "status": "downloaded"
+    }
+  ]
+}
