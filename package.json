@@ -8,7 +8,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "generate:solutions": "node scripts/generate-solution-pages.mjs",
-    "prebuild": "node scripts/generate-solution-pages.mjs",
+    "prebuild": "node scripts/generate-solution-pages.mjs && node scripts/generate-sitemap.mjs",
+    "generate:sitemap": "node scripts/generate-sitemap.mjs",
     "fetch:solution-assets": "node scripts/fetch-solution-assets.mjs"
   },
   "dependencies": {

@@ -3,6 +3,7 @@ import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader.js";
 import heroLogoUrl from "./etihadia 3D logo.obj?url";
 import { initFooter3dLogo } from "./src/footerLogo3d.js";
 import { applyHomeStructuredData } from "./src/structuredData.js";
+import { getFinalStatText, setupStatCounters } from "./src/statCounters.js";
 
 (function () {
   "use strict";
@@ -351,6 +352,14 @@ import { applyHomeStructuredData } from "./src/structuredData.js";
     setText(".hero__intro", copy.heroIntro);
     setTextList(".hero__cta .btn", copy.heroCtas);
     setTextList(".hero .stat__label", copy.stats);
+    document.querySelectorAll(".hero .stat").forEach(function (stat, i) {
+      var num = stat.querySelector(".stat__num[data-count]");
+      var label = copy.stats[i] || "";
+      if (num && label) {
+        var finalText = getFinalStatText(num);
+        stat.setAttribute("aria-label", label ? finalText + ", " + label : finalText);
+      }
+    });
     setText("#about .section__label", copy.aboutLabel);
     setText("#about .section__title", copy.aboutTitle);
     setText(".about__reveal-cta", copy.aboutCta);
@@ -691,46 +700,7 @@ import { applyHomeStructuredData } from "./src/structuredData.js";
   initHeroHexLogo();
   initFooter3dLogo();
 
-  /* Count-up */
-  function animateCount(el, target, suffix, duration) {
-    var start = performance.now();
-    function frame(now) {
-      var t = Math.min(1, (now - start) / duration);
-      var eased = 1 - Math.pow(1 - t, 3);
-      var value = Math.round(eased * target);
-      el.textContent = value + suffix;
-      if (t < 1) requestAnimationFrame(frame);
-    }
-    requestAnimationFrame(frame);
-  }
-
-  var statNums = document.querySelectorAll(".stat__num[data-count]");
-  if (statNums.length && !prefersReducedMotion) {
-    var counted = false;
-    var statsObserver = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          if (!entry.isIntersecting || counted) return;
-          counted = true;
-          statNums.forEach(function (el) {
-            var target = parseInt(el.getAttribute("data-count"), 10);
-            var suffix = el.getAttribute("data-suffix") || "";
-            animateCount(el, target, suffix, 1600);
-          });
-          statsObserver.disconnect();
-        });
-      },
-      { threshold: 0.35 }
-    );
-    var heroStats = document.querySelector(".hero__stats");
-    if (heroStats) statsObserver.observe(heroStats);
-  } else if (statNums.length) {
-    statNums.forEach(function (el) {
-      var target = el.getAttribute("data-count");
-      var suffix = el.getAttribute("data-suffix") || "";
-      el.textContent = target + suffix;
-    });
-  }
+  setupStatCounters({ reducedMotion: prefersReducedMotion });
 
   /* Hero parallax */
   var parallaxLayer = document.querySelector("[data-parallax]");

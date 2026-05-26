@@ -1,6 +1,7 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { MATERIAL_STATES, applyMaterialState, applyMaterialTextureState, stateTweenVars } from "./materials.js";
+import { formatStatValue, getStatDisplayElement } from "./statCounters.js";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -322,8 +323,9 @@ function createMasterTimeline(scene, panels, gates, story) {
 }
 
 function setupCounters() {
-  const counters = gsap.utils.toArray(".stat__num");
+  const counters = gsap.utils.toArray(".stat__num[data-count]");
   counters.forEach((counter) => {
+    const display = getStatDisplayElement(counter);
     const target = Number(counter.dataset.count || 0);
     const suffix = counter.dataset.suffix || "";
     const state = { value: 0 };
@@ -337,8 +339,11 @@ function setupCounters() {
         start: "top 82%",
         once: true,
       },
+      onStart: () => {
+        display.textContent = formatStatValue(0, suffix);
+      },
       onUpdate: () => {
-        counter.textContent = `${Math.round(state.value)}${suffix}`;
+        display.textContent = formatStatValue(state.value, suffix);
       },
     });
   });

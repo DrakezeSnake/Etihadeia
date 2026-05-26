@@ -7,11 +7,6 @@ function escapeHtml(s) {
     .replace(/"/g, "&quot;");
 }
 
-/** @param {string} s */
-function escapeJsonScript(s) {
-  return String(s).replace(/</g, "\\u003c");
-}
-
 /** @param {string} description */
 export function truncateMetaDescription(description, maxLen = 155) {
   const t = description.trim().replace(/\s+/g, " ");
@@ -258,42 +253,6 @@ export function renderContactCta() {
       </div>
     </section>
   `;
-}
-
-/** @param {string} canonicalBase site origin without trailing slash */
-export function renderBreadcrumbJsonLd(items, canonicalBase) {
-  const list = items.map((it, i) => ({
-    "@type": "ListItem",
-    position: i + 1,
-    name: it.name,
-    item: it.href ? `${canonicalBase}${it.href}` : undefined,
-  }));
-  return `<script type="application/ld+json">${escapeJsonScript(JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: list,
-  }))}</script>`;
-}
-
-/**
- * @param {import("../data/solutions.js").Solution[]} list
- */
-export function renderItemListJsonLd(list, canonicalBase) {
-  const elements = list
-    .filter((s) => !s.landingOnly)
-    .map((s, i) => ({
-      "@type": "ListItem",
-      position: i + 1,
-      url: `${canonicalBase}/solutions/${s.slug}/`,
-      name: s.title,
-    }));
-  const payload = {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    name: "Surface finishing solutions",
-    itemListElement: elements,
-  };
-  return `<script type="application/ld+json">${escapeJsonScript(JSON.stringify(payload))}</script>`;
 }
 
 export function renderExpandedIntro(text) {

@@ -6,12 +6,11 @@ import { siteNavItems } from "../siteNav.js";
 import { initFooter3dLogo } from "../footerLogo3d.js";
 import { solutions, getSolutionBySlug, getRelatedSolutions, landingHeroHeadline, landingHeroIntro } from "../data/solutions.js";
 import { initSolutionImageFallback } from "./imageFallback.js";
+import { applySolutionsStructuredData } from "../structuredData.js";
 import {
   renderLandingHero,
   renderSolutionGrid,
   renderContactCta,
-  renderBreadcrumbJsonLd,
-  renderItemListJsonLd,
   renderSolutionDetailHero,
   renderExpandedIntro,
   renderFeaturedProductFamilies,
@@ -218,25 +217,7 @@ function setupPageTransitions() {
   });
 }
 
-function moveJsonLdToHead(root) {
-  root.querySelectorAll("script[type='application/ld+json']").forEach((s) => {
-    document.head.appendChild(s);
-  });
-}
-
 function renderLanding() {
-  const origin = window.location.origin;
-  const jsonLd = [
-    renderBreadcrumbJsonLd(
-      [
-        { name: "Home", href: "/" },
-        { name: "Solutions", href: "/solutions/" },
-      ],
-      origin,
-    ),
-    renderItemListJsonLd(solutions, origin),
-  ].join("");
-
   return `
     <div class="solutions-page">
       ${renderLandingHero(landingHeroHeadline, landingHeroIntro, {
@@ -254,7 +235,6 @@ function renderLanding() {
       </section>
       ${renderSolutionGrid(solutions)}
       ${renderContactCta()}
-      ${jsonLd}
     </div>
   `;
 }
@@ -264,16 +244,7 @@ function renderDetail(slug) {
   if (!solution || solution.landingOnly) {
     return { html: "", notFound: true };
   }
-  const origin = window.location.origin;
   const related = getRelatedSolutions(slug, 4);
-  const jsonLd = renderBreadcrumbJsonLd(
-    [
-      { name: "Home", href: "/" },
-      { name: "Solutions", href: "/solutions/" },
-      { name: solution.title, href: `/solutions/${solution.slug}/` },
-    ],
-    origin,
-  );
 
   const body = `
     <div class="solution-detail">
@@ -282,7 +253,6 @@ function renderDetail(slug) {
       ${renderFeaturedProductFamilies(solution.subcategories)}
       ${renderRelatedSolutions(related, slug)}
       ${renderContactCta()}
-      ${jsonLd}
     </div>
   `;
   return { html: body, notFound: false, solution };
@@ -327,13 +297,14 @@ function render() {
   const y = document.querySelector("#year");
   if (y) y.textContent = String(new Date().getFullYear());
 
-  moveJsonLdToHead(app);
-
   setupLanguageToggle();
 
   const slugMeta = document.body.dataset.slug ? getSolutionBySlug(document.body.dataset.slug) : null;
   if (document.body.dataset.page === "solution-detail" && slugMeta && !slugMeta.landingOnly) {
     applyDetailPageSeo(slugMeta);
+    applySolutionsStructuredData({ type: "detail", solution: slugMeta });
+  } else if (document.body.dataset.page === "solutions") {
+    applySolutionsStructuredData({ type: "landing", solutions });
   }
 
   setupReveals();

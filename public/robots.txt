@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://etihadeia.vercel.app/sitemap.xml

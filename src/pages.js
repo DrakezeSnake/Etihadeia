@@ -1,4 +1,5 @@
 import { setupLanguageToggle } from "./i18n.js";
+import { applyPageStructuredData } from "./structuredData.js";
 import "../styles.css";
 import "./pages.css";
 import { initFooter3dLogo } from "./footerLogo3d.js";
@@ -815,6 +816,13 @@ function render() {
   setupPageTransitions();
   setupContactForm();
   initFooter3dLogo();
+
+  applyPageStructuredData({
+    pageKey: currentPage,
+    pageTitle: page.title,
+    productItems: currentPage === "products" ? productCards : undefined,
+    serviceItems: currentPage === "services" ? serviceCards : undefined,
+  });
 }
 
 render();
