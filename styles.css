@@ -778,6 +778,23 @@ html[dir="rtl"] .hero .stat {
   margin-bottom: 0.35rem;
 }
 
+.stat__num-inner {
+  display: inline-grid;
+  vertical-align: top;
+}
+
+.stat__num-placeholder,
+.stat__num-value {
+  grid-area: 1 / 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.stat__num-placeholder {
+  visibility: hidden;
+  pointer-events: none;
+  user-select: none;
+}
+
 .hero .stat__num {
   font-size: clamp(2.15rem, 4.2vw, 3rem);
 }

@@ -3,7 +3,7 @@ import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader.js";
 import heroLogoUrl from "./etihadia 3D logo.obj?url";
 import { initFooter3dLogo } from "./src/footerLogo3d.js";
 import { applyHomeStructuredData } from "./src/structuredData.js";
-import { getFinalStatText, setupStatCounters } from "./src/statCounters.js";
+import { setupStatCounters, syncHeroStatAriaLabels } from "./src/statCounters.js";
 
 (function () {
   "use strict";
@@ -352,14 +352,7 @@ import { getFinalStatText, setupStatCounters } from "./src/statCounters.js";
     setText(".hero__intro", copy.heroIntro);
     setTextList(".hero__cta .btn", copy.heroCtas);
     setTextList(".hero .stat__label", copy.stats);
-    document.querySelectorAll(".hero .stat").forEach(function (stat, i) {
-      var num = stat.querySelector(".stat__num[data-count]");
-      var label = copy.stats[i] || "";
-      if (num && label) {
-        var finalText = getFinalStatText(num);
-        stat.setAttribute("aria-label", label ? finalText + ", " + label : finalText);
-      }
-    });
+    syncHeroStatAriaLabels(document, currentLanguage);
     setText("#about .section__label", copy.aboutLabel);
     setText("#about .section__title", copy.aboutTitle);
     setText(".about__reveal-cta", copy.aboutCta);

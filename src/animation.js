@@ -1,7 +1,7 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { MATERIAL_STATES, applyMaterialState, applyMaterialTextureState, stateTweenVars } from "./materials.js";
-import { formatStatValue, getStatDisplayElement } from "./statCounters.js";
+import { setupStatCounters } from "./statCounters.js";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -322,33 +322,6 @@ function createMasterTimeline(scene, panels, gates, story) {
   return timeline;
 }
 
-function setupCounters() {
-  const counters = gsap.utils.toArray(".stat__num[data-count]");
-  counters.forEach((counter) => {
-    const display = getStatDisplayElement(counter);
-    const target = Number(counter.dataset.count || 0);
-    const suffix = counter.dataset.suffix || "";
-    const state = { value: 0 };
-
-    gsap.to(state, {
-      value: target,
-      duration: 1.4,
-      ease: "power2.out",
-      scrollTrigger: {
-        trigger: counter,
-        start: "top 82%",
-        once: true,
-      },
-      onStart: () => {
-        display.textContent = formatStatValue(0, suffix);
-      },
-      onUpdate: () => {
-        display.textContent = formatStatValue(state.value, suffix);
-      },
-    });
-  });
-}
-
 function setupSectionReveals() {
   const items = gsap.utils.toArray(".section");
   const animatedChildren = gsap.utils.toArray(
@@ -409,7 +382,7 @@ export function setupScrollStory({ scene, reducedMotion }) {
   if (year) year.textContent = new Date().getFullYear();
   setActivePanel.current = undefined;
   setActivePanel(panels, 0);
-  setupCounters();
+  setupStatCounters({ reducedMotion });
 
   if (!reducedMotion) {
     mainTimeline = createMasterTimeline(scene, panels, gates, story);
