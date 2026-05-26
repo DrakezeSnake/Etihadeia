@@ -784,6 +784,8 @@ html[dir="rtl"] .hero .stat {
 }
 
 .stat__num-placeholder,
+.stat__num-static,
+.stat__num-anim,
 .stat__num-value {
   grid-area: 1 / 1;
   font-variant-numeric: tabular-nums;
@@ -793,6 +795,41 @@ html[dir="rtl"] .hero .stat {
   visibility: hidden;
   pointer-events: none;
   user-select: none;
+}
+
+/* No JS: show the static final value only. */
+html:not(.js) .stat__num-anim,
+html:not(.js) .stat__num-value {
+  display: none;
+}
+
+/* JS: clip static text for sighted users; keep it in the DOM for crawlers and no-JS fallback. */
+html.js .stat__num-static {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.js .stat__num-anim,
+  html.js .stat__num-value {
+    display: none;
+  }
+
+  html.js .stat__num-static {
+    position: static;
+    width: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+  }
 }
 
 .hero .stat__num {

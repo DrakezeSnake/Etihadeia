@@ -8,6 +8,8 @@ import { setupStatCounters, syncHeroStatAriaLabels } from "./src/statCounters.js
 (function () {
   "use strict";
 
+  document.documentElement.classList.add("js");
+
   var prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var LANGUAGE_STORAGE_KEY = "etihadeia-language";
   var currentLanguage = localStorage.getItem(LANGUAGE_STORAGE_KEY) === "ar" ? "ar" : "en";

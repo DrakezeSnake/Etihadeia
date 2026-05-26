@@ -1,5 +1,5 @@
 /**
- * SEO- and a11y-safe stat counters: final values in HTML, count-up on the visual layer only.
+ * SEO- and a11y-safe stat counters: final values in static HTML, count-up on aria-hidden anim layer only.
  */
 
 /** @typedef {{ value: number; suffix?: string; label: string; ariaLabel: { en: string; ar: string } }} HeroStat */
@@ -49,9 +49,20 @@ export function formatStatValue(value, suffix = "") {
   return `${Math.round(value)}${suffix}`;
 }
 
+/** Visual layer updated by the count-up animation (hidden from assistive tech). */
 /** @param {HTMLElement} statNum */
-export function getStatDisplayElement(statNum) {
-  return statNum.querySelector(".stat__num-value") ?? statNum;
+export function getStatAnimElement(statNum) {
+  return (
+    statNum.querySelector(".stat__num-anim") ??
+    statNum.querySelector(".stat__num-value") ??
+    null
+  );
+}
+
+/** Crawler- and no-JS-visible final value; never modified by animation. */
+/** @param {HTMLElement} statNum */
+export function getStatStaticElement(statNum) {
+  return statNum.querySelector(".stat__num-static");
 }
 
 /** @param {HTMLElement} statNum */
@@ -59,15 +70,24 @@ export function getStatPlaceholderElement(statNum) {
   return statNum.querySelector(".stat__num-placeholder");
 }
 
+/** @deprecated Use getStatAnimElement */
+export function getStatDisplayElement(statNum) {
+  return getStatAnimElement(statNum) ?? statNum;
+}
+
 /** @param {HTMLElement} statNum */
 export function getFinalStatText(statNum) {
+  const staticEl = getStatStaticElement(statNum);
+  const fromStatic = staticEl?.textContent.trim();
+  if (fromStatic) return fromStatic;
+
   const placeholder = getStatPlaceholderElement(statNum);
   const fromPlaceholder = placeholder?.textContent.trim();
   if (fromPlaceholder) return fromPlaceholder;
 
-  const display = getStatDisplayElement(statNum);
-  const fromDisplay = display?.textContent.trim();
-  if (fromDisplay) return fromDisplay;
+  const anim = getStatAnimElement(statNum);
+  const fromAnim = anim?.textContent.trim();
+  if (fromAnim) return fromAnim;
 
   const suffix = statNum.getAttribute("data-suffix") || "";
   const count = Number(statNum.getAttribute("data-count"));
@@ -109,20 +129,26 @@ export function syncHeroStatAriaLabels(root = document, lang = "en") {
  */
 export function animateStatCount(statNum, options = {}) {
   const duration = options.duration ?? 1600;
-  const display = getStatDisplayElement(statNum);
+  const anim = getStatAnimElement(statNum);
   const target = parseInt(statNum.getAttribute("data-count"), 10);
   const suffix = statNum.getAttribute("data-suffix") || "";
   const finalText = getFinalStatText(statNum) || formatStatValue(target, suffix);
-  if (Number.isNaN(target) || !display) return;
+  if (Number.isNaN(target) || !anim) return;
 
-  display.textContent = formatStatValue(0, suffix);
+  statNum.classList.add("is-animating");
+  anim.textContent = formatStatValue(0, suffix);
   const start = performance.now();
 
   function frame(now) {
     const t = Math.min(1, (now - start) / duration);
     const eased = 1 - (1 - t) ** 3;
-    display.textContent = t >= 1 ? finalText : formatStatValue(eased * target, suffix);
-    if (t < 1) requestAnimationFrame(frame);
+    anim.textContent = t >= 1 ? finalText : formatStatValue(eased * target, suffix);
+    if (t < 1) {
+      requestAnimationFrame(frame);
+    } else {
+      statNum.classList.remove("is-animating");
+      statNum.classList.add("is-animated");
+    }
   }
 
   requestAnimationFrame(frame);
