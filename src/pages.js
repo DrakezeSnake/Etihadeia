@@ -22,8 +22,8 @@ const pageImages = {
   aboutMissionSpotlight: ["/assets/about-spotlight-mission.jpeg", "El Etehadia supply operations and industrial technology"],
   lab: ["/assets/Speciality-chemical-gallery-3.webp", "Laboratory analysis and specialty chemistry for plating baths"],
   support: ["/assets/42e1662cffb5.webp", "Technical specialist supporting electroplating operations"],
-  processOptimization: ["/assets/service-process-optimization.jpeg", "Process optimization and plating line improvement support"],
-  machinesService: ["/assets/service-machines-accessories.jpeg", "Electroplating machines, accessories, and industrial supply logistics"],
+  processOptimization: ["/assets/service-process-optimization.png", "Process optimization and plating line improvement support"],
+  machinesService: ["/assets/service-machines-accessories.png", "Electroplating machines, accessories, and industrial supply logistics"],
   nickelProductCard: ["/assets/73ab59c7-12a9-4440-a085-db03697da9fb.jfif", "Nickel plating production and industrial metal finishing"],
   electrolessNickelProductCard: ["/assets/dsc04687.jpg", "Electroless nickel plating and uniform metal finishing"],
   electrolessNickelApplication: ["/assets/silver-electrical-contacts38216278-077f-4e99-978e-d34e24e39b03.webp", "Silver-plated electrical contacts and functional electroless nickel finishes"],
@@ -58,6 +58,8 @@ const pageImages = {
   partners: ["/assets/Hc0322006e18342839b4b4d0cb307081eC.avif", "Product selection for plating chemistry, equipment, and finishes"],
   macdermidEnthonePartner: ["/assets/macdermid-enthone-industrial-solutions.png", "MacDermid Enthone Industrial Solutions — plating chemistry and surface finishing brand"],
   hawkingPartner: ["/assets/hawking-brand-wht.svg", "HAWKING England — lacquers and protective finishing brand"],
+  sisecamPartner: ["/assets/sisecam_logo.svg", "Şişecam — glass and chemicals partner brand"],
+  nickelhuetteAuePartner: ["/assets/nha-aue-logo.png", "Nickelhütte Aue — nickel alloys and recycling partner brand"],
   licensedProductionPartner: ["/assets/Pyramids_of_the_Giza_Necropolis.jpg", "Pyramids of Giza — El Etehadia licensed production and supply in Egypt"],
   saltsColorsProductCard: ["/assets/plating-chemistry-dosing-station.png", "Plating chemistry dosing, equipment, and bath materials"],
   contact: ["/assets/42e1662cffb5.webp", "Technical specialist reviewing electroplating documents and samples"],
@@ -308,6 +310,18 @@ const pages = {
         items: [
           ["MacDermid Enthone", "MacDermid Enthone is a global surface-finishing chemistry company serving industrial, decorative, anti-corrosion, engineering, aluminum treatment, electroless nickel, hard chrome, trivalent chrome, and water-treatment applications.", pageImages.macdermidEnthonePartner],
           ["HAWKING England", "HAWKING lacquers support protective and decorative finishing needs, helping manufacturers improve surface appearance and durability.", pageImages.hawkingPartner],
+          [
+            "Şişecam",
+            "Şişecam is a global industrial group supplying glass, chemicals, and advanced materials to manufacturers worldwide. Through El Etehadia, customers gain access to trusted Şişecam products that complement electroplating and industrial surface-finishing supply chains.",
+            pageImages.sisecamPartner,
+            "https://www.sisecam.com/",
+          ],
+          [
+            "Nickelhütte Aue",
+            "Nickelhütte Aue is a leading European recycler and producer of nickel alloys and non-ferrous metals with deep metallurgical expertise. The company supplies high-quality alloys and recycled materials that support electroplating, engineering, and sustainable manufacturing operations.",
+            pageImages.nickelhuetteAuePartner,
+            "https://nha-aue.de/en",
+          ],
           ["Licensed Production", "El Etehadia supports local supply of high-quality salts, colors, and related products under trusted technical standards.", pageImages.licensedProductionPartner],
         ],
       },
@@ -546,10 +560,15 @@ function renderSection(section) {
 
   if (section.type === "products" || section.type === "applications" || section.type === "partners") {
     return `<section class="section page-section" data-reveal><div class="section__inner">${head}<div class="technical-grid">${section.items
-      .map(([title, body, third, fourth]) => {
+      .map((item) => {
+        const [title, body, third, fourth] = item;
         const media = Array.isArray(third) ? third : fourth;
         const label = Array.isArray(third) ? "" : `<span>${third}</span>`;
-        return `<article>${cardMedia(media)}<div class="page-card__body">${label}<h3>${title}</h3><p>${body}</p></div></article>`;
+        const externalUrl = section.type === "partners" && typeof fourth === "string" ? fourth : "";
+        const titleHtml = externalUrl
+          ? `<h3><a href="${externalUrl}" target="_blank" rel="noopener noreferrer">${title}</a></h3>`
+          : `<h3>${title}</h3>`;
+        return `<article>${cardMedia(media)}<div class="page-card__body">${label}${titleHtml}<p>${body}</p></div></article>`;
       })
       .join("")}</div></div></section>`;
   }

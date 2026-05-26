@@ -104,7 +104,10 @@
 }
 
 .page-hero__media {
+  position: relative;
+  display: block;
   margin: 0;
+  min-height: clamp(320px, 42vw, 560px);
   border-radius: var(--radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-soft);
@@ -112,11 +115,19 @@
 }
 
 .page-hero__media img {
+  position: absolute;
+  inset: 0;
+  display: block;
   width: 100%;
-  min-height: clamp(320px, 42vw, 560px);
+  height: 100%;
   object-fit: cover;
   object-position: center center;
   filter: saturate(0.92) contrast(1.06);
+}
+
+/* maxresdefault.jpg is pillarboxed in-file; zoom to crop embedded side bars */
+.page-hero__media img[src*="maxresdefault"] {
+  transform: scale(1.48);
 }
 
 .page-metrics {
@@ -253,6 +264,46 @@
 .page-card__media img[src$=".svg"] {
   object-fit: contain;
   padding: 1.25rem;
+  background: #f4f2ee;
+}
+
+.page-card__media:has(img[src*="hawking-brand"]) {
+  background: var(--brand-red);
+}
+
+.page-card__media img[src*="hawking-brand"] {
+  background: var(--brand-red);
+}
+
+.page-card__media img[src*="service-machines-accessories"] {
+  object-fit: contain;
+  padding: 0.65rem;
+  background: #ffffff;
+}
+
+.page-card__media:has(img[src*="service-machines-accessories"]) {
+  background: #ffffff;
+}
+
+.page-card__media img[src*="service-process-optimization"] {
+  object-fit: cover;
+  object-position: center center;
+}
+
+.page-card__media:has(img[src*="service-process-optimization"]) {
+  background: #1a1a1c;
+}
+
+.page-card__body h3 a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.25s var(--ease-out);
+}
+
+.page-card__body h3 a:hover,
+.page-card__body h3 a:focus-visible {
+  color: var(--brand-red);
+  outline: none;
 }
 
 .technical-grid--icons {

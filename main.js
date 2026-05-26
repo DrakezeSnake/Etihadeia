@@ -1006,8 +1006,13 @@ import { initFooter3dLogo } from "./src/footerLogo3d.js";
           aboutApplyOpacities(p);
           var aboutMedia = document.querySelector(".about__media");
           if (aboutMedia) {
-            var mediaShift = (p - 0.5) * -54;
-            aboutMedia.style.transform = "translate3d(0, " + mediaShift.toFixed(2) + "px, 0)";
+            var isMobileAbout = window.matchMedia("(max-width: 900px)").matches;
+            if (isMobileAbout) {
+              aboutMedia.style.transform = "";
+            } else {
+              var mediaShift = (p - 0.5) * -54;
+              aboutMedia.style.transform = "translate3d(0, " + mediaShift.toFixed(2) + "px, 0)";
+            }
           }
           aboutRevealCopy.classList.toggle("is-static", p >= 0.999);
         });
