@@ -2066,6 +2066,19 @@ html[dir="rtl"] .contact__form .btn {
   transform: translateY(0);
 }
 
+/* Inner pages: reveal headers/spotlights only — never zero-out full card grids. */
+.page-section .section__header[data-reveal],
+.page-section .spotlight-block[data-reveal] {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+.page-section .section__header[data-reveal].is-visible,
+.page-section .spotlight-block[data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .reveal--left {
   transform: translateX(-36px);
   opacity: 0;

@@ -500,7 +500,7 @@ function pageHero(page) {
 
 function sectionHeader(section) {
   return `
-    <header class="section__header section__header--split">
+    <header class="section__header section__header--split" data-reveal>
       <div>
         <p class="section__label">${section.eyebrow}</p>
         <h2>${section.heading}</h2>
@@ -538,19 +538,19 @@ function renderSection(section) {
   const head = sectionHeader(section);
 
   if (section.type === "split") {
-    return `<section class="section page-section" data-reveal><div class="section__inner">${head}<div class="technical-grid">${section.items
+    return `<section class="section page-section"><div class="section__inner">${head}<div class="technical-grid">${section.items
       .map(([title, body, media]) => `<article>${cardMedia(media)}<div class="page-card__body"><h3>${title}</h3><p>${body}</p></div></article>`)
       .join("")}</div></div></section>`;
   }
 
   if (section.type === "services") {
-    return `<section class="section page-section" data-reveal><div class="section__inner">${head}<div class="technical-grid">${section.items
+    return `<section class="section page-section"><div class="section__inner">${head}<div class="technical-grid">${section.items
       .map(([title, body, useFor, media]) => `<article>${cardMedia(media)}<div class="page-card__body"><h3>${title}</h3><p>${body}</p><strong>${useFor}</strong></div></article>`)
       .join("")}</div></div></section>`;
   }
 
   if (section.type === "industryTiles") {
-    return `<section class="section page-section" data-reveal><div class="section__inner">${head}<div class="technical-grid technical-grid--icons">${section.items
+    return `<section class="section page-section"><div class="section__inner">${head}<div class="technical-grid technical-grid--icons">${section.items
       .map(
         ([title, body]) =>
           `<article class="industry-card" aria-label="${title}. ${body}"><div class="industry-card__content">${industryIcon(title)}<div class="page-card__body"><h3>${title}</h3><p>${body}</p></div></div></article>`
@@ -559,7 +559,7 @@ function renderSection(section) {
   }
 
   if (section.type === "products" || section.type === "applications" || section.type === "partners") {
-    return `<section class="section page-section" data-reveal><div class="section__inner">${head}<div class="technical-grid">${section.items
+    return `<section class="section page-section"><div class="section__inner">${head}<div class="technical-grid">${section.items
       .map((item) => {
         const [title, body, third, fourth] = item;
         const media = Array.isArray(third) ? third : fourth;
@@ -574,29 +574,29 @@ function renderSection(section) {
   }
 
   if (section.type === "process") {
-    return `<section class="section page-section" data-reveal><div class="section__inner">${head}<div class="process-list">${section.items
+    return `<section class="section page-section"><div class="section__inner">${head}<div class="process-list">${section.items
       .map(([step, title, body]) => `<article><span>${step}</span><h3>${title}</h3><p>${body}</p></article>`)
       .join("")}</div></div></section>`;
   }
 
   if (section.type === "matrix") {
-    return `<section class="section page-section" data-reveal><div class="section__inner">${head}<div class="capability-table" role="table">${section.rows
+    return `<section class="section page-section"><div class="section__inner">${head}<div class="capability-table" role="table">${section.rows
       .map(([scope, systems, sectors]) => `<div role="row"><strong role="cell">${scope}</strong><span role="cell">${systems}</span><span role="cell">${sectors}</span></div>`)
       .join("")}</div></div></section>`;
   }
 
   if (section.type === "related") {
-    return `<section class="section page-section" data-reveal><div class="section__inner">${head}<div class="proof-strip">${section.items
+    return `<section class="section page-section"><div class="section__inner">${head}<div class="proof-strip">${section.items
       .map((item) => `<span>${item}</span>`)
       .join("")}</div></div></section>`;
   }
 
   if (section.type === "spotlight" || section.type === "notice") {
-    return `<section class="section page-section" data-reveal><div class="section__inner"><div class="spotlight-block"><div class="spotlight-block__copy"><p class="section__label">${section.eyebrow}</p><h2>${section.heading}</h2><p>${section.body}</p></div><div class="spotlight-block__media"><img src="${section.image[0]}" alt="${section.image[1]}" loading="lazy" /></div></div></div></section>`;
+    return `<section class="section page-section"><div class="section__inner"><div class="spotlight-block" data-reveal><div class="spotlight-block__copy"><p class="section__label">${section.eyebrow}</p><h2>${section.heading}</h2><p>${section.body}</p></div><div class="spotlight-block__media"><img src="${section.image[0]}" alt="${section.image[1]}" loading="lazy" /></div></div></div></section>`;
   }
 
   if (section.type === "articles") {
-    return `<section class="section page-section" data-reveal><div class="section__inner">${head}<div class="filter-row" aria-label="Insight filters"><button type="button">All</button><button type="button">Technical notes</button><button type="button">Troubleshooting</button><button type="button">Product guidance</button></div><div class="article-list">${section.items
+    return `<section class="section page-section"><div class="section__inner">${head}<div class="filter-row" aria-label="Insight filters"><button type="button">All</button><button type="button">Technical notes</button><button type="button">Troubleshooting</button><button type="button">Product guidance</button></div><div class="article-list">${section.items
       .map(([title, body, category, media]) => `<article>${cardMedia(media)}<div class="page-card__body"><span>${category}</span><h3>${title}</h3><p>${body}</p></div></article>`)
       .join("")}</div></div></section>`;
   }
@@ -607,7 +607,7 @@ function renderSection(section) {
 
 function contactSection(section) {
   return `
-    <section class="section page-section contact-page" data-reveal>
+    <section class="section page-section contact-page">
       <div class="section__inner">
         ${sectionHeader(section)}
         <div class="contact-layout">
@@ -664,37 +664,18 @@ function setupReveals() {
     return;
   }
 
-  const revealWhen = (entry) => {
-    if (!entry.isIntersecting) return;
-    entry.target.classList.add("is-visible");
-  };
-
-  // Tall page sections need a low threshold — 16% of a multi-card grid can stay
-  // below the fold on mobile while cards are already in view but still opacity: 0.
-  const sectionObserver = new IntersectionObserver(
+  const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        revealWhen(entry);
-        sectionObserver.unobserve(entry.target);
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
       });
     },
-    { threshold: 0, rootMargin: "0px 0px -12% 0px" },
+    // Reveal targets are headers/spotlights/heroes — use 0 so small blocks fire on mobile.
+    { threshold: 0, rootMargin: "0px 0px -8% 0px" },
   );
-
-  const defaultObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        revealWhen(entry);
-        defaultObserver.unobserve(entry.target);
-      });
-    },
-    { threshold: 0.16 },
-  );
-
-  items.forEach((item) => {
-    const observer = item.classList.contains("page-section") ? sectionObserver : defaultObserver;
-    observer.observe(item);
-  });
+  items.forEach((item) => observer.observe(item));
 }
 
 function setupScrollProgress() {
