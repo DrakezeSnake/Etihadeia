@@ -198,6 +198,23 @@
   background: var(--bg-primary);
 }
 
+/* Keep card grids visible on small screens; animate the header only (see setupReveals). */
+.page-section[data-reveal] {
+  opacity: 1;
+  transform: none;
+}
+
+.page-section[data-reveal] .section__header {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.75s var(--ease-expo), transform 0.75s var(--ease-expo);
+}
+
+.page-section[data-reveal].is-visible .section__header {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .page-section:nth-of-type(even) {
   background: var(--surface-dark);
 }
@@ -874,6 +891,12 @@ html[dir="rtl"] .contact-form .industrial-button {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .page-section[data-reveal] .section__header {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
   .feature-list article:hover,
   .technical-grid article:hover,
   .project-gallery article:hover,

@@ -664,17 +664,37 @@ function setupReveals() {
     return;
   }
 
-  const observer = new IntersectionObserver(
+  const revealWhen = (entry) => {
+    if (!entry.isIntersecting) return;
+    entry.target.classList.add("is-visible");
+  };
+
+  // Tall page sections need a low threshold — 16% of a multi-card grid can stay
+  // below the fold on mobile while cards are already in view but still opacity: 0.
+  const sectionObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add("is-visible");
-        observer.unobserve(entry.target);
+        revealWhen(entry);
+        sectionObserver.unobserve(entry.target);
+      });
+    },
+    { threshold: 0, rootMargin: "0px 0px -12% 0px" },
+  );
+
+  const defaultObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        revealWhen(entry);
+        defaultObserver.unobserve(entry.target);
       });
     },
     { threshold: 0.16 },
   );
-  items.forEach((item) => observer.observe(item));
+
+  items.forEach((item) => {
+    const observer = item.classList.contains("page-section") ? sectionObserver : defaultObserver;
+    observer.observe(item);
+  });
 }
 
 function setupScrollProgress() {
