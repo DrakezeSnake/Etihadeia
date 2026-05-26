@@ -27,7 +27,7 @@ const pageImages = {
   nickelProductCard: ["/assets/73ab59c7-12a9-4440-a085-db03697da9fb.jfif", "Nickel plating production and industrial metal finishing"],
   electrolessNickelProductCard: ["/assets/dsc04687.jpg", "Electroless nickel plating and uniform metal finishing"],
   electrolessNickelApplication: ["/assets/silver-electrical-contacts38216278-077f-4e99-978e-d34e24e39b03.webp", "Silver-plated electrical contacts and functional electroless nickel finishes"],
-  chrome: ["https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80", "Engineer inspecting finished industrial components"],
+  chrome: ["/assets/engineer-inspecting-components.jpg", "Engineer inspecting finished industrial components"],
   chromeProductCard: ["/assets/046A5728HCspecLc-400x267-c-default.jpg", "Chrome plating systems and decorative finishing production"],
   trivalentChromeProductCard: ["/assets/trivalent-chrome-plated-component.png", "Trivalent chrome plated components with decorative mirror finish"],
   hardChromeProductCard: ["/assets/Hard-Chrome-2.jpg", "Hard chrome plating for wear resistance and industrial durability"],
@@ -37,17 +37,17 @@ const pageImages = {
   sanitary: ["/assets/electroplating-on-bathroom-fittings-service.jpg", "Electroplating on bathroom fittings"],
   hardwareSector: ["/assets/electroplating-services-500x500.webp", "Hardware and electroplated metal components"],
   industrialManufacturing: [
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9m-7r1LX-yvte8BJXd764y2cThyPRsjkweA&s",
+    "/assets/industrial-manufacturing-parts.jpg",
     "Industrial manufacturing parts for plated finishing",
   ],
   plasticsIndustry: ["/assets/dsc04819.jpg", "Plating on plastic and decorative plastic metallization"],
   metalFabrication: [
-    "https://www.rapid-protos.com/wp-content/uploads/2025/09/metal-fabrication-800x600-1.jpg",
+    "/assets/metal-fabrication-800x600-1.jpg",
     "Metal fabrication work for industrial components",
   ],
   decorativeHardware: ["/assets/LHZA11508.BLK.webp", "Decorative hardware and finished plated surfaces"],
   copperProductCard: ["/assets/electris42.jpg", "Copper plating systems and electroplating production"],
-  zinc: ["https://commons.wikimedia.org/wiki/Special:FilePath/ION%20PLATED%20FASTENERS%20-%20NARA%20-%2017470749.jpg", "Industrial plated fasteners for corrosion protection"],
+  zinc: ["/assets/ion-plated-fasteners-nara.jpg", "Industrial plated fasteners for corrosion protection"],
   plastic: ["/assets/dsc04819.jpg", "Plating on plastic and decorative plastic metallization"],
   prep: ["/assets/why-us-transformative.png", "Metal parts prepared for surface finishing"],
   prepProductCard: ["/assets/electris-powder-coating.jpg", "Powder coating and surface preparation for plating and finishing"],
@@ -90,35 +90,35 @@ const serviceCards = [
 const industryCards = [
   [
     "Aerospace and defense",
-    "High-reliability finishing, corrosion control, and process support for aerospace, defense, and critical hardware where conformance matters.",
+    "Precision chemistry for high-performance components requiring extreme durability and corrosion resistance.",
     pageImages.chrome,
   ],
-  ["Appliances", "Decorative and protective plating for visible components, trims, handles, and internal parts in household appliances.", pageImages.hardwareSector],
+  ["Appliances", "Decorative and functional plating for white goods, consumer electronics, and household hardware.", pageImages.hardwareSector],
   [
     "Automotive",
-    "Decorative and protective finishes for components that require appearance consistency, corrosion resistance, and stable production quality.",
+    "OEM-grade plating solutions for interior trim, exterior brightwork, and engine components.",
     pageImages.automotive,
   ],
-  ["Building and machinery", "Functional and protective finishes for structural metalwork, machinery parts, fittings, and equipment exposed to demanding environments.", pageImages.metalFabrication],
+  ["Building and machinery", "Robust protective finishes for architectural hardware, fasteners, and heavy industrial machinery.", pageImages.metalFabrication],
   [
     "Fashion and packaging",
-    "Decorative metallization and finishing for trims, closures, hardware accents, and metallic packaging details.",
+    "High-aesthetic plating for accessories, jewelry, cosmetics packaging, and luxury goods.",
     pageImages.decorativeHardware,
   ],
   [
     "Oil and gas",
-    "Corrosion-resistant plating for valves, fasteners, connectors, and hardware used in harsh chemical exposure and demanding field service.",
+    "Specialized anti-corrosive coatings for equipment operating in harsh subterranean environments.",
     pageImages.protectiveFinishing,
   ],
   [
     "Plastic recycling",
-    "Metallization and plating support for engineered plastic components, including applications that use recycled or reprocessed molding feedstock.",
+    "Chemical solutions for preparation and plating on recycled substrates and industrial plastics.",
     pageImages.plasticsIndustry,
   ],
-  ["Plumbing and sanitary fittings", "Nickel, chrome, copper, and protective finishing systems for faucets, mixers, fittings, and sanitary hardware.", pageImages.sanitary],
+  ["Plumbing and sanitary fittings", "High-quality nickel and chrome plating for faucets, valves, and bathroom accessories.", pageImages.sanitary],
   [
     "Renewable energy",
-    "Protective finishes and corrosion control for fasteners, busbars, enclosures, and hardware used across solar, wind, and broader energy infrastructure.",
+    "Advanced coatings for solar panel frames, wind turbine components, and energy storage systems.",
     pageImages.electrolessNickelApplication,
   ],
 ];
@@ -262,8 +262,10 @@ const pages = {
     sections: [
       {
         type: "industryTiles",
-        eyebrow: "Industry fit",
-        heading: "Manufacturing sectors that rely on dependable finishes.",
+        eyebrow: "Application excellence",
+        heading: "Surface Finishing Support for Industrial Manufacturers",
+        body:
+          "El Etehadia supports manufacturers that depend on consistent, durable, and high-quality plated finishes. We provide the technical depth required for complex production environments.",
         items: industryCards,
       },
       {
@@ -500,24 +502,21 @@ function cardMedia(media) {
 
 function industryIcon(title) {
   const key = title.toLowerCase();
-  const iconPath = (() => {
-    if (key.includes("aerospace")) return '<path d="M18 7l12 10-12 4-4 9-4-7-8-2 8-4 4-9 4 7z" /><path d="M18 21l5 6" />';
-    if (key.includes("appliances")) return '<rect x="8" y="5" width="18" height="26" rx="2" /><path d="M8 13h18M13 9h8M13 26h8" />';
-    if (key.includes("automotive")) return '<path d="M7 23h22l-3-8H10l-3 8z" /><circle cx="12" cy="25" r="3" /><circle cx="24" cy="25" r="3" /><path d="M12 15l2-5h8l2 5" />';
-    if (key.includes("building")) return '<path d="M6 30h24" /><path d="M9 30V8h14v22" /><path d="M23 16h6v14" /><path d="M13 13h2M18 13h2M13 18h2M18 18h2M13 23h2M18 23h2" />';
-    if (key.includes("fashion")) return '<path d="M18 8c4 0 7 3 7 7v13H11V15c0-4 3-7 7-7z" /><path d="M14 15c0-2 2-4 4-4s4 2 4 4" /><path d="M9 20l-4 8h6" />';
-    if (key.includes("oil")) return '<path d="M18 5c5 7 8 11 8 16a8 8 0 0 1-16 0c0-5 3-9 8-16z" /><path d="M14 22c1 3 5 4 8 1" />';
-    if (key.includes("plastic")) return '<path d="M12 7h9l3 5v19H12V7z" /><path d="M21 7v6h6" /><path d="M9 15l-4 4 4 4M27 18l4 4-4 4" />';
-    if (key.includes("plumbing")) return '<path d="M7 15h14a5 5 0 0 1 0 10h-4" /><path d="M7 10h8v10H7z" /><path d="M22 25v5M18 30h8" />';
-    return '<path d="M18 5v26" /><path d="M8 24c5 0 10-4 10-10C13 14 8 18 8 24z" /><path d="M28 14c-5 0-10 4-10 10 5 0 10-4 10-10z" />';
+  const iconName = (() => {
+    if (key.includes("aerospace")) return "flight_takeoff";
+    if (key.includes("appliances")) return "microwave_gen";
+    if (key.includes("automotive")) return "directions_car";
+    if (key.includes("building")) return "apartment";
+    if (key.includes("fashion")) return "styler";
+    if (key.includes("oil")) return "oil_barrel";
+    if (key.includes("plastic")) return "recycling";
+    if (key.includes("plumbing")) return "faucet";
+    return "solar_power";
   })();
 
   return `
-    <div class="page-card__icon" aria-hidden="true">
-      <svg viewBox="0 0 36 36" focusable="false">
-        ${iconPath}
-      </svg>
-    </div>
+    <span class="material-symbols-outlined page-card__icon industry-card__icon" aria-hidden="true">${iconName}</span>
+    <span class="material-symbols-outlined industry-card__ghost" aria-hidden="true">${iconName}</span>
   `;
 }
 
@@ -538,7 +537,10 @@ function renderSection(section) {
 
   if (section.type === "industryTiles") {
     return `<section class="section page-section" data-reveal><div class="section__inner">${head}<div class="technical-grid technical-grid--icons">${section.items
-      .map(([title, body]) => `<article>${industryIcon(title)}<div class="page-card__body"><h3>${title}</h3><p>${body}</p></div></article>`)
+      .map(
+        ([title, body]) =>
+          `<article class="industry-card" aria-label="${title}. ${body}"><div class="industry-card__content">${industryIcon(title)}<div class="page-card__body"><h3>${title}</h3><p>${body}</p></div></div></article>`
+      )
       .join("")}</div></div></section>`;
   }
 

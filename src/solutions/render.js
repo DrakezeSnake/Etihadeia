@@ -26,17 +26,14 @@ export function renderSolutionCard(solution, ctaHref) {
   const subLinks = solution.subcategories
     .map(
       (sub) =>
-        `<li><a class="solution-card__family-link" href="${escapeHtml(ctaHref.href.split("#")[0])}#${escapeHtml(sub.slug)}">${escapeHtml(sub.title)}</a></li>`,
+        `<li><span class="solution-card__family-link">${escapeHtml(sub.title)}</span></li>`,
     )
     .join("");
-  const iconImg = `
-    <img class="solution-card__icon-img" src="${escapeHtml(solution.icon)}" alt="" aria-hidden="true" decoding="async" loading="lazy" />
-  `;
   return `
     <article class="solution-card" role="listitem" data-reveal>
       <div class="solution-card__body">
         <a href="${escapeHtml(ctaHref.href.split("?")[0])}" class="solution-card__icon-link" aria-label="${escapeHtml(solution.title)}">
-          <span class="solution-card__icon" title="${escapeHtml(solution.iconAlt)}">${iconImg}</span>
+          ${renderSolutionIcon(solution)}
         </a>
         <h3 class="solution-card__title"><a href="${escapeHtml(ctaHref.href)}">${escapeHtml(solution.title)}</a></h3>
         <p class="solution-card__desc">${escapeHtml(solution.description)}</p>
@@ -45,9 +42,6 @@ export function renderSolutionCard(solution, ctaHref) {
             ? `<ul class="solution-card__family-list">${subLinks}</ul>`
             : '<p class="solution-card__families-muted">Portfolio overview.</p>'
         }
-        <a class="solution-card__cta" href="${escapeHtml(ctaHref.href)}">${escapeHtml(ctaHref.label)}
-          <span class="solution-card__cta-arrow" aria-hidden="true">&rarr;</span>
-        </a>
       </div>
     </article>
   `;
@@ -163,12 +157,36 @@ export function renderLandingHero(headline, intro, media) {
           <p class="solution-eyebrow">Solutions</p>
           <h1>${escapeHtml(headline)}</h1>
           <p class="solution-hero__intro">${escapeHtml(intro)}</p>
-          <a class="solution-hero__primary-btn" href="#solution-catalog">Explore Solutions</a>
         </div>
         ${heroMedia}
       </div>
     </section>
   `;
+}
+
+function renderSolutionIcon(solution, extraClass = "") {
+  const symbolName = getSolutionSymbol(solution.slug);
+  const iconMarkup = symbolName
+    ? `<span class="material-symbols-outlined solution-card__symbol" aria-hidden="true">${escapeHtml(symbolName)}</span>`
+    : `<img class="solution-card__icon-img" src="${escapeHtml(solution.icon)}" alt="" aria-hidden="true" decoding="async" loading="lazy" />`;
+  return `<span class="solution-card__icon${extraClass ? ` ${escapeHtml(extraClass)}` : ""}" title="${escapeHtml(solution.iconAlt)}">${iconMarkup}</span>`;
+}
+
+function getSolutionSymbol(slug) {
+  const map = {
+    "surface-conditioning": "water_drop",
+    "anti-corrosion": "precision_manufacturing",
+    "light-metal-finishes": "architecture",
+    "decorative-coatings": "diamond",
+    "plating-on-plastics": "layers",
+    "electroless-nickel": "biotech",
+    "wear-resistance": "settings_suggest",
+    "precious-metals": "auto_awesome",
+    "plastic-recycling": "recycling",
+    watercare: "opacity",
+    "all-solutions": "grid_view",
+  };
+  return map[slug] || "";
 }
 
 /**
@@ -182,9 +200,7 @@ export function renderSolutionDetailHero(solution) {
           <img data-solution-img class="solution-hero__detail-img" src="${escapeHtml(solution.image)}" alt="${escapeHtml(solution.imageAlt)}" data-fallback-alt="Surface finishing" loading="eager" decoding="async" />
         </div>
         <div class="solution-hero__detail-copy">
-          <div class="solution-card__icon solution-hero__icon" title="${escapeHtml(solution.iconAlt)}">
-            <img src="${escapeHtml(solution.icon)}" alt="" aria-hidden="true" decoding="async" loading="eager" />
-          </div>
+          ${renderSolutionIcon(solution, "solution-hero__icon")}
           <nav class="solution-breadcrumbs" aria-label="Breadcrumb">
             <ol>
               <li><a href="/">Home</a></li>
@@ -208,10 +224,7 @@ export function renderRelatedSolutions(others, currentSlug) {
     .filter((s) => s.slug !== currentSlug && !s.landingOnly)
     .slice(0, 4)
     .map((s) => {
-      const icon = `
-        <span class="solution-card__icon related-card__icon" title="${escapeHtml(s.iconAlt)}">
-          <img class="solution-card__icon-img" src="${escapeHtml(s.icon)}" alt="" aria-hidden="true" decoding="async" loading="lazy" />
-        </span>`;
+      const icon = renderSolutionIcon(s, "related-card__icon");
       return `
         <article class="related-card" role="listitem">
           <a class="related-card__link" href="/solutions/${escapeHtml(s.slug)}/">
@@ -236,11 +249,12 @@ export function renderRelatedSolutions(others, currentSlug) {
 
 export function renderContactCta() {
   return `
-    <section class="solution-section solution-contact-cta" data-reveal>
-      <div class="solution-section__inner solution-contact-cta__inner">
-        <h2>Need help selecting the right surface finishing solution?</h2>
-        <p>Connect with our team to identify the right chemistry, process, and finish for your application.</p>
-        <a class="solution-contact-cta__btn" href="/contact/">Contact Us</a>
+    <section class="section final-cta" data-reveal>
+      <div class="section__inner">
+        <p class="section__label">Next step</p>
+        <h2>Need support for your plating line?</h2>
+        <p>Send us your inquiry, product requirement, or technical issue. Our team can help with product selection, lab analysis, and process support.</p>
+        <a class="industrial-button" href="/contact/">Ask about product availability</a>
       </div>
     </section>
   `;

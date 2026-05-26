@@ -4,7 +4,7 @@ import { HDRLoader } from "three/examples/jsm/loaders/HDRLoader.js";
 import { PARTICLE_COLORS, applyMaterialState, createHexMaterial, loadHexTextures } from "./materials.js";
 import { createWaterSimulation } from "./waterSimulation.js";
 
-const HDRI_URL = "https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/studio_small_03_1k.hdr";
+const HDRI_URL = "/assets/studio-small-03-1k.hdr";
 const LIQUID_COUNT = 6;
 const LIQUID_Y = -0.08;
 

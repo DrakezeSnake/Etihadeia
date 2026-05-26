@@ -9,7 +9,6 @@ import { initSolutionImageFallback } from "./imageFallback.js";
 import {
   renderLandingHero,
   renderSolutionGrid,
-  renderFeaturedFamiliesPreview,
   renderContactCta,
   renderBreadcrumbJsonLd,
   renderItemListJsonLd,
@@ -241,8 +240,8 @@ function renderLanding() {
   return `
     <div class="solutions-page">
       ${renderLandingHero(landingHeroHeadline, landingHeroIntro, {
-        src: solutions.find((s) => s.slug === "all-solutions")?.image || solutions[0].image,
-        alt: solutions.find((s) => s.slug === "all-solutions")?.imageAlt || solutions[0].imageAlt,
+        src: "/assets/electris-powder-coating.jpg",
+        alt: "Powder coating and surface preparation equipment for industrial finishing",
       })}
       <section class="solution-section solution-catalog-intro" aria-labelledby="catalog-heading" data-reveal>
         <div class="solution-section__inner">
@@ -254,7 +253,6 @@ function renderLanding() {
         </div>
       </section>
       ${renderSolutionGrid(solutions)}
-      ${renderFeaturedFamiliesPreview(solutions)}
       ${renderContactCta()}
       ${jsonLd}
     </div>
