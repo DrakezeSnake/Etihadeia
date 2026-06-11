@@ -101,7 +101,7 @@ function footer() {
           <h4 class="footer__heading">Contact</h4>
           <nav class="footer__nav">
             <a href="tel:+20226833830">+20 2 26833830</a>
-            <a href="tel:+201067358111">+20 10 67358111</a>
+            <a href="tel:+201064439997">+20 10 64439997</a>
             <a href="mailto:info@etehadia.com">info@etehadia.com</a>
             <span>Cairo, Egypt</span>
           </nav>

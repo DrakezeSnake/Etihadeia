@@ -3,7 +3,7 @@ import { SITE_ORIGIN_FALLBACK } from "./data/solutions.js";
 export const SITE_NAME = "El Etehadia";
 export const SITE_LEGAL_NAME = "El Etehadia Company for Import, Export & Agencies";
 export const SITE_EMAIL = "info@etehadia.com";
-export const SITE_PHONES = ["+20-2-26833830", "+20-10-67358111"];
+export const SITE_PHONES = ["+20-2-26833830", "+20-10-64439997"];
 export const SITE_DESCRIPTION =
   "El Etehadia supplies electroplating chemicals, plating machines, lacquers, laboratory analysis, and technical support for industrial surface finishing in Egypt and the Middle East.";
 

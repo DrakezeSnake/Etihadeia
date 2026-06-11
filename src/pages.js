@@ -4,7 +4,7 @@ import "../styles.css";
 import "./pages.css";
 import { initFooter3dLogo } from "./footerLogo3d.js";
 
-const WHATSAPP_URL = "https://wa.me/201067358111";
+const WHATSAPP_URL = "https://wa.me/201064439997";
 
 import { siteNavItems } from "./siteNav.js";
 
@@ -456,7 +456,7 @@ function footer() {
           <h4 class="footer__heading">Contact</h4>
           <nav class="footer__nav">
             <a href="tel:+20226833830">+20 2 26833830</a>
-            <a href="tel:+201067358111">+20 10 67358111</a>
+            <a href="tel:+201064439997">+20 10 64439997</a>
             <a href="mailto:info@etehadia.com">info@etehadia.com</a>
             <span>Cairo, Egypt</span>
           </nav>
@@ -617,7 +617,7 @@ function contactSection(section) {
             <p>For technical inquiries, please include the process type, substrate, required finish, current issue, and any available bath or sample details.</p>
             <dl>
               <dt>Phone</dt>
-              <dd><a href="tel:+20226833830">+20 2 26833830</a><br /><a href="tel:+201067358111">+20 10 67358111</a></dd>
+              <dd><a href="tel:+20226833830">+20 2 26833830</a><br /><a href="tel:+201064439997">+20 10 64439997</a></dd>
               <dt>Email</dt>
               <dd><a href="mailto:info@etehadia.com">info@etehadia.com</a></dd>
               <dt>Location</dt>
