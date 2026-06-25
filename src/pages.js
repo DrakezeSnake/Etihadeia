@@ -1,12 +1,13 @@
 import { setupLanguageToggle } from "./i18n.js";
 import { applyPageStructuredData } from "./structuredData.js";
+import { productDocuments } from "./data/productDocuments.js";
 import "../styles.css";
 import "./pages.css";
 import { initFooter3dLogo } from "./footerLogo3d.js";
 
 const WHATSAPP_URL = "https://wa.me/201064439997";
 
-import { siteNavItems } from "./siteNav.js";
+import { siteNavItems, solutionDocumentMenuGroups } from "./siteNav.js";
 
 const navItems = siteNavItems;
 
@@ -81,6 +82,22 @@ const productCards = [
   ["Lacquers", "HAWKING lacquers and protective finishing products for enhanced durability, appearance, and post-treatment performance.", pageImages.lacquerProductCard],
   ["Salts, Colors & Additives", "Industrial salts, colors, brighteners, additives, and supporting materials for plating bath performance and finish control.", pageImages.saltsColorsProductCard],
 ];
+
+const hiddenProductDocumentCards = new Set(["eplating-case-study", "watercare"]);
+const productDocumentCards = productDocuments
+  .filter((doc) => !hiddenProductDocumentCards.has(doc.slug))
+  .map((doc) => [
+    doc.title,
+    doc.description,
+    doc.category,
+    [doc.heroImage, doc.imageAlt],
+    `/solutions/documents/${doc.slug}/`,
+  ]);
+const structuredProductDocumentItems = productDocumentCards.map(([name, description, _category, _media, url]) => ({
+  name,
+  description,
+  url,
+}));
 
 const serviceCards = [
   ["Laboratory Analysis", "We analyze plating baths, samples, and process conditions to help customers evaluate performance, identify imbalances, and take corrective action.", "Use for: Bath control, sample analysis, quality validation, defect investigation, process correction.", pageImages.lab],
@@ -239,18 +256,18 @@ const pages = {
   products: {
     title: "Products",
     eyebrow: "Products",
-    heading: "Electroplating Products, Chemicals, Machines & Accessories",
+    heading: "Product Pages",
     intro:
-      "El Etehadia supplies a wide range of products for industrial surface finishing, including chemistry, additives, lacquers, machines, accessories, and supporting materials.",
+      "Focused product pages for industrial surface-finishing chemistry, additives, process support, and specialty applications.",
     image: pageImages.partners,
     sections: [
       {
         type: "products",
-        eyebrow: "Product categories",
-        heading: "Products for Every Stage of the Plating Process",
+        eyebrow: "Products",
+        heading: "Browse Product Pages",
         body:
-          "From surface preparation to final finish, El Etehadia provides the products and support needed to run stable electroplating operations.",
-        items: productCards,
+          "Explore product pages built from supplied brochures, factsheets, and case studies.",
+        items: productDocumentCards,
       },
     ],
     cta: ["Ask about product availability", "/contact/"],
@@ -382,12 +399,39 @@ function isActive(href, currentPage) {
   return href.includes(`/${currentPage}/`);
 }
 
+function solutionSubmenu() {
+  return `
+    <div class="nav-submenu" role="menu" aria-label="Solutions product documents">
+      <div class="nav-submenu__inner">
+        ${solutionDocumentMenuGroups
+          .map(
+            (group) => `
+              <div class="nav-submenu__group">
+                <p>${group.category}</p>
+                ${group.documents
+                  .map((doc) => `<a href="/solutions/documents/${doc.slug}/" role="menuitem">${doc.title}</a>`)
+                  .join("")}
+              </div>
+            `,
+          )
+          .join("")}
+      </div>
+    </div>
+  `;
+}
+
+function navItem([label, href], currentPage) {
+  const active = isActive(href, currentPage);
+  const hasSubmenu = label === "Solutions";
+  return `<li class="float-tabs__item${hasSubmenu ? " has-submenu" : ""}">
+    <a href="${href}" class="float-tabs__link${active ? " is-active" : ""}"${active ? ' aria-current="page"' : ""}${hasSubmenu ? ' aria-haspopup="true"' : ""}>${label}</a>
+    ${hasSubmenu ? solutionSubmenu() : ""}
+  </li>`;
+}
+
 function header(currentPage) {
   const links = navItems
-    .map(([label, href]) => {
-      const active = isActive(href, currentPage);
-      return `<li class="float-tabs__item"><a href="${href}" class="float-tabs__link${active ? " is-active" : ""}"${active ? ' aria-current="page"' : ""}>${label}</a></li>`;
-    })
+    .map((item) => navItem(item, currentPage))
     .join("");
 
   return `
@@ -511,8 +555,11 @@ function sectionHeader(section) {
   `;
 }
 
-function cardMedia(media) {
-  return `<div class="page-card__media"><img src="${media[0]}" alt="${media[1]}" loading="lazy" /></div>`;
+function cardMedia(media, href = "") {
+  const image = `<img src="${media[0]}" alt="${media[1]}" loading="lazy" />`;
+  return href
+    ? `<a class="page-card__media" href="${href}" aria-label="${media[1]}">${image}</a>`
+    : `<div class="page-card__media">${image}</div>`;
 }
 
 function industryIcon(title) {
@@ -562,14 +609,15 @@ function renderSection(section) {
   if (section.type === "products" || section.type === "applications" || section.type === "partners") {
     return `<section class="section page-section"><div class="section__inner">${head}<div class="technical-grid">${section.items
       .map((item) => {
-        const [title, body, third, fourth] = item;
+        const [title, body, third, fourth, fifth] = item;
         const media = Array.isArray(third) ? third : fourth;
         const label = Array.isArray(third) ? "" : `<span>${third}</span>`;
         const externalUrl = section.type === "partners" && typeof fourth === "string" ? fourth : "";
-        const titleHtml = externalUrl
-          ? `<h3><a href="${externalUrl}" target="_blank" rel="noopener noreferrer">${title}</a></h3>`
+        const itemUrl = externalUrl || (typeof fifth === "string" ? fifth : "");
+        const titleHtml = itemUrl
+          ? `<h3><a href="${itemUrl}"${externalUrl ? ' target="_blank" rel="noopener noreferrer"' : ""}>${title}</a></h3>`
           : `<h3>${title}</h3>`;
-        return `<article>${cardMedia(media)}<div class="page-card__body">${label}${titleHtml}<p>${body}</p></div></article>`;
+        return `<article class="${itemUrl ? "page-card--linked" : ""}"${itemUrl ? ` data-href="${itemUrl}" tabindex="0" role="link" aria-label="${title}"` : ""}>${cardMedia(media, itemUrl)}<div class="page-card__body">${label}${titleHtml}<p>${body}</p></div></article>`;
       })
       .join("")}</div></div></section>`;
   }
@@ -718,17 +766,39 @@ function setupMobileMenu() {
 
   if (!topNav || !toggle || !panel) return;
 
+  const mobileMenuQuery = window.matchMedia("(max-width: 1024px)");
+  const closeMobileSubmenus = () => {
+    panel.querySelectorAll(".has-submenu.is-submenu-open").forEach((item) => {
+      item.classList.remove("is-submenu-open");
+      item.querySelector(".float-tabs__link")?.setAttribute("aria-expanded", "false");
+    });
+  };
+
+  panel.querySelectorAll(".has-submenu > .float-tabs__link").forEach((trigger) => {
+    trigger.setAttribute("aria-expanded", "false");
+    trigger.addEventListener("click", (event) => {
+      if (!mobileMenuQuery.matches) return;
+      event.preventDefault();
+      const item = trigger.closest(".has-submenu");
+      const open = item?.classList.toggle("is-submenu-open") || false;
+      trigger.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+  });
+
   toggle.addEventListener("click", () => {
     const open = topNav.classList.toggle("is-open");
     toggle.setAttribute("aria-expanded", open ? "true" : "false");
     toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    if (!open) closeMobileSubmenus();
   });
 
   panel.querySelectorAll("a").forEach((link) => {
     link.addEventListener("click", () => {
+      if (mobileMenuQuery.matches && link.matches(".has-submenu > .float-tabs__link")) return;
       topNav.classList.remove("is-open");
       toggle.setAttribute("aria-expanded", "false");
       toggle.setAttribute("aria-label", "Open menu");
+      closeMobileSubmenus();
     });
   });
 }
@@ -743,6 +813,7 @@ function setupPageTransitions() {
 
   document.querySelectorAll('a[href^="/"]').forEach((link) => {
     link.addEventListener("click", (event) => {
+      if (window.matchMedia("(max-width: 1024px)").matches && link.matches(".has-submenu > .float-tabs__link")) return;
       const url = new URL(link.href, window.location.origin);
       if (url.origin !== window.location.origin || url.pathname === window.location.pathname) return;
       event.preventDefault();
@@ -792,6 +863,22 @@ function setupContactForm() {
   });
 }
 
+function setupLinkedCards() {
+  document.querySelectorAll(".page-card--linked[data-href]").forEach((card) => {
+    card.addEventListener("click", (event) => {
+      if (event.target.closest("a")) return;
+      window.location.href = card.dataset.href;
+    });
+
+    card.addEventListener("keydown", (event) => {
+      if (event.target.closest("a")) return;
+      if (event.key !== "Enter" && event.key !== " ") return;
+      event.preventDefault();
+      window.location.href = card.dataset.href;
+    });
+  });
+}
+
 function render() {
   const currentPage = document.body.dataset.page || "about";
   const page = pages[currentPage] || pages.about;
@@ -815,12 +902,13 @@ function render() {
   setupMobileMenu();
   setupPageTransitions();
   setupContactForm();
+  setupLinkedCards();
   initFooter3dLogo();
 
   applyPageStructuredData({
     pageKey: currentPage,
     pageTitle: page.title,
-    productItems: currentPage === "products" ? productCards : undefined,
+    productItems: currentPage === "products" ? structuredProductDocumentItems : undefined,
     serviceItems: currentPage === "services" ? serviceCards : undefined,
   });
 }

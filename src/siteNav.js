@@ -1,3 +1,5 @@
+import { getProductDocumentGroups } from "./data/productDocuments.js";
+
 /** Primary site navigation: [label, href] pairs (used by inner pages). */
 /** @type {[string, string][]} */
 export const siteNavItems = [
@@ -9,3 +11,5 @@ export const siteNavItems = [
   ["Solutions", "/solutions/"],
   ["Partners", "/partners/"],
 ];
+
+export const solutionDocumentMenuGroups = getProductDocumentGroups();

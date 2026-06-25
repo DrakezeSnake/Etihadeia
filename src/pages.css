@@ -263,9 +263,24 @@
 }
 
 .page-card__media {
+  display: block;
   aspect-ratio: 16 / 10;
   overflow: hidden;
   background: var(--charcoal);
+}
+
+.page-card--linked {
+  cursor: pointer;
+}
+
+.page-card--linked h3 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.page-card--linked h3 a:hover,
+.page-card--linked h3 a:focus-visible {
+  color: var(--amber);
 }
 
 .page-card__media img {

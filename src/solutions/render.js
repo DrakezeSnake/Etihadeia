@@ -262,3 +262,145 @@ export function renderExpandedIntro(text) {
     </section>
   `;
 }
+
+/**
+ * @param {import("../data/productDocuments.js").ProductDocument[]} docs
+ */
+export function renderProductDocumentGrid(docs) {
+  const cards = docs
+    .map(
+      (doc) => `
+        <article class="document-card" role="listitem" data-reveal>
+          <a class="document-card__media" href="/solutions/documents/${escapeHtml(doc.slug)}/">
+            <img src="${escapeHtml(doc.heroImage)}" alt="${escapeHtml(doc.imageAlt)}" loading="lazy" decoding="async" />
+          </a>
+          <div class="document-card__body">
+            <span>${escapeHtml(doc.category)}</span>
+            <h3><a href="/solutions/documents/${escapeHtml(doc.slug)}/">${escapeHtml(doc.title)}</a></h3>
+            <p>${escapeHtml(doc.description)}</p>
+          </div>
+        </article>
+      `,
+    )
+    .join("");
+
+  return `
+    <section class="solution-section document-catalog solution-section--alt" aria-labelledby="document-catalog-heading" data-reveal>
+      <div class="solution-section__inner">
+        <header class="solution-section-header">
+          <div>
+            <p class="solution-eyebrow">Products</p>
+            <h2 id="document-catalog-heading">Product pages</h2>
+          </div>
+          <p>Browse focused product pages built from the latest supplied product brochures, factsheets, and case studies.</p>
+        </header>
+        <div class="document-grid" role="list">${cards}</div>
+      </div>
+    </section>
+  `;
+}
+
+/**
+ * @param {import("../data/productDocuments.js").ProductDocument} doc
+ * @param {import("../data/productDocuments.js").ProductDocument[]} related
+ */
+export function renderProductDocumentDetail(doc, related = []) {
+  const secondaryImages = (doc.images || [])
+    .map(
+      (src) => `
+        <figure class="document-gallery__item">
+          <img src="${escapeHtml(src)}" alt="${escapeHtml(doc.imageAlt)}" loading="lazy" decoding="async" />
+        </figure>
+      `,
+    )
+    .join("");
+
+  const relatedCards = related
+    .map(
+      (item) => `
+        <article class="related-card" role="listitem">
+          <a class="related-card__link" href="/solutions/documents/${escapeHtml(item.slug)}/">
+            <span class="related-card__media">
+              <img src="${escapeHtml(item.heroImage)}" alt="${escapeHtml(item.imageAlt)}" loading="lazy" decoding="async" />
+            </span>
+            <span class="related-card__category">${escapeHtml(item.category)}</span>
+            <h3>${escapeHtml(item.title)}</h3>
+          </a>
+        </article>
+      `,
+    )
+    .join("");
+
+  return `
+    <div class="document-detail">
+      <section class="solution-hero solution-hero--detail document-hero" data-reveal>
+        <div class="solution-hero__detail-grid">
+          <div class="solution-hero__media-wrap">
+            <img data-solution-img class="solution-hero__detail-img" src="${escapeHtml(doc.heroImage)}" alt="${escapeHtml(doc.imageAlt)}" data-fallback-alt="Product document image" loading="eager" decoding="async" />
+          </div>
+          <div class="solution-hero__detail-copy">
+            <span class="solution-card__icon solution-hero__icon" title="${escapeHtml(doc.category)}">
+              <span class="material-symbols-outlined solution-card__symbol" aria-hidden="true">description</span>
+            </span>
+            <nav class="solution-breadcrumbs" aria-label="Breadcrumb">
+              <ol>
+                <li><a href="/">Home</a></li>
+                <li><a href="/solutions/">Solutions</a></li>
+                <li aria-current="page">${escapeHtml(doc.title)}</li>
+              </ol>
+            </nav>
+            <p class="document-hero__badge">${escapeHtml(doc.badge)}</p>
+            <h1>${escapeHtml(doc.title)}</h1>
+            <p class="solution-hero__intro">${escapeHtml(doc.description)}</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="solution-section document-overview">
+        <div class="solution-section__inner document-overview__grid">
+          <div>
+            <p class="solution-eyebrow">${escapeHtml(doc.category)}</p>
+            <h2>Overview</h2>
+            <p>${escapeHtml(doc.summary)}</p>
+          </div>
+          <aside class="document-meta">
+            <span>Document type</span>
+            <strong>${escapeHtml(doc.badge)}</strong>
+          </aside>
+        </div>
+      </section>
+
+      <section class="solution-section document-detail-lists solution-section--alt">
+        <div class="solution-section__inner document-detail-lists__grid">
+          <div>
+            <p class="solution-eyebrow">Key features</p>
+            <h2>What it supports</h2>
+            <ul>${doc.keyFeatures.map((feature) => `<li>${escapeHtml(feature)}</li>`).join("")}</ul>
+          </div>
+          <div>
+            <p class="solution-eyebrow">Applications</p>
+            <h2>Where it fits</h2>
+            <ul>${doc.applications.map((application) => `<li>${escapeHtml(application)}</li>`).join("")}</ul>
+          </div>
+        </div>
+      </section>
+
+      ${
+        secondaryImages
+          ? `<section class="solution-section document-gallery" aria-label="Additional document images"><div class="solution-section__inner document-gallery__grid">${secondaryImages}</div></section>`
+          : ""
+      }
+
+      <section class="solution-section related-solutions document-related-solutions" aria-labelledby="related-documents-heading" data-reveal>
+        <div class="solution-section__inner">
+          <h2 id="related-documents-heading">Related documents</h2>
+          <div class="related-solutions__rail" tabindex="0" role="region" aria-label="Related product documents">
+            <div class="related-solutions__track" role="list">${relatedCards}</div>
+          </div>
+        </div>
+      </section>
+
+      ${renderContactCta()}
+    </div>
+  `;
+}

@@ -163,6 +163,23 @@ export function buildSolutionsItemList(list, origin) {
 }
 
 /**
+ * @param {import("./data/productDocuments.js").ProductDocument[]} list
+ * @param {string} origin
+ */
+export function buildProductDocumentsItemList(list, origin) {
+  return {
+    "@type": "ItemList",
+    name: "Product pages",
+    itemListElement: list.map((doc, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: doc.title,
+      url: `${origin}/solutions/documents/${doc.slug}/`,
+    })),
+  };
+}
+
+/**
  * @param {import("./data/solutions.js").Solution} solution
  * @param {string} origin
  */
@@ -177,6 +194,26 @@ export function buildSolutionService(solution, origin) {
     provider: { "@id": entityId(origin, "#organization") },
     areaServed: { "@type": "Country", name: "Egypt" },
     serviceType: "Surface finishing solution",
+  };
+}
+
+/**
+ * @param {import("./data/productDocuments.js").ProductDocument} doc
+ * @param {string} origin
+ */
+export function buildProductDocument(doc, origin) {
+  const url = `${origin}/solutions/documents/${doc.slug}/`;
+  return {
+    "@type": "TechArticle",
+    "@id": `${url}#document`,
+    headline: doc.title,
+    name: doc.title,
+    description: doc.description,
+    image: absoluteUrl(origin, doc.heroImage),
+    url,
+    mainEntityOfPage: url,
+    about: doc.category,
+    provider: { "@id": entityId(origin, "#organization") },
   };
 }
 
@@ -290,9 +327,13 @@ export function applyPageStructuredData({ pageKey, pageTitle, productItems, serv
  * @param {{
  *   type: "landing";
  *   solutions: import("./data/solutions.js").Solution[];
+ *   documents?: import("./data/productDocuments.js").ProductDocument[];
  * } | {
  *   type: "detail";
  *   solution: import("./data/solutions.js").Solution;
+ * } | {
+ *   type: "document";
+ *   document: import("./data/productDocuments.js").ProductDocument;
  * }} options
  */
 export function applySolutionsStructuredData(options) {
@@ -310,7 +351,10 @@ export function applySolutionsStructuredData(options) {
       ),
       buildSolutionsItemList(options.solutions, origin),
     );
-  } else {
+    if (options.documents?.length) {
+      entities.push(buildProductDocumentsItemList(options.documents, origin));
+    }
+  } else if (options.type === "detail") {
     const { solution } = options;
     entities.push(
       buildBreadcrumbList(
@@ -322,6 +366,19 @@ export function applySolutionsStructuredData(options) {
         origin,
       ),
       buildSolutionService(solution, origin),
+    );
+  } else {
+    const { document: doc } = options;
+    entities.push(
+      buildBreadcrumbList(
+        [
+          { name: "Home", href: "/" },
+          { name: "Solutions", href: "/solutions/" },
+          { name: doc.title, href: `/solutions/documents/${doc.slug}/` },
+        ],
+        origin,
+      ),
+      buildProductDocument(doc, origin),
     );
   }
 

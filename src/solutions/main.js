@@ -2,9 +2,11 @@ import { setupLanguageToggle } from "../i18n.js";
 import "../../styles.css";
 import "../pages.css";
 import "./solutions.css";
-import { siteNavItems } from "../siteNav.js";
+import { siteNavItems, solutionDocumentMenuGroups } from "../siteNav.js";
 import { initFooter3dLogo } from "../footerLogo3d.js";
 import { solutions, getSolutionBySlug, getRelatedSolutions, landingHeroHeadline, landingHeroIntro } from "../data/solutions.js";
+import { getProductDocumentBySlug, getRelatedProductDocuments, productDocuments } from "../data/productDocuments.js";
+import { getArabicProductDocumentMeta } from "../data/productDocumentArabic.js";
 import { initSolutionImageFallback } from "./imageFallback.js";
 import { applySolutionsStructuredData } from "../structuredData.js";
 import {
@@ -14,6 +16,8 @@ import {
   renderSolutionDetailHero,
   renderExpandedIntro,
   renderFeaturedProductFamilies,
+  renderProductDocumentDetail,
+  renderProductDocumentGrid,
   renderRelatedSolutions,
   truncateMetaDescription,
 } from "./render.js";
@@ -27,12 +31,39 @@ function isLinkActive(href, pathname) {
   return pathname.startsWith(`${base}/`);
 }
 
+function solutionSubmenu() {
+  return `
+    <div class="nav-submenu" role="menu" aria-label="Solutions product documents">
+      <div class="nav-submenu__inner">
+        ${solutionDocumentMenuGroups
+          .map(
+            (group) => `
+              <div class="nav-submenu__group">
+                <p>${group.category}</p>
+                ${group.documents
+                  .map((doc) => `<a href="/solutions/documents/${doc.slug}/" role="menuitem">${doc.title}</a>`)
+                  .join("")}
+              </div>
+            `,
+          )
+          .join("")}
+      </div>
+    </div>
+  `;
+}
+
+function navItem([label, href], pathname) {
+  const active = isLinkActive(href, pathname);
+  const hasSubmenu = label === "Solutions";
+  return `<li class="float-tabs__item${hasSubmenu ? " has-submenu" : ""}">
+    <a href="${href}" class="float-tabs__link${active ? " is-active" : ""}"${active ? ' aria-current="page"' : ""}${hasSubmenu ? ' aria-haspopup="true"' : ""}>${label}</a>
+    ${hasSubmenu ? solutionSubmenu() : ""}
+  </li>`;
+}
+
 function header(pathname) {
   const links = siteNavItems
-    .map(([label, href]) => {
-      const active = isLinkActive(href, pathname);
-      return `<li class="float-tabs__item"><a href="${href}" class="float-tabs__link${active ? " is-active" : ""}"${active ? ' aria-current="page"' : ""}>${label}</a></li>`;
-    })
+    .map((item) => navItem(item, pathname))
     .join("");
 
   return `
@@ -181,17 +212,39 @@ function setupMobileMenu() {
 
   if (!topNav || !toggle || !panel) return;
 
+  const mobileMenuQuery = window.matchMedia("(max-width: 1024px)");
+  const closeMobileSubmenus = () => {
+    panel.querySelectorAll(".has-submenu.is-submenu-open").forEach((item) => {
+      item.classList.remove("is-submenu-open");
+      item.querySelector(".float-tabs__link")?.setAttribute("aria-expanded", "false");
+    });
+  };
+
+  panel.querySelectorAll(".has-submenu > .float-tabs__link").forEach((trigger) => {
+    trigger.setAttribute("aria-expanded", "false");
+    trigger.addEventListener("click", (event) => {
+      if (!mobileMenuQuery.matches) return;
+      event.preventDefault();
+      const item = trigger.closest(".has-submenu");
+      const open = item?.classList.toggle("is-submenu-open") || false;
+      trigger.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+  });
+
   toggle.addEventListener("click", () => {
     const open = topNav.classList.toggle("is-open");
     toggle.setAttribute("aria-expanded", open ? "true" : "false");
     toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    if (!open) closeMobileSubmenus();
   });
 
   panel.querySelectorAll("a").forEach((link) => {
     link.addEventListener("click", () => {
+      if (mobileMenuQuery.matches && link.matches(".has-submenu > .float-tabs__link")) return;
       topNav.classList.remove("is-open");
       toggle.setAttribute("aria-expanded", "false");
       toggle.setAttribute("aria-label", "Open menu");
+      closeMobileSubmenus();
     });
   });
 }
@@ -206,6 +259,7 @@ function setupPageTransitions() {
 
   document.querySelectorAll('a[href^="/"]').forEach((link) => {
     link.addEventListener("click", (event) => {
+      if (window.matchMedia("(max-width: 1024px)").matches && link.matches(".has-submenu > .float-tabs__link")) return;
       const url = new URL(link.href, window.location.origin);
       if (url.origin !== window.location.origin || url.pathname === window.location.pathname) return;
       event.preventDefault();
@@ -234,6 +288,7 @@ function renderLanding() {
         </div>
       </section>
       ${renderSolutionGrid(solutions)}
+      ${renderProductDocumentGrid(productDocuments)}
       ${renderContactCta()}
     </div>
   `;
@@ -258,6 +313,19 @@ function renderDetail(slug) {
   return { html: body, notFound: false, solution };
 }
 
+function renderDocumentDetail(slug) {
+  const doc = getProductDocumentBySlug(slug);
+  if (!doc) {
+    return { html: "", notFound: true };
+  }
+
+  return {
+    html: renderProductDocumentDetail(doc, getRelatedProductDocuments(slug, 4)),
+    notFound: false,
+    document: doc,
+  };
+}
+
 function applyDetailPageSeo(slugMeta) {
   document.title = `${slugMeta.title} | Surface Finishing Solutions | El Etehadia`;
   const meta = document.querySelector('meta[name="description"]');
@@ -265,6 +333,18 @@ function applyDetailPageSeo(slugMeta) {
   const ar = document.documentElement.lang === "ar";
   if (ar) {
     document.title = `الاتحادية | ${slugMeta.title} | حلول تشطيب الأسطح`;
+  }
+}
+
+function applyDocumentPageSeo(doc) {
+  const ar = document.documentElement.lang === "ar";
+  const arMeta = ar ? getArabicProductDocumentMeta(doc.slug) : null;
+  document.title = ar
+    ? `${arMeta?.title || doc.title} | وثائق المنتجات | الاتحادية`
+    : `${doc.title} | Product Documents | El Etehadia`;
+  const meta = document.querySelector('meta[name="description"]');
+  if (meta) {
+    meta.setAttribute("content", truncateMetaDescription(ar ? arMeta?.description || doc.description : doc.description));
   }
 }
 
@@ -286,6 +366,14 @@ function render() {
     } else if (out.solution) {
       mainHtml = out.html;
     }
+  } else if (page === "product-document") {
+    const slug = document.body.dataset.slug || "";
+    const out = renderDocumentDetail(slug);
+    if (out.notFound) {
+      mainHtml = `<div class="solution-section"><div class="solution-section__inner"><p>Document not found.</p><p><a href="/solutions/">Back to Solutions</a></p></div></div>`;
+    } else if (out.document) {
+      mainHtml = out.html;
+    }
   }
 
   app.innerHTML = `
@@ -300,11 +388,15 @@ function render() {
   setupLanguageToggle();
 
   const slugMeta = document.body.dataset.slug ? getSolutionBySlug(document.body.dataset.slug) : null;
+  const docMeta = document.body.dataset.slug ? getProductDocumentBySlug(document.body.dataset.slug) : null;
   if (document.body.dataset.page === "solution-detail" && slugMeta && !slugMeta.landingOnly) {
     applyDetailPageSeo(slugMeta);
     applySolutionsStructuredData({ type: "detail", solution: slugMeta });
+  } else if (document.body.dataset.page === "product-document" && docMeta) {
+    applyDocumentPageSeo(docMeta);
+    applySolutionsStructuredData({ type: "document", document: docMeta });
   } else if (document.body.dataset.page === "solutions") {
-    applySolutionsStructuredData({ type: "landing", solutions });
+    applySolutionsStructuredData({ type: "landing", solutions, documents: productDocuments });
   }
 
   setupReveals();

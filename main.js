@@ -69,6 +69,7 @@ import { setupStatCounters, syncHeroStatAriaLabels } from "./src/statCounters.js
 
     document.querySelectorAll('a[href^="/"]').forEach(function (link) {
       link.addEventListener("click", function (event) {
+        if (window.matchMedia("(max-width: 1024px)").matches && link.matches(".has-submenu > .float-tabs__link")) return;
         var url = new URL(link.href, window.location.origin);
         if (url.origin !== window.location.origin || url.pathname === window.location.pathname) return;
         event.preventDefault();
@@ -460,17 +461,58 @@ import { setupStatCounters, syncHeroStatAriaLabels } from "./src/statCounters.js
   var floatToggle = document.querySelector(".hero-bar__menu");
   var floatPanel = document.getElementById("float-nav-panel");
   if (topNav && floatToggle && floatPanel) {
+    var mobileMenuQuery = window.matchMedia("(max-width: 1024px)");
+    var closeMobileSubmenus = function () {
+      floatPanel.querySelectorAll(".has-submenu.is-submenu-open").forEach(function (item) {
+        item.classList.remove("is-submenu-open");
+        var trigger = item.querySelector(".float-tabs__link");
+        if (trigger) trigger.setAttribute("aria-expanded", "false");
+      });
+    };
+
+    floatPanel.querySelectorAll(".has-submenu > .float-tabs__link").forEach(function (trigger) {
+      trigger.setAttribute("aria-expanded", "false");
+      trigger.addEventListener("click", function (event) {
+        if (!mobileMenuQuery.matches) return;
+        event.preventDefault();
+        var item = trigger.closest(".has-submenu");
+        var open = item.classList.toggle("is-submenu-open");
+        trigger.setAttribute("aria-expanded", open ? "true" : "false");
+      });
+    });
+
     floatToggle.addEventListener("click", function () {
       var open = topNav.classList.toggle("is-open");
       floatToggle.setAttribute("aria-expanded", open ? "true" : "false");
+      if (!open) closeMobileSubmenus();
     });
     floatPanel.querySelectorAll("a").forEach(function (link) {
-      link.addEventListener("click", function () {
+      link.addEventListener("click", function (event) {
+        if (mobileMenuQuery.matches && link.matches(".has-submenu > .float-tabs__link")) {
+          return;
+        }
         topNav.classList.remove("is-open");
         floatToggle.setAttribute("aria-expanded", "false");
+        closeMobileSubmenus();
       });
     });
   }
+
+  document.querySelectorAll(".product-document-card").forEach(function (card) {
+    var link = card.querySelector('a[href^="/solutions/documents/"]');
+    if (!link) return;
+    card.setAttribute("tabindex", "0");
+    card.setAttribute("role", "link");
+    card.addEventListener("click", function (event) {
+      if (event.target.closest("a")) return;
+      window.location.href = link.href;
+    });
+    card.addEventListener("keydown", function (event) {
+      if (event.key !== "Enter" && event.key !== " ") return;
+      event.preventDefault();
+      window.location.href = link.href;
+    });
+  });
 
   initLanguageToggle();
   applyHomeStructuredData();
@@ -755,11 +797,10 @@ import { setupStatCounters, syncHeroStatAriaLabels } from "./src/statCounters.js
       ["hero"],
       ["about"],
       ["services"],
-      ["products"],
+      ["products", "brochure"],
       ["industries"],
-      ["products"],
+      ["product-documents", "news"],
       ["partners"],
-      ["news"],
     ];
     var floatSelected = 0;
 

@@ -1,3 +1,10 @@
+import { getProductDocumentBySlug } from "./data/productDocuments.js";
+import {
+  getArabicProductDocumentMeta,
+  productDocumentArabicAttributes,
+  productDocumentArabicText,
+} from "./data/productDocumentArabic.js";
+
 const STORAGE_KEY = "etihadeia-language";
 
 const SEO_DESCRIPTION =
@@ -503,6 +510,9 @@ const arAttributes = {
   "Protective finishing and laboratory support visual": "صورة تشطيب وقائي ودعم معملي",
 };
 
+Object.assign(arText, productDocumentArabicText);
+Object.assign(arAttributes, productDocumentArabicAttributes);
+
 const originalText = new WeakMap();
 const originalAttrs = new WeakMap();
 
@@ -570,15 +580,32 @@ function applyLanguage(lang) {
   const toggle = document.querySelector("[data-language-toggle]");
   const label = document.querySelector("[data-language-label]");
   const pageKey = document.body.dataset.page;
+  const documentSlug = document.body.dataset.slug || "";
+  const productDocument = pageKey === "product-document" ? getProductDocumentBySlug(documentSlug) : null;
+  const arProductDocument = productDocument ? getArabicProductDocumentMeta(documentSlug) : null;
   const pageSpecificMeta = pageKey && pageMeta[safeLang].pages?.[pageKey];
 
   root.lang = safeLang;
   root.dir = safeLang === "ar" ? "rtl" : "ltr";
   document.body.dataset.lang = safeLang;
-  document.title = pageSpecificMeta ? pageSpecificMeta[0] : pageMeta[safeLang].title;
+  if (productDocument) {
+    document.title =
+      safeLang === "ar"
+        ? `${arProductDocument?.title || productDocument.title} | وثائق المنتجات | الاتحادية`
+        : `${productDocument.title} | Product Documents | El Etehadia`;
+  } else {
+    document.title = pageSpecificMeta ? pageSpecificMeta[0] : pageMeta[safeLang].title;
+  }
 
   if (metaDescription) {
-    metaDescription.setAttribute("content", pageSpecificMeta ? pageSpecificMeta[1] : pageMeta[safeLang].description);
+    if (productDocument) {
+      metaDescription.setAttribute(
+        "content",
+        safeLang === "ar" ? arProductDocument?.description || productDocument.description : productDocument.description,
+      );
+    } else {
+      metaDescription.setAttribute("content", pageSpecificMeta ? pageSpecificMeta[1] : pageMeta[safeLang].description);
+    }
   }
 
   translateText(document.body, safeLang);
