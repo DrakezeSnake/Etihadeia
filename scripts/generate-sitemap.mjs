@@ -18,6 +18,8 @@ const SITE_URL = (process.env.SITE_URL || "https://etihadeia.vercel.app").replac
 const solutionsMod = await import(pathToFileURL(path.join(root, "src/data/solutions.js")).href);
 /** @type {typeof import("../src/data/productDocuments.js")} */
 const productDocumentsMod = await import(pathToFileURL(path.join(root, "src/data/productDocuments.js")).href);
+/** @type {typeof import("../src/data/industries.js")} */
+const industriesMod = await import(pathToFileURL(path.join(root, "src/data/industries.js")).href);
 
 const STATIC_PATHS = [
   "/",
@@ -47,7 +49,8 @@ function buildUrlList() {
     .getDetailSolutions()
     .map((s) => `/solutions/${s.slug}/`);
   const documentPaths = productDocumentsMod.productDocuments.map((doc) => `/solutions/documents/${doc.slug}/`);
-  return [...STATIC_PATHS, ...solutionPaths, ...documentPaths];
+  const industryPaths = industriesMod.industries.map((industry) => `/industries/${industry.slug}/`);
+  return [...STATIC_PATHS, ...solutionPaths, ...documentPaths, ...industryPaths];
 }
 
 function buildSitemapXml(urls, lastmod) {

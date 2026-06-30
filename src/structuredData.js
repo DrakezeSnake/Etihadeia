@@ -289,16 +289,17 @@ export function applyHomeStructuredData() {
  * @param {{
  *   pageKey: string;
  *   pageTitle: string;
+ *   pagePath?: string;
  *   productItems?: [string, string, unknown?][];
  *   serviceItems?: [string, string, string?, unknown?][];
  * }} options
  */
-export function applyPageStructuredData({ pageKey, pageTitle, productItems, serviceItems }) {
+export function applyPageStructuredData({ pageKey, pageTitle, pagePath, productItems, serviceItems }) {
   const origin = getSiteOrigin();
   const entities = [...baseEntities(origin)];
 
   const crumbs = [{ name: "Home", href: "/" }];
-  const path = PAGE_PATHS[pageKey];
+  const path = pagePath || PAGE_PATHS[pageKey];
   if (path) {
     crumbs.push({ name: pageTitle, href: path });
   }

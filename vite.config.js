@@ -1,5 +1,13 @@
 import { defineConfig } from "vite";
 import { resolve } from "node:path";
+import { industries } from "./src/data/industries.js";
+
+const industryInputs = Object.fromEntries(
+  industries.map((industry) => [
+    `industry_${industry.slug.replace(/-/g, "_")}`,
+    resolve(__dirname, `industries/${industry.slug}/index.html`),
+  ]),
+);
 
 export default defineConfig({
   build: {
@@ -11,6 +19,7 @@ export default defineConfig({
         services: resolve(__dirname, "services/index.html"),
         products: resolve(__dirname, "products/index.html"),
         industries: resolve(__dirname, "industries/index.html"),
+        ...industryInputs,
         projects: resolve(__dirname, "projects/index.html"),
         partners: resolve(__dirname, "partners/index.html"),
         brochure: resolve(__dirname, "brochure/index.html"),

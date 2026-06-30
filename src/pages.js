@@ -1,6 +1,7 @@
 import { setupLanguageToggle } from "./i18n.js";
 import { applyPageStructuredData } from "./structuredData.js";
 import { productDocuments } from "./data/productDocuments.js";
+import { industryCards, industryPageEntries } from "./data/industries.js";
 import "../styles.css";
 import "./pages.css";
 import { initFooter3dLogo } from "./footerLogo3d.js";
@@ -105,42 +106,6 @@ const serviceCards = [
   ["Product Selection", "We help customers choose the right chemistry, additives, lacquers, machines, and accessories based on their application, substrate, finish requirements, and production conditions.", "Use for: Nickel, chrome, copper, and zinc processes; plating on plastic; surface preparation; protective finishing; decorative finishing.", pageImages.partners],
   ["Process Optimization", "We help customers improve plating-line performance by reviewing chemical balance, workflow, operating windows, and recurring production issues.", "Use for: Reducing rejection rates, improving finish consistency, stabilizing bath performance, supporting line upgrades, increasing production reliability.", pageImages.processOptimization],
   ["Machines & Accessories", "El Etehadia supplies electroplating machines, accessories, and related equipment needed for industrial plating operations.", "Use for: New line setup, replacement parts, production accessories, equipment upgrades, ongoing operational needs.", pageImages.machinesService],
-];
-
-const industryCards = [
-  [
-    "Aerospace and defense",
-    "Precision chemistry for high-performance components requiring extreme durability and corrosion resistance.",
-    pageImages.chrome,
-  ],
-  ["Appliances", "Decorative and functional plating for white goods, consumer electronics, and household hardware.", pageImages.hardwareSector],
-  [
-    "Automotive",
-    "OEM-grade plating solutions for interior trim, exterior brightwork, and engine components.",
-    pageImages.automotive,
-  ],
-  ["Building and machinery", "Robust protective finishes for architectural hardware, fasteners, and heavy industrial machinery.", pageImages.metalFabrication],
-  [
-    "Fashion and packaging",
-    "High-aesthetic plating for accessories, jewelry, cosmetics packaging, and luxury goods.",
-    pageImages.decorativeHardware,
-  ],
-  [
-    "Oil and gas",
-    "Specialized anti-corrosive coatings for equipment operating in harsh subterranean environments.",
-    pageImages.protectiveFinishing,
-  ],
-  [
-    "Plastic recycling",
-    "Chemical solutions for preparation and plating on recycled substrates and industrial plastics.",
-    pageImages.plasticsIndustry,
-  ],
-  ["Plumbing and sanitary fittings", "High-quality nickel and chrome plating for faucets, valves, and bathroom accessories.", pageImages.sanitary],
-  [
-    "Renewable energy",
-    "Advanced coatings for solar panel frames, wind turbine components, and energy storage systems.",
-    pageImages.electrolessNickelApplication,
-  ],
 ];
 
 const applicationCards = [
@@ -389,9 +354,11 @@ const pages = {
     ],
     cta: ["Request product documents", "/contact/"],
   },
+  ...industryPageEntries,
 };
 
 function isActive(href, currentPage) {
+  if (currentPage.startsWith("industry-") && href === "/industries/") return true;
   if (currentPage === "products" && href === "/products/") return true;
   if (currentPage === "projects" && href === "/projects/") return true;
   if (currentPage === "news" && href === "/news/") return true;
@@ -600,8 +567,10 @@ function renderSection(section) {
   if (section.type === "industryTiles") {
     return `<section class="section page-section"><div class="section__inner">${head}<div class="technical-grid technical-grid--icons">${section.items
       .map(
-        ([title, body]) =>
-          `<article class="industry-card" aria-label="${title}. ${body}"><div class="industry-card__content">${industryIcon(title)}<div class="page-card__body"><h3>${title}</h3><p>${body}</p></div></div></article>`
+        ([title, body, _media, href]) => {
+          const titleHtml = href ? `<h3><a href="${href}">${title}</a></h3>` : `<h3>${title}</h3>`;
+          return `<article class="industry-card${href ? " page-card--linked" : ""}"${href ? ` data-href="${href}" tabindex="0" role="link"` : ""} aria-label="${title}. ${body}"><div class="industry-card__content">${industryIcon(title)}<div class="page-card__body">${titleHtml}<p>${body}</p></div></div></article>`;
+        }
       )
       .join("")}</div></div></section>`;
   }
@@ -704,6 +673,23 @@ function finalCta(page) {
       </div>
     </section>
   `;
+}
+
+function syncPageMetadata(page) {
+  const metaTitle = page.metaTitle || `${page.title} | El Etehadia`;
+  const metaDescription = page.metaDescription || page.intro;
+
+  document.body.dataset.metaTitle = metaTitle;
+  document.body.dataset.metaDescription = metaDescription;
+  document.title = metaTitle;
+
+  let description = document.querySelector('meta[name="description"]');
+  if (!description) {
+    description = document.createElement("meta");
+    description.setAttribute("name", "description");
+    document.head.appendChild(description);
+  }
+  description.setAttribute("content", metaDescription);
 }
 
 function setupReveals() {
@@ -883,6 +869,7 @@ function render() {
   const currentPage = document.body.dataset.page || "about";
   const page = pages[currentPage] || pages.about;
   const app = document.querySelector("#app");
+  syncPageMetadata(page);
 
   app.innerHTML = `
     ${header(currentPage)}
@@ -908,6 +895,7 @@ function render() {
   applyPageStructuredData({
     pageKey: currentPage,
     pageTitle: page.title,
+    pagePath: page.path,
     productItems: currentPage === "products" ? structuredProductDocumentItems : undefined,
     serviceItems: currentPage === "services" ? serviceCards : undefined,
   });

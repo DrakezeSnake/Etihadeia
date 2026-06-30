@@ -583,7 +583,10 @@ function applyLanguage(lang) {
   const documentSlug = document.body.dataset.slug || "";
   const productDocument = pageKey === "product-document" ? getProductDocumentBySlug(documentSlug) : null;
   const arProductDocument = productDocument ? getArabicProductDocumentMeta(documentSlug) : null;
-  const pageSpecificMeta = pageKey && pageMeta[safeLang].pages?.[pageKey];
+  const rendererMeta = document.body.dataset.metaTitle
+    ? [document.body.dataset.metaTitle, document.body.dataset.metaDescription || SEO_DESCRIPTION]
+    : null;
+  const pageSpecificMeta = (pageKey && pageMeta[safeLang].pages?.[pageKey]) || rendererMeta;
 
   root.lang = safeLang;
   root.dir = safeLang === "ar" ? "rtl" : "ltr";
