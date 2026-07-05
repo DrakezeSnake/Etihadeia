@@ -28,12 +28,12 @@ const pageImages = {
   processOptimization: ["/assets/service-process-optimization.png", "Process optimization and plating line improvement support"],
   machinesService: ["/assets/service-machines-accessories.png", "Electroplating machines, accessories, and industrial supply logistics"],
   nickelProductCard: ["/assets/WhatsApp Image 2026-06-01 at 5.16.04 PM.jpeg", "Nickel plating production and industrial metal finishing"],
-  electrolessNickelProductCard: ["/assets/dsc04687.jpg", "Electroless nickel plating and uniform metal finishing"],
+  electrolessNickelProductCard: ["/assets/electroless-nickel-card.jpeg", "Electroless nickel plated precision component on a reflective surface"],
   electrolessNickelApplication: ["/assets/silver-electrical-contacts38216278-077f-4e99-978e-d34e24e39b03.webp", "Silver-plated electrical contacts and functional electroless nickel finishes"],
   chrome: ["/assets/engineer-inspecting-components.jpg", "Engineer inspecting finished industrial components"],
   chromeProductCard: ["/assets/046A5728HCspecLc-400x267-c-default.jpg", "Chrome plating systems and decorative finishing production"],
   trivalentChromeProductCard: ["/assets/trivalent-chrome-plated-component.png", "Trivalent chrome plated components with decorative mirror finish"],
-  hardChromeProductCard: ["/assets/Hard-Chrome-2.jpg", "Hard chrome plating for wear resistance and industrial durability"],
+  hardChromeProductCard: ["/assets/hard-chromium-card.jpeg", "Hard chromium coated industrial screw components"],
   decorativeNickelChromeApplication: ["/assets/electris-copper-busbars.jpg", "Copper busbars and decorative plated metal finishing"],
   platingSystemsRacked: ["/assets/racked parts.jpg", "Racked plated parts and production finishing racks"],
   automotive: ["/assets/aly73717b77_0.webp", "Automotive and plated industrial components"],
@@ -50,11 +50,11 @@ const pageImages = {
   ],
   decorativeHardware: ["/assets/LHZA11508.BLK.webp", "Decorative hardware and finished plated surfaces"],
   copperProductCard: ["/assets/electris42.jpg", "Copper plating systems and electroplating production"],
-  zinc: ["/assets/ion-plated-fasteners-nara.jpg", "Industrial plated fasteners for corrosion protection"],
-  plastic: ["/assets/WhatsApp Image 2026-06-01 at 5.16.36 PM.jpeg", "Plating on plastic and decorative plastic metallization"],
+  zinc: ["/assets/anti-corrosion-card.jpeg", "Anti-corrosion coated bolts with silver and black finishes"],
+  plastic: ["/assets/plating-on-plastic-card.jpeg", "Chrome plated plastic trim components on a light surface"],
   prep: ["/assets/why-us-transformative.png", "Metal parts prepared for surface finishing"],
   prepProductCard: ["/assets/electris-powder-coating.jpg", "Powder coating and surface preparation for plating and finishing"],
-  aluminumSurfaceProductCard: ["/assets/Stainless-Bracket-BW-02.jpg", "Aluminum and metal parts prepared for surface treatment and finishing"],
+  aluminumSurfaceProductCard: ["/assets/light-metal-finishing-card.jpeg", "Vertical reflective light metal finishing panels"],
   surfacePrepHardware: ["/assets/Stainless-Steel-Water-Strainer-Filter-Nozzle.png", "Stainless steel water strainer filter nozzle for surface treatment systems"],
   lacquerProductCard: ["/assets/LHZA11508.BLK.webp", "Lacquers and decorative plated hardware"],
   lacquersAboutVisual: ["/assets/img-4775-a.jpg", "Lacquers and protective finishing materials"],
@@ -94,11 +94,7 @@ const productDocumentCards = productDocuments
     [doc.heroImage, doc.imageAlt],
     `/solutions/documents/${doc.slug}/`,
   ]);
-const structuredProductDocumentItems = productDocumentCards.map(([name, description, _category, _media, url]) => ({
-  name,
-  description,
-  url,
-}));
+const structuredProductDocumentItems = productDocumentCards.map(([name, description]) => [name, description]);
 
 const serviceCards = [
   ["Laboratory Analysis", "We analyze plating baths, samples, and process conditions to help customers evaluate performance, identify imbalances, and take corrective action.", "Use for: Bath control, sample analysis, quality validation, defect investigation, process correction.", pageImages.lab],

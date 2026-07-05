@@ -26,6 +26,9 @@ export function renderSolutionCard(solution, ctaHref) {
     .join("");
   return `
     <article class="solution-card" role="listitem" data-reveal>
+      <a href="${escapeHtml(ctaHref.href.split("?")[0])}" class="solution-card__media--link" aria-label="${escapeHtml(solution.title)}">
+        <img src="${escapeHtml(solution.image)}" alt="${escapeHtml(solution.imageAlt)}" loading="lazy" decoding="async" />
+      </a>
       <div class="solution-card__body">
         <a href="${escapeHtml(ctaHref.href.split("?")[0])}" class="solution-card__icon-link" aria-label="${escapeHtml(solution.title)}">
           ${renderSolutionIcon(solution)}
