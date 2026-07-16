@@ -34,26 +34,11 @@ function removeRemoteFontLinks(html) {
   return html.replace(/\s*<link\b[^>]*(?:fonts\.googleapis\.com|fonts\.gstatic\.com)[^>]*\/?>\s*/gi, "\n");
 }
 
-function replaceBrokenHeroVideo(html) {
-  return html.replace(
-    /<video\b[^>]*class=["']hero__video["'][\s\S]*?<\/video>/i,
-    `<img
-          class="hero__video"
-          src="/images/hero-electroplating-line.jpg"
-          alt="Automated electroplating production line for industrial surface finishing"
-          width="1600"
-          height="900"
-          fetchpriority="high"
-          decoding="async"
-        />`,
-  );
-}
-
 for (const [pathname, seo] of Object.entries(staticPageSeo)) {
   const filename = htmlPathForRoute(pathname);
   if (!fs.existsSync(filename)) throw new Error(`Missing static page for ${pathname}: ${filename}`);
   const current = fs.readFileSync(filename, "utf8");
-  fs.writeFileSync(filename, replaceBrokenHeroVideo(removeRemoteFontLinks(upsertHead(current, pathname, seo))), "utf8");
+  fs.writeFileSync(filename, removeRemoteFontLinks(upsertHead(current, pathname, seo)), "utf8");
 }
 
 function removeRemoteFontsFromGeneratedPages(directory) {
