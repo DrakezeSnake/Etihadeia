@@ -64,7 +64,7 @@ import { setupStatCounters, syncHeroStatAriaLabels } from "./src/statCounters.js
     var veil = document.createElement("div");
     veil.className = "page-transition-veil";
     veil.setAttribute("aria-hidden", "true");
-    veil.innerHTML = '<img class="page-transition-veil__logo" src="/images/transition-logo.png" alt="" decoding="async" />';
+    veil.innerHTML = '<img class="page-transition-veil__logo" src="/images/transition-logo-192.webp" srcset="/images/transition-logo-192.webp 192w, /images/transition-logo-384.webp 384w" sizes="(max-width: 575px) 92px, 190px" width="190" height="190" alt="" decoding="async" fetchpriority="low" />';
     document.body.appendChild(veil);
 
     document.querySelectorAll('a[href^="/"]').forEach(function (link) {
@@ -86,15 +86,15 @@ import { setupStatCounters, syncHeroStatAriaLabels } from "./src/statCounters.js
   setupPageTransitions();
   var pageCopy = {
     en: {
-      title: "El Etehadia | Electroplating Chemicals & Surface Finishing Solutions Egypt",
+      title: "Electroplating Chemicals & Surface Finishing Egypt | El Etehadia",
       metaDescription:
-        "El Etehadia supplies electroplating chemicals, plating machines, lacquers, laboratory analysis, and technical support.",
+        "El Etehadia supplies electroplating chemicals, plating equipment, lacquers, laboratory analysis, and technical support across Egypt and the Middle East.",
       languageLabel: "العربية",
       languageAria: "Switch to Arabic",
       nav: ["Home", "About", "Services", "Products", "Industries", "Solutions", "Partners"],
       contact: "Contact us",
       heroEyebrow: "Since 1997 · Electroplating & Surface Finishing Solutions",
-      heroTitle: ["Etehadia"],
+      heroTitle: ["El Etehadia"],
       heroIntro:
         "El Etehadia supplies electroplating chemicals, machines, accessories, lacquers, laboratory analysis, and technical support for manufacturers across Egypt and the Middle East.",
       heroCtas: ["Explore Products", "Request Technical Support"],
@@ -115,7 +115,7 @@ import { setupStatCounters, syncHeroStatAriaLabels } from "./src/statCounters.js
       industriesLabel: "Our Industries",
       industriesTitle: "Surface Finishing Support for Industrial Manufacturers",
       industriesIntro: "El Etehadia supports manufacturers that depend on consistent, durable, and high-quality plated finishes.",
-      learnMore: "Learn more",
+      learnMore: "Explore all supported industries",
       industryCards: [
         "Aerospace and defense",
         "Appliances",
@@ -137,7 +137,7 @@ import { setupStatCounters, syncHeroStatAriaLabels } from "./src/statCounters.js
         ["Process Optimization", "Guidance on chemical balance, additive dosing, operating windows, and workflow improvements."],
         ["Machines & Accessories", "Supply and guidance for machines, tanks, accessories, line upgrades, and ongoing operational needs."],
       ],
-      readMore: "Read more",
+      readMore: "Explore service details",
       partnersLabel: "Our Partners",
       partnersTitle: "Global Standards, Local Support",
       partnersIntro: "El Etehadia works with internationally recognized surface-finishing brands and supports local manufacturers with accessible supply, technical guidance, and laboratory services.",
@@ -217,7 +217,7 @@ import { setupStatCounters, syncHeroStatAriaLabels } from "./src/statCounters.js
       industriesLabel: "قطاعاتنا",
       industriesTitle: "دعم تشطيب الأسطح للمصنّعين الصناعيين",
       industriesIntro: "تدعم الاتحادية المصنّعين الذين يعتمدون على تشطيبات مطلية ثابتة، متينة، وعالية الجودة.",
-      learnMore: "اعرف المزيد",
+      learnMore: "استكشف جميع القطاعات التي نخدمها",
       industryCards: [
         "الطيران والدفاع",
         "الأجهزة المنزلية",
@@ -240,7 +240,7 @@ import { setupStatCounters, syncHeroStatAriaLabels } from "./src/statCounters.js
         ["تحسين ظروف التشغيل", "دعم لضبط توازن الأحواض، وتحديد جرعات الإضافات، وتحسين ظروف التشغيل وسير العمل."],
         ["ماكينات وإكسسوارات", "توريد ودعم للماكينات، والأحواض، والإكسسوارات، وتحديثات الخطوط، واحتياجات التشغيل المستمرة."],
       ],
-      readMore: "اقرأ المزيد",
+      readMore: "استكشف تفاصيل الخدمة",
       partnersLabel: "شركاؤنا",
       partnersTitle: "معايير عالمية بخدمة ودعم محلي",
       partnersIntro:

@@ -14,15 +14,17 @@ const navItems = siteNavItems;
 
 /** Shared by page heroes that use the wide logistics / fleet visual (About, Industries, etc.) */
 const pageHeroLogisticsImage = [
-  "/assets/maxresdefault.jpg",
+  "/assets/optimized/electroplating-production-line-384.avif",
   "El Etehadia branded logistics and electroplating supply across Egypt",
+  "/assets/optimized/electroplating-production-line-384.avif 384w, /assets/optimized/electroplating-production-line-512.avif 512w, /assets/optimized/electroplating-production-line-768.avif 768w, /assets/optimized/electroplating-production-line-1080.avif 1080w",
+  "(max-width: 820px) calc(100vw - 48px), 50vw",
 ];
 
 const pageImages = {
   hero: pageHeroLogisticsImage,
   about: pageHeroLogisticsImage,
   machinesProductionGrid: ["/assets/electris-coating-systems-4.jpg", "Electroplating coating systems and production line equipment"],
-  aboutMissionSpotlight: ["/assets/about-spotlight-mission.jpeg", "El Etehadia supply operations and industrial technology"],
+  aboutMissionSpotlight: ["/assets/optimized/el-etehadia-industrial-supply.webp", "El Etehadia supply operations and industrial technology"],
   lab: ["/assets/water-laboratory-testing-services.jpg", "Laboratory analysis and specialty chemistry for plating baths"],
   support: ["/assets/1718989245-wat.jpg", "Technical specialist supporting electroplating operations"],
   processOptimization: ["/assets/service-process-optimization.png", "Process optimization and plating line improvement support"],
@@ -50,12 +52,12 @@ const pageImages = {
   ],
   decorativeHardware: ["/assets/LHZA11508.BLK.webp", "Decorative hardware and finished plated surfaces"],
   copperProductCard: ["/assets/electris42.jpg", "Copper plating systems and electroplating production"],
-  zinc: ["/assets/ion-plated-fasteners-nara.jpg", "Industrial plated fasteners for corrosion protection"],
+  zinc: ["/assets/optimized/zinc-plated-industrial-fasteners.webp", "Industrial plated fasteners for corrosion protection"],
   plastic: ["/assets/WhatsApp Image 2026-06-01 at 5.16.36 PM.jpeg", "Plating on plastic and decorative plastic metallization"],
   prep: ["/assets/why-us-transformative.png", "Metal parts prepared for surface finishing"],
   prepProductCard: ["/assets/electris-powder-coating.jpg", "Powder coating and surface preparation for plating and finishing"],
-  aluminumSurfaceProductCard: ["/assets/Stainless-Bracket-BW-02.jpg", "Aluminum and metal parts prepared for surface treatment and finishing"],
-  surfacePrepHardware: ["/assets/Stainless-Steel-Water-Strainer-Filter-Nozzle.png", "Stainless steel water strainer filter nozzle for surface treatment systems"],
+  aluminumSurfaceProductCard: ["/assets/optimized/light-metal-surface-finishing.webp", "Aluminum and metal parts prepared for surface treatment and finishing"],
+  surfacePrepHardware: ["/assets/optimized/surface-treatment-filter-nozzle.webp", "Stainless steel water strainer filter nozzle for surface treatment systems"],
   lacquerProductCard: ["/assets/LHZA11508.BLK.webp", "Lacquers and decorative plated hardware"],
   lacquersAboutVisual: ["/assets/img-4775-a.jpg", "Lacquers and protective finishing materials"],
   partners: ["/assets/Hc0322006e18342839b4b4d0cb307081eC.avif", "Product selection for plating chemistry, equipment, and finishes"],
@@ -63,7 +65,7 @@ const pageImages = {
   hawkingPartner: ["/assets/hawking-brand-wht.svg", "HAWKING England — lacquers and protective finishing brand"],
   sisecamPartner: ["/assets/sisecam_logo.svg", "Şişecam — glass and chemicals partner brand"],
   nickelhuetteAuePartner: ["/assets/nha-aue-logo.png", "Nickelhütte Aue — nickel alloys and recycling partner brand"],
-  licensedProductionPartner: ["/assets/Pyramids_of_the_Giza_Necropolis.jpg", "Pyramids of Giza — El Etehadia licensed production and supply in Egypt"],
+  licensedProductionPartner: ["/assets/optimized/el-etehadia-egypt-production.webp", "Pyramids of Giza — El Etehadia licensed production and supply in Egypt"],
   saltsColorsProductCard: ["/assets/plating-chemistry-dosing-station.png", "Plating chemistry dosing, equipment, and bath materials"],
   contact: ["/assets/1718989245-wat.jpg", "Technical specialist reviewing electroplating documents and samples"],
   protectiveFinishing: ["/assets/Electroplating-Surface-Finish-Supplier-In-China.jpg", "Electroplating and protective surface finishing"],
@@ -440,12 +442,16 @@ function footer() {
         <div class="footer__col">
           <h4 class="footer__heading">Company</h4>
           <nav class="footer__nav">
+            <a href="/">Home</a>
             <a href="/about/">About</a>
+            <a href="/services/">Services</a>
             <a href="/products/">Products</a>
             <a href="/solutions/">Solutions</a>
             <a href="/projects/">Applications</a>
             <a href="/industries/">Industries</a>
             <a href="/partners/">Partners</a>
+            <a href="/brochure/">Technical brochures</a>
+            <a href="/news/">News and insights</a>
             <a href="/contact/">Contact</a>
           </nav>
         </div>
@@ -489,7 +495,7 @@ function pageHero(page) {
   const heroClass = hasMedia ? "page-hero" : "page-hero page-hero--no-media";
   const media = hasMedia
     ? `<figure class="page-hero__media">
-        <img src="${page.image[0]}" alt="${page.image[1]}" />
+        <img src="${page.image[0]}"${page.image[2] ? ` srcset="${page.image[2]}" sizes="${page.image[3]}"` : ""} alt="${page.image[1]}" loading="eager" fetchpriority="high" decoding="async" />
       </figure>`
     : "";
 
@@ -519,7 +525,7 @@ function sectionHeader(section) {
 }
 
 function cardMedia(media, href = "") {
-  const image = `<img src="${media[0]}" alt="${media[1]}" loading="lazy" />`;
+  const image = `<img src="${media[0]}" alt="${media[1]}" loading="lazy" decoding="async" />`;
   return href
     ? `<a class="page-card__media" href="${href}" aria-label="${media[1]}">${image}</a>`
     : `<div class="page-card__media">${image}</div>`;
@@ -606,7 +612,7 @@ function renderSection(section) {
   }
 
   if (section.type === "spotlight" || section.type === "notice") {
-    return `<section class="section page-section"><div class="section__inner"><div class="spotlight-block" data-reveal><div class="spotlight-block__copy"><p class="section__label">${section.eyebrow}</p><h2>${section.heading}</h2><p>${section.body}</p></div><div class="spotlight-block__media"><img src="${section.image[0]}" alt="${section.image[1]}" loading="lazy" /></div></div></div></section>`;
+    return `<section class="section page-section"><div class="section__inner"><div class="spotlight-block" data-reveal><div class="spotlight-block__copy"><p class="section__label">${section.eyebrow}</p><h2>${section.heading}</h2><p>${section.body}</p></div><div class="spotlight-block__media"><img src="${section.image[0]}" alt="${section.image[1]}" loading="lazy" decoding="async" /></div></div></div></section>`;
   }
 
   if (section.type === "articles") {
@@ -672,8 +678,9 @@ function finalCta(page) {
 }
 
 function syncPageMetadata(page) {
-  const metaTitle = page.metaTitle || `${page.title} | El Etehadia`;
-  const metaDescription = page.metaDescription || page.intro;
+  const metaTitle = page.metaTitle || document.title || `${page.title} | El Etehadia`;
+  const currentDescription = document.querySelector('meta[name="description"]')?.getAttribute("content");
+  const metaDescription = page.metaDescription || currentDescription || page.intro;
 
   document.body.dataset.metaTitle = metaTitle;
   document.body.dataset.metaDescription = metaDescription;
@@ -790,7 +797,7 @@ function setupPageTransitions() {
   const veil = document.createElement("div");
   veil.className = "page-transition-veil";
   veil.setAttribute("aria-hidden", "true");
-  veil.innerHTML = '<img class="page-transition-veil__logo" src="/images/transition-logo.png" alt="" decoding="async" />';
+  veil.innerHTML = '<img class="page-transition-veil__logo" src="/images/transition-logo-192.webp" srcset="/images/transition-logo-192.webp 192w, /images/transition-logo-384.webp 384w" sizes="(max-width: 575px) 92px, 190px" width="190" height="190" alt="" decoding="async" fetchpriority="low" />';
   document.body.appendChild(veil);
 
   document.querySelectorAll('a[href^="/"]').forEach((link) => {

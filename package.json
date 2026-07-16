@@ -5,16 +5,26 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && node scripts/inline-critical-css.mjs",
     "preview": "vite preview",
     "generate:solutions": "node scripts/generate-solution-pages.mjs",
-    "prebuild": "node scripts/generate-solution-pages.mjs && node scripts/generate-industry-pages.mjs && node scripts/generate-sitemap.mjs",
+    "prebuild": "node scripts/generate-favicons.mjs && node scripts/generate-performance-images.mjs && node scripts/generate-solution-pages.mjs && node scripts/generate-industry-pages.mjs && node scripts/apply-static-seo.mjs && node scripts/generate-sitemap.mjs",
     "generate:sitemap": "node scripts/generate-sitemap.mjs",
+    "generate:favicons": "node scripts/generate-favicons.mjs",
+    "generate:performance-images": "node scripts/generate-performance-images.mjs",
+    "seo:apply": "node scripts/generate-favicons.mjs && node scripts/generate-solution-pages.mjs && node scripts/generate-industry-pages.mjs && node scripts/apply-static-seo.mjs && node scripts/generate-sitemap.mjs",
+    "seo:audit": "node scripts/audit-seo.mjs",
+    "optimize:images": "node scripts/optimize-images.mjs",
     "fetch:solution-assets": "node scripts/fetch-solution-assets.mjs"
   },
   "dependencies": {
+    "@fontsource-variable/material-symbols-outlined": "^5.2.45",
+    "@fontsource-variable/noto-kufi-arabic": "^5.2.9",
     "gsap": "^3.15.0",
     "three": "^0.184.0",
     "vite": "^8.0.10"
+  },
+  "devDependencies": {
+    "sharp": "^0.34.4"
   }
 }

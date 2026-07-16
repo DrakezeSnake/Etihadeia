@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://etihadeia.vercel.app/sitemap.xml
+Sitemap: https://eletehadia.com/sitemap.xml

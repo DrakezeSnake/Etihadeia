@@ -109,12 +109,16 @@ function footer() {
         <div class="footer__col">
           <h4 class="footer__heading">Company</h4>
           <nav class="footer__nav">
+            <a href="/">Home</a>
             <a href="/about/">About</a>
+            <a href="/services/">Services</a>
             <a href="/products/">Products</a>
             <a href="/solutions/">Solutions</a>
             <a href="/projects/">Applications</a>
             <a href="/industries/">Industries</a>
             <a href="/partners/">Partners</a>
+            <a href="/brochure/">Technical brochures</a>
+            <a href="/news/">News and insights</a>
             <a href="/contact/">Contact</a>
           </nav>
         </div>
@@ -254,7 +258,7 @@ function setupPageTransitions() {
   const veil = document.createElement("div");
   veil.className = "page-transition-veil";
   veil.setAttribute("aria-hidden", "true");
-  veil.innerHTML = '<img class="page-transition-veil__logo" src="/images/transition-logo.png" alt="" decoding="async" />';
+  veil.innerHTML = '<img class="page-transition-veil__logo" src="/images/transition-logo-192.webp" srcset="/images/transition-logo-192.webp 192w, /images/transition-logo-384.webp 384w" sizes="(max-width: 575px) 92px, 190px" width="190" height="190" alt="" decoding="async" fetchpriority="low" />';
   document.body.appendChild(veil);
 
   document.querySelectorAll('a[href^="/"]').forEach((link) => {
@@ -341,7 +345,7 @@ function applyDocumentPageSeo(doc) {
   const arMeta = ar ? getArabicProductDocumentMeta(doc.slug) : null;
   document.title = ar
     ? `${arMeta?.title || doc.title} | وثائق المنتجات | الاتحادية`
-    : `${doc.title} | Product Documents | El Etehadia`;
+    : `${doc.title} | El Etehadia`;
   const meta = document.querySelector('meta[name="description"]');
   if (meta) {
     meta.setAttribute("content", truncateMetaDescription(ar ? arMeta?.description || doc.description : doc.description));

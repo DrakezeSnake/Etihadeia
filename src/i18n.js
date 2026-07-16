@@ -8,22 +8,22 @@ import {
 const STORAGE_KEY = "etihadeia-language";
 
 const SEO_DESCRIPTION =
-  "El Etehadia supplies electroplating chemicals, plating machines, lacquers, laboratory analysis, and technical support.";
+  "El Etehadia supplies electroplating chemicals, plating equipment, lacquers, laboratory analysis, and technical support across Egypt and the Middle East.";
 
 const pageMeta = {
   en: {
-    title: "El Etehadia | Electroplating Chemicals & Surface Finishing Solutions Egypt",
+    title: "Electroplating Chemicals & Surface Finishing Egypt | El Etehadia",
     description: SEO_DESCRIPTION,
     pages: {
-      about: ["El Etehadia | About", "El Etehadia has supplied electroplating products and technical support from Cairo since 1997."],
-      services: ["El Etehadia | Services", "Laboratory analysis, troubleshooting, product selection, process optimization, machines, and accessories for electroplating operations."],
-      products: ["El Etehadia | Products", "Electroplating chemicals, additives, lacquers, machines, accessories, and supporting materials for industrial surface finishing."],
-      industries: ["El Etehadia | Industries", "Surface-finishing support for automotive components, sanitary fittings, appliances, hardware, plastics, metal fabrication, and decorative products."],
-      projects: ["El Etehadia | Applications", "Practical electroplating applications across nickel-chrome finishing, zinc protection, plating on plastic, bath control, and troubleshooting."],
-      partners: ["El Etehadia | Partners & Brands", "MacDermid Enthone, HAWKING England, Şişecam, Nickelhütte Aue, and licensed production support for surface-finishing salts, colors, and related products."],
-      brochure: ["El Etehadia | Products", "Product information and technical document requests for electroplating and surface-finishing operations."],
-      news: ["El Etehadia | News & Insights", "Technical notes and practical guidance for electroplating, plating-bath control, surface preparation, and industrial finishing."],
-      contact: ["El Etehadia | Contact", "Contact El Etehadia in Cairo for electroplating products, laboratory analysis, technical support, machines, and accessories."],
+      about: ["About El Etehadia | Electroplating Experts Since 1997", "Learn about El Etehadia, a Cairo-based supplier of electroplating chemicals, equipment, laboratory analysis, and technical support since 1997."],
+      services: ["Electroplating Laboratory & Technical Services | El Etehadia", "Improve plating-line performance with laboratory analysis, troubleshooting, product selection, process optimization, machines, and technical support."],
+      products: ["Electroplating Chemicals & Products in Egypt | El Etehadia", "Explore electroplating chemicals and products for nickel, chrome, copper, zinc, plastics, light metals, corrosion protection, and industrial finishing."],
+      industries: ["Industrial Electroplating Applications in Egypt | El Etehadia", "Surface-finishing solutions for automotive, aerospace, appliances, sanitary fittings, machinery, energy, oil and gas, packaging, and plastics."],
+      projects: ["Electroplating Applications & Process Support | El Etehadia", "See practical applications for nickel-chrome finishing, zinc protection, plating on plastic, bath control, electroless nickel, and troubleshooting."],
+      partners: ["Surface Finishing Technology Partners | El Etehadia", "Discover El Etehadia's surface-finishing partners and brands, including MacDermid Enthone, HAWKING England, Sisecam, and Nickelhütte Aue."],
+      brochure: ["Electroplating Product Brochures & Documents | El Etehadia", "Browse electroplating product brochures, technical documents, factsheets, and case studies for industrial surface-finishing operations."],
+      news: ["Electroplating Insights & Technical Guides | El Etehadia", "Read practical electroplating guidance about bath control, surface preparation, coating selection, common defects, and industrial finishing."],
+      contact: ["Contact El Etehadia | Electroplating Support in Cairo", "Contact El Etehadia in Cairo for electroplating chemicals, product selection, laboratory analysis, technical support, machines, and accessories."],
       solutions: [
         "Solutions | Surface Finishing Technologies | El Etehadia",
         "Explore surface finishing solutions including surface conditioning, anti-corrosion, light metal finishes, decorative coatings, plating on plastics, electroless nickel, wear resistance, precious metals, plastic recycling, and WaterCARE.",
@@ -595,7 +595,7 @@ function applyLanguage(lang) {
     document.title =
       safeLang === "ar"
         ? `${arProductDocument?.title || productDocument.title} | وثائق المنتجات | الاتحادية`
-        : `${productDocument.title} | Product Documents | El Etehadia`;
+        : `${productDocument.title} | El Etehadia`;
   } else {
     document.title = pageSpecificMeta ? pageSpecificMeta[0] : pageMeta[safeLang].title;
   }

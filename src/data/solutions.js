@@ -74,7 +74,7 @@ export const solutions = [
       "When durability is the highest priority, anti-corrosion finishing solutions deliver best-in-class results, ensuring products perform in the most challenging environments.",
     expandedIntro:
       "Durable solutions provide corrosion protection while also supporting functional attributes and decorative properties for ferrous construction elements. These surface finishing solutions help components reach and sustain peak performance even when exposed to challenging environmental conditions.",
-    image: "/assets/ion-plated-fasteners-nara.jpg",
+    image: "/assets/optimized/zinc-plated-industrial-fasteners.webp",
     imageAlt: "Close-up of threaded fasteners",
     icon: "/assets/solutions/remote/anti-corrosion-icon-Icon_AS_Bolt_20and_20Nut.svg",
     iconAlt: "Nut and bolt icon",
@@ -114,7 +114,7 @@ export const solutions = [
     sourceUrl: "https://www.macdermidenthone.com/solutions/light-metal-finishes",
     description:
       "With a comprehensive light metal solution portfolio, MacDermid Enthone provides proven expertise and performance designed to exceed expectations and requirements.",
-    image: "/assets/Stainless-Bracket-BW-02.jpg",
+    image: "/assets/optimized/light-metal-surface-finishing.webp",
     imageAlt: "Stacked aluminum profiles",
     icon: "/assets/solutions/remote/light-metal-finishes-icon-Icon_AS_profile.svg",
     iconAlt: "Building aluminum profile icon",
@@ -334,8 +334,7 @@ export const landingHeroHeadline =
 export const landingHeroIntro =
   "Delivering innovative solutions designed to meet the evolving demands of the dynamic surface finishing industry and ever-changing customer requirements.";
 
-export const SITE_ORIGIN_FALLBACK =
-  typeof globalThis.location !== "undefined" ? globalThis.location.origin : "https://etehadia.com";
+export const SITE_ORIGIN_FALLBACK = "https://eletehadia.com";
 
 /**
  * @param {string} slug

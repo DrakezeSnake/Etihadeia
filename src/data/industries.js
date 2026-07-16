@@ -78,7 +78,7 @@ export const industries = [
           "Appliance components often combine appearance requirements with repeated handling, humidity exposure, and cleaning chemicals, making process control and surface preparation especially important.",
         items: [
           ["Decorative trim and controls", "Nickel-chrome and plating-on-plastic systems help create bright, durable surfaces for knobs, handles, panels, and consumer-facing trim.", ["/assets/Plating-coffee-cover-on-ABS-P2MC2.jpg", "Plated plastic decorative appliance component"]],
-          ["Fasteners and brackets", "Zinc and nickel finishes help protect appliance hardware from corrosion during storage, assembly, and use.", ["/assets/ion-plated-fasteners-nara.jpg", "Plated fasteners for appliance hardware"]],
+          ["Fasteners and brackets", "Zinc and nickel finishes help protect appliance hardware from corrosion during storage, assembly, and use.", ["/assets/optimized/zinc-plated-industrial-fasteners.webp", "Plated fasteners for appliance hardware"]],
           ["Protective post-finishing", "Lacquers and protective finishes can improve appearance retention and handling durability for decorative metal parts.", ["/assets/LHZA11508.BLK.webp", "Decorative plated hardware with protective finishing"]],
         ],
       },
@@ -125,7 +125,7 @@ export const industries = [
           "Vehicle parts face road salt, humidity, handling, vibration, and visual quality requirements. Electroplating helps balance durability and appearance across metal and plastic components.",
         items: [
           ["Interior and exterior trim", "Copper-nickel-chrome and plating-on-plastic processes can create bright, durable finishes for grilles, badges, handles, bezels, and decorative trim.", ["/assets/Plating-coffee-cover-on-ABS-P2MC2.jpg", "Chrome plated plastic trim component"]],
-          ["Fasteners and brackets", "Zinc and zinc-alloy systems are widely used to protect automotive hardware from corrosion in demanding environments.", ["/assets/ion-plated-fasteners-nara.jpg", "Zinc plated automotive fasteners"]],
+          ["Fasteners and brackets", "Zinc and zinc-alloy systems are widely used to protect automotive hardware from corrosion in demanding environments.", ["/assets/optimized/zinc-plated-industrial-fasteners.webp", "Zinc plated automotive fasteners"]],
           ["Functional wear surfaces", "Hard chrome and electroless nickel can support wear resistance, corrosion protection, and uniform coating needs on selected mechanical components.", ["/assets/Hard-Chrome-2.jpg", "Hard chrome plated automotive component"]],
         ],
       },
@@ -171,7 +171,7 @@ export const industries = [
         body:
           "Construction and machinery components often need practical protection against abrasion, outdoor exposure, handling, and long service intervals.",
         items: [
-          ["Fasteners and structural hardware", "Zinc, zinc-alloy, nickel, and post-treatment systems help protect screws, bolts, clips, hinges, and brackets.", ["/assets/ion-plated-fasteners-nara.jpg", "Plated fasteners for building hardware"]],
+          ["Fasteners and structural hardware", "Zinc, zinc-alloy, nickel, and post-treatment systems help protect screws, bolts, clips, hinges, and brackets.", ["/assets/optimized/zinc-plated-industrial-fasteners.webp", "Plated fasteners for building hardware"]],
           ["Hydraulic and moving parts", "Hard chrome and electroless nickel can support wear resistance and corrosion protection on shafts, rods, rollers, and machine elements.", ["/assets/Hard-Chrome-2.jpg", "Hard chrome plated machinery part"]],
           ["Architectural hardware", "Nickel-chrome, copper, and lacquer systems can improve appearance and durability for visible handles, fittings, and access hardware.", ["/assets/LHZA11508.BLK.webp", "Decorative architectural hardware"]],
         ],
@@ -266,7 +266,7 @@ export const industries = [
           "Functional finishes are often chosen for oil and gas components where unprotected steel or machined metal would be vulnerable to attack, abrasion, or repeated movement.",
         items: [
           ["Pump, valve, and actuator parts", "Electroless nickel and hard chrome systems can support corrosion and wear resistance on complex or sliding components.", ["/assets/Hard-Chrome-2.jpg", "Hard chrome plated functional component"]],
-          ["Fasteners and fittings", "Zinc, zinc-alloy, nickel, and post-treatment systems help protect exposed hardware, couplings, and fittings.", ["/assets/ion-plated-fasteners-nara.jpg", "Plated fasteners for harsh environments"]],
+          ["Fasteners and fittings", "Zinc, zinc-alloy, nickel, and post-treatment systems help protect exposed hardware, couplings, and fittings.", ["/assets/optimized/zinc-plated-industrial-fasteners.webp", "Plated fasteners for harsh environments"]],
           ["Process control", "Bath analysis and technical troubleshooting help keep protective finishes consistent when parts require reliable surface performance.", ["/assets/laboratory-analysis-technician.jpg", "Laboratory analysis for plating bath control"]],
         ],
       },
@@ -407,7 +407,7 @@ export const industries = [
           "Renewable energy equipment often combines outdoor corrosion exposure with electrical performance and long service-life requirements.",
         items: [
           ["Electrical contacts and busbars", "Copper, nickel, tin, and silver finishes can support conductivity, solderability, and contact protection in power components.", ["/assets/electris-copper-busbars.jpg", "Copper busbars for electrical power distribution"]],
-          ["Frames, brackets, and fasteners", "Zinc and nickel-based finishes can protect exposed hardware used in solar mounting, wind systems, and storage assemblies.", ["/assets/ion-plated-fasteners-nara.jpg", "Plated fasteners for renewable energy assemblies"]],
+          ["Frames, brackets, and fasteners", "Zinc and nickel-based finishes can protect exposed hardware used in solar mounting, wind systems, and storage assemblies.", ["/assets/optimized/zinc-plated-industrial-fasteners.webp", "Plated fasteners for renewable energy assemblies"]],
           ["Wind and mechanical equipment", "Hard chrome and electroless nickel can support wear and corrosion resistance on selected shafts, hydraulic parts, and moving surfaces.", ["/assets/Hard-Chrome-2.jpg", "Wear-resistant plated mechanical component"]],
         ],
       },
@@ -445,7 +445,7 @@ export const industryPageEntries = Object.fromEntries(
     industry.pageKey,
     {
       title: industry.title,
-      metaTitle: `${industry.title} Electroplating Applications | El Etehadia`,
+      metaTitle: `${industry.title} Electroplating | El Etehadia`,
       metaDescription: industry.intro,
       eyebrow: "Industries",
       heading: `${industry.title} Electroplating Applications`,

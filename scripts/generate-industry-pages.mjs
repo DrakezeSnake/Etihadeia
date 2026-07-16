@@ -7,6 +7,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
+import { renderSeoHead } from "./seo-head.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, "..");
@@ -27,13 +28,16 @@ function stubHtml(industry) {
   const meta = escapeHtmlAttr(truncate(industry.intro));
   const safeTitle = escapeHtmlAttr(industry.title);
   const safePageKey = escapeHtmlAttr(industry.pageKey);
+  const pathname = `/industries/${industry.slug}/`;
+  const pageTitle = `${industry.title} Electroplating | El Etehadia`;
   return `<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>${safeTitle} Electroplating Applications | El Etehadia</title>
+    <title>${safeTitle} Electroplating | El Etehadia</title>
     <meta name="description" content="${meta}" />
+    ${renderSeoHead({ pathname, title: pageTitle, description: truncate(industry.intro), image: industry.heroImage?.[0] })}
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

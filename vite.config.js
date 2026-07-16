@@ -11,6 +11,9 @@ const industryInputs = Object.fromEntries(
 
 export default defineConfig({
   build: {
+    // Publish linked production maps so DevTools and Lighthouse can attribute
+    // optimized bundles back to their original modules.
+    sourcemap: true,
     chunkSizeWarningLimit: 650,
     rollupOptions: {
       input: {

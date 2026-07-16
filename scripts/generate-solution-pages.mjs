@@ -7,13 +7,14 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
+import { renderSeoHead } from "./seo-head.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, "..");
 
 function truncate(text, maxLen = 155) {
   const t = String(text).trim().replace(/\s+/g, " ");
-  return t.length <= maxLen ? t : `${t.slice(0, Math.max(0, maxLen - 1)).trim()}…`;
+  return t.length <= maxLen ? t : `${t.slice(0, Math.max(0, maxLen - 3)).trim()}...`;
 }
 
 /** @type {typeof import("../src/data/solutions.js")} */
@@ -28,6 +29,9 @@ function escapeHtmlAttr(s) {
 function stubHtml(slug, title, description) {
   const meta = escapeHtmlAttr(truncate(description));
   const safeTitle = escapeHtmlAttr(title);
+  const pathname = `/solutions/${slug}/`;
+  const pageTitle = `${title} | Surface Finishing Solutions | El Etehadia`;
+  const image = solutionsMod.getSolutionBySlug(slug)?.image;
   return `<!doctype html>
 <html lang="en">
   <head>
@@ -35,6 +39,7 @@ function stubHtml(slug, title, description) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>${safeTitle} | Surface Finishing Solutions | El Etehadia</title>
     <meta name="description" content="${meta}" />
+    ${renderSeoHead({ pathname, title: pageTitle, description: truncate(description), image })}
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -51,13 +56,17 @@ function stubHtml(slug, title, description) {
 function documentStubHtml(slug, title, description) {
   const meta = escapeHtmlAttr(truncate(description));
   const safeTitle = escapeHtmlAttr(title);
+  const pathname = `/solutions/documents/${slug}/`;
+  const pageTitle = `${title} | El Etehadia`;
+  const image = productDocumentsMod.getProductDocumentBySlug(slug)?.heroImage;
   return `<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>${safeTitle} | Product Documents | El Etehadia</title>
+    <title>${safeTitle} | El Etehadia</title>
     <meta name="description" content="${meta}" />
+    ${renderSeoHead({ pathname, title: pageTitle, description: truncate(description), image })}
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
