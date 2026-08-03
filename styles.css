@@ -663,6 +663,9 @@ a.section__label:focus-visible {
   );
   -webkit-backdrop-filter: blur(16px) saturate(0.82);
   backdrop-filter: blur(16px) saturate(0.82);
+  filter: blur(12px);
+  transform: scaleY(1.06);
+  transform-origin: bottom center;
 }
 
 .hero__parallax {
@@ -1022,8 +1025,22 @@ html[dir="rtl"] .hero .stat__label {
   background: linear-gradient(180deg, var(--bg-primary) 0%, var(--surface-dark) 100%);
 }
 
+.partner-feature::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  top: -2.5rem;
+  right: -2rem;
+  left: -2rem;
+  height: 7rem;
+  pointer-events: none;
+  background: linear-gradient(to bottom, rgba(42, 41, 43, 0.78), rgba(42, 41, 43, 0));
+  filter: blur(14px);
+}
+
 .partner-feature__grid {
   position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: minmax(0, 0.9fr) minmax(22rem, 1.1fr);
   align-items: center;
