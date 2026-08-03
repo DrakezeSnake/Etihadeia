@@ -99,6 +99,10 @@ import { setupStatCounters, syncHeroStatAriaLabels } from "./src/statCounters.js
         "El Etehadia supplies electroplating chemicals, machines, accessories, lacquers, laboratory analysis, and technical support for manufacturers across Egypt and the Middle East.",
       heroCtas: ["Explore Products", "Request Technical Support"],
       stats: ["Established in Cairo", "Years of support", "Recognized brands", "Support areas"],
+      partnerLabel: "Our strategic partner",
+      partnerTitle: "MacDermid Enthone, exclusively represented in Egypt",
+      partnerIntro: "El Etehadia is the sole distributor of MacDermid Enthone Industrial Solutions in Egypt, bringing world-class surface-finishing chemistry and local technical expertise to every production line.",
+      partnerCredential: "Sole distributor in Egypt",
       aboutLabel: "About us",
       aboutTitle: "About El Etehadia",
       aboutCta: "About us",
@@ -199,6 +203,10 @@ import { setupStatCounters, syncHeroStatAriaLabels } from "./src/statCounters.js
         "توفر الاتحادية كيماويات الطلاء الكهربائي، والماكينات، والإكسسوارات، وورنيش كهربي، وخدمات التحليل المعملي والدعم الفني للمصنعين في مصر والشرق الأوسط.",
       heroCtas: ["تصفّح المنتجات", "اطلب الدعم الفني"],
       stats: ["تأسست في القاهرة", "سنوات من الخبرة", "علامات موثوقة", "مجالات دعم فني"],
+      partnerLabel: "شريكنا الاستراتيجي",
+      partnerTitle: "ماكدرميد إنثون، ممثل حصرياً في مصر",
+      partnerIntro: "الاتحادية هي الموزع الحصري لحلول ماكدرميد إنثون الصناعية في مصر، لتقديم كيميائيات عالمية لتشطيب الأسطح وخبرة فنية محلية لكل خط إنتاج.",
+      partnerCredential: "الموزع الحصري في مصر",
       aboutLabel: "من نحن",
       aboutTitle: "عن الاتحادية",
       aboutCta: "من نحن",
@@ -355,6 +363,10 @@ import { setupStatCounters, syncHeroStatAriaLabels } from "./src/statCounters.js
     setText(".hero__intro", copy.heroIntro);
     setTextList(".hero__cta .btn", copy.heroCtas);
     setTextList(".hero .stat__label", copy.stats);
+    setText("[data-partner-label]", copy.partnerLabel);
+    setText("[data-partner-title]", copy.partnerTitle);
+    setText("[data-partner-intro]", copy.partnerIntro);
+    setText("[data-partner-credential]", copy.partnerCredential);
     syncHeroStatAriaLabels(document, currentLanguage);
     setText("#about .section__label", copy.aboutLabel);
     setText("#about .section__title", copy.aboutTitle);

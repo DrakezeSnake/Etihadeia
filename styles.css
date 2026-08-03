@@ -645,6 +645,26 @@ a.section__label:focus-visible {
   padding-top: var(--header-h);
 }
 
+.hero::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: clamp(11rem, 26vh, 15rem);
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    rgba(42, 41, 43, 0) 0%,
+    rgba(42, 41, 43, 0.22) 28%,
+    rgba(42, 41, 43, 0.7) 68%,
+    var(--bg-primary) 100%
+  );
+  -webkit-backdrop-filter: blur(16px) saturate(0.82);
+  backdrop-filter: blur(16px) saturate(0.82);
+}
+
 .hero__parallax {
   position: absolute;
   inset: -12%;
@@ -992,6 +1012,108 @@ html[dir="rtl"] .hero .stat__label {
   background: var(--brand-red);
   border-radius: 2px;
   animation: scroll-nudge 2s var(--ease-out) infinite;
+}
+
+/* MacDermid Enthone partnership */
+.partner-feature {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(3.5rem, 7vw, 6.75rem) 0;
+  background: linear-gradient(180deg, var(--bg-primary) 0%, var(--surface-dark) 100%);
+}
+
+.partner-feature__grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(22rem, 1.1fr);
+  align-items: center;
+  gap: clamp(2.5rem, 7vw, 8rem);
+}
+
+.partner-feature__eyebrow {
+  margin: 0 0 1rem;
+  color: #ff675f;
+  font-size: 0.78rem;
+  font-weight: 750;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.partner-feature__title {
+  max-width: 15ch;
+  margin-bottom: 1.15rem;
+  font-size: clamp(2rem, 4.4vw, 4.1rem);
+  line-height: 1.05;
+}
+
+.partner-feature__intro {
+  max-width: 58ch;
+  margin: 0;
+  color: var(--text-muted);
+  font-size: clamp(1rem, 1.35vw, 1.15rem);
+  line-height: 1.7;
+}
+
+.partner-feature__credential {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.5rem;
+  margin: 1.5rem 0 0;
+  padding: 0.35rem 0.95rem;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-left: 4px solid var(--brand-red);
+  color: #fff;
+  font-weight: 750;
+}
+
+.partner-feature__logo-wrap {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: clamp(13rem, 22vw, 19rem);
+  padding: clamp(1.75rem, 4vw, 3.5rem);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(0, 0, 0, 0.54);
+  box-shadow: 1rem 1rem 0 rgba(227, 34, 25, 0.8), 0 28px 60px rgba(0, 0, 0, 0.4);
+}
+
+.partner-feature__logo-wrap::before {
+  content: "";
+  position: absolute;
+  inset: 0.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  pointer-events: none;
+}
+
+.partner-feature__logo {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 43rem);
+  max-height: 16rem;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.5));
+}
+
+html[dir="rtl"] .partner-feature__credential {
+  border-left: 1px solid rgba(255, 255, 255, 0.25);
+  border-right: 4px solid var(--brand-red);
+}
+
+@media (max-width: 780px) {
+  .partner-feature__grid {
+    grid-template-columns: 1fr;
+    gap: 2.75rem;
+  }
+
+  .partner-feature__title {
+    max-width: 18ch;
+  }
+
+  .partner-feature__logo-wrap {
+    min-height: 0;
+    padding: 1.75rem 1.25rem;
+    box-shadow: 0.65rem 0.65rem 0 rgba(227, 34, 25, 0.8), 0 22px 48px rgba(0, 0, 0, 0.35);
+  }
 }
 
 @keyframes nav-enter {
