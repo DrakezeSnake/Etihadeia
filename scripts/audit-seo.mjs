@@ -14,12 +14,30 @@ const warnings = [];
 const solutions = await import(pathToFileURL(path.join(root, "src/data/solutions.js")).href);
 const documents = await import(pathToFileURL(path.join(root, "src/data/productDocuments.js")).href);
 const industries = await import(pathToFileURL(path.join(root, "src/data/industries.js")).href);
+const blog = await import(pathToFileURL(path.join(root, "src/data/blogArticles.js")).href);
+
+const blogRoutes = [
+  "/ar/news/",
+  ...blog.blogArticles.flatMap((article) => [
+    `/news/${article.slug}/`,
+    `/ar/news/${article.slug}/`,
+  ]),
+];
+const blogRouteInfo = new Map([
+  ["/news/", { locale: "en", type: "index" }],
+  ["/ar/news/", { locale: "ar", type: "index" }],
+  ...blog.blogArticles.flatMap((article) => [
+    [`/news/${article.slug}/`, { locale: "en", type: "article", article }],
+    [`/ar/news/${article.slug}/`, { locale: "ar", type: "article", article }],
+  ]),
+]);
 
 const routes = [
   ...Object.keys(staticPageSeo),
   ...solutions.getDetailSolutions().map((item) => `/solutions/${item.slug}/`),
   ...documents.productDocuments.map((item) => `/solutions/documents/${item.slug}/`),
   ...industries.industries.map((item) => `/industries/${item.slug}/`),
+  ...blogRoutes,
 ];
 
 function count(html, pattern) {
@@ -158,6 +176,7 @@ for (const filename of sourceFiles) {
 
 const uniqueTitles = new Map();
 const uniqueDescriptions = new Map();
+const internalLinks = new Set();
 for (const route of routes) {
   const filename = htmlFileForRoute(route);
   if (!fs.existsSync(filename)) continue;
@@ -168,6 +187,56 @@ for (const route of routes) {
   else uniqueTitles.set(title, route);
   if (uniqueDescriptions.has(description)) failures.push(`${route}: duplicate description also used by ${uniqueDescriptions.get(description)}`);
   else uniqueDescriptions.set(description, route);
+
+  const blogInfo = blogRouteInfo.get(route);
+  if (blogInfo) {
+    const expectedLocale = blogInfo.locale;
+    if (!new RegExp(`<html\\s+lang="${expectedLocale}"\\s+dir="${expectedLocale === "ar" ? "rtl" : "ltr"}"`, "i").test(html)) {
+      failures.push(`${route}: incorrect lang or dir`);
+    }
+    if (count(html, /<h1\b/gi) !== 1) failures.push(`${route}: expected exactly one H1`);
+    const alternateRoute = expectedLocale === "ar" ? route.replace(/^\/ar/, "") : `/ar${route}`;
+    for (const [hreflang, expectedRoute] of [[expectedLocale, route], [expectedLocale === "ar" ? "en" : "ar", alternateRoute], ["x-default", expectedLocale === "ar" ? alternateRoute : route]]) {
+      if (!new RegExp(`<link\\s+rel="alternate"\\s+hreflang="${hreflang}"\\s+href="${SITE_URL.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}${expectedRoute}"`, "i").test(html)) {
+        failures.push(`${route}: missing ${hreflang} hreflang alternate`);
+      }
+    }
+    if (blogInfo.type === "article") {
+      if (!html.includes('"@type":"BlogPosting"')) failures.push(`${route}: missing BlogPosting schema`);
+      const text = (html.match(/<article[\s\S]*?<\/article>/i)?.[0] || "").replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim();
+      const wordCount = text ? text.split(" ").length : 0;
+      if (wordCount < 900 || wordCount > 1400) failures.push(`${route}: article word count ${wordCount} is outside 900–1,400`);
+    } else if (!html.includes('"@type":"Blog"') || !html.includes('"@type":"ItemList"')) {
+      failures.push(`${route}: missing Blog or ItemList schema`);
+    }
+  }
+
+  for (const match of html.matchAll(/<a\b[^>]*\bhref="([^"]+)"[^>]*>/gi)) {
+    const href = match[1];
+    if (!href.startsWith("/") || href.startsWith("//")) continue;
+    internalLinks.add(`${route} -> ${href}`);
+  }
+}
+
+for (const link of internalLinks) {
+  const [, href] = link.split(" -> ");
+  const pathname = new URL(href, SITE_URL).pathname;
+  if (pathname.startsWith("/assets/") || pathname.startsWith("/images/")) {
+    if (!fs.existsSync(path.join(dist, pathname.slice(1)))) failures.push(`Broken internal asset link: ${link}`);
+    continue;
+  }
+  const normalized = pathname === "/" ? "/" : `${pathname.replace(/\/$/, "")}/`;
+  if (!fs.existsSync(htmlFileForRoute(normalized))) failures.push(`Broken internal page link: ${link}`);
+}
+
+for (const solution of solutions.getDetailSolutions()) {
+  if (!blog.getBlogArticleForSolution(solution.slug)) failures.push(`Solution ${solution.slug}: missing related blog article`);
+}
+const solutionRenderer = fs.readFileSync(path.join(root, "src/solutions/render.js"), "utf8");
+if (!solutionRenderer.includes("renderRelatedInsight")) failures.push("Solution pages: missing related insight renderer");
+const pageSource = fs.readFileSync(path.join(root, "src/pages.js"), "utf8");
+for (const article of blog.blogArticles.filter((item) => item.kind === "macdermid")) {
+  if (!pageSource.includes(`/news/${article.slug}/`)) failures.push(`Partners page: missing reciprocal MacDermid article link for ${article.slug}`);
 }
 
 console.log(`SEO audit checked ${routes.length} routes.`);

@@ -63,6 +63,7 @@ const arText = {
   "Applications": "التطبيقات",
   "Partners": "الشركاء",
   "Insights": "الرؤى",
+  "Blog & Insights": "المدونة والرؤى",
   "Contact": "تواصل",
   "WhatsApp": "واتساب",
   "Send inquiry": "إرسال استفسار",
@@ -613,6 +614,13 @@ function applyLanguage(lang) {
 
   translateText(document.body, safeLang);
   translateAttributes(document.body, safeLang);
+
+  document.querySelectorAll("[data-en-href][data-ar-href]").forEach((element) => {
+    element.setAttribute("href", safeLang === "ar" ? element.dataset.arHref : element.dataset.enHref);
+  });
+  document.querySelectorAll("[data-language-label-en][data-language-label-ar]").forEach((element) => {
+    element.textContent = safeLang === "ar" ? element.dataset.languageLabelAr : element.dataset.languageLabelEn;
+  });
 
   if (toggle && label) {
     toggle.setAttribute("aria-pressed", String(safeLang === "ar"));

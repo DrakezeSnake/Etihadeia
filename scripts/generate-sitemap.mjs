@@ -21,6 +21,7 @@ const solutionsMod = await import(pathToFileURL(path.join(root, "src/data/soluti
 const productDocumentsMod = await import(pathToFileURL(path.join(root, "src/data/productDocuments.js")).href);
 /** @type {typeof import("../src/data/industries.js")} */
 const industriesMod = await import(pathToFileURL(path.join(root, "src/data/industries.js")).href);
+const blogMod = await import(pathToFileURL(path.join(root, "src/data/blogArticles.js")).href);
 
 const STATIC_PATHS = [
   "/",
@@ -61,21 +62,31 @@ function buildUrlList() {
     pathname,
     image: staticPageSeo[pathname]?.image || DEFAULT_SOCIAL_IMAGE,
   }));
-  return [...staticPaths, ...solutionPaths, ...documentPaths, ...industryPaths];
+  const blogPaths = [
+    { pathname: "/ar/news/", image: "/assets/laboratory-analysis-technician.jpg", alternates: { en: "/news/", ar: "/ar/news/" } },
+    ...blogMod.blogArticles.flatMap((article) => [
+      { pathname: `/news/${article.slug}/`, image: article.image.src, alternates: { en: `/news/${article.slug}/`, ar: `/ar/news/${article.slug}/` } },
+      { pathname: `/ar/news/${article.slug}/`, image: article.image.src, alternates: { en: `/news/${article.slug}/`, ar: `/ar/news/${article.slug}/` } },
+    ]),
+  ];
+  return [...staticPaths, ...solutionPaths, ...documentPaths, ...industryPaths, ...blogPaths];
 }
 
 function buildSitemapXml(urls, lastmod) {
   const entries = urls
-    .map(({ pathname, image }) => {
+    .map(({ pathname, image, alternates }) => {
       const loc = `${SITE_URL}${pathname === "/" ? "/" : pathname}`;
       const imageLoc = image ? encodeURI(`${SITE_URL}${image.startsWith("/") ? image : `/${image}`}`) : null;
-      return `  <url>\n    <loc>${escapeXml(loc)}</loc>\n    <lastmod>${lastmod}</lastmod>${
+      const alternateLinks = alternates
+        ? `\n    <xhtml:link rel="alternate" hreflang="en" href="${escapeXml(`${SITE_URL}${alternates.en}`)}" />\n    <xhtml:link rel="alternate" hreflang="ar" href="${escapeXml(`${SITE_URL}${alternates.ar}`)}" />\n    <xhtml:link rel="alternate" hreflang="x-default" href="${escapeXml(`${SITE_URL}${alternates.en}`)}" />`
+        : "";
+      return `  <url>\n    <loc>${escapeXml(loc)}</loc>\n    <lastmod>${lastmod}</lastmod>${alternateLinks}${
         imageLoc ? `\n    <image:image>\n      <image:loc>${escapeXml(imageLoc)}</image:loc>\n    </image:image>` : ""
       }\n  </url>`;
     })
     .join("\n");
 
-  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n${entries}\n</urlset>\n`;
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${entries}\n</urlset>\n`;
 }
 
 function buildRobotsTxt() {

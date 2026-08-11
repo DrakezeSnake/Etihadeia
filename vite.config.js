@@ -1,11 +1,19 @@
 import { defineConfig } from "vite";
 import { resolve } from "node:path";
 import { industries } from "./src/data/industries.js";
+import { blogArticles } from "./src/data/blogArticles.js";
 
 const industryInputs = Object.fromEntries(
   industries.map((industry) => [
     `industry_${industry.slug.replace(/-/g, "_")}`,
     resolve(__dirname, `industries/${industry.slug}/index.html`),
+  ]),
+);
+
+const blogInputs = Object.fromEntries(
+  blogArticles.flatMap((article) => [
+    [`blog_${article.slug.replace(/-/g, "_")}`, resolve(__dirname, `news/${article.slug}/index.html`)],
+    [`blog_ar_${article.slug.replace(/-/g, "_")}`, resolve(__dirname, `ar/news/${article.slug}/index.html`)],
   ]),
 );
 
@@ -27,6 +35,8 @@ export default defineConfig({
         partners: resolve(__dirname, "partners/index.html"),
         brochure: resolve(__dirname, "brochure/index.html"),
         news: resolve(__dirname, "news/index.html"),
+        news_ar: resolve(__dirname, "ar/news/index.html"),
+        ...blogInputs,
         contact: resolve(__dirname, "contact/index.html"),
         solutions: resolve(__dirname, "solutions/index.html"),
         solution_surface_conditioning: resolve(__dirname, "solutions/surface-conditioning/index.html"),

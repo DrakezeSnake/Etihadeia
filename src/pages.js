@@ -123,6 +123,30 @@ const articleCards = [
   ["Decorative vs Functional Coatings", "Understanding when plating is used for appearance, protection, conductivity, hardness, or wear resistance.", "Applications", pageImages.chrome],
 ];
 
+const macdermidInsights = [
+  [
+    "MacDermid Enthone Sole Distributor in Egypt",
+    "Understand El Etehadia’s approved sole-distributor role and how it connects manufacturers with local surface-finishing support.",
+    "/news/macdermid-enthone-sole-distributor-egypt/",
+    "/ar/news/macdermid-enthone-sole-distributor-egypt/",
+  ],
+  [
+    "MacDermid Enthone Products and Chemistry in Egypt",
+    "A product-supply guide for enquiries that need the right chemistry, documents, and application context.",
+    "/news/macdermid-enthone-products-chemistry-egypt/",
+    "/ar/news/macdermid-enthone-products-chemistry-egypt/",
+  ],
+  [
+    "MacDermid Enthone Technical Services and Laboratory Support in Egypt",
+    "See how local laboratory support and process expertise turn surface-finishing chemistry into production action.",
+    "/news/macdermid-enthone-technical-services-egypt/",
+    "/ar/news/macdermid-enthone-technical-services-egypt/",
+  ],
+];
+
+const serviceInsights = [macdermidInsights[2]];
+const productInsights = [macdermidInsights[1]];
+
 const pages = {
   about: {
     title: "About El Etehadia",
@@ -213,6 +237,7 @@ const pages = {
           ["Equipment support", "Machines, tanks, line accessories, replacement needs", "New setup, line upgrades, maintenance planning"],
         ],
       },
+      { type: "relatedInsights", eyebrow: "Related insight", heading: "Technical service for MacDermid Enthone processes.", items: serviceInsights },
     ],
     cta: ["Request technical support", "/contact/"],
   },
@@ -232,6 +257,7 @@ const pages = {
           "Explore product pages built from supplied brochures, factsheets, and case studies.",
         items: productDocumentCards,
       },
+      { type: "relatedInsights", eyebrow: "Related insight", heading: "MacDermid Enthone chemistry and product supply in Egypt.", items: productInsights },
     ],
     cta: ["Ask about product availability", "/contact/"],
   },
@@ -306,6 +332,7 @@ const pages = {
           ["Licensed Production", "El Etehadia supports local supply of high-quality salts, colors, and related products under trusted technical standards.", pageImages.licensedProductionPartner],
         ],
       },
+      { type: "relatedInsights", eyebrow: "MacDermid Enthone insights", heading: "Approved local supply and technical support in Egypt.", items: macdermidInsights },
     ],
     cta: ["Discuss product supply", "/contact/"],
   },
@@ -451,7 +478,7 @@ function footer() {
             <a href="/industries/">Industries</a>
             <a href="/partners/">Partners</a>
             <a href="/brochure/">Technical brochures</a>
-            <a href="/news/">News and insights</a>
+            <a href="/news/">Blog &amp; Insights</a>
             <a href="/contact/">Contact</a>
           </nav>
         </div>
@@ -608,6 +635,12 @@ function renderSection(section) {
   if (section.type === "related") {
     return `<section class="section page-section"><div class="section__inner">${head}<div class="proof-strip">${section.items
       .map((item) => `<span>${item}</span>`)
+      .join("")}</div></div></section>`;
+  }
+
+  if (section.type === "relatedInsights") {
+    return `<section class="section page-section related-insights"><div class="section__inner">${head}<div class="article-list">${section.items
+      .map(([title, body, enHref, arHref]) => `<article><div class="page-card__body"><span data-language-label-en="Blog & Insights" data-language-label-ar="المدونة والرؤى">Blog & Insights</span><h3><a href="${enHref}" data-en-href="${enHref}" data-ar-href="${arHref}" data-language-label-en="${title}" data-language-label-ar="${title}">${title}</a></h3><p>${body}</p></div></article>`)
       .join("")}</div></div></section>`;
   }
 

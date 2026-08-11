@@ -10,6 +10,7 @@ export const siteNavItems = [
   ["Industries", "/industries/"],
   ["Solutions", "/solutions/"],
   ["Partners", "/partners/"],
+  ["Blog & Insights", "/news/"],
 ];
 
 export const solutionDocumentMenuGroups = getProductDocumentGroups();

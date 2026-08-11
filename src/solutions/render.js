@@ -242,6 +242,25 @@ export function renderRelatedSolutions(others, currentSlug) {
   `;
 }
 
+/** @param {import("../data/blogArticles.js").BlogArticle | undefined} article */
+export function renderRelatedInsight(article) {
+  if (!article) return "";
+  const enHref = `/news/${article.slug}/`;
+  const arHref = `/ar/news/${article.slug}/`;
+  return `
+    <section class="solution-section related-insight" aria-labelledby="related-insight-heading" data-reveal>
+      <div class="solution-section__inner related-insight__inner">
+        <div>
+          <p class="solution-eyebrow" data-language-label-en="Related insight" data-language-label-ar="مقالة ذات صلة">Related insight</p>
+          <h2 id="related-insight-heading" data-language-label-en="A practical guide for this solution" data-language-label-ar="دليل عملي لهذا الحل">A practical guide for this solution</h2>
+          <p data-language-label-en="Read the production-focused technical article connected to this surface-finishing solution." data-language-label-ar="اقرأ المقال الفني العملي المرتبط بحل تشطيب الأسطح هذا.">Read the production-focused technical article connected to this surface-finishing solution.</p>
+        </div>
+        <a class="industrial-button" href="${escapeHtml(enHref)}" data-en-href="${escapeHtml(enHref)}" data-ar-href="${escapeHtml(arHref)}" data-language-label-en="${escapeHtml(article.en.title)}" data-language-label-ar="${escapeHtml(article.ar.title)}">${escapeHtml(article.en.title)}</a>
+      </div>
+    </section>
+  `;
+}
+
 export function renderContactCta() {
   return `
     <section class="section final-cta" data-reveal>

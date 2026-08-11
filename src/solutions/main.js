@@ -7,6 +7,7 @@ import { initFooter3dLogo } from "../footerLogo3d.js";
 import { solutions, getSolutionBySlug, getRelatedSolutions, landingHeroHeadline, landingHeroIntro } from "../data/solutions.js";
 import { getProductDocumentBySlug, getRelatedProductDocuments, productDocuments } from "../data/productDocuments.js";
 import { getArabicProductDocumentMeta } from "../data/productDocumentArabic.js";
+import { getBlogArticleForSolution } from "../data/blogArticles.js";
 import { initSolutionImageFallback } from "./imageFallback.js";
 import { applySolutionsStructuredData } from "../structuredData.js";
 import {
@@ -19,6 +20,7 @@ import {
   renderProductDocumentDetail,
   renderProductDocumentGrid,
   renderRelatedSolutions,
+  renderRelatedInsight,
   truncateMetaDescription,
 } from "./render.js";
 
@@ -118,7 +120,7 @@ function footer() {
             <a href="/industries/">Industries</a>
             <a href="/partners/">Partners</a>
             <a href="/brochure/">Technical brochures</a>
-            <a href="/news/">News and insights</a>
+            <a href="/news/">Blog &amp; Insights</a>
             <a href="/contact/">Contact</a>
           </nav>
         </div>
@@ -310,6 +312,7 @@ function renderDetail(slug) {
       ${renderSolutionDetailHero(solution)}
       ${solution.expandedIntro ? renderExpandedIntro(solution.expandedIntro) : ""}
       ${renderFeaturedProductFamilies(solution.subcategories)}
+      ${renderRelatedInsight(getBlogArticleForSolution(slug))}
       ${renderRelatedSolutions(related, slug)}
       ${renderContactCta()}
     </div>
