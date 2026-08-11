@@ -50,6 +50,10 @@ function htmlHead({ locale, title, description, pathname, image, type = "article
   const m = localeMeta[locale];
   const canonical = absolute(pathname);
   const alternate = absolute(locale === "ar" ? pathname.replace(/^\/ar/, "") : `/ar${pathname}`);
+  const posting = schema["@graph"].find((item) => item["@type"] === "BlogPosting");
+  const articleMeta = type === "article"
+    ? `\n  <meta property="article:published_time" content="${escapeHtml(posting?.datePublished || "")}" />\n  <meta property="article:modified_time" content="${escapeHtml(posting?.dateModified || "")}" />\n  <meta property="article:author" content="El Etehadia Technical Team" />`
+    : "";
   return `<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -71,12 +75,12 @@ function htmlHead({ locale, title, description, pathname, image, type = "article
   <meta property="og:description" content="${escapeHtml(description)}" />
   <meta property="og:url" content="${escapeHtml(canonical)}" />
   <meta property="og:image" content="${escapeHtml(absolute(image))}" />
-  <meta property="og:image:alt" content="${escapeHtml(locale === "ar" ? "الاتحادية — حلول تشطيب الأسطح في مصر" : "El Etehadia — surface-finishing solutions in Egypt")}" />
+  <meta property="og:image:alt" content="${escapeHtml(locale === "ar" ? "الاتحادية — حلول تشطيب الأسطح في مصر" : "El Etehadia — surface-finishing solutions in Egypt")}" />${articleMeta}
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="${escapeHtml(title)}" />
   <meta name="twitter:description" content="${escapeHtml(description)}" />
   <meta name="twitter:image" content="${escapeHtml(absolute(image))}" />
-  <meta name="theme-color" content="#087f9f" />
+  <meta name="theme-color" content="#2a292b" />
   <link rel="stylesheet" href="/src/blog.css" />
   <script type="application/ld+json">${json(schema)}</script>
 </head>`;
@@ -84,16 +88,23 @@ function htmlHead({ locale, title, description, pathname, image, type = "article
 
 function header(locale, current = false) {
   const m = localeMeta[locale];
-  return `<header class="blog-site-header"><div class="blog-shell blog-site-header__inner">
-    <a class="blog-brand" href="${m.lang === "ar" ? "/ar/news/" : "/"}" aria-label="${locale === "ar" ? "الصفحة الرئيسية للاتحادية" : "El Etehadia home"}"><img src="/images/nav-logo.svg" alt="${locale === "ar" ? "الاتحادية" : "El Etehadia"}" width="52" height="52" /><span>El Etehadia</span></a>
-    <nav aria-label="${locale === "ar" ? "التنقل الرئيسي" : "Primary navigation"}"><a href="/">${m.home}</a><a href="/solutions/">${m.solutions}</a><a href="/products/">${m.products}</a><a href="/services/">${m.services}</a><a href="/partners/">${m.partners}</a><a${current ? ' aria-current="page"' : ""} href="${m.indexPath}">${m.blog}</a></nav>
-    <a class="blog-language" href="${m.otherIndexPath}">${m.label}</a>
+  const links = [[m.home, "/"], [locale === "ar" ? "عن الشركة" : "About", "/about/"], [m.services, "/services/"], [m.products, "/products/"], [locale === "ar" ? "القطاعات" : "Industries", "/industries/"], [m.solutions, "/solutions/"], [m.partners, "/partners/"], [m.blog, m.indexPath]]
+    .map(([label, href]) => `<li class="float-tabs__item"><a class="float-tabs__link${href === m.indexPath && current ? " is-active" : ""}" href="${href}"${href === m.indexPath && current ? ' aria-current="page"' : ""}>${label}</a></li>`)
+    .join("");
+  return `<header class="hero-bar page-bar" id="top-nav"><div class="hero-bar__shell">
+    <a class="hero-bar__logo" href="/" aria-label="${locale === "ar" ? "الصفحة الرئيسية للاتحادية" : "El Etehadia home"}"><img src="/images/nav-logo.svg" alt="El Etehadia" width="64" height="64" decoding="async" /></a>
+    <div class="hero-bar__center"><nav class="hero-bar__nav-panel" id="float-nav-panel" aria-label="${locale === "ar" ? "التنقل الرئيسي" : "Primary navigation"}"><ul class="float-tabs page-tabs"><li class="float-tabs__cursor" aria-hidden="true"></li>${links}</ul></nav></div>
+    <div class="hero-bar__actions"><a class="hero-bar__contact" href="/contact/"><span class="hero-bar__contact-dot" aria-hidden="true"></span><span>${locale === "ar" ? "تواصل معنا" : "Contact us"}</span></a><a class="language-toggle" href="${m.otherIndexPath}" hreflang="${locale === "ar" ? "en" : "ar"}" aria-label="${m.languageLabel}">${m.label}</a><button type="button" class="hero-bar__menu" aria-expanded="false" aria-controls="float-nav-panel" aria-label="${locale === "ar" ? "فتح القائمة" : "Open menu"}"><span></span><span></span></button></div>
   </div></header>`;
 }
 
 function footer(locale) {
   const m = localeMeta[locale];
-  return `<footer class="blog-site-footer"><div class="blog-shell"><strong>El Etehadia</strong><p>${locale === "ar" ? "كيماويات الطلاء الكهربائي والدعم الفني في مصر." : "Electroplating chemistry and technical support in Egypt."}</p><nav><a href="/solutions/">${m.solutions}</a><a href="/partners/">${m.partners}</a><a href="${m.indexPath}">${m.blog}</a><a href="/contact/">${m.contact}</a></nav></div></footer>`;
+  return `<footer class="footer blog-site-footer"><div class="container footer__grid">
+    <div class="footer__brand"><img class="blog-footer-logo" src="/images/nav-logo.svg" alt="El Etehadia" width="176" height="88" loading="lazy" /><p class="footer__tag">${locale === "ar" ? "كيماويات الطلاء الكهربائي والماكينات والتحليل المعملي والدعم الفني." : "Electroplating chemicals, machines, laboratory analysis, and technical support."}</p></div>
+    <div class="footer__col"><h2 class="footer__heading">${locale === "ar" ? "الشركة" : "Company"}</h2><nav class="footer__nav"><a href="/">${m.home}</a><a href="/about/">${locale === "ar" ? "عن الشركة" : "About"}</a><a href="/services/">${m.services}</a><a href="/products/">${m.products}</a><a href="/industries/">${locale === "ar" ? "القطاعات" : "Industries"}</a><a href="/solutions/">${m.solutions}</a><a href="/partners/">${m.partners}</a><a href="${m.indexPath}">${m.blog}</a></nav></div>
+    <div class="footer__col"><h2 class="footer__heading">${locale === "ar" ? "تواصل" : "Contact"}</h2><nav class="footer__nav"><a href="tel:+20226833830">+20 2 26833830</a><a href="tel:+201064439997">+20 10 64439997</a><a href="mailto:info@etehadia.com">info@etehadia.com</a><span>${locale === "ar" ? "القاهرة، مصر" : "Cairo, Egypt"}</span></nav><a href="/contact/" class="footer__cta">${locale === "ar" ? "أرسل استفسارك" : "Send inquiry"}</a></div>
+  </div><div class="footer__bottom"><div class="container footer__bottom-inner"><p>© <span data-current-year></span> El Etehadia Company. ${locale === "ar" ? "جميع الحقوق محفوظة." : "All rights reserved."}</p><a href="#top-nav" class="back-top">${locale === "ar" ? "العودة للأعلى" : "Back to top"}</a></div></div></footer>`;
 }
 
 function organization() {
@@ -210,6 +221,7 @@ ${header(locale, true)}
   </article>
 </main>
 ${footer(locale)}
+<script type="module" src="/src/blog.js"></script>
 </body></html>`;
 }
 
@@ -224,7 +236,7 @@ function indexPage(locale) {
   return `<!doctype html><html lang="${m.lang}" dir="${m.dir}">${htmlHead({ locale, title: meta.title, description: meta.description, pathname, image: "/assets/laboratory-analysis-technician.jpg", type: "website", schema: indexSchema(locale) })}<body class="blog-page">
 ${header(locale, true)}
 <main class="blog-shell blog-index"><header class="blog-index__hero"><p class="blog-kicker">${m.blog}</p><h1>${locale === "ar" ? "خبرة عملية لفرق الإنتاج والتشطيب" : "Practical expertise for finishing and production teams"}</h1><p>${escapeHtml(meta.description)}</p><a class="blog-language" href="${m.otherIndexPath}">${m.label}</a></header><section aria-label="${m.blog}" class="blog-card-grid">${cards}</section></main>
-${footer(locale)}</body></html>`;
+${footer(locale)}<script type="module" src="/src/blog.js"></script></body></html>`;
 }
 
 function write(route, html) {
