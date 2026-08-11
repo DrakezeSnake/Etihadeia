@@ -14,6 +14,7 @@ const PAGE_PATHS = {
   industries: "/industries/",
   projects: "/projects/",
   partners: "/partners/",
+  macdermidEnthoneEgypt: "/macdermid-enthone-egypt/",
   news: "/news/",
   contact: "/contact/",
   brochure: "/brochure/",
@@ -318,6 +319,29 @@ export function applyPageStructuredData({ pageKey, pageTitle, pagePath, productI
       ...serviceItems.map(([name, description]) =>
         buildService({ name, description }, origin),
       ),
+    );
+  }
+
+  if (pageKey === "macdermidEnthoneEgypt") {
+    const brandId = `${origin}/macdermid-enthone-egypt/#macdermid-enthone`;
+    entities.push(
+      {
+        "@type": "Organization",
+        "@id": brandId,
+        name: "MacDermid Enthone Industrial Solutions",
+        alternateName: "MacDermid Enthone",
+        description: "Surface-finishing chemistry and process technology for industrial manufacturing applications.",
+      },
+      {
+        "@type": "Service",
+        "@id": `${origin}/macdermid-enthone-egypt/#distribution-service`,
+        name: "MacDermid Enthone distribution and technical support in Egypt",
+        serviceType: "Surface-finishing chemistry distribution",
+        provider: { "@id": entityId(origin, "#organization") },
+        brand: { "@id": brandId },
+        areaServed: { "@type": "Country", name: "Egypt" },
+        url: `${origin}/macdermid-enthone-egypt/`,
+      },
     );
   }
 

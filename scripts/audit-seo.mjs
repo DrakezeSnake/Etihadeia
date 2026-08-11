@@ -232,6 +232,16 @@ for (const link of internalLinks) {
 for (const solution of solutions.getDetailSolutions()) {
   if (!blog.getBlogArticleForSolution(solution.slug)) failures.push(`Solution ${solution.slug}: missing related blog article`);
 }
+const macdermidLanding = fs.readFileSync(htmlFileForRoute("/macdermid-enthone-egypt/"), "utf8");
+if (!/<h1>MacDermid Enthone Distributor in Egypt<\/h1>/i.test(macdermidLanding)) {
+  failures.push("MacDermid Enthone landing page: missing exact H1");
+}
+if (!macdermidLanding.includes("El Etehadia is the sole distributor of MacDermid Enthone Industrial Solutions in Egypt")) {
+  failures.push("MacDermid Enthone landing page: missing distributor entity statement");
+}
+if (!macdermidLanding.includes('"@id":"https://eletehadia.com/macdermid-enthone-egypt/#macdermid-enthone"')) {
+  failures.push("MacDermid Enthone landing page: missing brand entity schema");
+}
 const solutionRenderer = fs.readFileSync(path.join(root, "src/solutions/render.js"), "utf8");
 if (!solutionRenderer.includes("renderRelatedInsight")) failures.push("Solution pages: missing related insight renderer");
 const pageSource = fs.readFileSync(path.join(root, "src/pages.js"), "utf8");

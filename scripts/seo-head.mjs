@@ -45,6 +45,12 @@ export const staticPageSeo = {
       "Discover El Etehadia's surface-finishing partners and brands, including MacDermid Enthone, HAWKING England, Sisecam, and Nickelhütte Aue.",
     image: "/assets/macdermid-enthone-industrial-solutions.png",
   },
+  "/macdermid-enthone-egypt/": {
+    title: "MacDermid Enthone Egypt | Official Distributor | El Etehadia",
+    description:
+      "El Etehadia is the sole MacDermid Enthone distributor in Egypt, supplying surface-finishing chemistry with local technical and laboratory support.",
+    image: "/assets/macdermid-enthone-industrial-solutions.png",
+  },
   "/brochure/": {
     title: "Electroplating Product Brochures & Documents | El Etehadia",
     description:
@@ -144,7 +150,13 @@ export function buildStaticStructuredData({ pathname, title, description, image 
         name: title,
         description,
         isPartOf: { "@id": `${SITE_URL}/#website` },
-        about: { "@id": `${SITE_URL}/#organization` },
+        about:
+          pathname === "/macdermid-enthone-egypt/"
+            ? [
+                { "@id": `${SITE_URL}/#organization` },
+                { "@id": `${SITE_URL}/macdermid-enthone-egypt/#macdermid-enthone` },
+              ]
+            : { "@id": `${SITE_URL}/#organization` },
         primaryImageOfPage: { "@type": "ImageObject", url: absoluteUrl(image || DEFAULT_SOCIAL_IMAGE) },
         inLanguage: "en",
       },
@@ -153,6 +165,27 @@ export function buildStaticStructuredData({ pathname, title, description, image 
         "@id": `${canonical}#breadcrumb`,
         itemListElement: breadcrumbItems(pathname, title),
       },
+      ...(pathname === "/macdermid-enthone-egypt/"
+        ? [
+            {
+              "@type": "Organization",
+              "@id": `${SITE_URL}/macdermid-enthone-egypt/#macdermid-enthone`,
+              name: "MacDermid Enthone Industrial Solutions",
+              alternateName: "MacDermid Enthone",
+              description: "Surface-finishing chemistry and process technology for industrial manufacturing applications.",
+            },
+            {
+              "@type": "Service",
+              "@id": `${SITE_URL}/macdermid-enthone-egypt/#distribution-service`,
+              name: "MacDermid Enthone distribution and technical support in Egypt",
+              serviceType: "Surface-finishing chemistry distribution",
+              provider: { "@id": `${SITE_URL}/#organization` },
+              brand: { "@id": `${SITE_URL}/macdermid-enthone-egypt/#macdermid-enthone` },
+              areaServed: { "@type": "Country", name: "Egypt" },
+              url: `${SITE_URL}/macdermid-enthone-egypt/`,
+            },
+          ]
+        : []),
     ],
   };
 }

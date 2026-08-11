@@ -184,7 +184,7 @@ function relatedLinks(article, locale) {
     <li><a href="${article.related.solution}">${escapeHtml(labels[0])}</a></li>
     <li><a href="${article.related.document}">${escapeHtml(labels[1])}</a></li>
     <li><a href="${article.related.services}">${escapeHtml(labels[2])}</a></li>
-    <li><a href="${article.related.partners}">${escapeHtml(labels[3])}</a></li>
+    <li><a href="${article.kind === "macdermid" ? "/macdermid-enthone-egypt/" : article.related.partners}">${escapeHtml(labels[3])}</a></li>
     <li><a href="${article.related.contact}">${escapeHtml(labels[4])}</a></li>
   </ul></section>`;
 }

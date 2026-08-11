@@ -31,6 +31,7 @@ const STATIC_PATHS = [
   "/industries/",
   "/projects/",
   "/partners/",
+  "/macdermid-enthone-egypt/",
   "/brochure/",
   "/news/",
   "/contact/",

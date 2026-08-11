@@ -315,7 +315,7 @@ const pages = {
         eyebrow: "Recognized brands",
         heading: "Global standards, local support.",
         items: [
-          ["MacDermid Enthone", "MacDermid Enthone is a global surface-finishing chemistry company serving industrial, decorative, anti-corrosion, engineering, aluminum treatment, electroless nickel, hard chrome, trivalent chrome, and water-treatment applications.", pageImages.macdermidEnthonePartner],
+          ["MacDermid Enthone", "MacDermid Enthone is a global surface-finishing chemistry company serving industrial, decorative, anti-corrosion, engineering, aluminum treatment, electroless nickel, hard chrome, trivalent chrome, and water-treatment applications.", pageImages.macdermidEnthonePartner, null, "/macdermid-enthone-egypt/"],
           ["HAWKING England", "HAWKING lacquers support protective and decorative finishing needs, helping manufacturers improve surface appearance and durability.", pageImages.hawkingPartner],
           [
             "Şişecam",
@@ -335,6 +335,61 @@ const pages = {
       { type: "relatedInsights", eyebrow: "MacDermid Enthone insights", heading: "Approved local supply and technical support in Egypt.", items: macdermidInsights },
     ],
     cta: ["Discuss product supply", "/contact/"],
+  },
+  macdermidEnthoneEgypt: {
+    title: "MacDermid Enthone Egypt",
+    metaTitle: "MacDermid Enthone Egypt | Official Distributor | El Etehadia",
+    metaDescription:
+      "El Etehadia is the sole MacDermid Enthone distributor in Egypt, supplying surface-finishing chemistry with local technical and laboratory support.",
+    path: "/macdermid-enthone-egypt/",
+    eyebrow: "MacDermid Enthone Egypt",
+    heading: "MacDermid Enthone Distributor in Egypt",
+    intro:
+      "El Etehadia is the sole distributor of MacDermid Enthone Industrial Solutions in Egypt, supplying MacDermid Enthone surface-finishing chemistry together with local technical support and laboratory services.",
+    image: pageImages.macdermidEnthonePartner,
+    metrics: [
+      ["Egypt", "Sole local distributor"],
+      ["Local", "Technical and application support"],
+      ["Lab", "Bath analysis and process guidance"],
+    ],
+    sections: [
+      {
+        type: "spotlight",
+        eyebrow: "Official distribution in Egypt",
+        heading: "Global surface-finishing technology with a local technical route.",
+        body:
+          "Manufacturers in Egypt can work through El Etehadia for MacDermid Enthone product enquiries, chemistry supply, technical documents, application guidance, laboratory analysis, and production troubleshooting. The relationship connects an internationally recognized surface-finishing portfolio with local knowledge of Egyptian plating lines and manufacturing requirements.",
+        image: pageImages.lab,
+      },
+      {
+        type: "split",
+        eyebrow: "Surface-finishing portfolio",
+        heading: "MacDermid Enthone chemistry for complete finishing processes.",
+        items: [
+          ["Decorative and functional plating", "Chemistry and process support for copper, nickel, chrome, electroless nickel, plating on plastics, and wear-resistant finishes.", pageImages.platingSystemsRacked],
+          ["Preparation and corrosion protection", "Surface conditioning, light-metal treatment, zinc and zinc-alloy systems, passivates, sealers, and conversion coatings.", pageImages.prepProductCard],
+          ["Process and wastewater support", "Chemistry selection, bath control, troubleshooting, laboratory analysis, and WaterCARE routes for stable production.", pageImages.lab],
+        ],
+      },
+      {
+        type: "process",
+        eyebrow: "Local support",
+        heading: "From product enquiry to production follow-up.",
+        items: [
+          ["01", "Define the application", "Share the substrate, process stage, required finish, specification, bath volume, and production conditions."],
+          ["02", "Select the relevant chemistry", "El Etehadia connects the requirement with the appropriate MacDermid Enthone product family and available technical documentation."],
+          ["03", "Support the operating line", "Local technical and laboratory services help teams review bath condition, defects, process stability, and corrective actions."],
+        ],
+      },
+      {
+        type: "related",
+        eyebrow: "Why work through El Etehadia",
+        heading: "One local connection for product, process, and support.",
+        items: ["Sole MacDermid Enthone distributor in Egypt", "Local chemistry supply", "Laboratory analysis", "Technical troubleshooting", "Application-led product selection"],
+      },
+      { type: "relatedInsights", eyebrow: "MacDermid Enthone insights", heading: "Product, distribution, and technical-service guidance for Egypt.", items: macdermidInsights },
+    ],
+    cta: ["Discuss a MacDermid Enthone requirement", "/contact/"],
   },
   news: {
     title: "News & Insights",

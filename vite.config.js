@@ -33,6 +33,7 @@ export default defineConfig({
         ...industryInputs,
         projects: resolve(__dirname, "projects/index.html"),
         partners: resolve(__dirname, "partners/index.html"),
+        macdermid_enthone_egypt: resolve(__dirname, "macdermid-enthone-egypt/index.html"),
         brochure: resolve(__dirname, "brochure/index.html"),
         news: resolve(__dirname, "news/index.html"),
         news_ar: resolve(__dirname, "ar/news/index.html"),
